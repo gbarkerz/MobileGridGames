@@ -57,19 +57,33 @@
                                             ConverterParameter=1}" />
                                 </Grid.RowDefinitions>
 
-                                <StackLayout x:Name="LabelPanel"
+                                <Image Grid.Row="0" Grid.RowSpan="2"
                                     IsVisible="{Binding
                                             Source={x:Reference SquaresPageInstance},
-                                            Path=BindingContext.ShowNumbers}">                                            
+                                            Path=BindingContext.ShowPicture}"
+                                    Source="{Binding
+                                        Source={x:Reference SquaresPageInstance},
+                                        Path=BindingContext.PicturePath}" />
+
+                                <Grid Grid.Row="0" x:Name="LabelPanel"
+                                    IsVisible="{Binding
+                                        Source={x:Reference SquaresPageInstance},
+                                        Path=BindingContext.ShowNumbers}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
                                     <!-- LineBreakMode doesn't seem to provide the desired results here.
                                          So provide a negative padding to allow partial text to be shown. -->
-                                    <Label Text="{Binding Name}" Padding="0,0,-100,0"
-                                        HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type StackLayout}}, Path=Height}"
-                                        FontSize="{Binding Source={RelativeSource AncestorType={x:Type StackLayout}}, Path=Height,
-                                            Converter={StaticResource LabelContainerHeightToFontSize}}" />
-                                </StackLayout>
-                                <StackLayout Grid.Row="1" />
-
+                                    <Frame Margin="0" Padding="0">
+                                        <Label Grid.Column="0" Text="{Binding Name}"
+                                            Margin="0" Padding="0,0,8,0"
+                                            HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type Grid}}, Path=Height}"
+                                            FontSize="{Binding Source={RelativeSource AncestorType={x:Type Grid}}, Path=Height,
+                                                Converter={StaticResource LabelContainerHeightToFontSize}}" />
+                                    </Frame>
+                                </Grid>
+                                <StackLayout Grid.Row="1" BackgroundColor="Transparent" />
                             </Grid>
                         </Frame>
                     </Grid>

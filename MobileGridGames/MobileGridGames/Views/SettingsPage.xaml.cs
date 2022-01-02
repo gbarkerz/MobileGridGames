@@ -24,5 +24,27 @@ namespace MobileGridGames.Views
 
             await Navigation.PopModalAsync();
         }
+
+        private async void PictureBrowseButton_Clicked(object sender, EventArgs e)
+        {
+            var options = new PickOptions
+            {
+                PickerTitle = "Please select a background picture"
+            };
+
+            try
+            {
+                var result = await FilePicker.PickAsync(options);
+                if (result != null)
+                {
+                    var settingsViewModel = this.BindingContext as SettingsViewModel;
+                    settingsViewModel.PicturePath = result.FullPath;
+                }
+            }
+            catch (Exception ex)
+            {
+                // The user canceled or something went wrong
+            }
+        }
     }
 }

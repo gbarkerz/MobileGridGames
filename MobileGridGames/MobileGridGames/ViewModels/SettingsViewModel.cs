@@ -37,5 +37,33 @@ namespace MobileGridGames.ViewModels
                 }
             }
         }
+
+        private bool showPicture;
+        public bool ShowPicture
+        {
+            get => Preferences.Get("ShowPicture", true);
+            set
+            {
+                if (showPicture != value)
+                {
+                    Preferences.Set("ShowPicture", value);
+                    SetProperty(ref showPicture, value);
+                }
+            }
+        }
+
+        private string picturePath;
+        public string PicturePath
+        {
+            get => Preferences.Get("PicturePath", "");
+            set
+            {
+                if (picturePath != value)
+                {
+                    Preferences.Set("PicturePath", value);
+                    SetProperty(ref picturePath, value);
+                }
+            }
+        }
     }
 }

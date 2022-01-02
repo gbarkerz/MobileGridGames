@@ -18,10 +18,12 @@ namespace MobileGridGames.Views
             base.OnAppearing();
 
             // Todo: Bind the UI directly to the Settings view model. Until then, set the
-            // number size in the Square view model whenever the Sqaures page is shown.
+            // number size in the Square view model whenever the Squares page is shown.
             var vm = this.BindingContext as SquaresViewModel;
             vm.ShowNumbers = Preferences.Get("ShowNumbers", true);
             vm.NumberHeight = Preferences.Get("NumberSizeIndex", 1);
+            vm.ShowPicture = Preferences.Get("ShowPicture", true);
+            vm.PicturePath = Preferences.Get("PicturePath", "");
         }
 
         // TODO: Remove this code-behind, and bind the SelectionChanged event directly to action in the view model.
@@ -66,18 +68,18 @@ namespace MobileGridGames.Views
         {
             var numberSizeIndex = (int)value;
 
-            double gridRowHeight = 0.5;
+            double gridRowHeight = 0.35;
 
             switch (numberSizeIndex)
             {
                 case 0:
-                    gridRowHeight = 0.25;
+                    gridRowHeight = 0.2;
                     break;
                 case 2:
-                    gridRowHeight = 0.75;
+                    gridRowHeight = 0.5;
                     break;
                 case 3:
-                    gridRowHeight = 1.0;
+                    gridRowHeight = 0.65;
                     break;
                 default:
                     break;
@@ -105,7 +107,7 @@ namespace MobileGridGames.Views
 
             // Todo: Properly account for line height etc. For now, just shrink the value.
             // Also this reduces the size to account for tall cells in portrait orientation.
-            double fontHeightPoints = containerHeightPixels * 0.5;
+            double fontHeightPoints = containerHeightPixels * 0.8;
 
             return fontHeightPoints;
         }

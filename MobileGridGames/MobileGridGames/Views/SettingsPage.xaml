@@ -7,24 +7,28 @@
              x:Class="MobileGridGames.Views.SettingsPage"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
-        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
-            <Label Text="Sqaures Settings" />
-            <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <Label Text="Show numbers" />
-                <CheckBox Grid.Column="1" x:Name="ShowNumbersCheckBox" 
-                          IsChecked="{Binding ShowNumbers, Mode=TwoWay}" />
-            </Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <Label Text="Numbers size:" />
-                <Picker Grid.Column="1" Title="Number size" 
+                <Label Grid.Row="0" Grid.ColumnSpan="2" Text="Squares Settings" />
+                <Label Grid.Row="1" Text="Show numbers" />
+                <CheckBox Grid.Row="1" Grid.Column="1" x:Name="ShowNumbersCheckBox" 
+                    IsChecked="{Binding ShowNumbers, Mode=TwoWay}" />
+                <Label Grid.Row="2" Text="Numbers size:" />
+                <Picker Grid.Row="2" Grid.Column="1" Title="Number size" 
                         SelectedIndex="{Binding NumberSizeIndex, Mode=TwoWay}">
                     <Picker.Items>
                         <x:String>Small</x:String>
@@ -33,9 +37,13 @@
                         <x:String>Extra Large</x:String>
                     </Picker.Items>
                 </Picker>
+                <Label Grid.Row="3" Text="Show picture" />
+                <CheckBox Grid.Row="3" Grid.Column="1" x:Name="ShowPictureCheckBox" 
+                    IsChecked="{Binding ShowPicture, Mode=TwoWay}" />
+                <Button Grid.Row="4" x:Name="PictureBrowseButton" Text="Browse for picture" Clicked="PictureBrowseButton_Clicked" />
             </Grid>
-            <Button x:Name="CloseButton" 
-                Text="Close" Clicked="CloseButton_Clicked" />
-        </StackLayout>
+            <Button Grid.Row="1" x:Name="CloseButton" 
+                    Text="Close" Clicked="CloseButton_Clicked" />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

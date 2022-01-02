@@ -36,6 +36,26 @@ namespace MobileGridGames.ViewModels
             }
         }
 
+        private bool showPicture;
+        public bool ShowPicture
+        {
+            get { return showPicture; }
+            set
+            {
+                SetProperty(ref showPicture, value);
+            }
+        }
+
+        private string picturePath;
+        public string PicturePath
+        {
+            get { return picturePath; }
+            set
+            {
+                SetProperty(ref picturePath, value);
+            }
+        }
+
         private ObservableCollection<Square> squareList;
 
         public ObservableCollection<Square> SquareListCollection
