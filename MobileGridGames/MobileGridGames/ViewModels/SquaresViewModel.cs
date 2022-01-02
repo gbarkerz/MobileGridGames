@@ -184,7 +184,7 @@ namespace MobileGridGames.ViewModels
         {
             //moveCount = 0;
 
-            Shuffle(squareList);
+                Shuffle(squareList);
         }
 
         private void CreateDefaultSquares()

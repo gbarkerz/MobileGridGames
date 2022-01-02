@@ -16,6 +16,10 @@
             <localviews:CollectionViewHeightToRowHeight x:Key="CollectionViewHeightToRowHeight" />
             <localviews:NumberSizeIndexToGridRowHeight x:Key="NumberSizeIndexToGridRowHeight" />
             <localviews:LabelContainerHeightToFontSize x:Key="LabelContainerHeightToFontSize" />
+            <localviews:SquareTargetIndexToIsVisible x:Key="SquareTargetIndexToIsVisible" />
+            <localviews:SquareTargetIndexToImageTranslationX x:Key="SquareTargetIndexToImageTranslationX" />
+            <localviews:SquareTargetIndexToImageTranslationY x:Key="SquareTargetIndexToImageTranslationY" />
+            <localviews:SquareTargetIndexToContainerFrameVisibility x:Key="SquareTargetIndexToContainerFrameVisibility" />            
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -58,12 +62,30 @@
                                 </Grid.RowDefinitions>
 
                                 <Image Grid.Row="0" Grid.RowSpan="2"
-                                    IsVisible="{Binding
-                                            Source={x:Reference SquaresPageInstance},
-                                            Path=BindingContext.ShowPicture}"
+                                    InputTransparent="True"
                                     Source="{Binding
                                         Source={x:Reference SquaresPageInstance},
-                                        Path=BindingContext.PicturePath}" />
+                                        Path=BindingContext.PicturePath}"
+                                    Scale="4">
+                                    <Image.IsVisible>
+                                        <MultiBinding Converter="{StaticResource SquareTargetIndexToIsVisible}">
+                                            <Binding Path="TargetIndex" />
+                                            <Binding Source="{x:Reference SquaresPageInstance}" Path="BindingContext.ShowPicture" />
+                                        </MultiBinding>
+                                    </Image.IsVisible>
+                                    <Image.TranslationX>
+                                        <MultiBinding Converter="{StaticResource SquareTargetIndexToImageTranslationX}">
+                                            <Binding Path="TargetIndex" />
+                                            <Binding Source="{RelativeSource AncestorType={x:Type CollectionView}}" Path="Width" />
+                                        </MultiBinding>
+                                    </Image.TranslationX>
+                                    <Image.TranslationY>
+                                        <MultiBinding Converter="{StaticResource SquareTargetIndexToImageTranslationY}">
+                                            <Binding Path="TargetIndex" />
+                                            <Binding Source="{RelativeSource AncestorType={x:Type CollectionView}}" Path="Height" />
+                                        </MultiBinding>
+                                    </Image.TranslationY>
+                                </Image>
 
                                 <Grid Grid.Row="0" x:Name="LabelPanel"
                                     IsVisible="{Binding
@@ -75,7 +97,8 @@
                                     </Grid.ColumnDefinitions>
                                     <!-- LineBreakMode doesn't seem to provide the desired results here.
                                          So provide a negative padding to allow partial text to be shown. -->
-                                    <Frame Margin="0" Padding="0">
+                                    <Frame Margin="0" Padding="0"
+                                        IsVisible="{Binding TargetIndex, Converter={StaticResource SquareTargetIndexToContainerFrameVisibility}}">
                                         <Label Grid.Column="0" Text="{Binding Name}"
                                             Margin="0" Padding="0,0,8,0"
                                             HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type Grid}}, Path=Height}"

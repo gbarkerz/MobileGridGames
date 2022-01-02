@@ -24,6 +24,8 @@ namespace MobileGridGames.Views
             vm.NumberHeight = Preferences.Get("NumberSizeIndex", 1);
             vm.ShowPicture = Preferences.Get("ShowPicture", true);
             vm.PicturePath = Preferences.Get("PicturePath", "");
+
+
         }
 
         // TODO: Remove this code-behind, and bind the SelectionChanged event directly to action in the view model.
@@ -117,6 +119,177 @@ namespace MobileGridGames.Views
             throw new NotImplementedException();
         }
     }
+
+    public class SquareTargetIndexToContainerFrameVisibility : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var targetIndex = (int)value;
+
+            return (targetIndex != 15);
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class SquareTargetIndexToIsVisible : IMultiValueConverter
+    {
+        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (values == null)
+            {
+                return 0;
+            }
+
+            if (values.Length < 2)
+            {
+                return 0;
+            }
+
+            if (values[0] == null)
+            {
+                return 0;
+            }
+
+            if (values[1] == null)
+            {
+                return 0;
+            }
+
+
+            var targetIndex = (int)values[0];
+            var picturesVisible = (bool)values[1];
+
+            return picturesVisible && (targetIndex != 15);
+        }
+
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class SquareTargetIndexToImageTranslationX : IMultiValueConverter
+    {
+        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (values == null)
+            {
+                return 0;
+            }
+
+            if (values.Length < 2)
+            {
+                return 0;
+            }
+
+            if (values[0] == null)
+            {
+                return 0;
+            }
+
+            if (values[1] == null)
+            {
+                return 0;
+            }
+
+
+            var targetIndex = (int)values[0];
+            var columnIndex = targetIndex % 4;
+
+            var collectionViewWidth = (double)values[1];
+            var columnWidth = collectionViewWidth / 4;
+
+            double multiplier = 0;
+            switch (columnIndex)
+            {
+                case 0:
+                    multiplier = 1.5;
+                    break;
+                case 1:
+                    multiplier = 0.5;
+                    break;
+                case 2:
+                    multiplier = -0.5;
+                    break;
+                default:
+                    multiplier = -1.5;
+                    break;
+            }
+
+            double imageOffset = multiplier * columnWidth;
+
+            return imageOffset;
+        }
+
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class SquareTargetIndexToImageTranslationY : IMultiValueConverter
+    {
+        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (values == null)
+            {
+                return 0;
+            }
+
+            if (values.Length < 2)
+            {
+                return 0;
+            }
+
+            if (values[0] == null)
+            {
+                return 0;
+            }
+
+            if (values[1] == null)
+            {
+                return 0;
+            }
+
+
+            var targetIndex = (int)values[0];
+            var rowIndex = targetIndex / 4;
+
+            var collectionViewHeight = (double)values[1];
+            var columnHeight = collectionViewHeight / 4;
+
+            double multiplier = 0;
+            switch (rowIndex)
+            {
+                case 0:
+                    multiplier = 1.5;
+                    break;
+                case 1:
+                    multiplier = 0.5;
+                    break;
+                case 2:
+                    multiplier = -0.5;
+                    break;
+                default:
+                    multiplier = -1.5;
+                    break;
+            }
+
+            double imageOffset = multiplier * columnHeight;
+
+            return imageOffset;
+        }
+
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
 }
 
 
