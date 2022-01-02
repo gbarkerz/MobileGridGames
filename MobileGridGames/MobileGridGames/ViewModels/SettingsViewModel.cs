@@ -13,8 +13,15 @@ namespace MobileGridGames.ViewModels
         private bool showNumbers;
         public bool ShowNumbers
         {
-            get => showNumbers;
-            set => SetProperty(ref showNumbers, value);
+            get => Preferences.Get("ShowNumbers", true);
+            set
+            {
+                if (showNumbers != value)
+                {
+                    Preferences.Set("ShowNumbers", value);
+                    SetProperty(ref showNumbers, value);
+                }
+            }
         }
 
         private int numberSizeIndex;

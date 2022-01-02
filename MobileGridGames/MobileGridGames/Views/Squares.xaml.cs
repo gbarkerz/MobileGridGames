@@ -19,9 +19,9 @@ namespace MobileGridGames.Views
 
             // Todo: Bind the UI directly to the Settings view model. Until then, set the
             // number size in the Square view model whenever the Sqaures page is shown.
-            var numberSizeIndex = Preferences.Get("NumberSizeIndex", 1);
             var vm = this.BindingContext as SquaresViewModel;
-            vm.NumberHeight = numberSizeIndex;
+            vm.ShowNumbers = Preferences.Get("ShowNumbers", true);
+            vm.NumberHeight = Preferences.Get("NumberSizeIndex", 1);
         }
 
         // TODO: Remove this code-behind, and bind the SelectionChanged event directly to action in the view model.

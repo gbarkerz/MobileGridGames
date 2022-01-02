@@ -57,9 +57,12 @@
                                             ConverterParameter=1}" />
                                 </Grid.RowDefinitions>
 
-                                <StackLayout x:Name="LabelPanel">
-                                    <!-- LineBreakMode doesn't seem to provide the desired results here. -->
-                                    <!-- So provide a negative padding to allow partial text to be shown. -->
+                                <StackLayout x:Name="LabelPanel"
+                                    IsVisible="{Binding
+                                            Source={x:Reference SquaresPageInstance},
+                                            Path=BindingContext.ShowNumbers}">                                            
+                                    <!-- LineBreakMode doesn't seem to provide the desired results here.
+                                         So provide a negative padding to allow partial text to be shown. -->
                                     <Label Text="{Binding Name}" Padding="0,0,-100,0"
                                         HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type StackLayout}}, Path=Height}"
                                         FontSize="{Binding Source={RelativeSource AncestorType={x:Type StackLayout}}, Path=Height,

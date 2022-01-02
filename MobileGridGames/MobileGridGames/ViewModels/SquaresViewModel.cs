@@ -20,9 +20,19 @@ namespace MobileGridGames.ViewModels
         public int NumberHeight
         {
             get { return numberHeight; }
-            set 
-            { 
-                SetProperty(ref numberHeight, value); 
+            set
+            {
+                SetProperty(ref numberHeight, value);
+            }
+        }
+
+        private bool showNumbers;
+        public bool ShowNumbers
+        {
+            get { return showNumbers; }
+            set
+            {
+                SetProperty(ref showNumbers, value);
             }
         }
 
