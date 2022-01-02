@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             x:Name="SquaresPageInstance"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileGridGames.Views.SquaresPage"
+             xmlns:localviews="clr-namespace:MobileGridGames.Views"
+             xmlns:vm="clr-namespace:MobileGridGames.ViewModels"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:SquaresViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <localviews:CollectionViewHeightToRowHeight x:Key="CollectionViewHeightToRowHeight" />
+            <localviews:NumberSizeIndexToGridRowHeight x:Key="NumberSizeIndexToGridRowHeight" />
+            <localviews:LabelContainerHeightToFontSize x:Key="LabelContainerHeightToFontSize" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid x:Name="PageGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <CollectionView Grid.Row="1"
+            x:Name="SquaresCollectionView"
+            SelectionMode="Single"
+            SelectionChanged="SquaresGrid_SelectionChanged"
+            ItemsSource="{Binding SquareListCollection}">
+
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="4" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type CollectionView}}, Path=Height,
+                            Converter={StaticResource CollectionViewHeightToRowHeight}}">
+                        <Frame Margin="2" Padding="4">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition 
+                                        x:Name="SquareNumberGridRow"
+                                        Height="{Binding
+                                            Source={x:Reference SquaresPageInstance},
+                                            Path=BindingContext.NumberHeight,
+                                            Converter={StaticResource NumberSizeIndexToGridRowHeight},
+                                            ConverterParameter=0}" />
+                                    <RowDefinition 
+                                        Height="{Binding
+                                            Source={x:Reference SquaresPageInstance},
+                                            Path=BindingContext.NumberHeight,
+                                            Converter={StaticResource NumberSizeIndexToGridRowHeight},
+                                            ConverterParameter=1}" />
+                                </Grid.RowDefinitions>
+
+                                <StackLayout x:Name="LabelPanel">
+                                    <!-- LineBreakMode doesn't seem to provide the desired results here. -->
+                                    <!-- So provide a negative padding to allow partial text to be shown. -->
+                                    <Label Text="{Binding Name}" Padding="0,0,-100,0"
+                                        HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type StackLayout}}, Path=Height}"
+                                        FontSize="{Binding Source={RelativeSource AncestorType={x:Type StackLayout}}, Path=Height,
+                                            Converter={StaticResource LabelContainerHeightToFontSize}}" />
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" />
+
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MobileGridGames.Views.SettingsPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
+            <Label Text="Sqaures Settings" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Show numbers" />
+                <CheckBox Grid.Column="1" x:Name="ShowNumbersCheckBox" 
+                          IsChecked="{Binding ShowNumbers, Mode=TwoWay}" />
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Numbers size:" />
+                <Picker Grid.Column="1" Title="Number size" 
+                        SelectedIndex="{Binding NumberSizeIndex, Mode=TwoWay}">
+                    <Picker.Items>
+                        <x:String>Small</x:String>
+                        <x:String>Medium</x:String>
+                        <x:String>Large</x:String>
+                        <x:String>Extra Large</x:String>
+                    </Picker.Items>
+                </Picker>
+            </Grid>
+            <Button x:Name="CloseButton" 
+                Text="Close" Clicked="CloseButton_Clicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
