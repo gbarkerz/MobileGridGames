@@ -1,11 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.IO;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace MobileGridGames.ViewModels
 {
     public class SquaresViewModel : BaseViewModel
     {
+        public int MoveCount { get; set; }
+
         public SquaresViewModel()
         {
             Title = "Squares";
@@ -13,7 +20,7 @@ namespace MobileGridGames.ViewModels
             squareList = new ObservableCollection<Square>();
             this.CreateDefaultSquares();
 
-            Shuffle(squareList);
+            //Shuffle(squareList);
         }
 
         private int numberHeight;
@@ -53,6 +60,16 @@ namespace MobileGridGames.ViewModels
             set
             {
                 SetProperty(ref picturePath, value);
+            }
+        }
+
+        private ImageSource pictureImageSource;
+        public ImageSource PictureImageSource
+        {
+            get { return pictureImageSource; }
+            set
+            {
+                SetProperty(ref pictureImageSource, value);
             }
         }
 
@@ -138,11 +155,20 @@ namespace MobileGridGames.ViewModels
             // If we found an adjacent empty square, swap the clicked square with the empty square.
             if (emptySquareIndex != -1)
             {
-                //++moveCount;
+                ++MoveCount;
 
                 Square temp = squareList[currentSelectionIndex];
                 squareList[currentSelectionIndex] = squareList[emptySquareIndex];
                 squareList[emptySquareIndex] = temp;
+
+                // BARKER: Somehow swap squares here!
+
+                //squareList[emptySquareIndex].PictureImageSource = squareList[currentSelectionIndex].PictureImageSource;
+
+                //var byteArray = yourStream.ToArray();
+                //yourStream?.Dispose();
+
+                //var imageSource = ImageSource.FromStream(() => { return new MemoryStream(byteArray); });
 
                 // Has the game been won?
                 gameIsWon = GameIsWon(squareList);
@@ -175,16 +201,16 @@ namespace MobileGridGames.ViewModels
                     break;
                 }
             }
-
+            
             return gameIsWon;
         }
 
         // Reset the grid to an initial game state.
         public void ResetGrid()
         {
-            //moveCount = 0;
+            MoveCount = 0;
 
-                Shuffle(squareList);
+            Shuffle(squareList);
         }
 
         private void CreateDefaultSquares()
@@ -322,11 +348,45 @@ namespace MobileGridGames.ViewModels
 
         }
 
-        public class Square
+        public class Square : INotifyPropertyChanged
         {
             public string Name { get; set; }
             public string Description { get; set; }
             public int TargetIndex { get; set; }
+
+            private ImageSource pictureImageSource;
+            public ImageSource PictureImageSource
+            {
+                get { return pictureImageSource; }
+                set
+                {
+                    SetProperty(ref pictureImageSource, value);
+                }
+            }
+
+            protected bool SetProperty<T>(ref T backingStore, T value,
+                [CallerMemberName] string propertyName = "",
+                Action onChanged = null)
+            {
+                if (EqualityComparer<T>.Default.Equals(backingStore, value))
+                    return false;
+
+                backingStore = value;
+                onChanged?.Invoke();
+                OnPropertyChanged(propertyName);
+                return true;
+            }
+
+            public event PropertyChangedEventHandler PropertyChanged;
+            protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+            {
+                var changed = PropertyChanged;
+                if (changed == null)
+                    return;
+
+                changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+
         }
 
         public void Shuffle(ObservableCollection<Square> collection)

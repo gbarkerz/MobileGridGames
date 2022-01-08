@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileGridGames.Android", "MobileGridGames\MobileGridGames.Android\MobileGridGames.Android.csproj", "{1C67C7B9-2DC1-4A3C-B587-C780DAA5E1E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileGridGames", "MobileGridGames\MobileGridGames\MobileGridGames.csproj", "{414D8F9E-39F6-48BC-BE2E-3BA24A4A64D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileGridGames", "MobileGridGames\MobileGridGames\MobileGridGames.csproj", "{414D8F9E-39F6-48BC-BE2E-3BA24A4A64D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

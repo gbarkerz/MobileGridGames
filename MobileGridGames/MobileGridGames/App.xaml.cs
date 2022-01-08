@@ -11,6 +11,9 @@ namespace MobileGridGames
 
         public App()
         {
+            //Register your Syncfusion license.
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("<Insert your licence key here.>");
+
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
@@ -28,5 +31,10 @@ namespace MobileGridGames
         protected override void OnResume()
         {
         }
+    }
+
+    public interface IMobileGridGamesPlatformAction
+    {
+        void GetSquareBitmap(object image);
     }
 }

@@ -5,6 +5,7 @@
              x:Class="MobileGridGames.Views.SquaresPage"
              xmlns:localviews="clr-namespace:MobileGridGames.Views"
              xmlns:vm="clr-namespace:MobileGridGames.ViewModels"
+             xmlns:imageeditor="clr-namespace:Syncfusion.SfImageEditor.XForms;assembly=Syncfusion.SfImageEditor.XForms"
              Title="{Binding Title}">
 
     <ContentPage.BindingContext>
@@ -19,16 +20,24 @@
             <localviews:SquareTargetIndexToIsVisible x:Key="SquareTargetIndexToIsVisible" />
             <localviews:SquareTargetIndexToImageTranslationX x:Key="SquareTargetIndexToImageTranslationX" />
             <localviews:SquareTargetIndexToImageTranslationY x:Key="SquareTargetIndexToImageTranslationY" />
-            <localviews:SquareTargetIndexToContainerFrameVisibility x:Key="SquareTargetIndexToContainerFrameVisibility" />            
+            <localviews:SquareTargetIndexToContainerFrameVisibility x:Key="SquareTargetIndexToContainerFrameVisibility" />
         </ResourceDictionary>
     </ContentPage.Resources>
 
     <Grid x:Name="PageGrid">
         <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
+        <imageeditor:SfImageEditor x:Name="GridGameImageEditor" 
+            IsVisible="False"
+            ImageLoaded="GridGameImageEditor_ImageLoaded" 
+            ImageEdited="GridGameImageEditor_ImageEdited"
+            ImageSaving="GridGameImageEditor_ImageSaving"
+            EndReset="GridGameImageEditor_EndReset"
+            Grid.Row="0" />
+        
         <CollectionView Grid.Row="1"
             x:Name="SquaresCollectionView"
             SelectionMode="Single"
@@ -43,7 +52,7 @@
                 <DataTemplate>
                     <Grid HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type CollectionView}}, Path=Height,
                             Converter={StaticResource CollectionViewHeightToRowHeight}}">
-                        <Frame Margin="2" Padding="4">
+                        <Frame Margin="2" Padding="0">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition 
@@ -51,42 +60,42 @@
                                         Height="{Binding
                                             Source={x:Reference SquaresPageInstance},
                                             Path=BindingContext.NumberHeight,
+                                            Mode=OneWay,
                                             Converter={StaticResource NumberSizeIndexToGridRowHeight},
                                             ConverterParameter=0}" />
                                     <RowDefinition 
                                         Height="{Binding
                                             Source={x:Reference SquaresPageInstance},
                                             Path=BindingContext.NumberHeight,
+                                            Mode=OneWay,
                                             Converter={StaticResource NumberSizeIndexToGridRowHeight},
                                             ConverterParameter=1}" />
                                 </Grid.RowDefinitions>
 
                                 <Image Grid.Row="0" Grid.RowSpan="2"
-                                    InputTransparent="True"
-                                    Source="{Binding
-                                        Source={x:Reference SquaresPageInstance},
-                                        Path=BindingContext.PicturePath}"
-                                    Scale="4">
+                                    Source="{Binding PictureImageSource}"
+                                    Aspect="Fill"
+                                    InputTransparent="True">
                                     <Image.IsVisible>
-                                        <MultiBinding Converter="{StaticResource SquareTargetIndexToIsVisible}">
+                                        <MultiBinding Mode="OneWay" Converter="{StaticResource SquareTargetIndexToIsVisible}">
                                             <Binding Path="TargetIndex" />
                                             <Binding Source="{x:Reference SquaresPageInstance}" Path="BindingContext.ShowPicture" />
                                         </MultiBinding>
                                     </Image.IsVisible>
-                                    <Image.TranslationX>
-                                        <MultiBinding Converter="{StaticResource SquareTargetIndexToImageTranslationX}">
+                                    <!--<Image.TranslationX>
+                                        <MultiBinding Mode="OneWay" Converter="{StaticResource SquareTargetIndexToImageTranslationX}">
                                             <Binding Path="TargetIndex" />
                                             <Binding Source="{RelativeSource AncestorType={x:Type CollectionView}}" Path="Width" />
                                         </MultiBinding>
                                     </Image.TranslationX>
                                     <Image.TranslationY>
-                                        <MultiBinding Converter="{StaticResource SquareTargetIndexToImageTranslationY}">
+                                        <MultiBinding Mode="OneWay" Converter="{StaticResource SquareTargetIndexToImageTranslationY}">
                                             <Binding Path="TargetIndex" />
                                             <Binding Source="{RelativeSource AncestorType={x:Type CollectionView}}" Path="Height" />
                                         </MultiBinding>
-                                    </Image.TranslationY>
+                                    </Image.TranslationY>-->
                                 </Image>
-
+                                
                                 <Grid Grid.Row="0" x:Name="LabelPanel"
                                     IsVisible="{Binding
                                         Source={x:Reference SquaresPageInstance},
@@ -95,8 +104,7 @@
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <!-- LineBreakMode doesn't seem to provide the desired results here.
-                                         So provide a negative padding to allow partial text to be shown. -->
+                                     <!--LineBreakMode doesn't seem to provide the desired results here.--> 
                                     <Frame Margin="0" Padding="0"
                                         IsVisible="{Binding TargetIndex, Converter={StaticResource SquareTargetIndexToContainerFrameVisibility}}">
                                         <Label Grid.Column="0" Text="{Binding Name}"

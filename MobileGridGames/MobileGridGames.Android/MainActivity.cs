@@ -4,10 +4,13 @@ using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
+using MobileGridGames.Droid;
+using Android.Graphics;
 
+[assembly: Xamarin.Forms.Dependency(typeof(MobileGridGamesPlatformAction))]
 namespace MobileGridGames.Droid
 {
-    [Activity(Label = "MobileGridGames", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
+    [Activity(Label = "MobileGridGames", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -23,6 +26,15 @@ namespace MobileGridGames.Droid
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
+
+    public class MobileGridGamesPlatformAction :
+        IMobileGridGamesPlatformAction
+    {
+        public void GetSquareBitmap(object image)
+        {
+            var i1 = image;
         }
     }
 }
