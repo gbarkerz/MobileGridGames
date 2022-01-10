@@ -17,30 +17,40 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <Label Grid.Row="0" Grid.ColumnSpan="2" Text="Squares Settings" />
-                <Label Grid.Row="1" Text="Show numbers" />
-                <CheckBox Grid.Row="1" Grid.Column="1" x:Name="ShowNumbersCheckBox" 
-                    IsChecked="{Binding ShowNumbers, Mode=TwoWay}" />
-                <Label Grid.Row="2" Text="Numbers size:" />
-                <Picker Grid.Row="2" Grid.Column="1" Title="Number size" 
-                        SelectedIndex="{Binding NumberSizeIndex, Mode=TwoWay}">
-                    <Picker.Items>
-                        <x:String>Small</x:String>
-                        <x:String>Medium</x:String>
-                        <x:String>Large</x:String>
-                        <x:String>Extra Large</x:String>
-                    </Picker.Items>
-                </Picker>
-                <Label Grid.Row="3" Text="Show picture" />
-                <CheckBox Grid.Row="3" Grid.Column="1" x:Name="ShowPictureCheckBox" 
-                    IsChecked="{Binding ShowPicture, Mode=TwoWay}" />
-                <Button Grid.Row="4" x:Name="PictureBrowseButton" Text="Browse for picture" Clicked="PictureBrowseButton_Clicked" />
+                <Label Grid.Row="0" Text="Squares Settings" FontAttributes="Bold" />
+                <StackLayout Grid.Row="1" Margin="4,20,4,10">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Show numbers" VerticalOptions="Center" />
+                        <CheckBox x:Name="ShowNumbersCheckBox"
+                            VerticalOptions="Center" IsChecked="{Binding ShowNumbers, Mode=TwoWay}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="10,0,0,0">
+                        <Label Text="Number size:" VerticalOptions="Center" />
+                        <Picker Title="Number size" VerticalOptions="Center"
+                            SelectedIndex="{Binding NumberSizeIndex, Mode=TwoWay}">
+                            <Picker.Items>
+                                <x:String>Small</x:String>
+                                <x:String>Medium</x:String>
+                                <x:String>Large</x:String>
+                                <x:String>Extra Large</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Grid.Row="2" Margin="4,20,4,10">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Show picture" VerticalOptions="Center" />
+                        <CheckBox x:Name="ShowPictureCheckBox" VerticalOptions="Center"
+                            IsChecked="{Binding ShowPicture, Mode=TwoWay}" />
+                    </StackLayout>
+                    <StackLayout Margin="10,0,0,0">
+                        <Button x:Name="PictureBrowseButton" Text="Browse for picture" 
+                            HorizontalOptions="StartAndExpand"
+                            Clicked="PictureBrowseButton_Clicked" />
+                        <Label Text="{Binding PicturePath}" />
+                    </StackLayout>
+                </StackLayout>
             </Grid>
             <Button Grid.Row="1" x:Name="CloseButton" 
                     Text="Close" Clicked="CloseButton_Clicked" />

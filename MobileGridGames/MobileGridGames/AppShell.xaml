@@ -79,15 +79,27 @@
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
     <FlyoutItem Title="Squares" Icon="icon_about.png">
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource
+                Glyph="&#xf0c9;"
+                FontFamily="FA" />
+        </FlyoutItem.FlyoutIcon>
         <ShellContent Route="SquaresPage" ContentTemplate="{DataTemplate local:SquaresPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Pairs" Icon="icon_feed.png">
+    
+    <!-- Todo: Add the Pairs game. -->
+    <!--<FlyoutItem Title="Pairs" Icon="icon_feed.png">
         <ShellContent Route="PairsPage" ContentTemplate="{DataTemplate local:PairsPage}" />
-    </FlyoutItem>
+    </FlyoutItem>-->
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
-    <MenuItem Text="Settings" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked"
-              Icon="icon_about.png">
+    <MenuItem Text="Settings" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
+        <MenuItem.IconImageSource>
+            <FontImageSource
+                Color="{StaticResource Primary}"
+                Glyph="&#xf013;"
+                FontFamily="FA" />
+        </MenuItem.IconImageSource>
     </MenuItem>
 
     <!--

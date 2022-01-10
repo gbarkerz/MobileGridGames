@@ -1,9 +1,5 @@
 ﻿using MobileGridGames.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,12 +12,12 @@ namespace MobileGridGames.Views
         public SettingsPage()
         {
             InitializeComponent();
+
             this.BindingContext = new SettingsViewModel();
         }
 
         private async void CloseButton_Clicked(object sender, EventArgs e)
         {
-
             await Navigation.PopModalAsync();
         }
 
@@ -29,7 +25,7 @@ namespace MobileGridGames.Views
         {
             var options = new PickOptions
             {
-                PickerTitle = "Please select a background picture"
+                PickerTitle = "Please select a background picture."
             };
 
             try
@@ -38,12 +34,12 @@ namespace MobileGridGames.Views
                 if (result != null)
                 {
                     var settingsViewModel = this.BindingContext as SettingsViewModel;
+
                     settingsViewModel.PicturePath = result.FullPath;
                 }
             }
             catch (Exception ex)
             {
-                // The user canceled or something went wrong
             }
         }
     }

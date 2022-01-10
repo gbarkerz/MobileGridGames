@@ -1,4 +1,4 @@
-﻿using MobileGridGames.Services;
+﻿//using MobileGridGames.Services;
 using MobileGridGames.Views;
 using System;
 using Xamarin.Forms;
@@ -16,7 +16,9 @@ namespace MobileGridGames
 
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            // Todo: Register DependencyService here.
+            //DependencyService.Register<MockDataStore>();
+            
             MainPage = new AppShell();
         }
 

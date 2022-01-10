@@ -26,8 +26,8 @@
 
     <Grid x:Name="PageGrid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="20" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="0" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <imageeditor:SfImageEditor x:Name="GridGameImageEditor" 

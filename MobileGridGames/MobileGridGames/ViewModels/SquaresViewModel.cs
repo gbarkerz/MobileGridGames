@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.IO;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -19,8 +18,12 @@ namespace MobileGridGames.ViewModels
 
             squareList = new ObservableCollection<Square>();
             this.CreateDefaultSquares();
+        }
 
-            //Shuffle(squareList);
+        public void RestoreEmptyGrid()
+        {
+            squareList.Clear();
+            this.CreateDefaultSquares();
         }
 
         private int numberHeight;
@@ -60,16 +63,6 @@ namespace MobileGridGames.ViewModels
             set
             {
                 SetProperty(ref picturePath, value);
-            }
-        }
-
-        private ImageSource pictureImageSource;
-        public ImageSource PictureImageSource
-        {
-            get { return pictureImageSource; }
-            set
-            {
-                SetProperty(ref pictureImageSource, value);
             }
         }
 
@@ -469,6 +462,5 @@ namespace MobileGridGames.ViewModels
                 }
             }
         }
-
     }
 }

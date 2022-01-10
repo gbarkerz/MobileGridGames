@@ -7,10 +7,15 @@ using System.IO;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
+// Todo: Sort out keyboard focus on the squares. Focus is almost invisible when run in the emulator.
+
 namespace MobileGridGames.Views
 {
     public partial class SquaresPage : ContentPage
     {
+        private bool gridReadyForInput = false;
+        private string previousLoadedPicture = "";
+
         public SquaresPage()
         {
             InitializeComponent();
@@ -34,15 +39,27 @@ namespace MobileGridGames.Views
             //image.Source = vm.PicturePath;
             //service.GetSquareBitmap(image);
 
-            // What about using imagecropper? Nope. That doesn't seem helpful here.
+            if (vm.ShowPicture && (vm.PicturePath != previousLoadedPicture))
+            {
+                gridReadyForInput = false;
 
-            // NEXT: Explore using SyncFusion SfImageEditor.
+                previousLoadedPicture = vm.PicturePath;
 
-            GridGameImageEditor.Source = ImageSource.FromFile(vm.PicturePath);
+                vm.RestoreEmptyGrid();
+
+                nextSquareIndexForImageSourceSetting = 0;
+
+                GridGameImageEditor.Source = ImageSource.FromFile(vm.PicturePath);
+            }
+            else
+            {
+                gridReadyForInput = true;
+            }
         }
 
-        // The use of nextSquareIndexForImageSourceSetting as the index of the square whose PictureImageSource property is being set,
-        // assumes that the squares have not yet been shuffled in the view model's collection of Squares.
+        // The use of nextSquareIndexForImageSourceSetting as the index of the square whose
+        // PictureImageSource property is being set, assumes that the squares have not yet
+        // been shuffled in the view model's collection of Squares.
         private int nextSquareIndexForImageSourceSetting = 0;
 
         private void PerformCrop()
@@ -143,6 +160,8 @@ namespace MobileGridGames.Views
                 vm.ResetGrid();
             }
 
+            gridReadyForInput = true;
+
             Debug.WriteLine("GB: Leave EndReset");
         }
 
@@ -169,6 +188,12 @@ namespace MobileGridGames.Views
         // TODO: Remove this code-behind, and bind the SelectionChanged event directly to action in the view model.
         private async void SquaresGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            // Do nothing here if pictures have not been loaded yet onto the squares.
+            if (!gridReadyForInput)
+            {
+                return;
+            }
+
             // No action required here if there is no selected item.
             if (e.CurrentSelection.Count > 0)
             {
@@ -287,26 +312,10 @@ namespace MobileGridGames.Views
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
-            if (values == null)
+            if ((values == null) || (values.Length < 2) || (values[0] == null) || (values[1] == null))
             {
                 return 0;
             }
-
-            if (values.Length < 2)
-            {
-                return 0;
-            }
-
-            if (values[0] == null)
-            {
-                return 0;
-            }
-
-            if (values[1] == null)
-            {
-                return 0;
-            }
-
 
             var targetIndex = (int)values[0];
             var picturesVisible = (bool)values[1];
@@ -324,26 +333,10 @@ namespace MobileGridGames.Views
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
-            if (values == null)
+            if ((values == null) || (values.Length < 2) || (values[0] == null) || (values[1] == null))
             {
                 return 0;
             }
-
-            if (values.Length < 2)
-            {
-                return 0;
-            }
-
-            if (values[0] == null)
-            {
-                return 0;
-            }
-
-            if (values[1] == null)
-            {
-                return 0;
-            }
-
 
             var targetIndex = (int)values[0];
             var columnIndex = targetIndex % 4;
@@ -351,22 +344,7 @@ namespace MobileGridGames.Views
             var collectionViewWidth = (double)values[1];
             var columnWidth = collectionViewWidth / 4;
 
-            double multiplier = 0;
-            switch (columnIndex)
-            {
-                case 0:
-                    multiplier = 1.5;
-                    break;
-                case 1:
-                    multiplier = 0.5;
-                    break;
-                case 2:
-                    multiplier = -0.5;
-                    break;
-                default:
-                    multiplier = -1.5;
-                    break;
-            }
+            double multiplier = Utils.GetMultiplierFromRowColumnIndex(columnIndex);
 
             double imageOffset = multiplier * columnWidth;
 
@@ -383,26 +361,10 @@ namespace MobileGridGames.Views
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
-            if (values == null)
+            if ((values == null) || (values.Length < 2) || (values[0] == null) || (values[1] == null))
             {
                 return 0;
             }
-
-            if (values.Length < 2)
-            {
-                return 0;
-            }
-
-            if (values[0] == null)
-            {
-                return 0;
-            }
-
-            if (values[1] == null)
-            {
-                return 0;
-            }
-
 
             var targetIndex = (int)values[0];
             var rowIndex = targetIndex / 4;
@@ -410,8 +372,25 @@ namespace MobileGridGames.Views
             var collectionViewHeight = (double)values[1];
             var columnHeight = collectionViewHeight / 4;
 
+            double multiplier = Utils.GetMultiplierFromRowColumnIndex(rowIndex);
+
+            double imageOffset = multiplier * columnHeight;
+
+            return imageOffset;
+        }
+
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class Utils
+    {
+        static public double GetMultiplierFromRowColumnIndex(int index)
+        {
             double multiplier = 0;
-            switch (rowIndex)
+            switch (index)
             {
                 case 0:
                     multiplier = 1.5;
@@ -427,14 +406,7 @@ namespace MobileGridGames.Views
                     break;
             }
 
-            double imageOffset = multiplier * columnHeight;
-
-            return imageOffset;
-        }
-
-        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
+            return multiplier;
         }
     }
 }
