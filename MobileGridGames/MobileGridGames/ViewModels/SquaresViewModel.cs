@@ -66,6 +66,16 @@ namespace MobileGridGames.ViewModels
             }
         }
 
+        private bool gameIsNotReady = true;
+        public bool GameIsNotReady
+        {
+            get { return gameIsNotReady; }
+            set
+            {
+                SetProperty(ref gameIsNotReady, value);
+            }
+        }
+
         private ObservableCollection<Square> squareList;
 
         public ObservableCollection<Square> SquareListCollection

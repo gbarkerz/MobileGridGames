@@ -37,7 +37,7 @@
             ImageSaving="GridGameImageEditor_ImageSaving"
             EndReset="GridGameImageEditor_EndReset"
             Grid.Row="0" />
-        
+
         <CollectionView Grid.Row="1"
             x:Name="SquaresCollectionView"
             SelectionMode="Single"
@@ -121,6 +121,13 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
+        <Frame Grid.Row="1"
+            IsVisible="{Binding GameIsNotReady}"
+            VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Label Text="Please wait a moment while the pictures are loaded into the squares.." 
+                FontSize="Large" />
+        </Frame>
 
     </Grid>
 

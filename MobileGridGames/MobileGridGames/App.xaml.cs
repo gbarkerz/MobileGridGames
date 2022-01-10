@@ -1,14 +1,10 @@
 ﻿//using MobileGridGames.Services;
-using MobileGridGames.Views;
-using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace MobileGridGames
 {
     public partial class App : Application
     {
-
         public App()
         {
             //Register your Syncfusion license.

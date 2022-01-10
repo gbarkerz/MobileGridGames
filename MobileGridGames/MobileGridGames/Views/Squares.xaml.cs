@@ -13,7 +13,6 @@ namespace MobileGridGames.Views
 {
     public partial class SquaresPage : ContentPage
     {
-        private bool gridReadyForInput = false;
         private string previousLoadedPicture = "";
 
         public SquaresPage()
@@ -41,7 +40,7 @@ namespace MobileGridGames.Views
 
             if (vm.ShowPicture && (vm.PicturePath != previousLoadedPicture))
             {
-                gridReadyForInput = false;
+                vm.GameIsNotReady = true;
 
                 previousLoadedPicture = vm.PicturePath;
 
@@ -53,7 +52,7 @@ namespace MobileGridGames.Views
             }
             else
             {
-                gridReadyForInput = true;
+                vm.GameIsNotReady = false;
             }
         }
 
@@ -150,17 +149,18 @@ namespace MobileGridGames.Views
 
             Debug.WriteLine("GB: nextSquareIndexForImageSourceSetting now " + nextSquareIndexForImageSourceSetting);
 
+            var vm = this.BindingContext as SquaresViewModel;
+
             if (nextSquareIndexForImageSourceSetting < 15)
             {
                 PerformCrop();
             }
             else
             {
-                var vm = this.BindingContext as SquaresViewModel;
                 vm.ResetGrid();
-            }
 
-            gridReadyForInput = true;
+                vm.GameIsNotReady = false;
+            }
 
             Debug.WriteLine("GB: Leave EndReset");
         }
@@ -189,7 +189,8 @@ namespace MobileGridGames.Views
         private async void SquaresGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // Do nothing here if pictures have not been loaded yet onto the squares.
-            if (!gridReadyForInput)
+            var vm = this.BindingContext as SquaresViewModel;
+            if (vm.GameIsNotReady)
             {
                 return;
             }
@@ -197,7 +198,6 @@ namespace MobileGridGames.Views
             // No action required here if there is no selected item.
             if (e.CurrentSelection.Count > 0)
             {
-                var vm = this.BindingContext as SquaresViewModel;
                 bool gameIsWon = await vm.AttemptMove(e.CurrentSelection[0]);
 
                 // Clear the selection now to support the same square moving again.
