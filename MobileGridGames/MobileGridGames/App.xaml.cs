@@ -30,9 +30,4 @@ namespace MobileGridGames
         {
         }
     }
-
-    public interface IMobileGridGamesPlatformAction
-    {
-        void GetSquareBitmap(object image);
-    }
 }

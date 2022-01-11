@@ -32,12 +32,6 @@ namespace MobileGridGames.Views
             vm.ShowPicture = Preferences.Get("ShowPicture", true);
             vm.PicturePath = Preferences.Get("PicturePath", "");
 
-            // Dependency test.
-            //var service = DependencyService.Get<IMobileGridGamesPlatformAction>();
-            //var image = new Image();
-            //image.Source = vm.PicturePath;
-            //service.GetSquareBitmap(image);
-
             if (vm.ShowPicture && (vm.PicturePath != previousLoadedPicture))
             {
                 vm.GameIsNotReady = true;
@@ -47,6 +41,8 @@ namespace MobileGridGames.Views
                 vm.RestoreEmptyGrid();
 
                 nextSquareIndexForImageSourceSetting = 0;
+
+                vm.RaiseNotificationEvent(PleaseWaitLabel.Text);
 
                 GridGameImageEditor.Source = ImageSource.FromFile(vm.PicturePath);
             }
@@ -160,6 +156,8 @@ namespace MobileGridGames.Views
                 vm.ResetGrid();
 
                 vm.GameIsNotReady = false;
+
+                vm.RaiseNotificationEvent("Game is ready to play!");
             }
 
             Debug.WriteLine("GB: Leave EndReset");

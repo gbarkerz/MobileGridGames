@@ -6,13 +6,16 @@ using Android.Runtime;
 using Android.OS;
 using MobileGridGames.Droid;
 using Android.Graphics;
+using Android.Views.Accessibility;
+using MobileGridGames.Services;
 
-[assembly: Xamarin.Forms.Dependency(typeof(MobileGridGamesPlatformAction))]
 namespace MobileGridGames.Droid
 {
     [Activity(Label = "MobileGridGames", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        public static AccessibilityManager accessibilityManager = null;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -20,21 +23,17 @@ namespace MobileGridGames.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+
+            Xamarin.Forms.DependencyService.Register<IMobileGridGamesPlatformAction, MobileGridGamesPlatformAction>();
+
+            accessibilityManager = (AccessibilityManager)GetSystemService("accessibility");
         }
+
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
-    }
-
-    public class MobileGridGamesPlatformAction :
-        IMobileGridGamesPlatformAction
-    {
-        public void GetSquareBitmap(object image)
-        {
-            var i1 = image;
         }
     }
 }

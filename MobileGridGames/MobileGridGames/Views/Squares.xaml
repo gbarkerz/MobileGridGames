@@ -125,7 +125,8 @@
         <Frame Grid.Row="1"
             IsVisible="{Binding GameIsNotReady}"
             VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-            <Label Text="Please wait a moment while the pictures are loaded into the squares.." 
+            <Label x:Name="PleaseWaitLabel" 
+                Text="Please wait a moment while the pictures are loaded into the squares." 
                 FontSize="Large" />
         </Frame>
 

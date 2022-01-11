@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using MobileGridGames.Services;
 
 namespace MobileGridGames.ViewModels
 {
@@ -18,6 +20,14 @@ namespace MobileGridGames.ViewModels
 
             squareList = new ObservableCollection<Square>();
             this.CreateDefaultSquares();
+        }
+
+        public void RaiseNotificationEvent(string notification)
+        {
+            Debug.WriteLine("Announced: \"" + notification + "\"");
+
+            var service = DependencyService.Get<IMobileGridGamesPlatformAction>();
+            service.ScreenReaderAnnouncement(notification);
         }
 
         public void RestoreEmptyGrid()
