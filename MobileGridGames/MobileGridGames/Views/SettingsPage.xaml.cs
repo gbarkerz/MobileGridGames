@@ -1,5 +1,6 @@
 ﻿using MobileGridGames.ViewModels;
 using System;
+using System.Diagnostics;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -40,6 +41,7 @@ namespace MobileGridGames.Views
             }
             catch (Exception ex)
             {
+                Debug.WriteLine("MobileGridGames: Browse exception: " + ex.Message);
             }
         }
     }

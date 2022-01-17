@@ -2,18 +2,19 @@
 using Syncfusion.SfImageEditor.XForms;
 using System;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
-// Todo: Sort out keyboard focus on the squares. Focus is almost invisible when run in the emulator.
+// Future: Sort out keyboard focus on the squares. Focus is almost invisible when run in the emulator.
+// Future: Support F5.
 
 // Notes:
 // - I tried to remove all specifying of colour completely, to rely only on default colors.
 //   but the Shell bar still showed blue. (Setting the Shell BackgroundColor transparent
-//   didn't affect that.) So I restored all teh app template use of blue and white.
+//   didn't affect that.) So I restored all the app template use of blue and white.
 // - The app does not set any explicity font height, but does set some proportional text size.
+// - Everything needs to be localised.
 
 namespace MobileGridGames.Views
 {
@@ -40,23 +41,75 @@ namespace MobileGridGames.Views
 
             if (vm.ShowPicture && (vm.PicturePath != previousLoadedPicture))
             {
+                // Prevent input on the grid while the image is being loaded into the squares.
                 vm.GameIsNotReady = true;
 
+                // Cache the path to the loaded picture.
                 previousLoadedPicture = vm.PicturePath;
 
                 vm.RestoreEmptyGrid();
 
+                // The loading of the images into the squares is made synchronously through the 15 squares.
                 nextSquareIndexForImageSourceSetting = 0;
 
                 vm.RaiseNotificationEvent(PleaseWaitLabel.Text);
 
-                GridGameImageEditor.Source = ImageSource.FromFile(vm.PicturePath);
+                try
+                {
+                    GridGameImageEditor.Source = ImageSource.FromFile(vm.PicturePath);
+                }
+                catch (Exception ex)
+                {
+                    // The setting of the images on the squares failed.
+                    Debug.WriteLine("MobileGridGames: Failed to load image from file. " + ex.Message);
+
+                    previousLoadedPicture = "";
+                    nextSquareIndexForImageSourceSetting = 0;
+                    GridGameImageEditor.Source = null;
+
+                    vm.RestoreEmptyGrid();
+                    vm.GameIsNotReady = false;
+                }
             }
             else
             {
                 vm.GameIsNotReady = false;
             }
         }
+
+        // Todo: Remove this code-behind, and bind the SelectionChanged event directly to action in the view model.
+        private async void SquaresGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Do nothing here if pictures have not been loaded yet onto the squares.
+            var vm = this.BindingContext as SquaresViewModel;
+            if (vm.GameIsNotReady)
+            {
+                return;
+            }
+
+            // No action required here if there is no selected item.
+            if (e.CurrentSelection.Count > 0)
+            {
+                bool gameIsWon = vm.AttemptMove(e.CurrentSelection[0]);
+
+                // Clear the selection now to support the same square moving again.
+                SquaresCollectionView.SelectedItem = null;
+
+                if (gameIsWon)
+                {
+                    var answer = await DisplayAlert(
+                        "Congratulations!",
+                        "You won the game in " + vm.MoveCount + " moves.\r\n\r\nWould you like to play another game?",
+                        "Yes", "No");
+                    if (answer)
+                    {
+                        vm.ResetGrid();
+                    }
+                }
+            }
+        }
+
+        // The remainder of this file relates to setting of pictures on the squares in the grid.
 
         // The use of nextSquareIndexForImageSourceSetting as the index of the square whose
         // PictureImageSource property is being set, assumes that the squares have not yet
@@ -65,108 +118,79 @@ namespace MobileGridGames.Views
 
         private void PerformCrop()
         {
-            Debug.WriteLine("GB: In PerformCrop");
-
             int x = 25 * (nextSquareIndexForImageSourceSetting % 4);
             int y = 25 * (nextSquareIndexForImageSourceSetting / 4);
 
-            Debug.WriteLine("GB: Crop at " + x + ", " + y);
-
-            Debug.WriteLine("GB: About to call ToggleCropping");
+            Debug.WriteLine("MobileGridGames: In PerformCrop, crop at " + x + ", " + y + ".");
 
             GridGameImageEditor.ToggleCropping(new Rectangle(x, y, 25, 25));
 
-            Debug.WriteLine("GB: Called ToggleCropping");
+            Debug.WriteLine("MobileGridGames: Called ToggleCropping.");
 
-            // Barker: Understand why this seems to need to run on the UI thread.
+            // Todo: Understand why this seems to need to run on the UI thread.
             Device.BeginInvokeOnMainThread(() =>
             {
-                Debug.WriteLine("GB: About to call Crop");
+                Debug.WriteLine("MobileGridGames: PerformCrop, about to call Crop.");
 
                 GridGameImageEditor.Crop();
 
-                Debug.WriteLine("GB: Called Crop");
+                Debug.WriteLine("MobileGridGames: PerformCrop, called Crop.");
             });
 
-            Debug.WriteLine("GB: Leave PerformCrop");
+            Debug.WriteLine("MobileGridGames: Leave PerformCrop.");
         }
 
         private void GridGameImageEditor_ImageLoaded(object sender, ImageLoadedEventArgs args)
         {
-            Debug.WriteLine("GB: In ImageLoaded");
+            Debug.WriteLine("MobileGridGames: In ImageLoaded, calling PerformCrop.");
 
             // Perform crop for first square.
             PerformCrop();
 
-            Debug.WriteLine("GB: Leave ImageLoaded");
+            Debug.WriteLine("MobileGridGames: Leave ImageLoaded, done call to PerformCrop.");
         }
 
         private void GridGameImageEditor_ImageEdited(object sender, ImageEditedEventArgs e)
         {
-            Debug.WriteLine("GB: In ImageEdited");
+            Debug.WriteLine("MobileGridGames: In ImageEdited.");
 
-            // If we're here following a resetting of the image, we dont want to save it.
+            // If we're here following a resetting of the image, take no follow-up action.
             if (e.IsImageEdited)
             {
                 // We must be here following a crop operation.
                 GridGameImageEditor.Save();
             }
 
-            Debug.WriteLine("GB: Leave ImageEdited");
+            Debug.WriteLine("MobileGridGames: Leave ImageEdited.");
         }
 
         private void GridGameImageEditor_ImageSaving(object sender, ImageSavingEventArgs args)
         {
-            Debug.WriteLine("GB: In ImageSaving");
+            Debug.WriteLine("MobileGridGames: In ImageSaving.");
 
             // Prevent the image from being saved to a file.
             args.Cancel = true; 
 
-            // Save the dropped date to an image.
             var vm = this.BindingContext as SquaresViewModel;
             var source = GetImageSourceFromPictureStream(args.Stream);
+
+            // We assume here that the use of nextSquareIndexForImageSourceSetting is synchronous
+            // from 0 to 14.
             var square = vm.SquareListCollection[nextSquareIndexForImageSourceSetting];
             square.PictureImageSource = source;
 
             // Now reset the image to its original form, in order to perform the next crop.
-            // Barker: Understand why this seems to need to run on the UI thread.
+            // Todo: Understand why this seems to need to run on the UI thread.
             Device.BeginInvokeOnMainThread(() =>
             {
-                Debug.WriteLine("GB: About to call Reset");
+                Debug.WriteLine("MobileGridGames: About to call Reset.");
 
                 GridGameImageEditor.Reset();
 
-                Debug.WriteLine("GB: Back from call to Reset");
+                Debug.WriteLine("MobileGridGames: Back from call to Reset.");
             });
 
-            Debug.WriteLine("GB: Leave ImageSaving");
-        }
-
-        private void GridGameImageEditor_EndReset(object sender, EndResetEventArgs args)
-        {
-            Debug.WriteLine("GB: In EndReset");
-
-            // We've completed the image settings for a square. Continue with the next square if there is one.
-            ++nextSquareIndexForImageSourceSetting;
-
-            Debug.WriteLine("GB: nextSquareIndexForImageSourceSetting now " + nextSquareIndexForImageSourceSetting);
-
-            var vm = this.BindingContext as SquaresViewModel;
-
-            if (nextSquareIndexForImageSourceSetting < 15)
-            {
-                PerformCrop();
-            }
-            else
-            {
-                vm.ResetGrid();
-
-                vm.GameIsNotReady = false;
-
-                vm.RaiseNotificationEvent("Game is ready to play!");
-            }
-
-            Debug.WriteLine("GB: Leave EndReset");
+            Debug.WriteLine("MobileGridGames: Leave ImageSaving.");
         }
 
         private ImageSource GetImageSourceFromPictureStream(Stream stream)
@@ -189,230 +213,41 @@ namespace MobileGridGames.Views
             return imageSource;
         }
 
-        // TODO: Remove this code-behind, and bind the SelectionChanged event directly to action in the view model.
-        private async void SquaresGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void GridGameImageEditor_EndReset(object sender, EndResetEventArgs args)
         {
-            // Do nothing here if pictures have not been loaded yet onto the squares.
+            Debug.WriteLine("MobileGridGames: In EndReset.");
+
+            // We've completed the image settings for a square. Continue with the next square if there is one.
+            ++nextSquareIndexForImageSourceSetting;
+
+            Debug.WriteLine("MobileGridGames: nextSquareIndexForImageSourceSetting now " + nextSquareIndexForImageSourceSetting);
+
             var vm = this.BindingContext as SquaresViewModel;
-            if (vm.GameIsNotReady)
+
+            // If we're not done loading pictures into squares, load a picture into the next square.
+            if (nextSquareIndexForImageSourceSetting < 15)
             {
-                return;
-            }
-
-            // No action required here if there is no selected item.
-            if (e.CurrentSelection.Count > 0)
-            {
-                bool gameIsWon = await vm.AttemptMove(e.CurrentSelection[0]);
-
-                // Clear the selection now to support the same square moving again.
-                SquaresCollectionView.SelectedItem = null;
-
-                if (gameIsWon)
+                // Provide a countdown for players using sceen readers.
+                if (nextSquareIndexForImageSourceSetting % 3 == 0)
                 {
-                    // Todo: Localize this.
-                    var answer = await DisplayAlert(
-                        "Congratulations!",
-                        "You won the game in " + vm.MoveCount + " moves.\r\n\r\nWould you like to play another game?",
-                        "Yes", "No");
-                    if (answer)
-                    {
-                        vm.ResetGrid();
-                    }
+                    var countdown = (15 - nextSquareIndexForImageSourceSetting) / 3;
+                    vm.RaiseNotificationEvent(countdown.ToString());
                 }
+
+                PerformCrop();
             }
-        }
-
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-            SquaresCollectionView.IsVisible = true;
-        }
-    }
-
-    public class CollectionViewHeightToRowHeight : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return ((double)value / 4) - 1;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class NumberSizeIndexToGridRowHeight : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            var numberSizeIndex = (int)value;
-
-            double gridRowHeight = 0.35;
-
-            switch (numberSizeIndex)
+            else
             {
-                case 0:
-                    gridRowHeight = 0.2;
-                    break;
-                case 2:
-                    gridRowHeight = 0.5;
-                    break;
-                case 3:
-                    gridRowHeight = 0.65;
-                    break;
-                default:
-                    break;
+                // We've loaded all the pictures, so shuffle them and enable the game.
+                vm.ResetGrid();
+
+                vm.RaiseNotificationEvent("Game is ready to play.");
+
+                vm.GameIsNotReady = false;
+
             }
 
-            if ((string)parameter == "1")
-            {
-                gridRowHeight = 1.0 - gridRowHeight;
-            }
-
-            return new GridLength(gridRowHeight, GridUnitType.Star);
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class LabelContainerHeightToFontSize : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            var containerHeightPixels = (double)value;
-
-            // Todo: Properly account for line height etc. For now, just shrink the value.
-            // Also this reduces the size to account for tall cells in portrait orientation.
-            double fontHeightPoints = containerHeightPixels * 0.8;
-
-            return fontHeightPoints;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class SquareTargetIndexToContainerFrameVisibility : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            var targetIndex = (int)value;
-
-            return (targetIndex != 15);
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class SquareTargetIndexToIsVisible : IMultiValueConverter
-    {
-        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
-        {
-            if ((values == null) || (values.Length < 2) || (values[0] == null) || (values[1] == null))
-            {
-                return 0;
-            }
-
-            var targetIndex = (int)values[0];
-            var picturesVisible = (bool)values[1];
-
-            return picturesVisible && (targetIndex != 15);
-        }
-
-        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class SquareTargetIndexToImageTranslationX : IMultiValueConverter
-    {
-        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
-        {
-            if ((values == null) || (values.Length < 2) || (values[0] == null) || (values[1] == null))
-            {
-                return 0;
-            }
-
-            var targetIndex = (int)values[0];
-            var columnIndex = targetIndex % 4;
-
-            var collectionViewWidth = (double)values[1];
-            var columnWidth = collectionViewWidth / 4;
-
-            double multiplier = Utils.GetMultiplierFromRowColumnIndex(columnIndex);
-
-            double imageOffset = multiplier * columnWidth;
-
-            return imageOffset;
-        }
-
-        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class SquareTargetIndexToImageTranslationY : IMultiValueConverter
-    {
-        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
-        {
-            if ((values == null) || (values.Length < 2) || (values[0] == null) || (values[1] == null))
-            {
-                return 0;
-            }
-
-            var targetIndex = (int)values[0];
-            var rowIndex = targetIndex / 4;
-
-            var collectionViewHeight = (double)values[1];
-            var columnHeight = collectionViewHeight / 4;
-
-            double multiplier = Utils.GetMultiplierFromRowColumnIndex(rowIndex);
-
-            double imageOffset = multiplier * columnHeight;
-
-            return imageOffset;
-        }
-
-        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class Utils
-    {
-        static public double GetMultiplierFromRowColumnIndex(int index)
-        {
-            double multiplier = 0;
-            switch (index)
-            {
-                case 0:
-                    multiplier = 1.5;
-                    break;
-                case 1:
-                    multiplier = 0.5;
-                    break;
-                case 2:
-                    multiplier = -0.5;
-                    break;
-                default:
-                    multiplier = -1.5;
-                    break;
-            }
-
-            return multiplier;
+            Debug.WriteLine("MobileGridGames: Leave EndReset");
         }
     }
 }
-
-

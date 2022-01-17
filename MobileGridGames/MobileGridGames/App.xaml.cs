@@ -12,9 +12,6 @@ namespace MobileGridGames
 
             InitializeComponent();
 
-            // Todo: Register DependencyService here.
-            //DependencyService.Register<MockDataStore>();
-            
             MainPage = new AppShell();
         }
 

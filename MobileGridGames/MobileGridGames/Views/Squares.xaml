@@ -14,6 +14,7 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
+            <localviews:GameIsNotReadyToSquaresOpacity x:Key="GameIsNotReadyToSquaresOpacity" />
             <localviews:CollectionViewHeightToRowHeight x:Key="CollectionViewHeightToRowHeight" />
             <localviews:NumberSizeIndexToGridRowHeight x:Key="NumberSizeIndexToGridRowHeight" />
             <localviews:LabelContainerHeightToFontSize x:Key="LabelContainerHeightToFontSize" />
@@ -30,16 +31,16 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <imageeditor:SfImageEditor x:Name="GridGameImageEditor" 
+        <imageeditor:SfImageEditor Grid.Row="0" x:Name="GridGameImageEditor" 
             IsVisible="False"
             ImageLoaded="GridGameImageEditor_ImageLoaded" 
             ImageEdited="GridGameImageEditor_ImageEdited"
             ImageSaving="GridGameImageEditor_ImageSaving"
-            EndReset="GridGameImageEditor_EndReset"
-            Grid.Row="0" />
+            EndReset="GridGameImageEditor_EndReset" />
 
         <CollectionView Grid.Row="1"
             x:Name="SquaresCollectionView"
+            Opacity="{Binding GameIsNotReady, Converter={StaticResource GameIsNotReadyToSquaresOpacity}}"
             SelectionMode="Single"
             SelectionChanged="SquaresGrid_SelectionChanged"
             ItemsSource="{Binding SquareListCollection}">
@@ -50,8 +51,8 @@
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type CollectionView}}, Path=Height,
-                            Converter={StaticResource CollectionViewHeightToRowHeight}}">
+                    <Grid HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type CollectionView}}, 
+                        Path=Height, Converter={StaticResource CollectionViewHeightToRowHeight}}">
                         <Frame Margin="2" Padding="0">
                             <Grid>
                                 <Grid.RowDefinitions>

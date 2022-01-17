@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using MobileGridGames.Services;
 
@@ -24,7 +23,7 @@ namespace MobileGridGames.ViewModels
 
         public void RaiseNotificationEvent(string notification)
         {
-            Debug.WriteLine("Announced: \"" + notification + "\"");
+            Debug.WriteLine("MobileGridGames: Announcing \"" + notification + "\"");
 
             var service = DependencyService.Get<IMobileGridGamesPlatformAction>();
             service.ScreenReaderAnnouncement(notification);
@@ -94,13 +93,13 @@ namespace MobileGridGames.ViewModels
             set { this.squareList = value; }
         }
 
-        public async Task<bool> AttemptMove(object currentSelection)
+        public bool AttemptMove(object currentSelection)
         {
             bool gameIsWon = false;
 
             Square adjacentSquare = null;
             int emptySquareIndex = -1;
-            //string direction = "";
+            string direction = "";
 
             Square selectedSquare = currentSelection as Square;
 
@@ -119,6 +118,8 @@ namespace MobileGridGames.ViewModels
                 return false;
             }
 
+            var resManager = Resource1.ResourceManager;
+
             // Is the empty square adjacent to this square?
 
             if (currentSelectionIndex % 4 > 0)
@@ -128,7 +129,7 @@ namespace MobileGridGames.ViewModels
                 {
                     emptySquareIndex = currentSelectionIndex - 1;
 
-                    //direction = Resources.ResourceManager.GetString("Left");
+                    direction = resManager.GetString("Left");
                 }
             }
 
@@ -139,7 +140,7 @@ namespace MobileGridGames.ViewModels
                 {
                     emptySquareIndex = currentSelectionIndex - 4;
 
-                    //direction = Resources.ResourceManager.GetString("Up");
+                    direction = resManager.GetString("Up");
                 }
             }
 
@@ -150,7 +151,7 @@ namespace MobileGridGames.ViewModels
                 {
                     emptySquareIndex = currentSelectionIndex + 1;
 
-                    //direction = Resources.ResourceManager.GetString("Right");
+                    direction = resManager.GetString("Right");
                 }
             }
 
@@ -161,41 +162,36 @@ namespace MobileGridGames.ViewModels
                 {
                     emptySquareIndex = currentSelectionIndex + 4;
 
-                    //direction = Resources.ResourceManager.GetString("Down");
+                    direction = resManager.GetString("Down");
                 }
             }
+
+            var service = DependencyService.Get<IMobileGridGamesPlatformAction>();
 
             // If we found an adjacent empty square, swap the clicked square with the empty square.
             if (emptySquareIndex != -1)
             {
                 ++MoveCount;
 
+                var clickedSquareName = squareList[currentSelectionIndex].Name;
+
                 Square temp = squareList[currentSelectionIndex];
                 squareList[currentSelectionIndex] = squareList[emptySquareIndex];
                 squareList[emptySquareIndex] = temp;
-
-                // BARKER: Somehow swap squares here!
-
-                //squareList[emptySquareIndex].PictureImageSource = squareList[currentSelectionIndex].PictureImageSource;
-
-                //var byteArray = yourStream.ToArray();
-                //yourStream?.Dispose();
-
-                //var imageSource = ImageSource.FromStream(() => { return new MemoryStream(byteArray); });
 
                 // Has the game been won?
                 gameIsWon = GameIsWon(squareList);
                 if (!gameIsWon)
                 {
-                    ////string announcement = Resources.ResourceManager.GetString("Moved") +
-                    ////    " " + clickedSquare.Name + " " + direction + ".";
-                    ////AnnounceAction(announcement);
+                    string announcement = resManager.GetString("Moved") +
+                        " " + clickedSquareName + " " + direction + ".";
+                    service.ScreenReaderAnnouncement(announcement);
                 }
             }
             else
             {
-                //string announcement = Resources.ResourceManager.GetString("NoMovePossible");
-                //AnnounceAction(announcement);
+                string announcement = resManager.GetString("NoMovePossible");
+                service.ScreenReaderAnnouncement(announcement);
             }
 
             return gameIsWon;
