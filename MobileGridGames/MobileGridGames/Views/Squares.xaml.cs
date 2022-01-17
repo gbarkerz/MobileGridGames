@@ -9,6 +9,12 @@ using Xamarin.Forms;
 
 // Todo: Sort out keyboard focus on the squares. Focus is almost invisible when run in the emulator.
 
+// Notes:
+// - I tried to remove all specifying of colour completely, to rely only on default colors.
+//   but the Shell bar still showed blue. (Setting the Shell BackgroundColor transparent
+//   didn't affect that.) So I restored all teh app template use of blue and white.
+// - The app does not set any explicity font height, but does set some proportional text size.
+
 namespace MobileGridGames.Views
 {
     public partial class SquaresPage : ContentPage
