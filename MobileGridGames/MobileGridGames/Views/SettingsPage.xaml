@@ -21,7 +21,7 @@
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Text="Squares Settings" FontSize="Title" />
                 <Label Grid.Row="1" Text="Please specify what you would like to appear inside the squares shown in the grid." />
-                <Frame Grid.Row="2" Margin="4,10,4,10">
+                <Frame Grid.Row="2" Margin="4,10,4,4">
                     <StackLayout>
                         <StackLayout Orientation="Horizontal">
                             <Label Text="Show numbers" VerticalOptions="Center" />
@@ -42,7 +42,7 @@
                         </StackLayout>
                     </StackLayout>
                 </Frame>
-                <Frame Grid.Row="3" Margin="4,10,4,10">
+                <Frame Grid.Row="3" Margin="4,4,4,10">
                     <StackLayout>
                         <StackLayout Orientation="Horizontal">
                             <Label Text="Show picture" VerticalOptions="Center" />
@@ -51,7 +51,7 @@
                         </StackLayout>
                         <StackLayout Margin="10,0,0,0">
                             <Button x:Name="PictureBrowseButton" Text="Browse for picture" 
-                                HorizontalOptions="StartAndExpand"
+                                HorizontalOptions="StartAndExpand" Margin="0,0,0,4"
                                 Clicked="PictureBrowseButton_Clicked" />
                             <Label Text="Picture loaded: " />
                             <Label Text="{Binding PicturePath}" />
@@ -60,7 +60,8 @@
                 </Frame>
             </Grid>
             <Button Grid.Row="1" x:Name="CloseButton" 
-                    Text="Close" Clicked="CloseButton_Clicked" />
+                HorizontalOptions="End" Margin="0,0,4,4"
+                Text="Close" Clicked="CloseButton_Clicked" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>
