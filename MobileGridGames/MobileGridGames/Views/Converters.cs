@@ -62,7 +62,7 @@ namespace MobileGridGames.Views
 
             // Todo: Properly account for line height etc. For now, just shrink the value.
             // Also this reduces the size to account for tall cells in portrait orientation.
-            double fontHeightPoints = containerHeightPixels * 0.8;
+            double fontHeightPoints = containerHeightPixels * 0.6;
 
             return fontHeightPoints;
         }

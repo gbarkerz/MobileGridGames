@@ -109,7 +109,7 @@
                                     <Frame Margin="0" Padding="0"
                                         IsVisible="{Binding TargetIndex, Converter={StaticResource SquareTargetIndexToContainerFrameVisibility}}">
                                         <Label Grid.Column="0" Text="{Binding Name}"
-                                            Margin="0" Padding="0,0,8,0"
+                                            Margin="0" Padding="0,-4,8,4"
                                             HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type Grid}}, Path=Height}"
                                             FontSize="{Binding Source={RelativeSource AncestorType={x:Type Grid}}, Path=Height,
                                                 Converter={StaticResource LabelContainerHeightToFontSize}}" />
