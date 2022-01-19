@@ -232,7 +232,7 @@ namespace MobileGridGames {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No move possible..
+        ///   Looks up a localized string similar to A move is not possible from here..
         /// </summary>
         internal static string NoMovePossible {
             get {

@@ -15,6 +15,7 @@ using Xamarin.Forms;
 //   didn't affect that.) So I restored all the app template use of blue and white.
 // - The app does not set any explicity font height, but does set some proportional text size.
 // - Everything needs to be localised.
+// - There seems to be no support by default for a device theme of "Dark".
 
 namespace MobileGridGames.Views
 {
@@ -54,22 +55,14 @@ namespace MobileGridGames.Views
 
                 vm.RaiseNotificationEvent(PleaseWaitLabel.Text);
 
-                try
-                {
-                    GridGameImageEditor.Source = ImageSource.FromFile(vm.PicturePath);
-                }
-                catch (Exception ex)
-                {
-                    // The setting of the images on the squares failed.
-                    Debug.WriteLine("MobileGridGames: Failed to load image from file. " + ex.Message);
+                // If the image fails to load, it seems that the ImageEditor does not throw an exception.
+                // Rather, the various event handlers set up just don't get called. As such, we never 
+                // know there's a problem loading the image. For now, this means that the player must
+                // eventually given up waiting for the image to be loaded, and go to the app Settings 
+                // to select another image.
 
-                    previousLoadedPicture = "";
-                    nextSquareIndexForImageSourceSetting = 0;
-                    GridGameImageEditor.Source = null;
+                GridGameImageEditor.Source = ImageSource.FromFile(vm.PicturePath);
 
-                    vm.RestoreEmptyGrid();
-                    vm.GameIsNotReady = false;
-                }
             }
             else
             {
@@ -215,6 +208,15 @@ namespace MobileGridGames.Views
 
         private void GridGameImageEditor_EndReset(object sender, EndResetEventArgs args)
         {
+            var vm = this.BindingContext as SquaresViewModel;
+
+            // Provide a countdown for players using sceen readers.
+            if (nextSquareIndexForImageSourceSetting % 3 == 0)
+            {
+                var countdown = (15 - nextSquareIndexForImageSourceSetting) / 3;
+                vm.RaiseNotificationEvent(countdown.ToString());
+            }
+
             Debug.WriteLine("MobileGridGames: In EndReset.");
 
             // We've completed the image settings for a square. Continue with the next square if there is one.
@@ -222,18 +224,9 @@ namespace MobileGridGames.Views
 
             Debug.WriteLine("MobileGridGames: nextSquareIndexForImageSourceSetting now " + nextSquareIndexForImageSourceSetting);
 
-            var vm = this.BindingContext as SquaresViewModel;
-
             // If we're not done loading pictures into squares, load a picture into the next square.
             if (nextSquareIndexForImageSourceSetting < 15)
             {
-                // Provide a countdown for players using sceen readers.
-                if (nextSquareIndexForImageSourceSetting % 3 == 0)
-                {
-                    var countdown = (15 - nextSquareIndexForImageSourceSetting) / 3;
-                    vm.RaiseNotificationEvent(countdown.ToString());
-                }
-
                 PerformCrop();
             }
             else
@@ -241,10 +234,7 @@ namespace MobileGridGames.Views
                 // We've loaded all the pictures, so shuffle them and enable the game.
                 vm.ResetGrid();
 
-                vm.RaiseNotificationEvent("Game is ready to play.");
-
                 vm.GameIsNotReady = false;
-
             }
 
             Debug.WriteLine("MobileGridGames: Leave EndReset");

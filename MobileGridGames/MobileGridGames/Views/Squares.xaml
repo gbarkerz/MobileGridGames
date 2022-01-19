@@ -34,7 +34,7 @@
         <imageeditor:SfImageEditor Grid.Row="0" x:Name="GridGameImageEditor" 
             IsVisible="False"
             ImageLoaded="GridGameImageEditor_ImageLoaded" 
-            ImageEdited="GridGameImageEditor_ImageEdited"
+            ImageEdited="GridGameImageEditor_ImageEdited"                                              
             ImageSaving="GridGameImageEditor_ImageSaving"
             EndReset="GridGameImageEditor_EndReset" />
 
@@ -52,7 +52,9 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type CollectionView}}, 
-                        Path=Height, Converter={StaticResource CollectionViewHeightToRowHeight}}">
+                        Path=Height, Converter={StaticResource CollectionViewHeightToRowHeight}}"
+                        AutomationProperties.Name="{Binding AccessibleName}"
+                        AutomationProperties.HelpText="{Binding AccessibleDescription}">
                         <Frame Margin="2" Padding="0">
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -83,18 +85,6 @@
                                             <Binding Source="{x:Reference SquaresPageInstance}" Path="BindingContext.ShowPicture" />
                                         </MultiBinding>
                                     </Image.IsVisible>
-                                    <!--<Image.TranslationX>
-                                        <MultiBinding Mode="OneWay" Converter="{StaticResource SquareTargetIndexToImageTranslationX}">
-                                            <Binding Path="TargetIndex" />
-                                            <Binding Source="{RelativeSource AncestorType={x:Type CollectionView}}" Path="Width" />
-                                        </MultiBinding>
-                                    </Image.TranslationX>
-                                    <Image.TranslationY>
-                                        <MultiBinding Mode="OneWay" Converter="{StaticResource SquareTargetIndexToImageTranslationY}">
-                                            <Binding Path="TargetIndex" />
-                                            <Binding Source="{RelativeSource AncestorType={x:Type CollectionView}}" Path="Height" />
-                                        </MultiBinding>
-                                    </Image.TranslationY>-->
                                 </Image>
                                 
                                 <Grid Grid.Row="0" x:Name="LabelPanel"
@@ -107,9 +97,11 @@
                                     </Grid.ColumnDefinitions>
                                      <!--LineBreakMode doesn't seem to provide the desired results here.--> 
                                     <Frame Margin="0" Padding="0"
-                                        IsVisible="{Binding TargetIndex, Converter={StaticResource SquareTargetIndexToContainerFrameVisibility}}">
-                                        <Label Grid.Column="0" Text="{Binding Name}"
-                                            Margin="0" Padding="0,-4,8,4"
+                                        IsVisible="{Binding TargetIndex, 
+                                            Converter={StaticResource SquareTargetIndexToContainerFrameVisibility}}">
+                                        <Label Grid.Column="0" Text="{Binding VisualLabel}"
+                                            Margin="2,0,4,0"
+                                            HorizontalOptions="Center" VerticalOptions="Center"
                                             HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type Grid}}, Path=Height}"
                                             FontSize="{Binding Source={RelativeSource AncestorType={x:Type Grid}}, Path=Height,
                                                 Converter={StaticResource LabelContainerHeightToFontSize}}" />
@@ -125,6 +117,7 @@
 
         <Frame Grid.Row="1"
             IsVisible="{Binding GameIsNotReady}"
+            AutomationProperties.Name="Loading pictures, please wait."
             VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
             <Label x:Name="PleaseWaitLabel" 
                 Text="Please wait a moment while the pictures are loaded into the squares." 

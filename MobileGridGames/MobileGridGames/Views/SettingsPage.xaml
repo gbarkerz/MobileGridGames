@@ -7,59 +7,65 @@
              x:Class="MobileGridGames.Views.SettingsPage"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
-        <Grid>
+        <Grid Grid.Row="0" Margin="10">
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Margin="10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Label Grid.Row="0" Text="Squares Settings" FontSize="Title" />
-                <Label Grid.Row="1" Text="Please specify what you would like to appear inside the squares shown in the grid." />
-                <Frame Grid.Row="2" Margin="4,4,4,2">
+            <Label Grid.Row="0" Text="Squares Settings" FontSize="Title" />
+            <Label Grid.Row="1" Text="Please specify what you would like to appear inside the squares shown in the grid." />
+            <StackLayout Grid.Row="2">
+                <ScrollView Margin="4,4,4,2">
                     <StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Show numbers" VerticalOptions="Center" />
-                            <CheckBox x:Name="ShowNumbersCheckBox"
-                                VerticalOptions="Center" IsChecked="{Binding ShowNumbers, Mode=TwoWay}" />
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal" Margin="10,0,0,0">
-                            <Label Text="Number size:" VerticalOptions="Center" />
-                            <Picker Title="Number size" VerticalOptions="Center"
-                                SelectedIndex="{Binding NumberSizeIndex, Mode=TwoWay}">
-                                <Picker.Items>
-                                    <x:String>Small</x:String>
-                                    <x:String>Medium</x:String>
-                                    <x:String>Large</x:String>
-                                    <x:String>Extra Large</x:String>
-                                </Picker.Items>
-                            </Picker>
-                        </StackLayout>
+                        <Frame>
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <!--LineBreakMode="WordWrap"
+                                        This does not prevent the label splitting at large font sizes. -->
+                                    <Label x:Name="ShowNumbersLabel" Text="Show numbers" 
+                                        VerticalOptions="Center" />
+                                    <CheckBox x:Name="ShowNumbersCheckBox"
+                                        AutomationProperties.LabeledBy="{x:Reference ShowNumbersLabel}"
+                                        VerticalOptions="Center" IsChecked="{Binding ShowNumbers, Mode=TwoWay}" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Margin="10,0,0,0">
+                                    <Label x:Name="NumberSizeLabel" Text="Number size:" VerticalOptions="Center" />
+                                    <Picker Title="Number size" VerticalOptions="Center"
+                                        AutomationProperties.LabeledBy="{x:Reference NumberSizeLabel}"
+                                        SelectedIndex="{Binding NumberSizeIndex, Mode=TwoWay}">
+                                        <Picker.Items>
+                                            <x:String>Small</x:String>
+                                            <x:String>Medium</x:String>
+                                            <x:String>Large</x:String>
+                                            <x:String>Largest</x:String>
+                                        </Picker.Items>
+                                    </Picker>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame Grid.Row="3" Margin="4,2,4,10">
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label x:Name="ShowPictureLabel" Text="Show picture" VerticalOptions="Center" />
+                                    <CheckBox x:Name="ShowPictureCheckBox" VerticalOptions="Center"
+                                        AutomationProperties.LabeledBy="{x:Reference ShowPictureLabel}"
+                                        IsChecked="{Binding ShowPicture, Mode=TwoWay}" />
+                                </StackLayout>
+                                <StackLayout Margin="10,0,0,0">
+                                    <Button x:Name="PictureBrowseButton" Text="Browse for picture" 
+                                        HorizontalOptions="StartAndExpand" Margin="0,0,0,4"
+                                        Clicked="PictureBrowseButton_Clicked" />
+                                    <Label Text="Picture loaded: " Margin="0,0,0,0" Padding="0,0,0,0" />
+                                    <Label Text="{Binding PicturePath}" Margin="0,0,0,0" Padding="0,0,0,0" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
                     </StackLayout>
-                </Frame>
-                <Frame Grid.Row="3" Margin="4,2,4,10">
-                    <StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Show picture" VerticalOptions="Center" />
-                            <CheckBox x:Name="ShowPictureCheckBox" VerticalOptions="Center"
-                                IsChecked="{Binding ShowPicture, Mode=TwoWay}" />
-                        </StackLayout>
-                        <StackLayout Margin="10,0,0,0">
-                            <Button x:Name="PictureBrowseButton" Text="Browse for picture" 
-                                HorizontalOptions="StartAndExpand" Margin="0,0,0,4"
-                                Clicked="PictureBrowseButton_Clicked" />
-                            <Label Text="Picture loaded: " Margin="0,0,0,0" Padding="0,0,0,0" />
-                            <Label Text="{Binding PicturePath}" Margin="0,0,0,0" Padding="0,0,0,0" />
-                        </StackLayout>
-                    </StackLayout>
-                </Frame>
-            </Grid>
-            <Button Grid.Row="1" x:Name="CloseButton" 
+                </ScrollView>
+            </StackLayout>
+            <Button Grid.Row="3" x:Name="CloseButton" 
                 HorizontalOptions="End" Margin="0,0,4,4"
                 Text="Close" Clicked="CloseButton_Clicked" />
         </Grid>

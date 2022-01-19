@@ -111,7 +111,7 @@
         </MenuItem.IconImageSource>
     </MenuItem>
 
-    <MenuItem Text="Restart" StyleClass="MenuItemLayoutStyle" Clicked="OnRestartMenuItemClicked">
+    <MenuItem Text="Restart Game" StyleClass="MenuItemLayoutStyle" Clicked="OnRestartMenuItemClicked">
         <MenuItem.IconImageSource>
             <FontImageSource
                 Color="{StaticResource Primary}"

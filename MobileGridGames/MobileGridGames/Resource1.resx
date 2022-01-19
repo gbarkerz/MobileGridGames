@@ -175,7 +175,7 @@
     <value>Moved</value>
   </data>
   <data name="NoMovePossible" xml:space="preserve">
-    <value>No move possible.</value>
+    <value>A move is not possible from here.</value>
   </data>
   <data name="Right" xml:space="preserve">
     <value>right</value>
