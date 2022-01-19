@@ -121,7 +121,7 @@
             VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
             <Label x:Name="PleaseWaitLabel" 
                 Text="Please wait a moment while the pictures are loaded into the squares." 
-                FontSize="Large" />
+                FontSize="Large" FontAttributes="Bold" />
         </Frame>
 
     </Grid>
