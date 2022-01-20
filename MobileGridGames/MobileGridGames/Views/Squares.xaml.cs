@@ -8,6 +8,10 @@ using Xamarin.Forms;
 
 // Future: Sort out keyboard focus on the squares. Focus is almost invisible when run in the emulator.
 // Future: Support F5.
+// Future: Support swipe gesture.
+// Future: Timeout an attempt to load if it's taking too long.
+// Future: Prevent access to the Flyout menu items while a picture is loading.
+// Future: Support a dark theme.
 
 // Notes:
 // - I tried to remove all specifying of colour completely, to rely only on default colors.
@@ -61,8 +65,27 @@ namespace MobileGridGames.Views
                 // eventually given up waiting for the image to be loaded, and go to the app Settings 
                 // to select another image.
 
-                GridGameImageEditor.Source = ImageSource.FromFile(vm.PicturePath);
+                // Note that if an invalid filename is supplied here, the return value from ImageSource.FromFile()
+                // does not suggest there's a problem, nor is a helpful event or exception thrown. So check whether
+                // the file exists ourselves first.
 
+                var fileExists = File.Exists(vm.PicturePath);
+                if (fileExists)
+                {
+                    GridGameImageEditor.Source = ImageSource.FromFile(vm.PicturePath);
+
+                    Debug.WriteLine("Grid Games: ImageEditor source now " + GridGameImageEditor.Source.ToString());
+                }
+                else
+                {
+                    Debug.WriteLine("Grid Games: File not found. " + vm.PicturePath);
+
+                    // We'll not attempt to load this picture again.
+                    Preferences.Set("PicturePath", "");
+                    vm.PicturePath = "";
+
+                    vm.GameIsNotReady = false;
+                }
             }
             else
             {
