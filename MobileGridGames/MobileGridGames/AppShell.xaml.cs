@@ -17,9 +17,17 @@ namespace MobileGridGames
         {
             Shell.Current.FlyoutIsPresented = false;
 
-            var settingsPage = new SettingsPage();
-
-            await Navigation.PushModalAsync(settingsPage);
+            // Assume that the current page has to be the Squares page.
+            var squaresPage = CurrentPage as SquaresPage;
+            if (squaresPage != null)
+            {
+                var vm = squaresPage.BindingContext as SquaresViewModel;
+                if (!vm.GameIsNotReady)
+                {
+                    var settingsPage = new SettingsPage();
+                    await Navigation.PushModalAsync(settingsPage);
+                }
+            }
         }
 
         private async void OnHelpMenuItemClicked(object sender, EventArgs e)

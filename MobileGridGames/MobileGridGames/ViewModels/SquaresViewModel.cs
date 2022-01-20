@@ -359,11 +359,14 @@ namespace MobileGridGames.ViewModels
         // Reset the grid to an initial game state.
         public void ResetGrid()
         {
-            MoveCount = 0;
+            if (!GameIsNotReady)
+            {
+                MoveCount = 0;
 
-            Shuffle(squareList);
+                Shuffle(squareList);
 
-            RaiseNotificationEvent("Game is ready to play.");
+                RaiseNotificationEvent("Game is ready to play.");
+            }
         }
 
         public class Square : INotifyPropertyChanged

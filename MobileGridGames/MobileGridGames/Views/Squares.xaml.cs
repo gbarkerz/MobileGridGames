@@ -12,7 +12,6 @@ using Xamarin.Forms;
 //   didn't affect that.) So I restored all the app template use of blue and white.
 // - The app does not set any explicity font height, but does set some proportional text size.
 // - Everything needs to be localised.
-// - There seems to be no support by default for a device theme of "Dark".
 
 namespace MobileGridGames.Views
 {
@@ -65,6 +64,9 @@ namespace MobileGridGames.Views
                 var fileExists = File.Exists(vm.PicturePath);
                 if (fileExists)
                 {
+                    // Future: Verify that if the various event handlers are still being called from the
+                    // previous attempt to load a picture, those event handlers will no longer be called
+                    // once the loading of another picture begins.
                     GridGameImageEditor.Source = ImageSource.FromFile(vm.PicturePath);
 
                     Debug.WriteLine("Grid Games: ImageEditor source now " + GridGameImageEditor.Source.ToString());
@@ -283,9 +285,9 @@ namespace MobileGridGames.Views
             else
             {
                 // We've loaded all the pictures, so shuffle them and enable the game.
-                vm.ResetGrid();
-
                 vm.GameIsNotReady = false;
+
+                vm.ResetGrid();
             }
 
             Debug.WriteLine("MobileGridGames: Leave EndReset");
