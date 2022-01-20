@@ -54,20 +54,31 @@ namespace MobileGridGames.Views
         }
     }
 
-    public class LabelContainerHeightToFontSize : IValueConverter
+    public class LabelContainerHeightToFontSize : IMultiValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
-            var containerHeightPixels = (double)value;
+            if ((values == null) || (values.Length < 2) || (values[0] == null) || (values[1] == null))
+            {
+                return 0;
+            }
+
+            var showNumbers = (bool)values[0];
+            var containerHeightPixels = (double)values[1];
 
             // Todo: Properly account for line height etc. For now, just shrink the value.
             // Also this reduces the size to account for tall cells in portrait orientation.
-            double fontHeightPoints = containerHeightPixels * 0.6;
+            double fontHeightPoints = 0;
+
+            if (showNumbers)
+            {
+                fontHeightPoints = containerHeightPixels * 0.6;
+            }
 
             return fontHeightPoints;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }
