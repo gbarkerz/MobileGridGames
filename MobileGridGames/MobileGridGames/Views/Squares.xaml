@@ -97,15 +97,11 @@
                                     IsVisible="{Binding
                                         Source={x:Reference SquaresPageInstance},
                                         Path=BindingContext.ShowNumbers}">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
                                      <!--LineBreakMode doesn't seem to provide the desired results here.--> 
-                                    <Frame Margin="0" Padding="0"
+                                    <Frame Margin="0" Padding="0" HorizontalOptions="Start"
                                         IsVisible="{Binding TargetIndex, 
                                             Converter={StaticResource SquareTargetIndexToContainerFrameVisibility}}">
-                                        <Label Grid.Column="0" Text="{Binding VisualLabel}"
+                                        <Label Text="{Binding VisualLabel}"
                                             Margin="2,0,4,0"
                                             HorizontalOptions="Center" VerticalOptions="Center"
                                             HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type Grid}}, Path=Height}"
