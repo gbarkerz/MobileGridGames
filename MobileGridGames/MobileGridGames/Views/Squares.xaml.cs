@@ -3,6 +3,7 @@ using Syncfusion.SfImageEditor.XForms;
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -98,7 +99,7 @@ namespace MobileGridGames.Views
             AttemptToMoveSquareByName(itemName);
         }
 
-        private void AttemptToMoveSquareByName(string itemName)
+        private async void AttemptToMoveSquareByName(string itemName)
         {
             var vm = this.BindingContext as SquaresViewModel;
 
@@ -114,7 +115,25 @@ namespace MobileGridGames.Views
 
             if (itemIndex != -1)
             {
-                vm.AttemptToMoveSquare(itemIndex);
+                bool gameIsWon = vm.AttemptToMoveSquare(itemIndex);
+                if (gameIsWon)
+                {
+                    await OfferToRestartGame();
+                }
+            }
+        }
+
+        private async Task OfferToRestartGame()
+        {
+            var vm = this.BindingContext as SquaresViewModel;
+
+            var answer = await DisplayAlert(
+                "Congratulations!",
+                "You won the game in " + vm.MoveCount + " moves.\r\n\r\nWould you like to play another game?",
+                "Yes", "No");
+            if (answer)
+            {
+                vm.ResetGrid();
             }
         }
 
@@ -143,14 +162,7 @@ namespace MobileGridGames.Views
 
                 if (gameIsWon)
                 {
-                    var answer = await DisplayAlert(
-                        "Congratulations!",
-                        "You won the game in " + vm.MoveCount + " moves.\r\n\r\nWould you like to play another game?",
-                        "Yes", "No");
-                    if (answer)
-                    {
-                        vm.ResetGrid();
-                    }
+                    await OfferToRestartGame();
                 }
             }
         }
