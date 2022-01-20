@@ -230,14 +230,8 @@ namespace MobileGridGames.ViewModels
                 });
         }
 
-        public bool AttemptMove(object currentSelection)
+        public bool AttemptMoveBySelection(object currentSelection)
         {
-            bool gameIsWon = false;
-
-            Square adjacentSquare = null;
-            int emptySquareIndex = -1;
-            string direction = "";
-
             Square selectedSquare = currentSelection as Square;
 
             int currentSelectionIndex = -1;
@@ -255,49 +249,60 @@ namespace MobileGridGames.ViewModels
                 return false;
             }
 
+            return AttemptToMoveSquare(currentSelectionIndex);
+        }
+
+        public bool AttemptToMoveSquare(int SquareIndex)
+        {
+            bool gameIsWon = false;
+
+            Square adjacentSquare = null;
+            int emptySquareIndex = -1;
+            string direction = "";
+
             var resManager = Resource1.ResourceManager;
 
             // Is the empty square adjacent to this square?
 
-            if (currentSelectionIndex % 4 > 0)
+            if (SquareIndex % 4 > 0)
             {
-                adjacentSquare = squareList[currentSelectionIndex - 1];
+                adjacentSquare = squareList[SquareIndex - 1];
                 if (adjacentSquare.TargetIndex == 15)
                 {
-                    emptySquareIndex = currentSelectionIndex - 1;
+                    emptySquareIndex = SquareIndex - 1;
 
                     direction = resManager.GetString("Left");
                 }
             }
 
-            if ((emptySquareIndex == -1) && (currentSelectionIndex > 3))
+            if ((emptySquareIndex == -1) && (SquareIndex > 3))
             {
-                adjacentSquare = squareList[currentSelectionIndex - 4];
+                adjacentSquare = squareList[SquareIndex - 4];
                 if (adjacentSquare.TargetIndex == 15)
                 {
-                    emptySquareIndex = currentSelectionIndex - 4;
+                    emptySquareIndex = SquareIndex - 4;
 
                     direction = resManager.GetString("Up");
                 }
             }
 
-            if ((emptySquareIndex == -1) && (currentSelectionIndex % 4 < 3))
+            if ((emptySquareIndex == -1) && (SquareIndex % 4 < 3))
             {
-                adjacentSquare = squareList[currentSelectionIndex + 1];
+                adjacentSquare = squareList[SquareIndex + 1];
                 if (adjacentSquare.TargetIndex == 15)
                 {
-                    emptySquareIndex = currentSelectionIndex + 1;
+                    emptySquareIndex = SquareIndex + 1;
 
                     direction = resManager.GetString("Right");
                 }
             }
 
-            if ((emptySquareIndex == -1) && (currentSelectionIndex < 12))
+            if ((emptySquareIndex == -1) && (SquareIndex < 12))
             {
-                adjacentSquare = squareList[currentSelectionIndex + 4];
+                adjacentSquare = squareList[SquareIndex + 4];
                 if (adjacentSquare.TargetIndex == 15)
                 {
-                    emptySquareIndex = currentSelectionIndex + 4;
+                    emptySquareIndex = SquareIndex + 4;
 
                     direction = resManager.GetString("Down");
                 }
@@ -310,10 +315,10 @@ namespace MobileGridGames.ViewModels
             {
                 ++MoveCount;
 
-                var clickedSquareName = squareList[currentSelectionIndex].AccessibleName;
+                var clickedSquareName = squareList[SquareIndex].AccessibleName;
 
-                Square temp = squareList[currentSelectionIndex];
-                squareList[currentSelectionIndex] = squareList[emptySquareIndex];
+                Square temp = squareList[SquareIndex];
+                squareList[SquareIndex] = squareList[emptySquareIndex];
                 squareList[emptySquareIndex] = temp;
 
                 // Has the game been won?

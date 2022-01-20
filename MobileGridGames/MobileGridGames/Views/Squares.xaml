@@ -41,10 +41,10 @@
         <CollectionView Grid.Row="1"
             x:Name="SquaresCollectionView"
             Opacity="{Binding GameIsNotReady, Converter={StaticResource GameIsNotReadyToSquaresOpacity}}"
-            SelectionMode="Single"
+            SelectionMode="Single" 
             SelectionChanged="SquaresGrid_SelectionChanged"
             ItemsSource="{Binding SquareListCollection}">
-
+            
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical" Span="4" />
             </CollectionView.ItemsLayout>
@@ -55,6 +55,12 @@
                         Path=Height, Converter={StaticResource CollectionViewHeightToRowHeight}}"
                         AutomationProperties.Name="{Binding AccessibleName}"
                         AutomationProperties.HelpText="{Binding AccessibleDescription}">
+                        <Grid.GestureRecognizers>
+                            <!-- Future: Add support for SwipeGestureRecognizer here. -->
+                            <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_Tapped"
+                                NumberOfTapsRequired="1" />
+                        </Grid.GestureRecognizers>
                         <Frame Margin="2" Padding="0">
                             <Grid>
                                 <Grid.RowDefinitions>

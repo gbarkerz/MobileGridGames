@@ -6,13 +6,6 @@ using System.IO;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
-// Future: Sort out keyboard focus on the squares. Focus is almost invisible when run in the emulator.
-// Future: Support F5.
-// Future: Support swipe gesture.
-// Future: Timeout an attempt to load if it's taking too long.
-// Future: Prevent access to the Flyout menu items while a picture is loading.
-// Future: Support a dark theme.
-
 // Notes:
 // - I tried to remove all specifying of colour completely, to rely only on default colors.
 //   but the Shell bar still showed blue. (Setting the Shell BackgroundColor transparent
@@ -93,9 +86,44 @@ namespace MobileGridGames.Views
             }
         }
 
-        // Todo: Remove this code-behind, and bind the SelectionChanged event directly to action in the view model.
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            var itemGrid = (Grid)sender;
+            var itemName = AutomationProperties.GetName(itemGrid);
+
+            Debug.WriteLine("Grid Games: Tapped on Square " + itemName);
+
+            AttemptToMoveSquareByName(itemName);
+        }
+
+        private void AttemptToMoveSquareByName(string itemName)
+        {
+            var vm = this.BindingContext as SquaresViewModel;
+
+            int itemIndex = -1;
+            for (int i = 0; i < 16; ++i)
+            {
+                if (vm.SquareListCollection[i].AccessibleName == itemName)
+                {
+                    itemIndex = i;
+                    break;
+                }
+            }
+
+            if (itemIndex != -1)
+            {
+                vm.AttemptToMoveSquare(itemIndex);
+            }
+        }
+
+        // SelectionChanged handling only exists today in the app to support Android Switch Access. 
+        // SelectionChanged will also be a part of keyboard support, but currently the rest of the 
+        // app is not keyboard accessible, and focus feedback is unusable on the items.
+
         private async void SquaresGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Debug.WriteLine("Grid Games: Selection changed. Selection count is " + e.CurrentSelection.Count);
+
             // Do nothing here if pictures have not been loaded yet onto the squares.
             var vm = this.BindingContext as SquaresViewModel;
             if (vm.GameIsNotReady)
@@ -106,7 +134,7 @@ namespace MobileGridGames.Views
             // No action required here if there is no selected item.
             if (e.CurrentSelection.Count > 0)
             {
-                bool gameIsWon = vm.AttemptMove(e.CurrentSelection[0]);
+                bool gameIsWon = vm.AttemptMoveBySelection(e.CurrentSelection[0]);
 
                 // Clear the selection now to support the same square moving again.
                 SquaresCollectionView.SelectedItem = null;
