@@ -89,30 +89,38 @@ namespace MobileGridGames.Views
             }
         }
 
-        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-        {
-            var itemGrid = (Grid)sender;
-            var itemName = AutomationProperties.GetName(itemGrid);
-
-            Debug.WriteLine("Grid Games: Tapped on Square " + itemName);
-
-            AttemptToMoveSquareByName(itemName);
-        }
-
-        private async void AttemptToMoveSquareByName(string itemName)
+        private int GetItemCollectionIndexFromItemAccessibleName(string ItemAccessibleName)
         {
             var vm = this.BindingContext as SquaresViewModel;
 
             int itemIndex = -1;
             for (int i = 0; i < 16; ++i)
             {
-                if (vm.SquareListCollection[i].AccessibleName == itemName)
+                if (vm.SquareListCollection[i].AccessibleName == ItemAccessibleName)
                 {
                     itemIndex = i;
                     break;
                 }
             }
 
+            return itemIndex;
+        }
+
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            var itemGrid = (Grid)sender;
+            var itemAccessibleName = AutomationProperties.GetName(itemGrid);
+
+            Debug.WriteLine("Grid Games: Tapped on Square " + itemAccessibleName);
+
+            AttemptToMoveSquareByName(itemAccessibleName);
+        }
+
+        private async void AttemptToMoveSquareByName(string itemName)
+        {
+            var vm = this.BindingContext as SquaresViewModel;
+
+            int itemIndex = GetItemCollectionIndexFromItemAccessibleName(itemName);
             if (itemIndex != -1)
             {
                 bool gameIsWon = vm.AttemptToMoveSquare(itemIndex);
