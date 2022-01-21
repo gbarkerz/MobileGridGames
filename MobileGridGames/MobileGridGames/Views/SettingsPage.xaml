@@ -5,7 +5,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="MobileGridGames.Views.SettingsPage"
+             xmlns:localviews="clr-namespace:MobileGridGames.Views"
              Shell.NavBarIsVisible="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <localviews:SettingsPicturePathToPicturePathLabelIsVisible x:Key="SettingsPicturePathToPicturePathLabelIsVisible" />
+        </ResourceDictionary>
+    </ContentPage.Resources>    
+    
     <ContentPage.Content>
         <Grid Grid.Row="0" Margin="10">
             <Grid.RowDefinitions>
@@ -57,7 +65,10 @@
                                     <Button x:Name="PictureBrowseButton" Text="Browse for picture" 
                                         HorizontalOptions="StartAndExpand" Margin="0,0,0,4"
                                         Clicked="PictureBrowseButton_Clicked" />
-                                    <Label Text="Picture loaded: " Margin="0,0,0,0" Padding="0,0,0,0" />
+                                    <Label Text="Picture loaded: " 
+                                        IsVisible="{Binding PicturePath, 
+                                            Converter={StaticResource SettingsPicturePathToPicturePathLabelIsVisible}}"
+                                        Margin="0,0,0,0" Padding="0,0,0,0" />
                                     <Label Text="{Binding PicturePath}" Margin="0,0,0,0" Padding="0,0,0,0" />
                                 </StackLayout>
                             </StackLayout>

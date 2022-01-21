@@ -193,6 +193,23 @@ namespace MobileGridGames.Views
         }
     }
 
+    public class SettingsPicturePathToPicturePathLabelIsVisible : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var picturePath = (string)value;
+
+            bool picturePathLabelIsVisible = !String.IsNullOrWhiteSpace(picturePath);
+
+            return picturePathLabelIsVisible;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }       
+
     public class Utils
     {
         static public double GetMultiplierFromRowColumnIndex(int index)
