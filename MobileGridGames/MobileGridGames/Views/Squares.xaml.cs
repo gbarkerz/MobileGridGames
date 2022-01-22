@@ -7,13 +7,6 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
-// Notes:
-// - I tried to remove all specifying of colour completely, to rely only on default colors.
-//   but the Shell bar still showed blue. (Setting the Shell BackgroundColor transparent
-//   didn't affect that.) So I restored all the app template use of blue and white.
-// - The app does not set any explicity font height, but does set some proportional text size.
-// - Everything needs to be localised.
-
 namespace MobileGridGames.Views
 {
     public partial class SquaresPage : ContentPage
