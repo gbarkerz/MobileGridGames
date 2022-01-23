@@ -2,7 +2,7 @@
 
 **Goals**
 
-The goals of this app are to (1) demonstrate some accessibility considerations and implementation relating to a simple Xamarin game app, and (2) make an enjoyable game available for everyone.
+The goals of this app are: (1) to demonstrate some accessibility considerations and implementation relating to a simple Xamarin game app, and (2) make an enjoyable game available for everyone.
 
 This exploration into accessibility is a continuation of the exploration started with [How a Card Matching game is compliant with international accessibility standards](https://www.linkedin.com/pulse/how-card-matching-game-compliant-international-standards-guy-barker).
 
@@ -14,7 +14,7 @@ The game is based on a square sliding game, where squares in a grid of squares a
 
 When the game is run, a 4x4 grid of squares appears, with 15 of those squares occupied with an movable element, and 1 square being empty. When a square is tapped, if it is adjacent to the empty square, the tapped square moves into the empty square. The space where the tapped square was then becomes the empty square. The aim is to arrange all the squares in a sorted order, leaving the empty square in the bottom right corner of the grid.
 
-If the game setting to have numbers shown on the square is on, then a number is shown in the top left corner of the squares. The sorted order is for the numbers to start at 1, and increases from left to right and top to bottom. 
+If the game setting to have numbers shown on the square is on, then a number is shown in the top left corner of the squares. The sorted order is for the numbers to start at 1, and increases from left to right then top to bottom. 
 
 If the game setting to have a picture shown on the squares is on, then a single picture is shown across all the squares. The sections of the picture will appear jumbled until the squares are arranged in their sorted order.
 
@@ -24,9 +24,15 @@ The following image shows the game showing ordered squares in the grid, with a n
 
 ![The following image shows the game showing ordered squares in the grid, with a number between 1 and 15 shown on the squares.](Screenshots/Pic1_NoPic_Numbers_Ordered.png)
 
+&nbsp;
+
 The following image shows the game showing a picture jumbled across the squares in the grid.
 
+&nbsp;
+
 ![The game showing a picture jumbled across the squares in the grid.](Screenshots/Pic1_Jumbled.png)
+
+&nbsp;
 
 The following image shows the game showing a picture jumbled across the squares in the grid, with a number between 1 and 15 also shown on the squares.
 
@@ -64,7 +70,19 @@ The following image shows the game showing a picture ordered across the squares 
 
 ***Magnification***: The standard use of the system's [Magnification](https://support.google.com/accessibility/android/answer/6006949) can be used when playing this game.
 
-***TalkBack***: Turn on [TalkBack](https://support.google.com/accessibility/android/answer/6007100), and move your finger around the screen to have the number of the square beneath your finger announced. If TalkBack moves between rows or columns in the grid of squares, it will announce the new row or column. Double tap to move a square. TalkBack will make various announcements as actions are taking in the game.
+***TalkBack***: Turn on [TalkBack](https://support.google.com/accessibility/android/answer/6007100), and move your finger around the screen to have the number of the square beneath your finger announced. If TalkBack moves between rows or columns in the grid of squares, it will announce the new row or column. Double tap to move a square. TalkBack will make the following announcements following specific actions being taken in the game.
+
+&nbsp;
+
+1. "Please wait a moment while the pictures are loaded into the squares."
+
+2. ***A countdown as the pictures are loaded into the squares.***
+
+3. "Game is ready to play."
+
+4. "Moved ***Square number*** ***Direction of move***."
+
+5. "A move is not possible from here."
 
 &nbsp;
 
@@ -88,9 +106,9 @@ The following image shows the game with a jumbled picture on the squares, and Ta
 
 ***Note for devs***
 
-This app was based on an Visual Studio template for MVVM Xamarin apps. The app is now however definitely not an MVVM app, and does not show best practices at all for building Xamarin apps. It exists at the moment only to explore a variety if interaction models when playing this specific game. Depending on whether the game generates any interests, the code might be updated to have a better MVVM design, but until then, devs should only consider looking at this code if they're interested in specific accessibility-related topics.
+This app was based on an Visual Studio template for MVVM Xamarin apps. The app is now however definitely not an MVVM app, and does not show best practices at all for building Xamarin apps. It exists at the moment only to explore a variety if interaction methods when playing this specific game. Depending on whether the game generates any interest, the code might be updated to have a better MVVM design, but until then, devs should only consider looking at this code if they're interested in specific accessibility-related topics.
 
-***Grid Control***: An early consideration in build this app was which Xamarin control would be the best match for the grid of Squares. While the WinForms version of this game uses a DataGridView, the best match for this Xamarin app seemed to be the [CollectionView](https://docs.microsoft.com/xamarin/xamarin-forms/user-interface/collectionview) control. It seemed relatively straightforward to present a 4x4 grid of items in the CollectionView, and resize the items to fill the screen regardless of screen size or orientation. If also seemed practical to resize the contents of the items to fill whatever portion of the item is required.
+***Grid Control***: An early consideration when building this app was which Xamarin control would be the best match for the grid of squares. While the [WinForms version](https://github.com/gbarkerz/WinFormsMatchingGame/tree/master/WinFormsSquaresGame) of this game uses a DataGridView, the best match for this Xamarin app seemed to be the [CollectionView](https://docs.microsoft.com/xamarin/xamarin-forms/user-interface/collectionview) control. It seemed relatively straightforward to present a 4x4 grid of items in the CollectionView, and resize the items to fill the screen regardless of screen size or orientation. If also seemed practical to resize the contents of the items to fill whatever portion of the item is required.
 
 ***Reacting to input***: When development on the app began, it was assumed that the first version of the app would support keyboard use. The simplest way to support keyboard use seemed to be through responding to a change of [Selection](https://docs.microsoft.com/xamarin/xamarin-forms/user-interface/collectionview/selection) in the CollectionView. So this approach was taken to support both keyboard use and touch use, despite the suggestion at [Handling Item Taps](https://devblogs.microsoft.com/xamarin/5-quick-tips-for-collectionview/#handling-item-taps) that a tap gesture might be more straightforward way to support touch input. However, testing indicated that tap gesture support would be required to support Voice Access, and as such the SelectionChanged approach was replaced with the tap gesture approach. However, testing then indicated that the SelectionChanged support would be required to support Switch Access. The end result is that the app reacts to both SelectionChanged and tap gestures.
 
@@ -98,27 +116,17 @@ This app was based on an Visual Studio template for MVVM Xamarin apps. The app i
 
 So the approach changed to have only the specific portion of the overall image set as the image on each square. This involved generating 15 cropped images from the original image. I'm not aware of a native Xamarin image editor which can do this, so I used the [SyncFusion Image Editor](https://help.syncfusion.com/xamarin/image-editor/overview). Through a series of calls to the SfImageEditor's ToggleCrop(), Crop(), Save(), and Reset(), the appropriate portions of the original image were set on the squares, leaving the original image file unaffected. It seems that some of the calls need to be run on the UI thread, and I really don't understand the SfImageEditor's threading model, but the desired result seemed to be acheived. I expect this code will be updated once I learn more about best practices for the SfImageEditor.
 
-Note: My use of the SfImageEditor control was covered by the [Syncfusion Community Licence](https://www.syncfusion.com/products/communitylicense). If you were to consider using the contol, you'd use whatever licence is appropriate for you and add your own licence key to the code.
+Note: My use of the SfImageEditor control is covered by the [Syncfusion Community Licence](https://www.syncfusion.com/products/communitylicense). If you were to consider using the contol, you'd use whatever licence is appropriate for you and add your own licence key to the code.
 
-***Size of Text***: As part of this exploration into accessibility, there is no explicit sizing of text or containers anywhere in the code. This is very deliberate, in order to reduce the risk of text being clipped when some UI scaling is applied. The height of text shown in the grid squares is relative to the height of the grid row containing the square. The height of text shown in the Settings window is set by the system, and the window uses a ScrollView to ensure all content can be reached when text is shown as its maximum size. As a result, all text is viewable in the game even when the game's in-app text size setting and the system's Font size and Display size settings are all at their maximum values.
+***Size of Text***: As part of this exploration into accessibility, there is no hard-coded sizing of text or containers anywhere in the code. This is very deliberate, in order to reduce the risk of text being clipped when some UI scaling is applied. The height of text shown in the grid squares is relative to the height of the grid row containing the square. The height of text shown in the Settings window is set by the system, and the window uses a ScrollView to ensure all content can be reached when text is shown as its maximum size. As a result, all text is viewable in the game even when the game's in-app text size setting and the system's Font size and Display size settings are all at their maximum values.
 
 ***Use of Colour***: The app uses the same colours that came with the template used to create the app. At some point work may be done to support a Dark theme in the app.
 
 ***Use of Timers***: No timers are used in the app. If in the future timers are used, the timeout periods much be in full control of the player.
 
-***TalkBack***: The Xamarin [AutomationProperties](https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/accessibility/automation-properties) class is used to set explicit accessible names to the squares. If the app ever ships in a non-English region, the accessible names must be localized. The app can support having accessible descriptions set on the squares too, and so this will be done if feedback suggest that would be helpful to players. 
+***TalkBack***: The Xamarin [AutomationProperties](https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/accessibility/automation-properties) class is used to set explicit accessible names to the squares. If the app ever ships in a non-English region, the accessible names must be localized. The app can support having accessible descriptions set on the squares too, and so this will be done if feedback suggests that that would be helpful to players. 
 
-Android platform-specific code is used to raise events for TalkBack to react and make the following announcements:
-
-1. "Please wait a moment while the pictures are loaded into the squares."
-
-2. ***A countdown as the pictures is loaded into the squares.***
-
-3. "Game is ready to play."
-
-4. "Moved ***Square number*** ***Direction of move***."
-
-5. "A move is not possible from here."
+Android platform-specific code is used to raise events for TalkBack to react to following a variety of player actions.
 
 &nbsp;
 
