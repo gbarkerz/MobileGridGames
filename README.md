@@ -18,9 +18,43 @@ If the game setting to have numbers shown on the square is on, then a number is 
 
 If the game setting to have a picture shown on the squares is on, then a single picture is shown across all the squares. The sections of the picture will appear jumbled until the squares are arranged in their sorted order.
 
+The following image shows the game showing ordered squares in the grid, with a number between 1 and 15 shown on the squares.
+
+&nbsp;
+
+![The following image shows the game showing ordered squares in the grid, with a number between 1 and 15 shown on the squares.](Screenshots/Pic1_NoPic_Numbers_Ordered.png)
+
+&nbsp;
+
+The following image shows the game showing a picture jumbled across the squares in the grid.
+
 &nbsp;
 
 ![The game showing a picture jumbled across the squares in the grid.](Screenshots/Pic1_Jumbled.png)
+
+&nbsp;
+
+The following image shows the game showing a picture jumbled across the squares in the grid, with a number between 1 and 15 also shown on the squares.
+
+&nbsp;
+
+![The game showing a picture jumbled across the squares in the grid, with a number between 1 and 15 also shown on the squares.](Screenshots/Pic1_Jumbled_Numbers.png)
+
+&nbsp;
+
+The following image shows the game showing a picture ordered across the squares in the grid.
+
+&nbsp;
+
+![The game showing a picture ordered across the squares in the grid.](Screenshots/Pic1_Ordered_Numbers.png)
+
+&nbsp;
+
+The following image shows the game showing a picture ordered across the squares in the grid, with a number between 1 and 15 also shown on the squares.
+
+&nbsp;
+
+![The game showing a picture ordered across the squares in the grid, with a number between 1 and 15 also shown on the squares.](Screenshots/Pic1_Ordered_Numbers.png)
 
 &nbsp;
 
@@ -34,9 +68,25 @@ If the game setting to have a picture shown on the squares is on, then a single 
 
 ***Switch Access***: Activate the system's [Switch Access](https://support.google.com/accessibility/android/answer/6301490), scan to the square to be moved and then press the switch to move the square.
 
+***Magnification***: The standard use of the system's [Magnification](https://support.google.com/accessibility/android/answer/6006949) can be used when playing this game.
+
 ***TalkBack***: Turn on [TalkBack](https://support.google.com/accessibility/android/answer/6007100), and move your finger around the screen to have the number of the square beneath your finger announced. If TalkBack moves between rows or columns in the grid of squares, it will announce the new row or column. Double tap to move a square. TalkBack will make various announcements as actions are taking in the game.
 
-***Magnification***: The standard use of the system's [Magnification](https://support.google.com/accessibility/android/answer/6006949) can be used when playing this game.
+&nbsp;
+
+The following image shows the game with a jumbled picture on the squares, and TalkBack speech of "11, Row 2, Column 2, In grid, 4 rows, 4 columns".
+
+&nbsp;
+
+![The game a jumbled picture on the squares, and TalkBack speech of "11, Row 2, Column 2, In grid, 4 rows, 4 columns"".](Screenshots/Pic1_TalkBack_RowColumn.png)
+
+&nbsp;
+
+The following image shows the game with a jumbled picture on the squares, and TalkBack speech of "Moved 11 left."
+
+&nbsp;
+
+![The game with a jumbled picture on the squares, and TalkBack speech of "Moved 11 left."](Screenshots/Pic1_TalkBack_Move.png)
 
 &nbsp;
 
