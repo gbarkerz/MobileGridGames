@@ -12,6 +12,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Screenshots", "Screenshots", "{E51FD97A-E430-43C6-A8D0-9EB125227A13}"
+	ProjectSection(SolutionItems) = preProject
+		Screenshots\Pic1_Jumbled.png = Screenshots\Pic1_Jumbled.png
+		Screenshots\Pic1_Jumbled_Numbers.png = Screenshots\Pic1_Jumbled_Numbers.png
+		Screenshots\Pic1_NoPic_Numbers_Ordered.png = Screenshots\Pic1_NoPic_Numbers_Ordered.png
+		Screenshots\Pic1_Ordered.png = Screenshots\Pic1_Ordered.png
+		Screenshots\Pic1_Ordered_Numbers.png = Screenshots\Pic1_Ordered_Numbers.png
+		Screenshots\Pic1_TalkBack_Move.png = Screenshots\Pic1_TalkBack_Move.png
+		Screenshots\Pic1_TalkBack_RowColumn.png = Screenshots\Pic1_TalkBack_RowColumn.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +44,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E51FD97A-E430-43C6-A8D0-9EB125227A13} = {DFBC4831-2550-466C-9DBB-9DC8FC76FD80}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {43A90D6D-1C3E-4B97-BCEC-FF3B181E6509}

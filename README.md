@@ -20,6 +20,10 @@ If the game setting to have a picture shown on the squares is on, then a single 
 
 &nbsp;
 
+[The game showing a picture jumbled across the squares in the grid.](Screenshots\Pic1_Jumbled.png)
+
+&nbsp;
+
 **Ways to play the game**
 
 ***Tapping with a finger***: Tap the square to be moved.
