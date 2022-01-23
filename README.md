@@ -24,15 +24,9 @@ The following image shows the game showing ordered squares in the grid, with a n
 
 ![The following image shows the game showing ordered squares in the grid, with a number between 1 and 15 shown on the squares.](Screenshots/Pic1_NoPic_Numbers_Ordered.png)
 
-&nbsp;
-
 The following image shows the game showing a picture jumbled across the squares in the grid.
 
-&nbsp;
-
 ![The game showing a picture jumbled across the squares in the grid.](Screenshots/Pic1_Jumbled.png)
-
-&nbsp;
 
 The following image shows the game showing a picture jumbled across the squares in the grid, with a number between 1 and 15 also shown on the squares.
 
