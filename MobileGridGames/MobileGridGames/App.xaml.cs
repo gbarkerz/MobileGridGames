@@ -1,5 +1,4 @@
-﻿//using MobileGridGames.Services;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace MobileGridGames
 {

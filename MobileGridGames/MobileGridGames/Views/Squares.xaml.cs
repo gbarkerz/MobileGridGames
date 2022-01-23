@@ -22,14 +22,14 @@ namespace MobileGridGames.Views
         {
             base.OnAppearing();
 
-            // Todo: Bind the UI directly to the Settings view model. Until then, set the
-            // number size in the Square view model whenever the Squares page is shown.
+            // Account for the app settings changing since the page was last shown.
             var vm = this.BindingContext as SquaresViewModel;
             vm.ShowNumbers = Preferences.Get("ShowNumbers", true);
             vm.NumberHeight = Preferences.Get("NumberSizeIndex", 1);
             vm.ShowPicture = Preferences.Get("ShowPicture", true);
             vm.PicturePath = Preferences.Get("PicturePath", "");
 
+            // Has the state of the picture being shown changed since we were last changed?
             if (vm.ShowPicture && (vm.PicturePath != previousLoadedPicture))
             {
                 // Prevent input on the grid while the image is being loaded into the squares.
@@ -38,21 +38,17 @@ namespace MobileGridGames.Views
                 // Cache the path to the loaded picture.
                 previousLoadedPicture = vm.PicturePath;
 
+                // Restore the order of the squares in the grid.
                 vm.RestoreEmptyGrid();
 
-                // The loading of the images into the squares is made synchronously through the 15 squares.
+                // The loading of the images into the squares is made synchronously through the first 15 squares.
                 nextSquareIndexForImageSourceSetting = 0;
 
                 vm.RaiseNotificationEvent(PleaseWaitLabel.Text);
 
-                // If the image fails to load, it seems that the ImageEditor does not throw an exception.
-                // Rather, the various event handlers set up just don't get called. As such, we never 
-                // know there's a problem loading the image. For now, this means that the player must
-                // eventually given up waiting for the image to be loaded, and go to the app Settings 
-                // to select another image.
-
-                // Note that if an invalid filename is supplied here, the return value from ImageSource.FromFile()
-                // does not suggest there's a problem, nor is a helpful event or exception thrown. So check whether
+                // If an invalid filename is supplied here, (for example, a previously valid image has been
+                // deleted from the device), it seems that the return value from ImageSource.FromFile() does
+                // not suggest there's a problem, nor is a helpful event or exception thrown. So check whether
                 // the file exists ourselves first.
 
                 var fileExists = File.Exists(vm.PicturePath);
@@ -82,23 +78,6 @@ namespace MobileGridGames.Views
             }
         }
 
-        private int GetItemCollectionIndexFromItemAccessibleName(string ItemAccessibleName)
-        {
-            var vm = this.BindingContext as SquaresViewModel;
-
-            int itemIndex = -1;
-            for (int i = 0; i < 16; ++i)
-            {
-                if (vm.SquareListCollection[i].AccessibleName == ItemAccessibleName)
-                {
-                    itemIndex = i;
-                    break;
-                }
-            }
-
-            return itemIndex;
-        }
-
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             var itemGrid = (Grid)sender;
@@ -124,6 +103,23 @@ namespace MobileGridGames.Views
             }
         }
 
+        private int GetItemCollectionIndexFromItemAccessibleName(string ItemAccessibleName)
+        {
+            var vm = this.BindingContext as SquaresViewModel;
+
+            int itemIndex = -1;
+            for (int i = 0; i < 16; ++i)
+            {
+                if (vm.SquareListCollection[i].AccessibleName == ItemAccessibleName)
+                {
+                    itemIndex = i;
+                    break;
+                }
+            }
+
+            return itemIndex;
+        }
+
         private async Task OfferToRestartGame()
         {
             var vm = this.BindingContext as SquaresViewModel;
@@ -139,8 +135,8 @@ namespace MobileGridGames.Views
         }
 
         // SelectionChanged handling only exists today in the app to support Android Switch Access. 
-        // SelectionChanged will also be a part of keyboard support, but currently the rest of the 
-        // app is not keyboard accessible, and focus feedback is unusable on the items.
+        // At some point SelectionChanged may also be a part of keyboard support, but currently the
+        // rest of the app is not keyboard accessible, and focus feedback is unusable on the items.
 
         private async void SquaresGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -168,25 +164,49 @@ namespace MobileGridGames.Views
             }
         }
 
-        // The remainder of this file relates to setting of pictures on the squares in the grid.
+        // Important: The remainder of this file relates to setting of pictures on the squares in the
+        // grid. However, the threading model for the various event handlers below is not understood,
+        // so while the code seems to work it seems almost certain that the code will change once the
+        // threading model is understood.
 
         // The use of nextSquareIndexForImageSourceSetting as the index of the square whose
         // PictureImageSource property is being set, assumes that the squares have not yet
         // been shuffled in the view model's collection of Squares.
         private int nextSquareIndexForImageSourceSetting = 0;
 
+        // ImageLoad is called once following the picture being set on the control.
+        private void GridGameImageEditor_ImageLoaded(object sender, ImageLoadedEventArgs args)
+        {
+            Debug.WriteLine("MobileGridGames: In ImageLoaded, calling PerformCrop.");
+
+            if (nextSquareIndexForImageSourceSetting != 0)
+            {
+                Debug.WriteLine("MobileGridGames: Error in ImageLoaded, nextSquareIndexForImageSourceSetting should be zero, " +
+                    nextSquareIndexForImageSourceSetting.ToString());
+
+                return;
+            }
+
+            // Perform a crop for first square.
+            PerformCrop();
+
+            Debug.WriteLine("MobileGridGames: Leave ImageLoaded, done call to PerformCrop.");
+        }
+
         private void PerformCrop()
         {
+            // The x,y values for cropping are a percentage of the full image size.
             int x = 25 * (nextSquareIndexForImageSourceSetting % 4);
             int y = 25 * (nextSquareIndexForImageSourceSetting / 4);
 
             Debug.WriteLine("MobileGridGames: In PerformCrop, crop at " + x + ", " + y + ".");
 
+            // Set up the bounds for the next crop operation.
             GridGameImageEditor.ToggleCropping(new Rectangle(x, y, 25, 25));
 
             Debug.WriteLine("MobileGridGames: Called ToggleCropping.");
 
-            // Todo: Understand why this seems to need to run on the UI thread.
+            // Future: Understand why Crop() seems to need to run on the UI thread.
             Device.BeginInvokeOnMainThread(() =>
             {
                 Debug.WriteLine("MobileGridGames: PerformCrop, about to call Crop.");
@@ -199,16 +219,7 @@ namespace MobileGridGames.Views
             Debug.WriteLine("MobileGridGames: Leave PerformCrop.");
         }
 
-        private void GridGameImageEditor_ImageLoaded(object sender, ImageLoadedEventArgs args)
-        {
-            Debug.WriteLine("MobileGridGames: In ImageLoaded, calling PerformCrop.");
-
-            // Perform crop for first square.
-            PerformCrop();
-
-            Debug.WriteLine("MobileGridGames: Leave ImageLoaded, done call to PerformCrop.");
-        }
-
+        // ImageEdited is called following a Crop operation and when the image is reset.
         private void GridGameImageEditor_ImageEdited(object sender, ImageEditedEventArgs e)
         {
             Debug.WriteLine("MobileGridGames: In ImageEdited.");
@@ -223,23 +234,36 @@ namespace MobileGridGames.Views
             Debug.WriteLine("MobileGridGames: Leave ImageEdited.");
         }
 
+        // ImageSaving is called following each crop of the picture.
         private void GridGameImageEditor_ImageSaving(object sender, ImageSavingEventArgs args)
         {
             Debug.WriteLine("MobileGridGames: In ImageSaving.");
 
-            // Prevent the image from being saved to a file.
+            // Important: Prevent the cropped image from being saved to a file.
             args.Cancel = true; 
 
             var vm = this.BindingContext as SquaresViewModel;
+
+            // Get the image data for the previous crop operation.
             var source = GetImageSourceFromPictureStream(args.Stream);
 
             // We assume here that the use of nextSquareIndexForImageSourceSetting is synchronous
-            // from 0 to 14.
+            // as all the cropping operations are performed.
+
+            if (nextSquareIndexForImageSourceSetting > 14)
+            {
+                Debug.WriteLine("MobileGridGames: Error in ImageSaving, nextSquareIndexForImageSourceSetting too high, " +
+                    nextSquareIndexForImageSourceSetting);
+
+                return;
+            }
+
+            // Set the cropped image on the next square.
             var square = vm.SquareListCollection[nextSquareIndexForImageSourceSetting];
             square.PictureImageSource = source;
 
             // Now reset the image to its original form, in order to perform the next crop.
-            // Todo: Understand why this seems to need to run on the UI thread.
+            // Future: Understand why this seems to need to run on the UI thread.
             Device.BeginInvokeOnMainThread(() =>
             {
                 Debug.WriteLine("MobileGridGames: About to call Reset.");
@@ -272,18 +296,19 @@ namespace MobileGridGames.Views
             return imageSource;
         }
 
+        // EndResetis called as the original image is reset to perform the crop operation for the next square.
         private void GridGameImageEditor_EndReset(object sender, EndResetEventArgs args)
         {
+            Debug.WriteLine("MobileGridGames: In EndReset.");
+
             var vm = this.BindingContext as SquaresViewModel;
 
-            // Provide a countdown for players using sceen readers.
+            // Provide a countdown for players using screen readers.
             if (nextSquareIndexForImageSourceSetting % 3 == 0)
             {
                 var countdown = (15 - nextSquareIndexForImageSourceSetting) / 3;
                 vm.RaiseNotificationEvent(countdown.ToString());
             }
-
-            Debug.WriteLine("MobileGridGames: In EndReset.");
 
             // We've completed the image settings for a square. Continue with the next square if there is one.
             ++nextSquareIndexForImageSourceSetting;

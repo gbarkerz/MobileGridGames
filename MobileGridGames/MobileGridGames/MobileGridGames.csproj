@@ -25,9 +25,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
-    <Compile Update="Views\PairsPage.xaml.cs">
-      <DependentUpon>PairsPage.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>

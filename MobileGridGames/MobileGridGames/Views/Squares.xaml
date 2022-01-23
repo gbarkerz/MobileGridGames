@@ -19,8 +19,6 @@
             <localviews:NumberSizeIndexToGridRowHeight x:Key="NumberSizeIndexToGridRowHeight" />
             <localviews:LabelContainerHeightToFontSize x:Key="LabelContainerHeightToFontSize" />
             <localviews:SquareTargetIndexToIsVisible x:Key="SquareTargetIndexToIsVisible" />
-            <localviews:SquareTargetIndexToImageTranslationX x:Key="SquareTargetIndexToImageTranslationX" />
-            <localviews:SquareTargetIndexToImageTranslationY x:Key="SquareTargetIndexToImageTranslationY" />
             <localviews:SquareTargetIndexToContainerFrameVisibility x:Key="SquareTargetIndexToContainerFrameVisibility" />
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -31,6 +29,8 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
+        <!-- The SfImageEditor is used to programmatically crop the picture in order to show it
+            on the squares, and is never shown to the player. -->
         <imageeditor:SfImageEditor Grid.Row="0" x:Name="GridGameImageEditor" 
             IsVisible="False"
             ImageLoaded="GridGameImageEditor_ImageLoaded" 
@@ -56,10 +56,7 @@
                         AutomationProperties.Name="{Binding AccessibleName}"
                         AutomationProperties.HelpText="{Binding AccessibleDescription}">
                         <Grid.GestureRecognizers>
-                            <!-- Future: Add support for SwipeGestureRecognizer here. -->
-                            <TapGestureRecognizer
-                                Tapped="TapGestureRecognizer_Tapped"
-                                NumberOfTapsRequired="1" />
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                         </Grid.GestureRecognizers>
                         <Frame Margin="2" Padding="0">
                             <Grid>
@@ -97,7 +94,6 @@
                                     IsVisible="{Binding
                                         Source={x:Reference SquaresPageInstance},
                                         Path=BindingContext.ShowNumbers}">
-                                     <!--LineBreakMode doesn't seem to provide the desired results here.--> 
                                     <Frame Margin="0" Padding="0" HorizontalOptions="Start"
                                         IsVisible="{Binding TargetIndex, 
                                             Converter={StaticResource SquareTargetIndexToContainerFrameVisibility}}">
@@ -106,8 +102,8 @@
                                             HorizontalOptions="Center" VerticalOptions="Center"
                                             HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type Grid}}, Path=Height}">
                                             <Label.FontSize>
-                                                <!-- Don't only bind to the grid height here, as that does leaves the FontSize zero 
-                                                    when ShowNumbers is set true after moving squares when ShowNumbers is false. -->
+                                                <!-- Don't only bind to the grid height here, as that leaves the FontSize zero when
+                                                    ShowNumbers is set true after moving squares when ShowNumbers is false. -->
                                                 <MultiBinding Mode="OneWay" 
                                                     Converter="{StaticResource LabelContainerHeightToFontSize}">
                                                     <Binding Source="{x:Reference SquaresPageInstance}"
@@ -127,6 +123,7 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
+        <!-- Show a message when the pictures are being loaded into the squares. -->
         <Frame Grid.Row="1"
             IsVisible="{Binding GameIsNotReady}"
             AutomationProperties.Name="Loading pictures, please wait."

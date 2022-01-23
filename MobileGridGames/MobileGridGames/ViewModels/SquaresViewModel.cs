@@ -13,30 +13,7 @@ namespace MobileGridGames.ViewModels
     {
         public int MoveCount { get; set; }
 
-        public SquaresViewModel()
-        {
-            Title = "Squares V1.0";
-
-            squareList = new ObservableCollection<Square>();
-            this.CreateDefaultSquares();
-        }
-
-        public void RaiseNotificationEvent(string notification)
-        {
-            Debug.WriteLine("MobileGridGames: Announcing \"" + notification + "\"");
-
-            var service = DependencyService.Get<IMobileGridGamesPlatformAction>();
-            service.ScreenReaderAnnouncement(notification);
-        }
-
-        public void RestoreEmptyGrid()
-        {
-            squareList.Clear();
-            this.CreateDefaultSquares();
-        }
-
         private ObservableCollection<Square> squareList;
-
         public ObservableCollection<Square> SquareListCollection
         {
             get { return squareList; }
@@ -93,12 +70,170 @@ namespace MobileGridGames.ViewModels
             }
         }
 
+        public SquaresViewModel()
+        {
+            Title = "Squares V1.0";
+
+            squareList = new ObservableCollection<Square>();
+
+            this.CreateDefaultSquares();
+        }
+
+        public void RaiseNotificationEvent(string notification)
+        {
+            Debug.WriteLine("MobileGridGames: Announcing \"" + notification + "\"");
+
+            var service = DependencyService.Get<IMobileGridGamesPlatformAction>();
+            service.ScreenReaderAnnouncement(notification);
+        }
+
+        public void RestoreEmptyGrid()
+        {
+            squareList.Clear();
+            
+            this.CreateDefaultSquares();
+        }
+
+        public bool AttemptMoveBySelection(object currentSelection)
+        {
+            if (currentSelection == null)
+            {
+                return false;
+            }
+
+            Square selectedSquare = currentSelection as Square;
+
+            int currentSelectionIndex = -1;
+            for (int i = 0; i < 16; ++i)
+            {
+                if (squareList[i] == selectedSquare)
+                {
+                    currentSelectionIndex = i;
+                    break;
+                }
+            }
+
+            if (currentSelectionIndex < 0)
+            {
+                return false;
+            }
+
+            return AttemptToMoveSquare(currentSelectionIndex);
+        }
+
+        public bool AttemptToMoveSquare(int SquareIndex)
+        {
+            bool gameIsWon = false;
+
+            Square adjacentSquare = null;
+            int emptySquareIndex = -1;
+            string direction = "";
+
+            var resManager = Resource1.ResourceManager;
+
+            // Is the empty square adjacent to this square?
+
+            // Check the square to the left.
+            if (SquareIndex % 4 > 0)
+            {
+                adjacentSquare = squareList[SquareIndex - 1];
+                if (adjacentSquare.TargetIndex == 15)
+                {
+                    emptySquareIndex = SquareIndex - 1;
+
+                    direction = resManager.GetString("Left");
+                }
+            }
+
+            // Check the square above.
+            if ((emptySquareIndex == -1) && (SquareIndex > 3))
+            {
+                adjacentSquare = squareList[SquareIndex - 4];
+                if (adjacentSquare.TargetIndex == 15)
+                {
+                    emptySquareIndex = SquareIndex - 4;
+
+                    direction = resManager.GetString("Up");
+                }
+            }
+
+            // Check the square to the right.
+            if ((emptySquareIndex == -1) && (SquareIndex % 4 < 3))
+            {
+                adjacentSquare = squareList[SquareIndex + 1];
+                if (adjacentSquare.TargetIndex == 15)
+                {
+                    emptySquareIndex = SquareIndex + 1;
+
+                    direction = resManager.GetString("Right");
+                }
+            }
+
+            // Check the square below.
+            if ((emptySquareIndex == -1) && (SquareIndex < 12))
+            {
+                adjacentSquare = squareList[SquareIndex + 4];
+                if (adjacentSquare.TargetIndex == 15)
+                {
+                    emptySquareIndex = SquareIndex + 4;
+
+                    direction = resManager.GetString("Down");
+                }
+            }
+
+            // Make an announcement regardless of whether a square is moved.
+            var service = DependencyService.Get<IMobileGridGamesPlatformAction>();
+
+            // If we found an adjacent empty square, swap the clicked square with the empty square.
+            if (emptySquareIndex != -1)
+            {
+                ++MoveCount;
+
+                var clickedSquareName = squareList[SquareIndex].AccessibleName;
+
+                Square temp = squareList[SquareIndex];
+                squareList[SquareIndex] = squareList[emptySquareIndex];
+                squareList[emptySquareIndex] = temp;
+
+                // Has the game been won?
+                gameIsWon = GameIsWon(squareList);
+                if (!gameIsWon)
+                {
+                    string announcement = resManager.GetString("Moved") +
+                        " " + clickedSquareName + " " + direction + ".";
+                    service.ScreenReaderAnnouncement(announcement);
+                }
+            }
+            else
+            {
+                string announcement = resManager.GetString("NoMovePossible");
+                service.ScreenReaderAnnouncement(announcement);
+            }
+
+            return gameIsWon;
+        }
+
+        // Reset the grid to an initial game state.
+        public void ResetGrid()
+        {
+            // Take no action if a picture is still being loaded.
+            if (!this.GameIsNotReady)
+            {
+                MoveCount = 0;
+
+                Shuffle(squareList);
+
+                RaiseNotificationEvent("Game is ready to play.");
+            }
+        }
+
         private void CreateDefaultSquares()
         {
             var resManager = Resource1.ResourceManager;
 
-            // Future: If feedback suggests that exposing HelpText for each item would be helpful 
-            // when playing the game, set that here through the AccessibleDescription property.
+            // Future: If feedback suggests that exposing accessible HelpText for each
+            // item would be helpful when playing the game, set that here through the
+            // AccessibleDescription property.
 
             // Note: This app assumes the total count of cards is 16.
             squareList.Add(
@@ -230,115 +365,6 @@ namespace MobileGridGames.ViewModels
                 });
         }
 
-        public bool AttemptMoveBySelection(object currentSelection)
-        {
-            Square selectedSquare = currentSelection as Square;
-
-            int currentSelectionIndex = -1;
-            for (int i = 0; i < 16; ++i)
-            {
-                if (squareList[i] == selectedSquare)
-                {
-                    currentSelectionIndex = i;
-                    break;
-                }
-            }
-
-            if (currentSelectionIndex < 0)
-            {
-                return false;
-            }
-
-            return AttemptToMoveSquare(currentSelectionIndex);
-        }
-
-        public bool AttemptToMoveSquare(int SquareIndex)
-        {
-            bool gameIsWon = false;
-
-            Square adjacentSquare = null;
-            int emptySquareIndex = -1;
-            string direction = "";
-
-            var resManager = Resource1.ResourceManager;
-
-            // Is the empty square adjacent to this square?
-
-            if (SquareIndex % 4 > 0)
-            {
-                adjacentSquare = squareList[SquareIndex - 1];
-                if (adjacentSquare.TargetIndex == 15)
-                {
-                    emptySquareIndex = SquareIndex - 1;
-
-                    direction = resManager.GetString("Left");
-                }
-            }
-
-            if ((emptySquareIndex == -1) && (SquareIndex > 3))
-            {
-                adjacentSquare = squareList[SquareIndex - 4];
-                if (adjacentSquare.TargetIndex == 15)
-                {
-                    emptySquareIndex = SquareIndex - 4;
-
-                    direction = resManager.GetString("Up");
-                }
-            }
-
-            if ((emptySquareIndex == -1) && (SquareIndex % 4 < 3))
-            {
-                adjacentSquare = squareList[SquareIndex + 1];
-                if (adjacentSquare.TargetIndex == 15)
-                {
-                    emptySquareIndex = SquareIndex + 1;
-
-                    direction = resManager.GetString("Right");
-                }
-            }
-
-            if ((emptySquareIndex == -1) && (SquareIndex < 12))
-            {
-                adjacentSquare = squareList[SquareIndex + 4];
-                if (adjacentSquare.TargetIndex == 15)
-                {
-                    emptySquareIndex = SquareIndex + 4;
-
-                    direction = resManager.GetString("Down");
-                }
-            }
-
-            var service = DependencyService.Get<IMobileGridGamesPlatformAction>();
-
-            // If we found an adjacent empty square, swap the clicked square with the empty square.
-            if (emptySquareIndex != -1)
-            {
-                ++MoveCount;
-
-                var clickedSquareName = squareList[SquareIndex].AccessibleName;
-
-                Square temp = squareList[SquareIndex];
-                squareList[SquareIndex] = squareList[emptySquareIndex];
-                squareList[emptySquareIndex] = temp;
-
-                // Has the game been won?
-                gameIsWon = GameIsWon(squareList);
-                if (!gameIsWon)
-                {
-                    string announcement = resManager.GetString("Moved") +
-                        " " + clickedSquareName + " " + direction + ".";
-                    service.ScreenReaderAnnouncement(announcement);
-                }
-            }
-            else
-            {
-                string announcement = resManager.GetString("NoMovePossible");
-                service.ScreenReaderAnnouncement(announcement);
-            }
-
-            return gameIsWon;
-        }
-
         private bool GameIsWon(ObservableCollection<Square> collection)
         {
             bool gameIsWon = true;
@@ -354,19 +380,6 @@ namespace MobileGridGames.ViewModels
             }
             
             return gameIsWon;
-        }
-
-        // Reset the grid to an initial game state.
-        public void ResetGrid()
-        {
-            if (!GameIsNotReady)
-            {
-                MoveCount = 0;
-
-                Shuffle(squareList);
-
-                RaiseNotificationEvent("Game is ready to play.");
-            }
         }
 
         public class Square : INotifyPropertyChanged
@@ -408,7 +421,6 @@ namespace MobileGridGames.ViewModels
 
                 changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
-
         }
 
         public void Shuffle(ObservableCollection<Square> collection)
@@ -452,8 +464,7 @@ namespace MobileGridGames.ViewModels
                 }
             }
 
-            // The following applies to an even grid.
-
+            // The following only applies to an grid with an even number of rows and columns.
             bool gridCanBeSolved = false;
 
             if (emptySquareRow % 2 == 0)

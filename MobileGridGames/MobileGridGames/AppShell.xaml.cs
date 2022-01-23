@@ -53,7 +53,10 @@ namespace MobileGridGames
             if (squaresPage != null)
             {
                 var vm = squaresPage.BindingContext as SquaresViewModel;
-                vm.ResetGrid();
+                if (!vm.GameIsNotReady)
+                {
+                    vm.ResetGrid();
+                }
             }
         }
     }

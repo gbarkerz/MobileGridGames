@@ -87,7 +87,7 @@
         <ShellContent Route="SquaresPage" ContentTemplate="{DataTemplate local:SquaresPage}" />
     </FlyoutItem>
     
-    <!-- Todo: Add the Pairs game. -->
+    <!-- Future: Add the Pairs game. -->
     <!--<FlyoutItem Title="Pairs" Icon="icon_feed.png">
         <ShellContent Route="PairsPage" ContentTemplate="{DataTemplate local:PairsPage}" />
     </FlyoutItem>-->

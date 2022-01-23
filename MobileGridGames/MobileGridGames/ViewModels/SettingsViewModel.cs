@@ -2,6 +2,7 @@
 
 namespace MobileGridGames.ViewModels
 {
+    // View model for the Settings page in the app.
     public class SettingsViewModel : BaseViewModel
     {
         public SettingsViewModel()
@@ -40,7 +41,7 @@ namespace MobileGridGames.ViewModels
         private bool showPicture;
         public bool ShowPicture
         {
-            get => Preferences.Get("ShowPicture", true);
+            get => Preferences.Get("ShowPicture", false);
             set
             {
                 if (showPicture != value)

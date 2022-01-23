@@ -1,4 +1,4 @@
-# MobileGridGame
+# MobileGridGames
 
 **Goals**
 
@@ -63,10 +63,16 @@ Note: My use of the SfImageEditor control was covered by the [Syncfusion Communi
 Android platform-specific code is used to raise events for TalkBack to react and make the following announcements:
 
 "Please wait a moment while the pictures are loaded into the squares."
+&nbsp;
 ***A countdown as the pictures is loaded into the squares.***
+&nbsp;
 "Game is ready to play."
+&nbsp;
 "Moved ***Square number*** ***Direction of move***."
+&nbsp;
 "A move is not possible from here."
+
+&nbsp;
 
 ***Keyboard Use***: Today the game does not support keyboard use. If keyboard use is supported in the future, it will involve the CollectionView reacting to SelectionChanged events as a key is pressed when an item has keyboard focus. It will also require keyboard focus visual feedback to be much stronger than it is today on the squares. 
 

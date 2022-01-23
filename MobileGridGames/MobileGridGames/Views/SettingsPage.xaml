@@ -30,19 +30,17 @@
                         <Frame>
                             <StackLayout>
                                 <StackLayout Orientation="Horizontal">
-                                    <!--LineBreakMode="WordWrap"
-                                        This does not prevent the label splitting at large font sizes. -->
                                     <Label x:Name="ShowNumbersLabel" Text="Show numbers" 
                                         VerticalOptions="Center" />
                                     <CheckBox x:Name="ShowNumbersCheckBox"
                                         AutomationProperties.LabeledBy="{x:Reference ShowNumbersLabel}"
-                                        VerticalOptions="Center" IsChecked="{Binding ShowNumbers, Mode=TwoWay}" />
+                                        VerticalOptions="Center" IsChecked="{Binding ShowNumbers}" />
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal" Margin="10,0,0,0">
                                     <Label x:Name="NumberSizeLabel" Text="Number size:" VerticalOptions="Center" />
                                     <Picker Title="Number size" VerticalOptions="Center"
                                         AutomationProperties.LabeledBy="{x:Reference NumberSizeLabel}"
-                                        SelectedIndex="{Binding NumberSizeIndex, Mode=TwoWay}">
+                                        SelectedIndex="{Binding NumberSizeIndex}">
                                         <Picker.Items>
                                             <x:String>Small</x:String>
                                             <x:String>Medium</x:String>
@@ -59,7 +57,7 @@
                                     <Label x:Name="ShowPictureLabel" Text="Show picture" VerticalOptions="Center" />
                                     <CheckBox x:Name="ShowPictureCheckBox" VerticalOptions="Center"
                                         AutomationProperties.LabeledBy="{x:Reference ShowPictureLabel}"
-                                        IsChecked="{Binding ShowPicture, Mode=TwoWay}" />
+                                        IsChecked="{Binding ShowPicture}" />
                                 </StackLayout>
                                 <StackLayout Margin="10,0,0,0">
                                     <Button x:Name="PictureBrowseButton" Text="Browse for picture" 
@@ -82,3 +80,4 @@
         </Grid>
     </ContentPage.Content>
 </ContentPage>
+    
