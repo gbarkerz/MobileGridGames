@@ -110,23 +110,15 @@ Note: My use of the SfImageEditor control was covered by the [Syncfusion Communi
 
 Android platform-specific code is used to raise events for TalkBack to react and make the following announcements:
 
-"Please wait a moment while the pictures are loaded into the squares."
+1. "Please wait a moment while the pictures are loaded into the squares."
 
-&nbsp;
+2. ***A countdown as the pictures is loaded into the squares.***
 
-***A countdown as the pictures is loaded into the squares.***
+3. "Game is ready to play."
 
-&nbsp;
+4. "Moved ***Square number*** ***Direction of move***."
 
-"Game is ready to play."
-
-&nbsp;
-
-"Moved ***Square number*** ***Direction of move***."
-
-&nbsp;
-
-"A move is not possible from here."
+5. "A move is not possible from here."
 
 &nbsp;
 
