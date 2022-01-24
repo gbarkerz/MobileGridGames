@@ -46,7 +46,7 @@ The following image shows the game showing a picture ordered across the squares 
 
 &nbsp;
 
-![The game showing a picture ordered across the squares in the grid.](Screenshots/Pic1_Ordered_Numbers.png)
+![The game showing a picture ordered across the squares in the grid.](Screenshots/Pic1_Ordered.png)
 
 &nbsp;
 
