@@ -78,7 +78,7 @@
         FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element    
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
-    <FlyoutItem Title="Squares V1.0" Icon="icon_about.png">
+    <FlyoutItem Title="Squares V1.1" Icon="icon_about.png">
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
                 Glyph="&#xf0c9;"
