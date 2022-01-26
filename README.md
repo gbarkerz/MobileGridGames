@@ -134,11 +134,11 @@ Android platform-specific code is used to raise events for TalkBack to react to 
 
 &nbsp;
 
-**Accessibilty Issues highlighted by Google**
+**Accessibilty issues highlighted by Google**
 
 When submitting the app to the Google Play Store, Google examines the app to raise awareness of potential accessibility issues. Interestingly Google raised concerns around a number of aspects of the app which as far as I know relate to the accessibility of default Xamarin controls or the VS template from which the app was created.
 
-The concerns seem to relate to the contentDescription of the Settings picker, nine instances of text with low contrast, and two instances of small hit targets. For a future release I'll examine all of these concerns, and consider whether it would seem appropriate to override the default properties of some of the controls shown in the app.
+The concerns seem to relate to the contentDescription of the picker in the Settings window, nine instances of text with low contrast, and two instances of small hit targets. For a future release I'll examine all of these concerns, and consider whether it would seem appropriate to override the default properties of some of the controls shown in the app.
 
 &nbsp;
 
