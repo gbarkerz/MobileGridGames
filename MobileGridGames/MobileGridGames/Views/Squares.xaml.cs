@@ -26,7 +26,7 @@ namespace MobileGridGames.Views
             var vm = this.BindingContext as SquaresViewModel;
             vm.ShowNumbers = Preferences.Get("ShowNumbers", true);
             vm.NumberHeight = Preferences.Get("NumberSizeIndex", 1);
-            vm.ShowPicture = Preferences.Get("ShowPicture", true);
+            vm.ShowPicture = Preferences.Get("ShowPicture", false);
             vm.PicturePath = Preferences.Get("PicturePath", "");
 
             // Has the state of the picture being shown changed since we were last changed?
@@ -71,10 +71,6 @@ namespace MobileGridGames.Views
 
                     vm.GameIsNotReady = false;
                 }
-            }
-            else
-            {
-                vm.GameIsNotReady = false;
             }
         }
 

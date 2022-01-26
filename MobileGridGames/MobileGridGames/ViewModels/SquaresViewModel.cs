@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 using MobileGridGames.Services;
+using Xamarin.Essentials;
 
 namespace MobileGridGames.ViewModels
 {
@@ -77,6 +78,15 @@ namespace MobileGridGames.ViewModels
             squareList = new ObservableCollection<Square>();
 
             this.CreateDefaultSquares();
+
+            // If we won't be loading pictures into the squares, shuffle them now.
+            ShowPicture = Preferences.Get("ShowPicture", false);
+            if (!ShowPicture)
+            {
+                GameIsNotReady = false;
+
+                ResetGrid();
+            }
         }
 
         public void RaiseNotificationEvent(string notification)
