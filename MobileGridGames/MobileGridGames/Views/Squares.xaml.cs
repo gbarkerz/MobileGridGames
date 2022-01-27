@@ -35,25 +35,25 @@ namespace MobileGridGames.Views
                 // Prevent input on the grid while the image is being loaded into the squares.
                 vm.GameIsNotReady = true;
 
-                // Cache the path to the loaded picture.
-                previousLoadedPicture = vm.PicturePath;
-
                 // Restore the order of the squares in the grid.
                 vm.RestoreEmptyGrid();
 
                 // The loading of the images into the squares is made synchronously through the first 15 squares.
                 nextSquareIndexForImageSourceSetting = 0;
 
-                vm.RaiseNotificationEvent(PleaseWaitLabel.Text);
-
                 // If an invalid filename is supplied here, (for example, a previously valid image has been
                 // deleted from the device), it seems that the return value from ImageSource.FromFile() does
                 // not suggest there's a problem, nor is a helpful event or exception thrown. So check whether
                 // the file exists ourselves first.
 
-                var fileExists = File.Exists(vm.PicturePath);
-                if (fileExists)
+                // Future: IMPORTANT! Handle an attempt to load a file which isn't handled by the ImageEditor.
+                // As things are today, if a file isn't loaded the app is left in a state where the game's not
+                // ready to play, and a valid file can't then be selected and loaded. 
+
+                if (vm.IsImageFilePathValid(vm.PicturePath))
                 {
+                    vm.RaiseNotificationEvent(PleaseWaitLabel.Text);
+
                     // Future: Verify that if the various event handlers are still being called from the
                     // previous attempt to load a picture, those event handlers will no longer be called
                     // once the loading of another picture begins.
@@ -63,7 +63,7 @@ namespace MobileGridGames.Views
                 }
                 else
                 {
-                    Debug.WriteLine("Grid Games: File not found. " + vm.PicturePath);
+                    Debug.WriteLine("Grid Games: Valid image file not found. " + vm.PicturePath);
 
                     // We'll not attempt to load this picture again.
                     Preferences.Set("PicturePath", "");
@@ -71,6 +71,9 @@ namespace MobileGridGames.Views
 
                     vm.GameIsNotReady = false;
                 }
+
+                // Cache the path to the loaded picture.
+                previousLoadedPicture = vm.PicturePath;
             }
         }
 

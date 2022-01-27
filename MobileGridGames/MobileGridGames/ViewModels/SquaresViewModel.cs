@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 using MobileGridGames.Services;
 using Xamarin.Essentials;
+using System.IO;
 
 namespace MobileGridGames.ViewModels
 {
@@ -73,7 +74,7 @@ namespace MobileGridGames.ViewModels
 
         public SquaresViewModel()
         {
-            Title = "Squares V1.1";
+            Title = "Squares V1.2";
 
             squareList = new ObservableCollection<Square>();
 
@@ -81,12 +82,34 @@ namespace MobileGridGames.ViewModels
 
             // If we won't be loading pictures into the squares, shuffle them now.
             ShowPicture = Preferences.Get("ShowPicture", false);
-            if (!ShowPicture)
+            PicturePath = Preferences.Get("PicturePath", "");
+
+            // Has the state of the picture being shown changed since we were last changed?
+            if (!ShowPicture || !IsImageFilePathValid(PicturePath))
             {
                 GameIsNotReady = false;
 
                 ResetGrid();
             }
+        }
+
+        public bool IsImageFilePathValid(string imageFilePath)
+        {
+            bool ImageFilePathIsValid = false;
+
+            var fileExists = File.Exists(imageFilePath);
+            if (fileExists)
+            {
+                // The ImageEditor documentation states that only png, jpg and bmp formats
+                // are supported, so check the extension suggests that the file is supported.
+                var extension = Path.GetExtension(imageFilePath).ToLower();
+                if ((extension == ".jpg") || (extension == ".png") || (extension == ".bmp"))
+                {
+                    ImageFilePathIsValid = true;
+                }
+            }
+
+            return ImageFilePathIsValid;
         }
 
         public void RaiseNotificationEvent(string notification)
