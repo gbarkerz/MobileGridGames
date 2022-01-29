@@ -14,9 +14,15 @@ The game is based on a square sliding game, where squares in a grid of squares a
 
 When the game is run, a 4x4 grid of squares appears, with 15 of those squares occupied with an movable element, and 1 square being empty. When a square is tapped, if it is adjacent to the empty square, the tapped square moves into the empty square. The space where the tapped square was then becomes the empty square. The aim is to arrange all the squares in a sorted order, leaving the empty square in the bottom right corner of the grid.
 
-If the game setting to have numbers shown on the square is on, then a number is shown in the top left corner of the squares. The sorted order is for the numbers to start at 1, and increases from left to right then top to bottom. 
+***Tip: Don't use a swipe gesture to move a square. Support for swipe gestures has yet to be added to the game.***
 
-If the game setting to have a picture shown on the squares is on, then a single picture is shown across all the squares. The sections of the picture will appear jumbled until the squares are arranged in their sorted order.
+***Tip: Don't tap on the empty square. Instead tap on the squares next to the empty square.***
+
+When the game first runs, the setting to have numbers shown on squares is on, and the settings to have pictures shown on the squares is off. This means a number is shown in the top left corner of the squares. When the squares are sorted, the square showing number 1 is at the top left of the grid, and the numbers increase from left to right then top to bottom. 
+
+**Tip: Practice moving numbered squares around before changing the setting to have a picture shown on the squares.
+
+When the game setting to have a picture shown on the squares is on, then a single picture is shown across all the squares. The sections of the picture will appear jumbled until the squares are arranged in their sorted order.
 
 The following image shows the game showing ordered squares in the grid, with a number between 1 and 15 shown on the squares.
 
@@ -66,11 +72,17 @@ The following image shows the game showing a picture ordered across the squares 
 
 ***Voice Access***: Activate the system's [Voice Access](https://support.google.com/accessibility/android/answer/6151848), and speak the number shown on a square to move the square.
 
+A video of the game being played with Voice Access is at [Android Grid Game V1.2 being played with Voice Access](https://youtu.be/GDxu6h-_g_U).
+
 ***Switch Access***: Activate the system's [Switch Access](https://support.google.com/accessibility/android/answer/6301490), scan to the square to be moved and then press the switch to move the square.
 
 ***Magnification***: The standard use of the system's [Magnification](https://support.google.com/accessibility/android/answer/6006949) can be used when playing this game.
 
 ***TalkBack***: Turn on [TalkBack](https://support.google.com/accessibility/android/answer/6007100), and move your finger around the screen to have the number of the square beneath your finger announced. If TalkBack moves between rows or columns in the grid of squares, it will announce the new row or column. Double tap to move a square. TalkBack will make the following announcements following specific actions being taken in the game.
+
+Please note that during development of the app, TalkBack's announcements were not always consistent. For example, sometimes the row and column of a square was not announced when moving to a square, even with TalkBack's "Speak list and grid information" setting turned on. Also, after double-tapping on a square to move it, once TalkBack made the expected announcement, it then announced that a move of the empty square is not possible. If these issues are experienced by anyone using TalkBack after the game has been downloaded from the Google Play Store, I'll investigate further.
+
+A video of the game being played with TalkBack is at [Android Grid Game V1.3 being played with TalkBack](https://youtu.be/TRv9GON31IE).
 
 &nbsp;
 
