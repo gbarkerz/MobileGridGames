@@ -20,7 +20,7 @@ When the game is run, a 4x4 grid of squares appears, with 15 of those squares oc
 
 When the game first runs, the setting to have numbers shown on squares is on, and the settings to have pictures shown on the squares is off. This means a number is shown in the top left corner of the squares. When the squares are sorted, the square showing number 1 is at the top left of the grid, and the numbers increase from left to right then top to bottom. 
 
-**Tip: Practice moving numbered squares around before changing the setting to have a picture shown on the squares.
+***Tip: Practice moving numbered squares around before changing the setting to have a picture shown on the squares.***
 
 When the game setting to have a picture shown on the squares is on, then a single picture is shown across all the squares. The sections of the picture will appear jumbled until the squares are arranged in their sorted order.
 
