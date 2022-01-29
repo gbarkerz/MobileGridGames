@@ -82,7 +82,9 @@ A video of the game being played with Voice Access is at [Android Grid Game V1.2
 
 Please note that during development of the app, TalkBack's announcements were not always consistent. For example, sometimes the row and column of a square was not announced when moving to a square, even with TalkBack's "Speak list and grid information" setting turned on. Also, after double-tapping on a square to move it, once TalkBack made the expected announcement, it then announced that a move of the empty square is not possible. If these issues are experienced by anyone using TalkBack after the game has been downloaded from the Google Play Store, I'll investigate further.
 
-A video of the game being played with TalkBack is at [Android Grid Game V1.3 being played with TalkBack](https://youtu.be/TRv9GON31IE).
+Also note that the accessible name of the Menu button near the top left corner of the app currently has a name of "OK". This will be changed to have a name of "Menu" at some point.
+
+A video of the game being played with TalkBack is at [Android Grid Game V1.2 being played with TalkBack](https://youtu.be/TRv9GON31IE).
 
 &nbsp;
 
@@ -139,6 +141,8 @@ Note: My use of the SfImageEditor control is covered by the [Syncfusion Communit
 ***TalkBack***: The Xamarin [AutomationProperties](https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/accessibility/automation-properties) class is used to set explicit accessible names to the squares. If the app ever ships in a non-English region, the accessible names must be localized. The app can support having accessible descriptions set on the squares too, and so this will be done if feedback suggests that that would be helpful to players. 
 
 Android platform-specific code is used to raise events for TalkBack to react to following a variety of player actions.
+
+Currently the Menu button created from the app template has an accessible name of "OK". A more appropriate name would be "Menu", but I've yet to find where that name is being set. At some point I will either change the name being set on it, or override it somehow.
 
 &nbsp;
 
