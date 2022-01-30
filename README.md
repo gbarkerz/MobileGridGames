@@ -94,14 +94,6 @@ A video of the game being played with Voice Access is at [Android Grid Game V1.2
 
 ***TalkBack***: Turn on [TalkBack](https://support.google.com/accessibility/android/answer/6007100), and move your finger around the screen to have the number of the square beneath your finger announced. If TalkBack moves between rows or columns in the grid of squares, it will announce the new row or column. Double tap to move a square. TalkBack will make the following announcements following specific actions being taken in the game.
 
-Please note that during development of the app, TalkBack's announcements were not always consistent. For example, sometimes the row and column of a square was not announced when moving to a square, even with TalkBack's "Speak list and grid information" setting turned on. Also, after double-tapping on a square to move it, once TalkBack made the expected announcement, it then announced that a move of the empty square is not possible. If these issues are experienced by anyone using TalkBack after the game has been downloaded from the Google Play Store, I'll investigate further.
-
-Also note that the accessible name of the Menu button near the top left corner of the app currently has a name of "OK". This will be changed to have a name of "Menu" at some point.
-
-A video of the game being played with TalkBack is at [Android Grid Game V1.2 being played with TalkBack](https://youtu.be/TRv9GON31IE).
-
-&nbsp;
-
 1. "Please wait a moment while the pictures are loaded into the squares."
 
 2. ***A countdown as the pictures are loaded into the squares.***
@@ -111,6 +103,14 @@ A video of the game being played with TalkBack is at [Android Grid Game V1.2 bei
 4. "Moved ***Square number*** ***Direction of move***."
 
 5. "A move is not possible from here."
+
+&nbsp;
+
+Please note that during development of the app, TalkBack's announcements were not always consistent. For example, sometimes the row and column of a square was not announced when moving to a square, even with TalkBack's "Speak list and grid information" setting turned on. Also, after double-tapping on a square to move it, once TalkBack made the expected announcement, it then announced that a move of the empty square is not possible. If these issues are experienced by anyone using TalkBack after the game has been downloaded from the Google Play Store, I'll investigate further.
+
+Also note that the accessible name of the Menu button near the top left corner of the app currently has a name of "OK". This will be changed to have a name of "Menu" at some point.
+
+A video of the game being played with TalkBack is at [Android Grid Game V1.2 being played with TalkBack](https://youtu.be/TRv9GON31IE).
 
 &nbsp;
 
@@ -142,9 +142,9 @@ This app was based on an Visual Studio template for MVVM Xamarin apps. The app i
 
 ***Showing portions of the picture on each square***: The first attempt at showing portions of a picture on each square was achieved by scaling the entire picture into each square, and then applying an X and Y translation such that only the appropriate portion of the image was shown in the square. Technically this worked, but the performance of the app was unusably slow. 
 
-So the approach changed to have only the specific portion of the overall image set as the image on each square. This involved generating 15 cropped images from the original image. I'm not aware of a native Xamarin image editor which can do this, so I used the [SyncFusion Image Editor](https://help.syncfusion.com/xamarin/image-editor/overview). Through a series of calls to the SfImageEditor's ToggleCrop(), Crop(), Save(), and Reset(), the appropriate portions of the original image were set on the squares, leaving the original image file unaffected. It seems that some of the calls need to be run on the UI thread, and I really don't understand the SfImageEditor's threading model, but the desired result seemed to be acheived. I expect this code will be updated once I learn more about best practices for the SfImageEditor.
+So the approach changed to have only the specific portion of the overall image set as the image on each square. This involved generating 15 cropped images from the original image. I'm not aware of a native Xamarin image editor which can do this, so I used the [SyncFusion Image Editor](https://help.syncfusion.com/xamarin/image-editor/overview). Through a series of calls to the SfImageEditor's ToggleCrop(), Crop(), Save(), and Reset(), the appropriate portions of the original image were set on the squares, leaving the original image file unaffected. It seems that some of the calls need to be run on the UI thread, and I really don't understand the SfImageEditor's threading model, but the desired result seemed to be achieved. I expect this code will be updated once I learn more about best practices for the SfImageEditor.
 
-Note: My use of the SfImageEditor control is covered by the [Syncfusion Community Licence](https://www.syncfusion.com/products/communitylicense). If you were to consider using the contol, you'd use whatever licence is appropriate for you and add your own licence key to the code.
+Note: My use of the SfImageEditor control is covered by the [Syncfusion Community Licence](https://www.syncfusion.com/products/communitylicense). If you were to consider using the control, you'd use whatever licence is appropriate for you and add your own licence key to the code.
 
 ***Size of Text***: As part of this exploration into accessibility, there is no hard-coded sizing of text or containers anywhere in the code. This is very deliberate, in order to reduce the risk of text being clipped when some UI scaling is applied. The height of text shown in the grid squares is relative to the height of the grid row containing the square. The height of text shown in the Settings window is set by the system, and the window uses a ScrollView to ensure all content can be reached when text is shown as its maximum size. As a result, all text is viewable in the game even when the game's in-app text size setting and the system's Font size and Display size settings are all at their maximum values.
 
@@ -164,7 +164,7 @@ Currently the Menu button created from the app template has an accessible name o
 
 &nbsp;
 
-**Accessibilty issues highlighted by Google**
+**Accessibility issues highlighted by Google**
 
 When submitting the app to the Google Play Store, Google examines the app to raise awareness of potential accessibility issues. Interestingly Google raised concerns around a number of aspects of the app which as far as I know relate to the accessibility of default Xamarin controls or the VS template from which the app was created.
 
@@ -172,7 +172,7 @@ The concerns seem to relate to the contentDescription of the picker in the Setti
 
 &nbsp;
 
-**Future Udpates**
+**Future Updates**
 
 Future updates to the app may include the following:
 
