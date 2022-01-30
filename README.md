@@ -8,6 +8,20 @@ This exploration into accessibility is a continuation of the exploration started
 
 &nbsp;
 
+**Download the Game**
+
+The game can be downloaded for Android devices, at [Grid Game at the Google Play Store](https://play.google.com/store/apps/details?id=com.guybarker.mobilegridgames).
+
+Some videos of the game are at:
+
+1. [Android Grid Game V1.2 is ready to play!](https://youtu.be/uKYY5onc7BA)
+
+2. [Android Grid Game V1.2 being played with TalkBack.](https://youtu.be/TRv9GON31IE)
+
+3. [Android Grid Game V1.2 being played with Voice Access.](https://youtu.be/GDxu6h-_g_U)
+
+&nbsp;
+
 **Playing the Game**
 
 The game is based on a square sliding game, where squares in a grid of squares are rearranged by the player to form an ordered sequence in the grid.
