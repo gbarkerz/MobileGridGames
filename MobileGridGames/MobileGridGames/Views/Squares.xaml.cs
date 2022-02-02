@@ -41,15 +41,7 @@ namespace MobileGridGames.Views
                 // The loading of the images into the squares is made synchronously through the first 15 squares.
                 nextSquareIndexForImageSourceSetting = 0;
 
-                // If an invalid filename is supplied here, (for example, a previously valid image has been
-                // deleted from the device), it seems that the return value from ImageSource.FromFile() does
-                // not suggest there's a problem, nor is a helpful event or exception thrown. So check whether
-                // the file exists ourselves first.
-
-                // Future: IMPORTANT! Handle an attempt to load a file which isn't handled by the ImageEditor.
-                // As things are today, if a file isn't loaded the app is left in a state where the game's not
-                // ready to play, and a valid file can't then be selected and loaded. 
-
+                // Check whether the image file exists before trying to load it into the ImageEditor.
                 if (vm.IsImageFilePathValid(vm.PicturePath))
                 {
                     vm.RaiseNotificationEvent(PleaseWaitLabel.Text);
