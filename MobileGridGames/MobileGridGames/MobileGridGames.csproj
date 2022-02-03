@@ -25,8 +25,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
-    <Compile Update="Views\SettingsPage.xaml.cs">
-      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    <Compile Update="Views\SquaresSettingsPage.xaml.cs">
+      <DependentUpon>SquaresSettingsPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Squares.xaml.cs">
       <DependentUpon>Squares.xaml</DependentUpon>

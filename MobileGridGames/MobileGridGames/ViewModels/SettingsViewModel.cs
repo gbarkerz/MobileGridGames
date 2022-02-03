@@ -7,7 +7,7 @@ namespace MobileGridGames.ViewModels
     {
         public SettingsViewModel()
         {
-            Title = "Settings";
+            Title = "Squares Settings";
         }
 
         private bool showNumbers;

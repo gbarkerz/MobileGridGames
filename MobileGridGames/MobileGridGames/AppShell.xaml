@@ -93,7 +93,7 @@
     </FlyoutItem>-->
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
-    <MenuItem Text="Settings" StyleClass="MenuItemLayoutStyle" Clicked="OnSettingsMenuItemClicked">
+    <MenuItem Text="Squares Settings" StyleClass="MenuItemLayoutStyle" Clicked="OnSettingsMenuItemClicked">
         <MenuItem.IconImageSource>
             <FontImageSource
                 Color="{StaticResource Primary}"
