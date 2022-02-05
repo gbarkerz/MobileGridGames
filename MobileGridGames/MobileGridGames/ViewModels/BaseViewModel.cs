@@ -1,7 +1,10 @@
-﻿using System;
+﻿using MobileGridGames.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using Xamarin.Forms;
 
 namespace MobileGridGames.ViewModels
 {
@@ -35,6 +38,14 @@ namespace MobileGridGames.ViewModels
                 return;
 
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public void RaiseNotificationEvent(string notification)
+        {
+            Debug.WriteLine("MobileGridGames: Announcing \"" + notification + "\"");
+
+            var service = DependencyService.Get<IMobileGridGamesPlatformAction>();
+            service.ScreenReaderAnnouncement(notification);
         }
     }
 }

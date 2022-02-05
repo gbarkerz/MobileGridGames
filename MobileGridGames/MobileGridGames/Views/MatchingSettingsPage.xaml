@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileGridGames.MatchingGameSettingsPage">
+    <ContentPage.Content>
+        <Grid Grid.Row="0" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Text="Matching Game Settings" FontSize="Title" />
+            <StackLayout Grid.Row="1">
+                <ScrollView Margin="4,4,4,2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" x:Name="PlaySoundOnMatchLabel" 
+                            Text="Play a sound when upturned cards match" 
+                            VerticalOptions="Center" />
+                        <CheckBox Grid.Row="0" Grid.Column="1" x:Name="PlaySoundOnMatchCheckBox"
+                            AutomationProperties.LabeledBy="{x:Reference PlaySoundOnMatchLabel}"
+                            VerticalOptions="Center" IsChecked="{Binding PlaySoundOnMatch}" />
+                        <Label Grid.Row="1" Grid.Column="0" x:Name="PlaySoundOnNotMatchLabel" 
+                            Text="Play a sound when upturned cards don't match" 
+                            VerticalOptions="Center" />
+                        <CheckBox Grid.Row="1" Grid.Column="1" x:Name="PlaySoundOnNotMatchCheckBox"
+                            AutomationProperties.LabeledBy="{x:Reference PlaySoundOnNotMatchLabel}"
+                            VerticalOptions="Center" IsChecked="{Binding PlaySoundOnNotMatch}" />
+                    </Grid>
+                </ScrollView>
+            </StackLayout>
+            <Button Grid.Row="2" x:Name="CloseButton" 
+                HorizontalOptions="End" Margin="0,0,4,4"
+                Text="Close" Clicked="CloseButton_Clicked" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

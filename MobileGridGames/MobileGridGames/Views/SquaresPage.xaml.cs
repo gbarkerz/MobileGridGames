@@ -11,6 +11,18 @@ namespace MobileGridGames.Views
 {
     public partial class SquaresPage : ContentPage
     {
+        private async void SquaresGameSettingsButton_Clicked(object sender, EventArgs e)
+        {
+            Shell.Current.FlyoutIsPresented = false;
+
+            var vm = this.BindingContext as SquaresViewModel;
+            if (!vm.GameIsNotReady)
+            {
+                var settingsPage = new SettingsPage();
+                await Navigation.PushModalAsync(settingsPage);
+            }
+        }
+
         private string previousLoadedPicture = "";
 
         public SquaresPage()
@@ -18,9 +30,15 @@ namespace MobileGridGames.Views
             InitializeComponent();
         }
 
+        // This gets called when switching from the Matching Game to the Squares Game,
+        // and also when closing the Squares Settings page.
         protected override void OnAppearing()
         {
+            Debug.Write("Squares Game: OnAppearing called.");
+
             base.OnAppearing();
+
+            Preferences.Set("InitialGame", "Squares");
 
             // Account for the app settings changing since the page was last shown.
             var vm = this.BindingContext as SquaresViewModel;
@@ -131,7 +149,7 @@ namespace MobileGridGames.Views
 
         private async void SquaresGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Debug.WriteLine("Grid Games: Selection changed. Selection count is " + e.CurrentSelection.Count);
+            Debug.WriteLine("Squares Grid Game: Selection changed. Selection count is " + e.CurrentSelection.Count);
 
             // Do nothing here if pictures have not been loaded yet onto the squares.
             var vm = this.BindingContext as SquaresViewModel;

@@ -14,7 +14,7 @@ namespace MobileGridGames.Views
         {
             InitializeComponent();
 
-            this.BindingContext = new SettingsViewModel();
+            this.BindingContext = new SquareSettingsViewModel();
         }
 
         private async void CloseButton_Clicked(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace MobileGridGames.Views
                 var result = await FilePicker.PickAsync(options);
                 if (result != null)
                 {
-                    var settingsViewModel = this.BindingContext as SettingsViewModel;
+                    var settingsViewModel = this.BindingContext as SquareSettingsViewModel;
 
                     settingsViewModel.PicturePath = result.FullPath;
                 }

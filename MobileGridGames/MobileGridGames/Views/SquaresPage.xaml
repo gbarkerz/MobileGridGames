@@ -8,6 +8,20 @@
              xmlns:imageeditor="clr-namespace:Syncfusion.SfImageEditor.XForms;assembly=Syncfusion.SfImageEditor.XForms"
              Title="{Binding Title}">
 
+    <Shell.TitleView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Text="Squares Game V1.2"
+                TextColor="White" VerticalOptions="Center"
+                FontSize="Title" />
+            <Button Grid.Column="1" Text="&#xf013;" Clicked="SquaresGameSettingsButton_Clicked"
+                FontFamily="FA" FontSize="Title" />
+        </Grid>
+    </Shell.TitleView>
+    
     <ContentPage.BindingContext>
         <vm:SquaresViewModel />
     </ContentPage.BindingContext>

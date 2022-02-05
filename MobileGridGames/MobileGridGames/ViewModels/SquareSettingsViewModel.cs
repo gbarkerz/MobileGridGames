@@ -2,10 +2,10 @@
 
 namespace MobileGridGames.ViewModels
 {
-    // View model for the Settings page in the app.
-    public class SettingsViewModel : BaseViewModel
+    // View model for the Squares Settings page in the app.
+    public class SquareSettingsViewModel : BaseViewModel
     {
-        public SettingsViewModel()
+        public SquareSettingsViewModel()
         {
             Title = "Squares Settings";
         }

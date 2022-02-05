@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -6,15 +6,43 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\DefaultMatchingBackgrounds\Card1.jpg" />
+    <None Remove="Resources\DefaultMatchingBackgrounds\Card2.jpg" />
+    <None Remove="Resources\DefaultMatchingBackgrounds\Card3.jpg" />
+    <None Remove="Resources\DefaultMatchingBackgrounds\Card4.jpg" />
+    <None Remove="Resources\DefaultMatchingBackgrounds\Card5.jpg" />
+    <None Remove="Resources\DefaultMatchingBackgrounds\Card6.jpg" />
+    <None Remove="Resources\DefaultMatchingBackgrounds\Card7.jpg" />
+    <None Remove="Resources\DefaultMatchingBackgrounds\Card8.jpg" />
     <None Remove="Font Awesome 6 Free-Solid-900.otf" />
+    <None Remove="Resources\MatchingGameIcon.png" />
+    <None Remove="Resources\SoundOnMatch.wav" />
+    <None Remove="Resources\SoundOnNotMatch.wav" />
+    <None Remove="Resources\SquaresGameIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\DefaultMatchingBackgrounds\Card1.jpg" />
+    <EmbeddedResource Include="Resources\DefaultMatchingBackgrounds\Card2.jpg" />
+    <EmbeddedResource Include="Resources\DefaultMatchingBackgrounds\Card3.jpg" />
+    <EmbeddedResource Include="Resources\DefaultMatchingBackgrounds\Card4.jpg" />
+    <EmbeddedResource Include="Resources\DefaultMatchingBackgrounds\Card5.jpg" />
+    <EmbeddedResource Include="Resources\DefaultMatchingBackgrounds\Card6.jpg" />
+    <EmbeddedResource Include="Resources\DefaultMatchingBackgrounds\Card7.jpg" />
+    <EmbeddedResource Include="Resources\DefaultMatchingBackgrounds\Card8.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Font Awesome 6 Free-Solid-900.otf" />
+    <EmbeddedResource Include="Resources\MatchingGameIcon.png" />
+    <EmbeddedResource Include="Resources\SoundOnNotMatch.wav" />
+    <EmbeddedResource Include="Resources\SoundOnMatch.wav" />
+    <EmbeddedResource Include="Resources\SquaresGameIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Syncfusion.Xamarin.SfImageEditor" Version="19.4.0.40" />
+    <PackageReference Include="Xam.Plugin.SimpleAudioPlayer" Version="1.5.0" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
@@ -25,18 +53,27 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
+    <Compile Update="Views\MatchingSettingsPage.xaml.cs">
+      <DependentUpon>MatchingSettingsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\SquaresSettingsPage.xaml.cs">
       <DependentUpon>SquaresSettingsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Squares.xaml.cs">
-      <DependentUpon>Squares.xaml</DependentUpon>
+    <Compile Update="Views\SquaresPage.xaml.cs">
+      <DependentUpon>SquaresPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\MatchingSettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resource1.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MatchingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
 </Project>

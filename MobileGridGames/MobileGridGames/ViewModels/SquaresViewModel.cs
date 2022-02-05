@@ -74,7 +74,7 @@ namespace MobileGridGames.ViewModels
 
         public SquaresViewModel()
         {
-            Title = "Squares V1.2";
+            Title = "Squares Game V1.2";
 
             squareList = new ObservableCollection<Square>();
 
@@ -110,14 +110,6 @@ namespace MobileGridGames.ViewModels
             }
 
             return ImageFilePathIsValid;
-        }
-
-        public void RaiseNotificationEvent(string notification)
-        {
-            Debug.WriteLine("MobileGridGames: Announcing \"" + notification + "\"");
-
-            var service = DependencyService.Get<IMobileGridGamesPlatformAction>();
-            service.ScreenReaderAnnouncement(notification);
         }
 
         public void RestoreEmptyGrid()

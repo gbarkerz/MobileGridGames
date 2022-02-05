@@ -72,36 +72,7 @@
             </Style>
         </ResourceDictionary>
     </Shell.Resources>
-
-    <!-- 
-        When the Flyout is visible this defines the content to display in the flyout.
-        FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element    
-        https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
-    -->
-    <FlyoutItem Title="Squares V1.2" Icon="icon_about.png">
-        <FlyoutItem.FlyoutIcon>
-            <FontImageSource
-                Glyph="&#xf0c9;"
-                FontFamily="FA" />
-        </FlyoutItem.FlyoutIcon>
-        <ShellContent Route="SquaresPage" ContentTemplate="{DataTemplate local:SquaresPage}" />
-    </FlyoutItem>
     
-    <!-- Future: Add the Pairs game. -->
-    <!--<FlyoutItem Title="Pairs" Icon="icon_feed.png">
-        <ShellContent Route="PairsPage" ContentTemplate="{DataTemplate local:PairsPage}" />
-    </FlyoutItem>-->
-
-    <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
-    <MenuItem Text="Squares Settings" StyleClass="MenuItemLayoutStyle" Clicked="OnSettingsMenuItemClicked">
-        <MenuItem.IconImageSource>
-            <FontImageSource
-                Color="{StaticResource Primary}"
-                Glyph="&#xf013;"
-                FontFamily="FA" />
-        </MenuItem.IconImageSource>
-    </MenuItem>
-
     <MenuItem Text="Help" StyleClass="MenuItemLayoutStyle" Clicked="OnHelpMenuItemClicked">
         <MenuItem.IconImageSource>
             <FontImageSource
@@ -119,49 +90,5 @@
                 FontFamily="FA" />
         </MenuItem.IconImageSource>
     </MenuItem>
-
-    <!--
-        TabBar lets you define content that won't show up in a flyout menu. When this content is active
-        the flyout menu won't be available. This is useful for creating areas of the application where 
-        you don't want users to be able to navigate away from. If you would like to navigate to this 
-        content you can do so by calling 
-        await Shell.Current.GoToAsync("//SettingsPage");
-    -->
-    <TabBar>
-        <ShellContent Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}" />
-    </TabBar>
-
-    <!-- Optional Templates 
-    // These may be provided inline as below or as separate classes.
-
-    // This header appears at the top of the Flyout.
-    // https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#flyout-header
-    <Shell.FlyoutHeaderTemplate>
-        <DataTemplate>
-            <Grid>ContentHere</Grid>
-        </DataTemplate>
-    </Shell.FlyoutHeaderTemplate>
-
-    // ItemTemplate is for ShellItems as displayed in a Flyout
-    // https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#define-flyoutitem-appearance
-    <Shell.ItemTemplate>
-        <DataTemplate>
-            <ContentView>
-                Bindable Properties: Title, Icon
-            </ContentView>
-        </DataTemplate>
-    </Shell.ItemTemplate>
-
-    // MenuItemTemplate is for MenuItems as displayed in a Flyout
-    // https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#define-menuitem-appearance
-    <Shell.MenuItemTemplate>
-        <DataTemplate>
-            <ContentView>
-                Bindable Properties: Text, Icon
-            </ContentView>
-        </DataTemplate>
-    </Shell.MenuItemTemplate>
-
-    -->
 
 </Shell>

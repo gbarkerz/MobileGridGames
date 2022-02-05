@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             x:Name="MatchingPageInstance"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileGridGames.Views.MatchingPage"
+             xmlns:localviews="clr-namespace:MobileGridGames.Views"
+             xmlns:vm="clr-namespace:MobileGridGames.ViewModels"
+             Title="{Binding Title}">
+
+    <Shell.TitleView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Text="Matching Game V1.0"
+                TextColor="White" VerticalOptions="Center"
+                FontSize="Title" />
+            <Button Grid.Column="1" Text="&#xf013;" Clicked="MatchingGameSettingsButton_Clicked"
+                FontFamily="FA" FontSize="Title" />
+        </Grid>
+    </Shell.TitleView>
+    
+    <ContentPage.BindingContext>
+        <vm:MatchingViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <localviews:CollectionViewHeightToRowHeight x:Key="CollectionViewHeightToRowHeight" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid x:Name="PageGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <CollectionView Grid.Row="0"
+                x:Name="SquaresCollectionView"
+                BackgroundColor="{StaticResource Primary}"                            
+                SelectionMode="Single" 
+                SelectionChanged="MatchingGrid_SelectionChanged"
+                ItemsSource="{Binding SquareListCollection}">
+
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="4" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type CollectionView}}, 
+                            Path=Height, Converter={StaticResource CollectionViewHeightToRowHeight}}"
+                            AutomationProperties.Name="{Binding AccessibleName}"
+                            AutomationProperties.HelpText="{Binding AccessibleDescription}">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                    CommandParameter="{Binding Index}" />
+                            </Grid.GestureRecognizers>
+                            <Frame Margin="2" Padding="0">
+                                <Image IsVisible="{Binding FaceUp}"
+                                    Aspect="AspectFit" 
+                                    Source="{Binding PictureImageSource}">
+                                </Image>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                
+            </CollectionView>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -117,6 +117,54 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DefaultMatchingCard1Description" xml:space="preserve">
+    <value>A smiling man with a red coat and arms outstretched, standing in front of 3 large Daleks and a TARDIS. The Daleks seem to be raised above the grass beneath them, and a slightly cloudy sky is in the background.</value>
+  </data>
+  <data name="DefaultMatchingCard1Name" xml:space="preserve">
+    <value>Daleks in Blackpool</value>
+  </data>
+  <data name="DefaultMatchingCard2Description" xml:space="preserve">
+    <value>A small brown stone lighthouse, with an upper small balcony and a lower bigger balcony. A covered sitting area is at the base of the lighthouse. In front of the lighthouse in the stone ground are anchor and compass symbols, and in the background is a grey cloudy sky.</value>
+  </data>
+  <data name="DefaultMatchingCard2Name" xml:space="preserve">
+    <value>Lower Lighthouse in Fleetwood</value>
+  </data>
+  <data name="DefaultMatchingCard3Description" xml:space="preserve">
+    <value>A first-person view looking down on two portions of fish and chips in trays and paper. In the background is a concrete path, and two partially shown shoes.</value>
+  </data>
+  <data name="DefaultMatchingCard3Name" xml:space="preserve">
+    <value>Fish and Chips in Cleveleys</value>
+  </data>
+  <data name="DefaultMatchingCard4Description" xml:space="preserve">
+    <value>A small, very old hexagonal red stone building, with castellated battlements housing a cross. Arched windows on the sides of the building are bricked-up from the inside. The building sits on grass, with a bay and cloudy sky in the background.</value>
+  </data>
+  <data name="DefaultMatchingCard4Name" xml:space="preserve">
+    <value>Cockersand Abbey</value>
+  </data>
+  <data name="DefaultMatchingCard5Description" xml:space="preserve">
+    <value>A white windmill with a black roof and black sails. The windmill has stairs going up to a black door, and black windows. In the background is a street of houses and a clear, blue sky.</value>
+  </data>
+  <data name="DefaultMatchingCard5Name" xml:space="preserve">
+    <value>Lytham St Annes Windmill</value>
+  </data>
+  <data name="DefaultMatchingCard6Description" xml:space="preserve">
+    <value>The stone ruins of a large, very old abbey. The abbey has no roof or windows, and the sun shines through the arches from behind the abbey. In the foreground is a lawn housing multiple large stone graves, and in the background is a clear blue sky.</value>
+  </data>
+  <data name="DefaultMatchingCard6Name" xml:space="preserve">
+    <value>Bolton Abbey</value>
+  </data>
+  <data name="DefaultMatchingCard7Description" xml:space="preserve">
+    <value>A large stone obelisk in a town square, with buildings and trees nearby. The sun shines on the obelisk, with a slightly cloudy, blue sky in the background. At the base of the obelisk are six red wreaths.</value>
+  </data>
+  <data name="DefaultMatchingCard7Name" xml:space="preserve">
+    <value>Harrogate Obelisk</value>
+  </data>
+  <data name="DefaultMatchingCard8Description" xml:space="preserve">
+    <value>A small square stone building with an opening on the near side. Above the opening is a Greek inscription. Railing surrounds the top of the building, and a sundial sits at the centre of the top. In the background is rocky grassland, with rolling hills in the far background along with a slightly cloudy, blue sky.</value>
+  </data>
+  <data name="DefaultMatchingCard8Name" xml:space="preserve">
+    <value>Hampsfell Hospice</value>
+  </data>
   <data name="DefaultSquare10Name" xml:space="preserve">
     <value>10</value>
   </data>

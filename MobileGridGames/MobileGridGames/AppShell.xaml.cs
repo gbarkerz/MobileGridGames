@@ -11,23 +11,36 @@ namespace MobileGridGames
         public AppShell()
         {
             InitializeComponent();
-        }
 
-        private async void OnSettingsMenuItemClicked(object sender, EventArgs e)
-        {
-            Shell.Current.FlyoutIsPresented = false;
+            string initialGame = Preferences.Get("InitialGame", "Squares");
 
-            // Assume that the current page has to be the Squares page.
-            var squaresPage = CurrentPage as SquaresPage;
-            if (squaresPage != null)
+            ShellSection shellSectionSquares = new ShellSection
             {
-                var vm = squaresPage.BindingContext as SquaresViewModel;
-                if (!vm.GameIsNotReady)
-                {
-                    var settingsPage = new SettingsPage();
-                    await Navigation.PushModalAsync(settingsPage);
-                }
-            }
+                Title = "Squares Game V1.2",
+                FlyoutIcon = ImageSource.FromResource(
+                    "MobileGridGames.Resources.SquaresGameIcon.png"),
+            };
+
+            shellSectionSquares.Items.Add(new ShellContent() { Content = new SquaresPage() });
+
+            ShellSection shellSectionMatching = new ShellSection
+            {
+                Title = "Matching Game V1.0",
+                FlyoutIcon = ImageSource.FromResource(
+                    "MobileGridGames.Resources.MatchingGameIcon.png"),
+            };
+
+            shellSectionMatching.Items.Add(new ShellContent() { Content = new MatchingPage() });
+
+            // Future: This approach has the Squares Game's OnAppearing() called
+            // even when the current game is the Matching Game. So rearrange things 
+            // such that only the current game's OnAppearing() is called on startup.
+
+            this.Items.Insert(0, shellSectionMatching);
+            this.Items.Insert(0, shellSectionSquares);
+
+            int currentIndex = (initialGame == "Squares" ? 0 : 1);
+            this.CurrentItem = this.Items[currentIndex];
         }
 
         private async void OnHelpMenuItemClicked(object sender, EventArgs e)
@@ -48,15 +61,16 @@ namespace MobileGridGames
         {
             Shell.Current.FlyoutIsPresented = false;
 
-            // Assume that the current page has to be the Squares page.
-            var squaresPage = CurrentPage as SquaresPage;
-            if (squaresPage != null)
+            var currentPage = this.CurrentPage;
+            if (currentPage is MatchingPage)
             {
-                var vm = squaresPage.BindingContext as SquaresViewModel;
-                if (!vm.GameIsNotReady)
-                {
-                    vm.ResetGrid();
-                }
+                var vm = (CurrentPage as MatchingPage).BindingContext as MatchingViewModel;
+                vm.ResetGrid();
+            }
+            else
+            {
+                var vm = (CurrentPage as SquaresPage).BindingContext as SquaresViewModel;
+                vm.ResetGrid();
             }
         }
     }
