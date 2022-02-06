@@ -19,6 +19,7 @@
                 FontSize="Title" />
             <Button Grid.Column="1" Text="&#xf013;" Clicked="SquaresGameSettingsButton_Clicked"
                 FontFamily="FA" FontSize="Title" 
+                AutomationProperties.Name="Settings"
                 IsVisible="{Binding GameIsLoading, Converter={StaticResource GameIsLoadingToVisibility}}"/>
         </Grid>
     </Shell.TitleView>

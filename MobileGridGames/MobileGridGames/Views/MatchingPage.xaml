@@ -17,7 +17,8 @@
                 TextColor="White" VerticalOptions="Center"
                 FontSize="Title" />
             <Button Grid.Column="1" Text="&#xf013;" Clicked="MatchingGameSettingsButton_Clicked"
-                FontFamily="FA" FontSize="Title" />
+                FontFamily="FA" FontSize="Title" 
+                AutomationProperties.Name="Settings" />
         </Grid>
     </Shell.TitleView>
     
