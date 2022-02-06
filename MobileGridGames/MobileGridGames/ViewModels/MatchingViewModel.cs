@@ -14,9 +14,42 @@ namespace MobileGridGames.ViewModels
     public class Card : INotifyPropertyChanged
     {
         public int Index { get; set; }
-        public string AccessibleName { get; set; }
-        public string AccessibleDescription { get; set; }
-        public bool Matched { get; set; }
+
+        private string accessibleName;
+        public string AccessibleName
+        {
+            get
+            {
+                string name = "";
+                if (faceUp)
+                {
+                    name = (Matched ? "Matched " : "") + accessibleName;
+                }
+                else
+                {
+                    name = "Face down";
+                }
+
+                return name;
+            }
+            set
+            {
+                SetProperty(ref accessibleName, value);
+            }
+        }
+
+        private string accessibleDescription;
+        public string AccessibleDescription
+        {
+            get
+            {
+                return (FaceUp ? accessibleDescription : "");
+            }
+            set
+            {
+                SetProperty(ref accessibleDescription, value);
+            }
+        }
 
         private bool faceUp;
         public bool FaceUp
@@ -28,6 +61,26 @@ namespace MobileGridGames.ViewModels
             set
             {
                 SetProperty(ref faceUp, value);
+
+                // Other properties may change as a result of this.
+                OnPropertyChanged("AccessibleName");
+                OnPropertyChanged("AccessibleDescription");
+            }
+        }
+
+        private bool matched;
+        public bool Matched
+        {
+            get
+            {
+                return matched;
+            }
+            set
+            {
+                SetProperty(ref matched, value);
+
+                // Other properties may change as a result of this.
+                OnPropertyChanged("AccessibleName");
             }
         }
 

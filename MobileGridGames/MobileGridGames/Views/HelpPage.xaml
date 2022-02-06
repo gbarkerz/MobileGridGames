@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileGridGames.Views.HelpPage">
+    <ContentPage.Content>
+        <Grid Grid.Row="0" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label x:Name="SquaresGameHelpTitle" Grid.Row="0" Text="Squares Game Help" FontSize="Title" />
+            <Label x:Name="MatchingGameHelpTitle" Grid.Row="0" Text="Matching Game Help" FontSize="Title" />
+            <StackLayout x:Name="SquaresGameHelpContent" Grid.Row="1">
+                <ScrollView Margin="4,4,4,2">
+                    <Label VerticalOptions="Center">
+                        <Label.Text>
+The Squares Game is based on a square sliding puzzle, where squares in a grid of squares are rearranged by the player to form an ordered sequence in the grid.
+
+When the game is run, a 4x4 grid of squares appears, with 15 of those squares occupied with an movable element, and 1 square being empty. When a square is tapped, if it is adjacent to the empty square, the tapped square moves into the empty square. The space where the tapped square was then becomes the empty square. The aim is to arrange all the squares in a sorted order, leaving the empty square in the bottom right corner of the grid.
+
+Tip: Don't use a swipe gesture to move a square. Support for swipe gestures has yet to be added to the game.
+
+Tip: Don't tap on the empty square. Instead tap on the squares next to the empty square.
+
+When the game first runs, the setting to have numbers shown on squares is on, and the settings to have pictures shown on the squares is off. This means a number is shown in the top left corner of the squares. When the squares are sorted, the square showing number 1 is at the top left of the grid, and the numbers increase from left to right then top to bottom.
+
+Tip: Practice moving numbered squares around before changing the setting to have a picture shown on the squares.
+
+When the game setting to have a picture shown on the squares is on, then a single picture is shown across all the squares. The sections of the picture will appear jumbled until the squares are arranged in their sorted order.
+                            
+Ways to play the game:
+
+Tapping with a finger: Tap the square to be moved.
+
+Make things bigger. The game respects the system's Font size and Display size settings, and also has its own in-app text size setting which only applies to text in shown on the squares in the game.
+
+Voice Access. Activate the system's Voice Access, and speak the number shown on a square to move the square.
+
+Switch Access. Activate the system's Switch Access, scan to the square to be moved and then press the switch to move the square.
+
+Magnification. The standard use of the system's Magnification can be used when playing this game.
+
+TalkBack. Turn on TalkBack, and move your finger around the screen to have the number of the square beneath your finger announced. If TalkBack moves between rows or columns in the grid of squares, it will announce the new row or column. Double tap to move a square.
+
+Please note that the accessible name of the Menu button near the top left corner of the app currently has a name of "OK". This will be changed to have a name of "Menu" at some point.                            
+                        </Label.Text>
+                    </Label>
+                </ScrollView>
+            </StackLayout>
+            <StackLayout x:Name="MatchingGameHelpContent" Grid.Row="1">
+                <ScrollView Margin="4,4,4,2">
+                    <Label VerticalOptions="Center"
+                        Text="Matching Game Help Content" 
+                         />
+                </ScrollView>
+            </StackLayout>
+            <Button Grid.Row="2" x:Name="CloseButton" 
+                HorizontalOptions="End" Margin="0,0,4,4"
+                Text="Close" Clicked="CloseButton_Clicked" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

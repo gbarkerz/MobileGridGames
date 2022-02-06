@@ -53,8 +53,8 @@
                     <DataTemplate>
                         <Grid HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type CollectionView}}, 
                             Path=Height, Converter={StaticResource CollectionViewHeightToRowHeight}}"
-                            AutomationProperties.Name="{Binding AccessibleName}"
-                            AutomationProperties.HelpText="{Binding AccessibleDescription}">
+                            AutomationProperties.Name="{Binding AccessibleName, Mode=OneWay}"
+                            AutomationProperties.HelpText="{Binding AccessibleDescription, Mode=OneWay}">
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
                                     CommandParameter="{Binding Index}" />

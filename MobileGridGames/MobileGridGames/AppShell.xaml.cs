@@ -59,14 +59,18 @@ namespace MobileGridGames
         {
             Shell.Current.FlyoutIsPresented = false;
 
-            var answer = await DisplayAlert(
-                "Help",
-                "Would you like to visit the developer site which contains details on how to play this game?",
-                "Yes", "No");
-            if (answer)
-            {
-                Browser.OpenAsync("https://github.com/gbarkerz/MobileGridGames/blob/master/README.md");
-            }
+            var currentPage = this.CurrentPage;
+            var helpPage = new HelpPage(currentPage is MatchingPage);
+            await Navigation.PushModalAsync(helpPage);
+
+            //var answer = await DisplayAlert(
+            //    "Help",
+            //    "Would you like to visit the developer site which contains details on how to play this game?",
+            //    "Yes", "No");
+            //if (answer)
+            //{
+            //    Browser.OpenAsync("https://github.com/gbarkerz/MobileGridGames/blob/master/README.md");
+            //}
         }
 
         private void OnRestartMenuItemClicked(object sender, EventArgs e)
