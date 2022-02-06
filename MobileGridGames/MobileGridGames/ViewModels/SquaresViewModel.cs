@@ -76,8 +76,6 @@ namespace MobileGridGames.ViewModels
 
             if (!ShowPicture || !IsImageFilePathValid(PicturePath))
             {
-                Shell.Current.FlyoutBehavior = FlyoutBehavior.Flyout;
-
                 GameIsLoading = false;
 
                 ResetGrid();
