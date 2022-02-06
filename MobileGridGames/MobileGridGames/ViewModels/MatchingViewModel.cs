@@ -96,8 +96,8 @@ namespace MobileGridGames.ViewModels
         public int TryAgainCount { get; set; }
         public bool PlaySoundOnMatch { get; set; }
         public bool PlaySoundOnNotMatch { get; set; }
-        private string soundOnMatch = "SoundOnMatch.wav";
-        private string soundOnNotMatch = "SoundOnNotMatch.wav";
+        private string soundOnMatch = "SoundOnMatch.m4a";
+        private string soundOnNotMatch = "SoundOnNotMatch.m4a";
 
         public MatchingViewModel()
         {

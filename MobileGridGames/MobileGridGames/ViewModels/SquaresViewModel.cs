@@ -62,16 +62,6 @@ namespace MobileGridGames.ViewModels
             }
         }
 
-        private bool gameIsNotReady = true;
-        public bool GameIsNotReady
-        {
-            get { return gameIsNotReady; }
-            set
-            {
-                SetProperty(ref gameIsNotReady, value);
-            }
-        }
-
         public SquaresViewModel()
         {
             Title = "Squares Game V1.2";
@@ -84,10 +74,11 @@ namespace MobileGridGames.ViewModels
             ShowPicture = Preferences.Get("ShowPicture", false);
             PicturePath = Preferences.Get("PicturePath", "");
 
-            // Has the state of the picture being shown changed since we were last changed?
             if (!ShowPicture || !IsImageFilePathValid(PicturePath))
             {
-                GameIsNotReady = false;
+                Shell.Current.FlyoutBehavior = FlyoutBehavior.Flyout;
+
+                GameIsLoading = false;
 
                 ResetGrid();
             }
@@ -241,15 +232,11 @@ namespace MobileGridGames.ViewModels
         // Reset the grid to an initial game state.
         public void ResetGrid()
         {
-            // Take no action if a picture is still being loaded.
-            if (!this.GameIsNotReady)
-            {
-                MoveCount = 0;
+            MoveCount = 0;
 
-                Shuffle(squareList);
+            Shuffle(squareList);
 
-                RaiseNotificationEvent("Game is ready to play.");
-            }
+            RaiseNotificationEvent("Game is ready to play.");
         }
 
         private void CreateDefaultSquares()

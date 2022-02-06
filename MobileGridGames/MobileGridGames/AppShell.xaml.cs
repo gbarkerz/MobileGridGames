@@ -32,15 +32,27 @@ namespace MobileGridGames
 
             shellSectionMatching.Items.Add(new ShellContent() { Content = new MatchingPage() });
 
-            // Future: This approach has the Squares Game's OnAppearing() called
-            // even when the current game is the Matching Game. So rearrange things 
-            // such that only the current game's OnAppearing() is called on startup.
+            bool initialGameIsSquares = (initialGame == "Squares");
+
+            // The following attempt to bind the FlyoutBehavior to a view model property
+            // seemed to work on startup, but not later when loading a different picture
+            // into the Squares game. Future: Investigate this approach more thoroughly.
+            //if (initialGameIsSquares)
+            //{
+            //    var page = shellSectionSquares.Items[0].Content as SquaresPage;
+            //    var vm = page.BindingContext as BaseViewModel;
+
+            //    this.BindingContext = vm;
+
+            //    this.SetBinding(FlyoutBehaviorProperty,
+            //        new Binding("GameIsLoading", BindingMode.OneWay,
+            //            new GameIsLoadingToFlyoutBehavior()));
+            //}
 
             this.Items.Insert(0, shellSectionMatching);
             this.Items.Insert(0, shellSectionSquares);
 
-            int currentIndex = (initialGame == "Squares" ? 0 : 1);
-            this.CurrentItem = this.Items[currentIndex];
+            this.CurrentItem = (initialGameIsSquares ? shellSectionSquares : shellSectionMatching);
         }
 
         private async void OnHelpMenuItemClicked(object sender, EventArgs e)

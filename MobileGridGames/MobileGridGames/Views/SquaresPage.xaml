@@ -18,7 +18,8 @@
                 TextColor="White" VerticalOptions="Center"
                 FontSize="Title" />
             <Button Grid.Column="1" Text="&#xf013;" Clicked="SquaresGameSettingsButton_Clicked"
-                FontFamily="FA" FontSize="Title" />
+                FontFamily="FA" FontSize="Title" 
+                IsVisible="{Binding GameIsLoading, Converter={StaticResource GameIsLoadingToVisibility}}"/>
         </Grid>
     </Shell.TitleView>
     
@@ -28,7 +29,8 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <localviews:GameIsNotReadyToSquaresOpacity x:Key="GameIsNotReadyToSquaresOpacity" />
+            <localviews:GameIsLoadingToSquaresOpacity x:Key="GameIsLoadingToSquaresOpacity" />
+            <localviews:GameIsLoadingToVisibility x:Key="GameIsLoadingToVisibility" />
             <localviews:CollectionViewHeightToRowHeight x:Key="CollectionViewHeightToRowHeight" />
             <localviews:NumberSizeIndexToGridRowHeight x:Key="NumberSizeIndexToGridRowHeight" />
             <localviews:LabelContainerHeightToFontSize x:Key="LabelContainerHeightToFontSize" />
@@ -54,7 +56,7 @@
 
         <CollectionView Grid.Row="1"
             x:Name="SquaresCollectionView"
-            Opacity="{Binding GameIsNotReady, Converter={StaticResource GameIsNotReadyToSquaresOpacity}}"
+            Opacity="{Binding GameIsLoading, Converter={StaticResource GameIsLoadingToSquaresOpacity}}"
             SelectionMode="Single" 
             SelectionChanged="SquaresGrid_SelectionChanged"
             ItemsSource="{Binding SquareListCollection}">
@@ -139,7 +141,7 @@
 
         <!-- Show a message when the pictures are being loaded into the squares. -->
         <Frame Grid.Row="1"
-            IsVisible="{Binding GameIsNotReady}"
+            IsVisible="{Binding GameIsLoading}"
             AutomationProperties.Name="Loading pictures, please wait."
             VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
             <Label x:Name="PleaseWaitLabel" 

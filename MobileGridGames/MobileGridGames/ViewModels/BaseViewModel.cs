@@ -17,6 +17,16 @@ namespace MobileGridGames.ViewModels
             set { SetProperty(ref title, value); }
         }
 
+        private bool gameIsLoading = false;
+        public bool GameIsLoading
+        {
+            get { return gameIsLoading; }
+            set
+            {
+                SetProperty(ref gameIsLoading, value);
+            }
+        }
+
         protected bool SetProperty<T>(ref T backingStore, T value,
             [CallerMemberName] string propertyName = "",
             Action onChanged = null)

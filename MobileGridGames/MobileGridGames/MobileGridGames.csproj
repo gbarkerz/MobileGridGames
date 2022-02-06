@@ -16,8 +16,8 @@
     <None Remove="Resources\DefaultMatchingBackgrounds\Card8.jpg" />
     <None Remove="Font Awesome 6 Free-Solid-900.otf" />
     <None Remove="Resources\MatchingGameIcon.png" />
-    <None Remove="Resources\SoundOnMatch.wav" />
-    <None Remove="Resources\SoundOnNotMatch.wav" />
+    <None Remove="Resources\SoundOnMatch.m4a" />
+    <None Remove="Resources\SoundOnNotMatch.m4a" />
     <None Remove="Resources\SquaresGameIcon.png" />
   </ItemGroup>
 
@@ -35,8 +35,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Font Awesome 6 Free-Solid-900.otf" />
     <EmbeddedResource Include="Resources\MatchingGameIcon.png" />
-    <EmbeddedResource Include="Resources\SoundOnNotMatch.wav" />
-    <EmbeddedResource Include="Resources\SoundOnMatch.wav" />
+    <EmbeddedResource Include="Resources\SoundOnMatch.m4a" />
+    <EmbeddedResource Include="Resources\SoundOnNotMatch.m4a" />
     <EmbeddedResource Include="Resources\SquaresGameIcon.png" />
   </ItemGroup>
 

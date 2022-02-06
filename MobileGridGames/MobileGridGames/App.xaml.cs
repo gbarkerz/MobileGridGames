@@ -8,7 +8,7 @@ namespace MobileGridGames
         {
             //Register your Syncfusion license.
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("<Insert your licence key here.>");
-            
+
             InitializeComponent();
 
             MainPage = new AppShell();

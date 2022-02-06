@@ -127,14 +127,14 @@ namespace MobileGridGames.Views
         }
     }
 
-    // Convert the app's GameIsNotEmpty to the opacity of the squares in the grid.
-    public class GameIsNotReadyToSquaresOpacity : IValueConverter
+    // Convert the app's GameIsLoading to the opacity of the squares in the grid.
+    public class GameIsLoadingToSquaresOpacity : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var gameIsNotReady = (bool)value;
+            var gameIsLoading = (bool)value;
 
-            double squareListOpacity = (gameIsNotReady ? 0.3 : 1.0);
+            double squareListOpacity = (gameIsLoading ? 0.3 : 1.0);
 
             return squareListOpacity;
         }
@@ -161,5 +161,36 @@ namespace MobileGridGames.Views
         {
             throw new NotImplementedException();
         }
-    }       
+    }
+
+    public class GameIsLoadingToFlyoutBehavior : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var gameIsLoadingToFlyoutBehavior = (bool)value;
+
+            return (gameIsLoadingToFlyoutBehavior ?
+                        FlyoutBehavior.Disabled : FlyoutBehavior.Flyout);
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class GameIsLoadingToVisibility : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var isGameLoading = (bool)value;
+
+            return (isGameLoading ? false : true);
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

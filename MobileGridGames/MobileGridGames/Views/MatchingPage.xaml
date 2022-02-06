@@ -27,6 +27,8 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
+            <localviews:GameIsLoadingToSquaresOpacity x:Key="GameIsLoadingToSquaresOpacity" />
+            <localviews:GameIsLoadingToVisibility x:Key="GameIsLoadingToVisibility" />
             <localviews:CollectionViewHeightToRowHeight x:Key="CollectionViewHeightToRowHeight" />
         </ResourceDictionary>
     </ContentPage.Resources>

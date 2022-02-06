@@ -15,14 +15,11 @@ namespace MobileGridGames.Views
         {
             Shell.Current.FlyoutIsPresented = false;
 
-            var vm = this.BindingContext as SquaresViewModel;
-            if (!vm.GameIsNotReady)
-            {
-                var settingsPage = new SettingsPage();
-                await Navigation.PushModalAsync(settingsPage);
-            }
+            var settingsPage = new SettingsPage();
+            await Navigation.PushModalAsync(settingsPage);
         }
 
+        // Path to most recently fully loaded picture.
         private string previousLoadedPicture = "";
 
         public SquaresPage()
@@ -51,7 +48,7 @@ namespace MobileGridGames.Views
             if (vm.ShowPicture && (vm.PicturePath != previousLoadedPicture))
             {
                 // Prevent input on the grid while the image is being loaded into the squares.
-                vm.GameIsNotReady = true;
+                vm.GameIsLoading = true;
 
                 // Restore the order of the squares in the grid.
                 vm.RestoreEmptyGrid();
@@ -79,11 +76,10 @@ namespace MobileGridGames.Views
                     Preferences.Set("PicturePath", "");
                     vm.PicturePath = "";
 
-                    vm.GameIsNotReady = false;
-                }
+                    vm.GameIsLoading = false;
 
-                // Cache the path to the loaded picture.
-                previousLoadedPicture = vm.PicturePath;
+                    Shell.Current.FlyoutBehavior = FlyoutBehavior.Flyout;
+                }
             }
         }
 
@@ -153,7 +149,7 @@ namespace MobileGridGames.Views
 
             // Do nothing here if pictures have not been loaded yet onto the squares.
             var vm = this.BindingContext as SquaresViewModel;
-            if (vm.GameIsNotReady)
+            if (vm.GameIsLoading)
             {
                 return;
             }
@@ -188,10 +184,26 @@ namespace MobileGridGames.Views
         {
             Debug.WriteLine("MobileGridGames: In ImageLoaded, calling PerformCrop.");
 
+            // Don't load a picture if this picture is already fully loaded.
+            var vm = this.BindingContext as SquaresViewModel;
+            if (vm.PicturePath == previousLoadedPicture)
+            {
+                return;
+            }
+
+            // Prevent interaction with any of the flyout items by preventing access to the flyout.
+            // This can't be done in OnAppearing() because the Shell.Current might still be null
+            // then. Future: While Shell.Current seems to be set here, is this robust? Change this
+            // approach so I can have some reason to think it's robust.
+            Shell.Current.FlyoutBehavior = FlyoutBehavior.Disabled;
+
             if (nextSquareIndexForImageSourceSetting != 0)
             {
                 Debug.WriteLine("MobileGridGames: Error in ImageLoaded, nextSquareIndexForImageSourceSetting should be zero, " +
                     nextSquareIndexForImageSourceSetting.ToString());
+
+                vm.GameIsLoading = false;
+                nextSquareIndexForImageSourceSetting = 0;
 
                 return;
             }
@@ -246,7 +258,7 @@ namespace MobileGridGames.Views
         // ImageSaving is called following each crop of the picture.
         private void GridGameImageEditor_ImageSaving(object sender, ImageSavingEventArgs args)
         {
-            Debug.WriteLine("MobileGridGames: In ImageSaving.");
+            Debug.WriteLine("MobileGridGames: In ImageSaving." + Shell.Current);
 
             // Important: Prevent the cropped image from being saved to a file.
             args.Cancel = true; 
@@ -263,6 +275,9 @@ namespace MobileGridGames.Views
             {
                 Debug.WriteLine("MobileGridGames: Error in ImageSaving, nextSquareIndexForImageSourceSetting too high, " +
                     nextSquareIndexForImageSourceSetting);
+
+                vm.GameIsLoading = false;
+                nextSquareIndexForImageSourceSetting = 0;
 
                 return;
             }
@@ -331,10 +346,18 @@ namespace MobileGridGames.Views
             }
             else
             {
-                // We've loaded all the pictures, so shuffle them and enable the game.
-                vm.GameIsNotReady = false;
+                vm.GameIsLoading = false;
+                nextSquareIndexForImageSourceSetting = 0;
 
+                // We've loaded all the pictures, so shuffle them and enable the game.
                 vm.ResetGrid();
+
+                Shell.Current.FlyoutBehavior = FlyoutBehavior.Flyout;
+
+                // Now that a picture has been fully loaded, cache the path to the loaded picture.
+                // We'll not load another picture until the picture being loaded is different from
+                // this successfully loaded picture.
+                previousLoadedPicture = vm.PicturePath;
             }
 
             Debug.WriteLine("MobileGridGames: Leave EndReset");
