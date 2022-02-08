@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MobileGridGames.ViewModels;
+using System;
 using System.Globalization;
 using Xamarin.Forms;
 
@@ -186,6 +187,31 @@ namespace MobileGridGames.Views
             var isGameLoading = (bool)value;
 
             return (isGameLoading ? false : true);
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class CardToCollectionViewIndex : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var card = (Card)value;
+            if (card == null)
+            {
+                return -1;
+            }
+
+            var binding = (Binding)parameter;
+            var collectionView = (CollectionView)binding.Source;
+
+            var vm = collectionView.BindingContext as MatchingViewModel;
+
+            var collectionViewIndex = vm.SquareListCollection.IndexOf(card) + 1;
+            return String.Format("{0:00}", collectionViewIndex);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

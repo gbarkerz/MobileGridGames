@@ -28,9 +28,8 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <localviews:GameIsLoadingToSquaresOpacity x:Key="GameIsLoadingToSquaresOpacity" />
-            <localviews:GameIsLoadingToVisibility x:Key="GameIsLoadingToVisibility" />
             <localviews:CollectionViewHeightToRowHeight x:Key="CollectionViewHeightToRowHeight" />
+            <localviews:CardToCollectionViewIndex x:Key="CardToCollectionViewIndex" />
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -54,12 +53,18 @@
                     <DataTemplate>
                         <Grid HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type CollectionView}}, 
                             Path=Height, Converter={StaticResource CollectionViewHeightToRowHeight}}"
-                            AutomationProperties.Name="{Binding AccessibleName, Mode=OneWay}"
-                            AutomationProperties.HelpText="{Binding AccessibleDescription, Mode=OneWay}">
+                                AutomationProperties.Name="{Binding AccessibleName, Mode=OneWay}"
+                                AutomationProperties.HelpText="{Binding AccessibleDescription, Mode=OneWay}">
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
                                     CommandParameter="{Binding Index}" />
                             </Grid.GestureRecognizers>
+                            <!-- Add a hidden label in order to support clicking a card via Voice Access,
+                                by speaking the index of the card in the card list. -->
+                            <Label Text="{Binding ., 
+                                Converter={StaticResource CardToCollectionViewIndex}, 
+                                ConverterParameter={Binding Source={x:Reference SquaresCollectionView}, 
+                                Path=BindingContext}}" />
                             <Frame Margin="2" Padding="0">
                                 <Image IsVisible="{Binding FaceUp}"
                                     Aspect="AspectFit" 
