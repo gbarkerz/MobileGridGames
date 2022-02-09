@@ -176,12 +176,18 @@ The concerns seem to relate to the contentDescription of the picker in the Setti
 
 Future updates to the app may include the following:
 
-1. Support a dark theme in the app.
+1. Add support to the Pairs game for selecting custom images and accessible details.
 
-2. Support a swipe gesture to move the squares in the game. It's expected that this will require changes to prevent the CollectionView itself from managing swipe gestures made over the view.
+2. Support a dark theme in the app.
 
-3. Support keyboard use and stronger keyboard focus feedback.
+3. Show instructions the first time a game is run.
 
-4. Timeout an attempt to load a picture if it's taking too long.
+4. Change the accessible name of the Menu button from "OK" to "Menu".
 
-5. Show instructions the first time a game is run.
+5. Add support for using Voice Access to click the Settings buttons in the games.
+
+6. Support a swipe gesture to move the squares in the game. It's expected that this will require changes to prevent the CollectionView itself from managing swipe gestures made over the view.
+
+7. Support keyboard use and stronger keyboard focus feedback.
+
+8. Timeout an attempt to load a picture if it's taking too long.
