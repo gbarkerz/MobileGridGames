@@ -154,7 +154,7 @@ namespace MobileGridGames.ViewModels
 
         public MatchingViewModel()
         {
-            Title = "Matching Game V1.0";
+            Title = "Pairs";
 
             TryAgainCount = 0;
 

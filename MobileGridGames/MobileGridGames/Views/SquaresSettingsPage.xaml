@@ -22,7 +22,7 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" Text="Squares Game Settings" FontSize="Title" />
+            <Label Grid.Row="0" Text="Squares Settings" FontSize="Title" />
             <Label Grid.Row="1" Text="Please specify what you would like to appear inside the squares shown in the grid." />
             <StackLayout Grid.Row="2">
                 <ScrollView Margin="4,4,4,2">

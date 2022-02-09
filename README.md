@@ -184,4 +184,4 @@ Future updates to the app may include the following:
 
 4. Timeout an attempt to load a picture if it's taking too long.
 
-5. Add an Android version of the [Windows Matching Game](https://github.com/gbarkerz/WinFormsMatchingGame).
+5. Show instructions the first time a game is run.

@@ -14,12 +14,12 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Text="Squares Game V1.2"
+            <Label Grid.Column="0" Text="Squares"
                 TextColor="White" VerticalOptions="Center"
                 FontSize="Title" />
             <Button Grid.Column="1" Text="&#xf013;" Clicked="SquaresGameSettingsButton_Clicked"
-                FontFamily="FA" FontSize="Title" 
-                AutomationProperties.Name="Settings"
+                FontFamily="FA" FontSize="Title" HorizontalOptions="End"
+                AutomationProperties.Name="Squares Settings"
                 IsVisible="{Binding GameIsLoading, Converter={StaticResource GameIsLoadingToVisibility}}"/>
         </Grid>
     </Shell.TitleView>

@@ -10,7 +10,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Label x:Name="SquaresGameHelpTitle" Grid.Row="0" Text="Squares Game Help" FontSize="Title" />
-            <Label x:Name="MatchingGameHelpTitle" Grid.Row="0" Text="Matching Game Help" FontSize="Title" />
+            <Label x:Name="MatchingGameHelpTitle" Grid.Row="0" Text="Pairs Help" FontSize="Title" />
             <StackLayout x:Name="SquaresGameHelpContent" Grid.Row="1">
                 <ScrollView Margin="4,4,4,2">
                     <Label VerticalOptions="Center">

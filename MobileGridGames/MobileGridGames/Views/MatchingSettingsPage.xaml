@@ -9,7 +9,7 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" Text="Matching Game Settings" FontSize="Title" />
+            <Label Grid.Row="0" Text="Pairs Settings" FontSize="Title" />
             <StackLayout Grid.Row="1">
                 <ScrollView Margin="4,4,4,2">
                     <Grid>

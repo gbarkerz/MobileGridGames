@@ -197,6 +197,10 @@ namespace MobileGridGames.Views
 
     public class CardToCollectionViewIndex : IValueConverter
     {
+        private static String[] numberWords = { 
+            "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", 
+            "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen" };
+
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var card = (Card)value;
@@ -210,8 +214,11 @@ namespace MobileGridGames.Views
 
             var vm = collectionView.BindingContext as MatchingViewModel;
 
-            var collectionViewIndex = vm.SquareListCollection.IndexOf(card) + 1;
-            return String.Format("{0:00}", collectionViewIndex);
+            var collectionViewIndex = vm.SquareListCollection.IndexOf(card);
+
+            // Return a word here, to avoid speech of "1" being ambiguous between
+            // 1, 10, 11, etc.
+            return numberWords[collectionViewIndex];
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -64,7 +64,7 @@ namespace MobileGridGames.ViewModels
 
         public SquaresViewModel()
         {
-            Title = "Squares Game V1.2";
+            Title = "Squares";
 
             squareList = new ObservableCollection<Square>();
 

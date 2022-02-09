@@ -16,7 +16,7 @@ namespace MobileGridGames
 
             ShellSection shellSectionSquares = new ShellSection
             {
-                Title = "Squares Game V1.2",
+                Title = "Squares",
                 FlyoutIcon = ImageSource.FromResource(
                     "MobileGridGames.Resources.SquaresGameIcon.png"),
             };
@@ -25,7 +25,7 @@ namespace MobileGridGames
 
             ShellSection shellSectionMatching = new ShellSection
             {
-                Title = "Matching Game V1.0",
+                Title = "Pairs",
                 FlyoutIcon = ImageSource.FromResource(
                     "MobileGridGames.Resources.MatchingGameIcon.png"),
             };

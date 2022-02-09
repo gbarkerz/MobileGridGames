@@ -10,7 +10,7 @@ namespace MobileGridGames.ViewModels
     {
         public MatchingSettingsViewModel()
         {
-            Title = "Matching Settings";
+            Title = "Pairs Settings";
         }
 
         private bool playSoundOnMatch = false;
