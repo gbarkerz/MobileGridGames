@@ -1,6 +1,7 @@
 ﻿using MobileGridGames.ViewModels;
 using System;
 using System.Globalization;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace MobileGridGames.Views
@@ -219,6 +220,23 @@ namespace MobileGridGames.Views
             // Return a word here, to avoid speech of "1" being ambiguous between
             // 1, 10, 11, etc.
             return numberWords[collectionViewIndex];
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class MatchingSettingsPicturePathToIsVisible : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var picturePath = (string)value;
+
+            bool picturePathLabelIsVisible = String.IsNullOrWhiteSpace(picturePath);
+
+            return picturePathLabelIsVisible;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

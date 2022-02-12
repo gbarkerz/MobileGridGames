@@ -156,12 +156,9 @@ namespace MobileGridGames.ViewModels
         {
             Title = "Pairs";
 
+            squareList = new ObservableCollection<Card>();
+
             TryAgainCount = 0;
-
-            this.SetupDefaultMatchingCardList();
-
-            var shuffler = new Shuffler();
-            shuffler.Shuffle(squareList);
         }
 
         private ImageSource GetImageSourceForCard(string cardName)
@@ -170,94 +167,139 @@ namespace MobileGridGames.ViewModels
                 "MobileGridGames.Resources.DefaultMatchingBackgrounds." + cardName + ".jpg");
         }
 
-        private void SetupDefaultMatchingCardList()
+        public void SetupDefaultMatchingCardList()
         {
             var resManager = Resource1.ResourceManager;
 
-            // Note: This app assumes the total count of cards is 16.
-            squareList = new ObservableCollection<Card>()
-            {
+            squareList.Clear();
+
+            squareList.Add(
                 new Card {
                     Index = 1,
                     AccessibleName = resManager.GetString("DefaultMatchingCard1Name"),
                     AccessibleDescription = resManager.GetString("DefaultMatchingCard1Description"),
-                    PictureImageSource = GetImageSourceForCard("Card1") },
+                    PictureImageSource = GetImageSourceForCard("Card1") });
+
+            squareList.Add(
                 new Card {
                     Index = 2,
                     AccessibleName = resManager.GetString("DefaultMatchingCard1Name"),
                     AccessibleDescription = resManager.GetString("DefaultMatchingCard1Description"),
-                    PictureImageSource = GetImageSourceForCard("Card1") },
+                    PictureImageSource = GetImageSourceForCard("Card1") });
+
+            squareList.Add(
                 new Card {
                     Index = 3,
                     AccessibleName = resManager.GetString("DefaultMatchingCard2Name"),
                     AccessibleDescription = resManager.GetString("DefaultMatchingCard2Description"),
-                    PictureImageSource = GetImageSourceForCard("Card2") },
+                    PictureImageSource = GetImageSourceForCard("Card2") });
+
+            squareList.Add(
                 new Card {
                     Index = 4,
                     AccessibleName = resManager.GetString("DefaultMatchingCard2Name"),
                     AccessibleDescription = resManager.GetString("DefaultMatchingCard2Description"),
-                    PictureImageSource = GetImageSourceForCard("Card2") },
+                    PictureImageSource = GetImageSourceForCard("Card2") });
+
+            squareList.Add(
                 new Card {
                     Index = 5,
                     AccessibleName = resManager.GetString("DefaultMatchingCard3Name"),
                     AccessibleDescription = resManager.GetString("DefaultMatchingCard3Description"),
-                    PictureImageSource = GetImageSourceForCard("Card3") },
+                    PictureImageSource = GetImageSourceForCard("Card3") });
+
+            squareList.Add(
                 new Card {
                     Index = 6,
                     AccessibleName = resManager.GetString("DefaultMatchingCard3Name"),
                     AccessibleDescription = resManager.GetString("DefaultMatchingCard3Description"),
-                    PictureImageSource = GetImageSourceForCard("Card3") },
+                    PictureImageSource = GetImageSourceForCard("Card3") });
+
+            squareList.Add(
                 new Card {
                     Index = 7,
                     AccessibleName = resManager.GetString("DefaultMatchingCard4Name"),
                     AccessibleDescription = resManager.GetString("DefaultMatchingCard4Description"),
-                    PictureImageSource = GetImageSourceForCard("Card4") },
+                    PictureImageSource = GetImageSourceForCard("Card4") });
+
+            squareList.Add(
                 new Card {
                     Index = 8,
                     AccessibleName = resManager.GetString("DefaultMatchingCard4Name"),
                     AccessibleDescription = resManager.GetString("DefaultMatchingCard4Description"),
-                    PictureImageSource = GetImageSourceForCard("Card4") },
+                    PictureImageSource = GetImageSourceForCard("Card4") });
+
+            squareList.Add(
                 new Card {
                     Index = 9,
                     AccessibleName = resManager.GetString("DefaultMatchingCard5Name"),
                     AccessibleDescription = resManager.GetString("DefaultMatchingCard5Description"),
-                    PictureImageSource = GetImageSourceForCard("Card5") },
+                    PictureImageSource = GetImageSourceForCard("Card5") });
+
+            squareList.Add(
                 new Card {
                     Index = 10,
                     AccessibleName = resManager.GetString("DefaultMatchingCard5Name"),
                     AccessibleDescription = resManager.GetString("DefaultMatchingCard5Description"),
-                    PictureImageSource = GetImageSourceForCard("Card5") },
+                    PictureImageSource = GetImageSourceForCard("Card5") });
+
+            squareList.Add(
                 new Card {
                     Index = 11,
                     AccessibleName = resManager.GetString("DefaultMatchingCard6Name"),
                     AccessibleDescription = resManager.GetString("DefaultMatchingCard6Description"),
-                    PictureImageSource = GetImageSourceForCard("Card6") },
+                    PictureImageSource = GetImageSourceForCard("Card6") });
+
+            squareList.Add(
                 new Card {
                     Index = 12,
                     AccessibleName = resManager.GetString("DefaultMatchingCard6Name"),
                     AccessibleDescription = resManager.GetString("DefaultMatchingCard6Description"),
-                    PictureImageSource = GetImageSourceForCard("Card6") },
+                    PictureImageSource = GetImageSourceForCard("Card6") });
+
+            squareList.Add(
                 new Card {
                     Index = 13,
                     AccessibleName = resManager.GetString("DefaultMatchingCard7Name"),
                     AccessibleDescription = resManager.GetString("DefaultMatchingCard7Description"),
-                    PictureImageSource = GetImageSourceForCard("Card7") },
+                    PictureImageSource = GetImageSourceForCard("Card7") });
+
+            squareList.Add(
                 new Card {
                     Index = 14,
                     AccessibleName = resManager.GetString("DefaultMatchingCard7Name"),
                     AccessibleDescription = resManager.GetString("DefaultMatchingCard7Description"),
-                    PictureImageSource = GetImageSourceForCard("Card7") },
+                    PictureImageSource = GetImageSourceForCard("Card7") });
+
+            squareList.Add(
                 new Card {
                     Index = 15,
                     AccessibleName = resManager.GetString("DefaultMatchingCard8Name"),
                     AccessibleDescription = resManager.GetString("DefaultMatchingCard8Description"),
-                    PictureImageSource = GetImageSourceForCard("Card8") },
+                    PictureImageSource = GetImageSourceForCard("Card8") });
+
+            squareList.Add(
                 new Card {
                     Index = 16,
                     AccessibleName = resManager.GetString("DefaultMatchingCard8Name"),
                     AccessibleDescription = resManager.GetString("DefaultMatchingCard8Description"),
-                    PictureImageSource = GetImageSourceForCard("Card8") },
-            };
+                    PictureImageSource = GetImageSourceForCard("Card8") });
+
+            var shuffler = new Shuffler();
+            shuffler.Shuffle(squareList);
+        }
+
+        public void SetupCustomMatchingCardList(Collection<Card> cards)
+        {
+            squareList.Clear();
+
+            for (int i = 0; i < cards.Count; i++)
+            {
+                squareList.Add(cards[i]);
+            }
+
+            var shuffler = new Shuffler();
+            shuffler.Shuffle(squareList);
         }
 
         public int MoveCount { get; set; }
