@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MobileGridGames.AppSettingsPage">
     <ContentPage.Content>
-        <Grid Grid.Row="0" Margin="10">
+        <Grid Grid.Row="0" Padding="10"
+              BackgroundColor="{DynamicResource PageBackgroundColor}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -17,7 +18,7 @@
                     <StackLayout>
                         <StackLayout Orientation="Horizontal">
                             <Label x:Name="ShowDarkThemeLabel" Text="Use a dark theme" 
-                                        VerticalOptions="Center" />
+                                VerticalOptions="Center" />
                             <CheckBox x:Name="ShowDarkThemeCheckBox"
                                 AutomationProperties.LabeledBy="{x:Reference ShowDarkThemeLabel}"
                                 VerticalOptions="Center" IsChecked="{Binding ShowDarkTheme}" />

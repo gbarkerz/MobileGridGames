@@ -11,7 +11,8 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <Grid Grid.Row="0" Margin="10">
+        <Grid Grid.Row="0" Padding="10"
+            BackgroundColor="{DynamicResource PageBackgroundColor}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />

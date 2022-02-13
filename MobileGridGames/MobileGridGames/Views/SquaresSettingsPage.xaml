@@ -15,7 +15,8 @@
     </ContentPage.Resources>    
     
     <ContentPage.Content>
-        <Grid Grid.Row="0" Margin="10">
+        <Grid Grid.Row="0" Padding="10"
+            BackgroundColor="{DynamicResource PageBackgroundColor}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -27,7 +28,7 @@
             <StackLayout Grid.Row="2">
                 <ScrollView Margin="4,4,4,2">
                     <StackLayout>
-                        <Frame>
+                        <Frame BackgroundColor="Transparent">
                             <StackLayout>
                                 <StackLayout Orientation="Horizontal">
                                     <Label x:Name="ShowNumbersLabel" Text="Show numbers" 
@@ -51,7 +52,7 @@
                                 </StackLayout>
                             </StackLayout>
                         </Frame>
-                        <Frame Grid.Row="3" Margin="4,2,4,10">
+                        <Frame Grid.Row="3" Margin="4,2,4,10"  BackgroundColor="Transparent">
                             <StackLayout>
                                 <StackLayout Orientation="Horizontal">
                                     <Label x:Name="ShowPictureLabel" Text="Show picture" VerticalOptions="Center" />

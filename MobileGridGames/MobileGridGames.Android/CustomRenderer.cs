@@ -1,6 +1,4 @@
 ﻿using Android.Content;
-using MobileGridGames.Services;
-using MobileGridGames.Styles;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
