@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileGridGames.AppSettingsPage">
+    <ContentPage.Content>
+        <Grid Grid.Row="0" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Text="App Settings" FontSize="Title" />
+            <Label Grid.Row="1" Text="Settings here apply to all games in the Grid Games app." />
+            <StackLayout Grid.Row="2">
+                <ScrollView Margin="4,4,4,2">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label x:Name="ShowDarkThemeLabel" Text="Use a dark theme" 
+                                        VerticalOptions="Center" />
+                            <CheckBox x:Name="ShowDarkThemeCheckBox"
+                                AutomationProperties.LabeledBy="{x:Reference ShowDarkThemeLabel}"
+                                VerticalOptions="Center" IsChecked="{Binding ShowDarkTheme}" />
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            <Button Grid.Row="3" x:Name="CloseButton" 
+                HorizontalOptions="End" Margin="0,0,4,4"
+                Text="Close" Clicked="CloseButton_Clicked" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

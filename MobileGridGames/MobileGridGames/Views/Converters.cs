@@ -244,4 +244,20 @@ namespace MobileGridGames.Views
             throw new NotImplementedException();
         }
     }
+
+    public class SquareTargetIndexToBackgroundColor : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var targetIndex = (int)value;
+
+            return targetIndex != 15 ?
+                App.Current.Resources["SquaresNumberBackgroundColor"] : Color.DarkGray;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

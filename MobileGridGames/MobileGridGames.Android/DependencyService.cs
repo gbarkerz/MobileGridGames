@@ -9,6 +9,8 @@ using MobileGridGames.Services;
 using Java.Lang;
 
 using MobileGridGames.Droid;
+using static MobileGridGames.App;
+using MobileGridGames.Styles;
 
 [assembly: Xamarin.Forms.Dependency(typeof(MobileGridGames.Droid.MobileGridGamesPlatformAction))]
 namespace MobileGridGames.Droid
@@ -35,6 +37,18 @@ namespace MobileGridGames.Droid
                 // so no announcement there gets announced by default anyway.
 
                 MainActivity.accessibilityManager.SendAccessibilityEvent(e);
+            }
+        }
+
+        public void SetAppTheme(App.Theme mode)
+        {
+            if (mode == Theme.Dark)
+            {
+                App.Current.Resources = new DarkTheme();
+            }
+            else
+            {
+                App.Current.Resources = new LightTheme();
             }
         }
     }

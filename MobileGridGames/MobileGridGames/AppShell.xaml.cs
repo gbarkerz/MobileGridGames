@@ -73,6 +73,14 @@ namespace MobileGridGames
             //}
         }
 
+        private async void OnAppSettingsMenuItemClicked(object sender, EventArgs e)
+        {
+            Shell.Current.FlyoutIsPresented = false;
+
+            var appSettingsPage = new AppSettingsPage();
+            await Navigation.PushModalAsync(appSettingsPage);
+        }
+
         private void OnRestartMenuItemClicked(object sender, EventArgs e)
         {
             Shell.Current.FlyoutIsPresented = false;

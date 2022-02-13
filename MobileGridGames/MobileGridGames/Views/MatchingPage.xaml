@@ -5,16 +5,17 @@
              x:Class="MobileGridGames.Views.MatchingPage"
              xmlns:localviews="clr-namespace:MobileGridGames.Views"
              xmlns:vm="clr-namespace:MobileGridGames.ViewModels"
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
              Title="{Binding Title}">
 
     <Shell.TitleView>
-        <Grid>
+        <Grid BackgroundColor="{DynamicResource Primary}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Text="Pairs"
-                TextColor="White" VerticalOptions="Center"
+                TextColor="{DynamicResource GameTitleBarTextColor}" VerticalOptions="Center"
                 FontSize="Title" />
             <Button Grid.Column="1" Text="&#xf013;" Clicked="MatchingGameSettingsButton_Clicked"
                 FontFamily="FA" FontSize="Title" HorizontalOptions="End"
@@ -40,7 +41,7 @@
             </Grid.RowDefinitions>
             <CollectionView Grid.Row="0"
                 x:Name="SquaresCollectionView"
-                BackgroundColor="{StaticResource Primary}"                            
+                BackgroundColor="{DynamicResource GridBackgroundColor}"
                 SelectionMode="Single" 
                 SelectionChanged="MatchingGrid_SelectionChanged"
                 ItemsSource="{Binding SquareListCollection}">
@@ -53,8 +54,9 @@
                     <DataTemplate>
                         <Grid HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type CollectionView}}, 
                             Path=Height, Converter={StaticResource CollectionViewHeightToRowHeight}}"
-                                AutomationProperties.Name="{Binding AccessibleName, Mode=OneWay}"
-                                AutomationProperties.HelpText="{Binding AccessibleDescription, Mode=OneWay}">
+                            BackgroundColor="Transparent"
+                            AutomationProperties.Name="{Binding AccessibleName, Mode=OneWay}"
+                            AutomationProperties.HelpText="{Binding AccessibleDescription, Mode=OneWay}">
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
                                     CommandParameter="{Binding Index}" />
@@ -64,8 +66,10 @@
                             <Label Text="{Binding ., 
                                 Converter={StaticResource CardToCollectionViewIndex}, 
                                 ConverterParameter={Binding Source={x:Reference SquaresCollectionView}, 
-                                Path=BindingContext}}" />
-                            <Frame Margin="2" Padding="0">
+                                Path=BindingContext}}" 
+                                Margin="10"/>
+                            <Frame Margin="2" Padding="0" 
+                                BackgroundColor="{DynamicResource GridItemBackgroundColor}">
                                 <Image IsVisible="{Binding FaceUp}"
                                     Aspect="AspectFit" 
                                     Source="{Binding PictureImageSource}">

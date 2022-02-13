@@ -6,16 +6,17 @@
              xmlns:localviews="clr-namespace:MobileGridGames.Views"
              xmlns:vm="clr-namespace:MobileGridGames.ViewModels"
              xmlns:imageeditor="clr-namespace:Syncfusion.SfImageEditor.XForms;assembly=Syncfusion.SfImageEditor.XForms"
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
              Title="{Binding Title}">
 
     <Shell.TitleView>
-        <Grid>
+        <Grid BackgroundColor="{DynamicResource Primary}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Text="Squares"
-                TextColor="White" VerticalOptions="Center"
+                TextColor="{DynamicResource GameTitleBarTextColor}" VerticalOptions="Center"
                 FontSize="Title" />
             <Button Grid.Column="1" Text="&#xf013;" Clicked="SquaresGameSettingsButton_Clicked"
                 FontFamily="FA" FontSize="Title" HorizontalOptions="End"
@@ -37,6 +38,7 @@
             <localviews:LabelContainerHeightToFontSize x:Key="LabelContainerHeightToFontSize" />
             <localviews:SquareTargetIndexToIsVisible x:Key="SquareTargetIndexToIsVisible" />
             <localviews:SquareTargetIndexToContainerFrameVisibility x:Key="SquareTargetIndexToContainerFrameVisibility" />
+            <localviews:SquareTargetIndexToBackgroundColor x:Key="SquareTargetIndexToBackgroundColor" />
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -70,12 +72,15 @@
                 <DataTemplate>
                     <Grid HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type CollectionView}}, 
                         Path=Height, Converter={StaticResource CollectionViewHeightToRowHeight}}"
+                        BackgroundColor="{DynamicResource GridBackgroundColor}"
                         AutomationProperties.Name="{Binding AccessibleName}"
                         AutomationProperties.HelpText="{Binding AccessibleDescription}">
                         <Grid.GestureRecognizers>
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                         </Grid.GestureRecognizers>
-                        <Frame Margin="2" Padding="0">
+                        <Frame Margin="2" Padding="0"
+                            BackgroundColor="{Binding TargetIndex, 
+                                Converter={StaticResource SquareTargetIndexToBackgroundColor}}">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition 
@@ -108,13 +113,18 @@
                                 </Image>
                                 
                                 <Grid Grid.Row="0" x:Name="LabelPanel"
+                                    BackgroundColor="Transparent"
                                     IsVisible="{Binding
-                                        Source={x:Reference SquaresPageInstance},
-                                        Path=BindingContext.ShowNumbers}">
+                                    Source={x:Reference SquaresPageInstance},
+                                    Path=BindingContext.ShowNumbers}">
                                     <Frame Margin="0" Padding="0" HorizontalOptions="Start"
+                                        BorderColor="Transparent"
+                                        BackgroundColor="{Binding TargetIndex, 
+                                            Converter={StaticResource SquareTargetIndexToBackgroundColor}}"
                                         IsVisible="{Binding TargetIndex, 
                                             Converter={StaticResource SquareTargetIndexToContainerFrameVisibility}}">
                                         <Label Text="{Binding VisualLabel}"
+                                            TextColor="{DynamicResource SquaresNumberTextColor}"                                               
                                             Margin="2,0,4,0"
                                             HorizontalOptions="Center" VerticalOptions="Center"
                                             HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type Grid}}, Path=Height}">
