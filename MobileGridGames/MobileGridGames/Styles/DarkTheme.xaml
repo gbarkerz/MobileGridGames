@@ -59,6 +59,12 @@
                             <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="White" />
                         </VisualState.Setters>
                     </VisualState>
+                    <VisualState x:Name="Selected">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                            <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="White" />
+                        </VisualState.Setters>
+                    </VisualState>
                 </VisualStateGroup>
             </VisualStateGroupList>
         </Setter>
