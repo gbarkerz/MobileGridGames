@@ -6,11 +6,12 @@
     <!-- Added during development of Grid Games. -->
     <Color x:Key="PageBackgroundColor">Black</Color>
     <Color x:Key="GameTitleBarTextColor">White</Color>
-    <Color x:Key="GameTitleBarBackgroundColor">DarkGray</Color>
+    <Color x:Key="GameTitleBarBackgroundColor">#007000</Color>
     <Color x:Key="GridBackgroundColor">Gray</Color>
     <Color x:Key="GridItemBackgroundColor">Black</Color>
     <Color x:Key="SquaresNumberTextColor">White</Color>
     <Color x:Key="SquaresNumberBackgroundColor">Black</Color>
+    <Color x:Key="FlyoutMenuItemColor">White</Color>
 
     <Style TargetType="Label">
         <Setter Property="TextColor" Value="White"></Setter>
@@ -24,7 +25,7 @@
     </Style>
 
     <!-- Originally in App.xaml. -->
-    <Color x:Key="Primary">Gray</Color>
+    <Color x:Key="Primary">#007000</Color>
     <Style TargetType="Button">
         <Setter Property="TextColor" Value="White"></Setter>
         <Setter Property="BackgroundColor" Value="{DynamicResource Primary}"></Setter>

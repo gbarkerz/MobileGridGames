@@ -15,7 +15,7 @@ namespace MobileGridGames.Views
         {
             Shell.Current.FlyoutIsPresented = false;
 
-            var settingsPage = new SettingsPage();
+            var settingsPage = new SquaresSettingsPage();
             await Navigation.PushModalAsync(settingsPage);
         }
 

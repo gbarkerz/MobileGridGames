@@ -443,7 +443,7 @@ namespace MobileGridGames.ViewModels
             return true;
         }
 
-        public void ResetGrid()
+        public void ResetGrid(bool shuffle)
         {
             TryAgainCount = 0;
 
@@ -456,8 +456,11 @@ namespace MobileGridGames.ViewModels
                 this.squareList[i].Matched = false;
             }
 
-            var shuffler = new Shuffler();
-            shuffler.Shuffle(squareList);
+            if (shuffle)
+            {
+                var shuffler = new Shuffler();
+                shuffler.Shuffle(squareList);
+            }
         }
 
         public class Shuffler

@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="MobileGridGames.Views.SettingsPage"
+             x:Class="MobileGridGames.Views.SquaresSettingsPage"
              xmlns:localviews="clr-namespace:MobileGridGames.Views"
              Shell.NavBarIsVisible="False">
 

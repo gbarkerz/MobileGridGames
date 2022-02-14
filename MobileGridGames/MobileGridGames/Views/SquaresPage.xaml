@@ -153,6 +153,8 @@
         <!-- Show a message when the pictures are being loaded into the squares. -->
         <Frame Grid.Row="1"
             IsVisible="{Binding GameIsLoading}"
+            BorderColor="{DynamicResource SquaresNumberTextColor}"
+            BackgroundColor="{DynamicResource PageBackgroundColor}"
             AutomationProperties.Name="Loading pictures, please wait."
             VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
             <Label x:Name="PleaseWaitLabel" 

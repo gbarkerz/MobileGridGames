@@ -11,6 +11,7 @@
     <Color x:Key="GridItemBackgroundColor">White</Color>
     <Color x:Key="SquaresNumberTextColor">Black</Color>
     <Color x:Key="SquaresNumberBackgroundColor">White</Color>
+    <Color x:Key="FlyoutMenuItemColor">#2196F3</Color>
 
     <Style TargetType="Label">
         <Setter Property="TextColor" Value="Black"></Setter>

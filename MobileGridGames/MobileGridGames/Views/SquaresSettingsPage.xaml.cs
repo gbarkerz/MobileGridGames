@@ -8,9 +8,9 @@ using Xamarin.Forms.Xaml;
 namespace MobileGridGames.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SettingsPage : ContentPage
+    public partial class SquaresSettingsPage : ContentPage
     {
-        public SettingsPage()
+        public SquaresSettingsPage()
         {
             InitializeComponent();
 

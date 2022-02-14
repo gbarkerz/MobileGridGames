@@ -20,7 +20,7 @@
     <MenuItem Text="Help" StyleClass="MenuItemLayoutStyle" Clicked="OnHelpMenuItemClicked">
         <MenuItem.IconImageSource>
             <FontImageSource
-                Color="{DynamicResource Primary}"
+                Color="{DynamicResource FlyoutMenuItemColor}"
                 Glyph="&#xf05a;"
                 FontFamily="FA" />
         </MenuItem.IconImageSource>
@@ -29,7 +29,7 @@
     <MenuItem Text="App Settings" StyleClass="MenuItemLayoutStyle" Clicked="OnAppSettingsMenuItemClicked">
         <MenuItem.IconImageSource>
             <FontImageSource
-                Color="{DynamicResource Primary}"
+                Color="{DynamicResource FlyoutMenuItemColor}"
                 Glyph="&#xf013;"
                 FontFamily="FA" />
         </MenuItem.IconImageSource>
@@ -38,7 +38,7 @@
     <MenuItem Text="Restart Game" StyleClass="MenuItemLayoutStyle" Clicked="OnRestartMenuItemClicked">
         <MenuItem.IconImageSource>
             <FontImageSource
-                Color="{DynamicResource Primary}"
+                Color="{DynamicResource FlyoutMenuItemColor}"
                 Glyph="&#xf021;"
                 FontFamily="FA" />
         </MenuItem.IconImageSource>

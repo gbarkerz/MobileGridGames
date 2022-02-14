@@ -19,17 +19,28 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Text="Pairs Settings" FontSize="Title" />
-            <StackLayout Grid.Row="1">
-                <StackLayout>
-                    <Grid>
+            <ScrollView Grid.Row="1" Margin="4,4,4,2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
+
                         <Label Grid.Row="0" Grid.Column="0" x:Name="PlaySoundOnMatchLabel" 
                             Text="Play a sound when upturned cards match" 
                             VerticalOptions="Center" />
@@ -43,8 +54,8 @@
                             AutomationProperties.LabeledBy="{x:Reference PlaySoundOnNotMatchLabel}"
                             VerticalOptions="Center" IsChecked="{Binding PlaySoundOnNotMatch}" />
                     </Grid>
-
-                    <StackLayout Orientation="Horizontal" Margin="0,20,0,0">
+                    
+                    <StackLayout Grid.Row="2"  Orientation="Horizontal" Margin="0,20,0,0">
                         <Label x:Name="ShowCustomPicturesLabel" 
                             Text="Show custom pictures" 
                             VerticalOptions="Center" />
@@ -53,69 +64,70 @@
                             VerticalOptions="Center" IsChecked="{Binding ShowCustomPictures}" />
                     </StackLayout>
 
-                    <StackLayout Orientation="Horizontal">
-                        <Button x:Name="PictureBrowseButton" 
-                            Text="Select pictures" 
+                    <Button Grid.Row="3" x:Name="PictureBrowseButton" 
+                            Text="Select Picture" 
                             HorizontalOptions="StartAndExpand" Margin="0,0,0,4"
                             Clicked="PictureBrowseButton_Clicked" />
-                        <Button x:Name="PictureClearButton" 
-                            Text="Clear selection" 
-                            HorizontalOptions="StartAndExpand" Margin="0,0,0,4"
-                            Clicked="PictureClearButton_Clicked" />
-                    </StackLayout>
                     
-                    <StackLayout Orientation="Horizontal" Margin="0,10,0,10">
-                        <Label Text="Path: " />
-                        <Label Text="No folder selected" 
+                    <Grid Grid.Row="4" Margin="0,10,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Text="Picture Path: " />
+                        <Label Grid.Column="1" Text="No folder selected" 
                             IsVisible="{Binding PicturePath, Mode=OneWay,
                                 Converter={StaticResource MatchingSettingsPicturePathToIsVisible}}" />
-                        <Label Text="{Binding PicturePath, Mode=TwoWay}" />
-                    </StackLayout>
-                    
-                    <ScrollView Margin="4,4,4,2">
-                        <CollectionView x:Name="PicturesCollectionView"  
-                            ItemsSource="{Binding PictureListCollection}">
-                            <CollectionView.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="Auto" />
-                                        </Grid.RowDefinitions>
-                                        <Grid Grid.Row="0">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
-                                            <Label Grid.Column="0" FontAttributes="Bold" 
-                                                Text="{Binding Index}" />
-                                            <Label Grid.Column="1" FontAttributes="Bold"
-                                                Text="{Binding FileName}" />
-                                        </Grid>
-                                        <Grid Grid.Row="1">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
-                                            <Label Grid.Column="0" Text="Name: "/>
-                                            <Label Grid.Column="1" Text="{Binding AccessibleName}"/>
-                                        </Grid>
-                                        <Grid Grid.Row="2" Margin="0,0,0,20">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
-                                            <Label Grid.Column="0" Text="Description: "/>
-                                            <Label Grid.Column="1" Text="{Binding AccessibleDescription}"/>
-                                        </Grid>
+                        <Label Grid.Column="1" Text="{Binding PicturePath, Mode=TwoWay}" />
+                    </Grid>
+
+                    <Button Grid.Row="5" x:Name="PictureClearButton" 
+                        Text="Clear Selection" 
+                        HorizontalOptions="StartAndExpand" Margin="0,0,0,4"
+                        Clicked="PictureClearButton_Clicked" />
+
+                    <CollectionView Grid.Row="6" x:Name="PicturesCollectionView"  
+                        ItemsSource="{Binding PictureListCollection}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0" FontAttributes="Bold" 
+                                            Text="{Binding Index}" />
+                                        <Label Grid.Column="1" FontAttributes="Bold"
+                                            Text="{Binding FileName}" />
                                     </Grid>
-                                </DataTemplate>
-                            </CollectionView.ItemTemplate>
-                        </CollectionView>
-                    </ScrollView>
-                </StackLayout>
-            </StackLayout>
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0" Text="Name: "/>
+                                        <Label Grid.Column="1" Text="{Binding AccessibleName}"/>
+                                    </Grid>
+                                    <Grid Grid.Row="2" Margin="0,0,0,20">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0" Text="Description: "/>
+                                        <Label Grid.Column="1" Text="{Binding AccessibleDescription}"/>
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </ScrollView>
             
             <Button Grid.Row="2" x:Name="CloseButton" 
                 HorizontalOptions="End" Margin="0,0,4,4"

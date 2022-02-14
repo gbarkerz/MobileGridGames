@@ -89,7 +89,7 @@ namespace MobileGridGames
             if (currentPage is MatchingPage)
             {
                 var vm = (CurrentPage as MatchingPage).BindingContext as MatchingViewModel;
-                vm.ResetGrid();
+                vm.ResetGrid(true);
             }
             else
             {

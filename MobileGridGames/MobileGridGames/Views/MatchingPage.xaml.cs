@@ -52,8 +52,9 @@ namespace MobileGridGames.Views
 
             if ((showCustomPictures != previousShowCustomPictures) ||
                 (picturePath != previousPicturePath))
-            { 
-                vm.TryAgainCount = 0;
+            {
+                // Reset all cached game progress setting, but don't bother to shuffle.
+                vm.ResetGrid(false);
 
                 // Should we be showing the default pictures?
                 if (!showCustomPictures || String.IsNullOrWhiteSpace(picturePath))
@@ -174,7 +175,7 @@ namespace MobileGridGames.Views
                 "Yes", "No");
             if (answer)
             {
-                vm.ResetGrid();
+                vm.ResetGrid(true);
             }
         }
 
