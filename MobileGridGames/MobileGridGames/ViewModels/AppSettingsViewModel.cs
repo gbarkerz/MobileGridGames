@@ -15,13 +15,17 @@ namespace MobileGridGames.ViewModels
         private bool showDarkTheme;
         public bool ShowDarkTheme
         {
-            get => Preferences.Get("ShowDarkTheme", false);
+            get
+            {
+                return showDarkTheme;
+            }
             set
             {
                 if (showDarkTheme != value)
                 {
-                    Preferences.Set("ShowDarkTheme", value);
                     SetProperty(ref showDarkTheme, value);
+
+                    Preferences.Set("ShowDarkTheme", value);
 
                     DependencyService.Get<IMobileGridGamesPlatformAction>().SetAppTheme(
                         showDarkTheme ? App.Theme.Dark : App.Theme.Light);

@@ -52,25 +52,39 @@
                                 </StackLayout>
                             </StackLayout>
                         </Frame>
-                        <Frame Grid.Row="3" Margin="4,2,4,10"  BackgroundColor="Transparent">
-                            <StackLayout>
-                                <StackLayout Orientation="Horizontal">
+                        <Frame Margin="4,2,4,10"  BackgroundColor="Transparent">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <StackLayout Grid.Row="0" Orientation="Horizontal">
                                     <Label x:Name="ShowPictureLabel" Text="Show picture" VerticalOptions="Center" />
                                     <CheckBox x:Name="ShowPictureCheckBox" VerticalOptions="Center"
                                         AutomationProperties.LabeledBy="{x:Reference ShowPictureLabel}"
                                         IsChecked="{Binding ShowPicture}" />
                                 </StackLayout>
-                                <StackLayout Margin="10,0,0,0">
-                                    <Button x:Name="PictureBrowseButton" Text="Browse for picture" 
-                                        HorizontalOptions="StartAndExpand" Margin="0,0,0,4"
-                                        Clicked="PictureBrowseButton_Clicked" />
-                                    <Label Text="Picture loaded: " 
-                                        IsVisible="{Binding PicturePath, 
-                                            Converter={StaticResource SettingsPicturePathToPicturePathLabelIsVisible}}"
+                                <Button Grid.Row="1" x:Name="PictureBrowseButton" Text="Browse for picture" 
+                                    HorizontalOptions="StartAndExpand" Margin="0,0,0,4"
+                                    Clicked="PictureBrowseButton_Clicked" />
+                                <Grid Grid.Row="2"
+                                    IsVisible="{Binding PicturePathSquares, 
+                                        Converter={StaticResource SettingsPicturePathToPicturePathLabelIsVisible}}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Text="Selected: " 
                                         Margin="0,0,0,0" Padding="0,0,0,0" />
-                                    <Label Text="{Binding PicturePath}" Margin="0,0,0,0" Padding="0,0,0,0" />
-                                </StackLayout>
-                            </StackLayout>
+                                    <Label Grid.Column="1" Text="{Binding PicturePathSquares}" 
+                                        Margin="0,0,0,0" Padding="0,0,0,0" />
+                                </Grid>
+                                <Button Grid.Row="3" x:Name="PictureClearButton" Text="Clear Selection" 
+                                    HorizontalOptions="StartAndExpand" Margin="0,0,0,4"
+                                    Clicked="PictureClearButton_Clicked" />
+                            </Grid>
                         </Frame>
                     </StackLayout>
                 </ScrollView>

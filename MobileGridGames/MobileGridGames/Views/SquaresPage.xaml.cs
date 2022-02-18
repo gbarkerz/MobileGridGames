@@ -53,10 +53,10 @@ namespace MobileGridGames.Views
             vm.ShowNumbers = Preferences.Get("ShowNumbers", true);
             vm.NumberHeight = Preferences.Get("NumberSizeIndex", 1);
             vm.ShowPicture = Preferences.Get("ShowPicture", false);
-            vm.PicturePath = Preferences.Get("PicturePath", "");
+            vm.PicturePathSquares = Preferences.Get("PicturePathSquares", "");
 
             // Has the state of the picture being shown changed since we were last changed?
-            if (vm.ShowPicture && (vm.PicturePath != previousLoadedPicture))
+            if (vm.ShowPicture && (vm.PicturePathSquares != previousLoadedPicture))
             {
                 // Prevent input on the grid while the image is being loaded into the squares.
                 vm.GameIsLoading = true;
@@ -68,24 +68,24 @@ namespace MobileGridGames.Views
                 nextSquareIndexForImageSourceSetting = 0;
 
                 // Check whether the image file exists before trying to load it into the ImageEditor.
-                if (vm.IsImageFilePathValid(vm.PicturePath))
+                if (vm.IsImageFilePathValid(vm.PicturePathSquares))
                 {
                     vm.RaiseNotificationEvent(PleaseWaitLabel.Text);
 
                     // Future: Verify that if the various event handlers are still being called from the
                     // previous attempt to load a picture, those event handlers will no longer be called
                     // once the loading of another picture begins.
-                    GridGameImageEditor.Source = ImageSource.FromFile(vm.PicturePath);
+                    GridGameImageEditor.Source = ImageSource.FromFile(vm.PicturePathSquares);
 
                     Debug.WriteLine("Grid Games: ImageEditor source now " + GridGameImageEditor.Source.ToString());
                 }
                 else
                 {
-                    Debug.WriteLine("Grid Games: Valid image file not found. " + vm.PicturePath);
+                    Debug.WriteLine("Grid Games: Valid image file not found. " + vm.PicturePathSquares);
 
                     // We'll not attempt to load this picture again.
-                    Preferences.Set("PicturePath", "");
-                    vm.PicturePath = "";
+                    Preferences.Set("PicturePathSquares", "");
+                    vm.PicturePathSquares = "";
 
                     vm.GameIsLoading = false;
 
@@ -211,7 +211,7 @@ namespace MobileGridGames.Views
 
             // Don't load a picture if this picture is already fully loaded.
             var vm = this.BindingContext as SquaresViewModel;
-            if (vm.PicturePath == previousLoadedPicture)
+            if (vm.PicturePathSquares == previousLoadedPicture)
             {
                 return;
             }
@@ -382,7 +382,7 @@ namespace MobileGridGames.Views
                 // Now that a picture has been fully loaded, cache the path to the loaded picture.
                 // We'll not load another picture until the picture being loaded is different from
                 // this successfully loaded picture.
-                previousLoadedPicture = vm.PicturePath;
+                previousLoadedPicture = vm.PicturePathSquares;
             }
 
             Debug.WriteLine("MobileGridGames: Leave EndReset");

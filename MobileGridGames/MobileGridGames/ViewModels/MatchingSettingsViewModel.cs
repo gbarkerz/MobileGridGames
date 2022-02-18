@@ -16,6 +16,7 @@ namespace MobileGridGames.ViewModels
             Title = "Pairs Settings";
 
             this.PictureListCollection = new ObservableCollection<PictureData>();
+
         }
 
         private ObservableCollection<PictureData> pictureList;
@@ -25,58 +26,74 @@ namespace MobileGridGames.ViewModels
             set { this.pictureList = value; }
         }
 
-        private string picturePath;
-        public string PicturePath
+        private string picturePathMatching;
+        public string PicturePathMatching
         {
-            get => Preferences.Get("PicturePath", "");
+            get
+            {
+                return picturePathMatching;
+            }
             set
             {
-                if (picturePath != value)
+                if (picturePathMatching != value)
                 {
-                    Preferences.Set("PicturePath", value);
-                    SetProperty(ref picturePath, value);
+                    SetProperty(ref picturePathMatching, value);
+
+                    Preferences.Set("PicturePathMatching", value);
                 }
             }
         }
 
-        private bool showCustomPictures = false;
+        private bool showCustomPictures;
         public bool ShowCustomPictures
         {
-            get => Preferences.Get("ShowCustomPictures", false);
+            get
+            {
+                return showCustomPictures;
+            }
             set
             {
                 if (showCustomPictures != value)
                 {
-                    Preferences.Set("ShowCustomPictures", value);
                     SetProperty(ref showCustomPictures, value);
+
+                    Preferences.Set("ShowCustomPictures", value);
                 }
             }
         }
 
-        private bool playSoundOnMatch = false;
+        private bool playSoundOnMatch;
         public bool PlaySoundOnMatch
         {
-            get => Preferences.Get("PlaySoundOnMatch", true);
+            get
+            {
+                return playSoundOnMatch;
+            }
             set
             {
                 if (playSoundOnMatch != value)
                 {
-                    Preferences.Set("PlaySoundOnMatch", value);
                     SetProperty(ref playSoundOnMatch, value);
+
+                    Preferences.Set("PlaySoundOnMatch", value);
                 }
             }
         }
 
-        private bool playSoundOnNotMatch = false;
+        private bool playSoundOnNotMatch;
         public bool PlaySoundOnNotMatch
         {
-            get => Preferences.Get("PlaySoundOnNotMatch", true);
+            get
+            {
+                return playSoundOnNotMatch;
+            }
             set
             {
                 if (playSoundOnNotMatch != value)
                 {
-                    Preferences.Set("PlaySoundOnNotMatch", value);
                     SetProperty(ref playSoundOnNotMatch, value);
+
+                    Preferences.Set("PlaySoundOnNotMatch", value);
                 }
             }
         }

@@ -52,13 +52,13 @@ namespace MobileGridGames.ViewModels
             }
         }
 
-        private string picturePath;
-        public string PicturePath
+        private string picturePathSquares;
+        public string PicturePathSquares
         {
-            get { return picturePath; }
+            get { return picturePathSquares; }
             set
             {
-                SetProperty(ref picturePath, value);
+                SetProperty(ref picturePathSquares, value);
             }
         }
 
@@ -90,9 +90,9 @@ namespace MobileGridGames.ViewModels
 
             // If we won't be loading pictures into the squares, shuffle them now.
             ShowPicture = Preferences.Get("ShowPicture", false);
-            PicturePath = Preferences.Get("PicturePath", "");
+            PicturePathSquares = Preferences.Get("PicturePathSquares", "");
 
-            if (!ShowPicture || !IsImageFilePathValid(PicturePath))
+            if (!ShowPicture || !IsImageFilePathValid(PicturePathSquares))
             {
                 GameIsLoading = false;
 

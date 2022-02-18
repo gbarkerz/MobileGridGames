@@ -22,6 +22,12 @@ namespace MobileGridGames
 
             this.BindingContext = new MatchingSettingsViewModel();
 
+            var vm = this.BindingContext as MatchingSettingsViewModel;
+            vm.PlaySoundOnMatch = Preferences.Get("PlaySoundOnMatch", true);
+            vm.PlaySoundOnNotMatch = Preferences.Get("PlaySoundOnNotMatch", true);
+            vm.ShowCustomPictures = Preferences.Get("ShowCustomPictures", false);
+            vm.PicturePathMatching = Preferences.Get("PicturePathMatching", "");
+
             LoadCustomPictureData();
         }
 
@@ -30,7 +36,7 @@ namespace MobileGridGames
             var vm = this.BindingContext as MatchingSettingsViewModel;
 
             // Check we have a filepath for custom pictures.
-            if (String.IsNullOrEmpty(vm.PicturePath))
+            if (String.IsNullOrEmpty(vm.PicturePathMatching))
             {
                 return;
             }
@@ -86,7 +92,7 @@ namespace MobileGridGames
             var vm = this.BindingContext as MatchingSettingsViewModel;
 
             // Clear all cached and persisted data related to the use of custom pictures.
-            vm.PicturePath = "";
+            vm.PicturePathMatching = "";
             vm.ShowCustomPictures = false;
 
             vm.PictureListCollection.Clear();
@@ -160,7 +166,7 @@ namespace MobileGridGames
                             var vm = this.BindingContext as MatchingSettingsViewModel;
                             vm.PictureListCollection.Clear();
 
-                            vm.PicturePath = Path.GetDirectoryName(pathToPictures);
+                            vm.PicturePathMatching = Path.GetDirectoryName(pathToPictures);
 
                             var folder = Path.GetDirectoryName(pathToPictures);
                             DirectoryInfo di = new DirectoryInfo(folder);
@@ -316,7 +322,7 @@ namespace MobileGridGames
             var vm = this.BindingContext as MatchingSettingsViewModel;
 
             // The Settings window is being closed, so persist whatever picture data we currently have.
-            if (!String.IsNullOrWhiteSpace(vm.PicturePath))
+            if (!String.IsNullOrWhiteSpace(vm.PicturePathMatching))
             {
                 for (int i = 0; i < countCardPairs; i++)
                 {

@@ -76,9 +76,9 @@
                         </Grid.ColumnDefinitions>
                         <Label Grid.Column="0" Text="Picture Path: " />
                         <Label Grid.Column="1" Text="No folder selected" 
-                            IsVisible="{Binding PicturePath, Mode=OneWay,
+                            IsVisible="{Binding PicturePathMatching, Mode=OneWay,
                                 Converter={StaticResource MatchingSettingsPicturePathToIsVisible}}" />
-                        <Label Grid.Column="1" Text="{Binding PicturePath, Mode=TwoWay}" />
+                        <Label Grid.Column="1" Text="{Binding PicturePathMatching, Mode=TwoWay}" />
                     </Grid>
 
                     <Button Grid.Row="5" x:Name="PictureClearButton" 

@@ -15,7 +15,7 @@ namespace MobileGridGames.Views
     public partial class MatchingPage : ContentPage
     {
         private bool previousShowCustomPictures;
-        private string previousPicturePath;
+        private string previousPicturePathMatching;
 
         public MatchingPage()
         {
@@ -58,16 +58,16 @@ namespace MobileGridGames.Views
             // Has something changed related to custom picture use since the last time
             // we were in OnAppearing()?
             var showCustomPictures = Preferences.Get("ShowCustomPictures", false);
-            var picturePath = Preferences.Get("PicturePath", "");
+            var picturePathMatching = Preferences.Get("PicturePathMatching", "");
 
             if ((showCustomPictures != previousShowCustomPictures) ||
-                (picturePath != previousPicturePath))
+                (picturePathMatching != previousPicturePathMatching))
             {
                 // Reset all cached game progress setting, but don't bother to shuffle.
                 vm.ResetGrid(false);
 
                 // Should we be showing the default pictures?
-                if (!showCustomPictures || String.IsNullOrWhiteSpace(picturePath))
+                if (!showCustomPictures || String.IsNullOrWhiteSpace(picturePathMatching))
                 {
                     vm.SetupDefaultMatchingCardList();
                 }
@@ -148,7 +148,7 @@ namespace MobileGridGames.Views
                 }
 
                 previousShowCustomPictures = showCustomPictures;
-                previousPicturePath = picturePath;
+                previousPicturePathMatching = picturePathMatching;
             }
         }
 
