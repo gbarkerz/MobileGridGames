@@ -129,15 +129,13 @@ namespace MobileGridGames.Views
         }
     }
 
-    public class FirstRunMatchingToGridOpacity : IValueConverter
+    public class FirstRunMatchingToGridIsVisible : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var firstRunMatching = (bool)value;
 
-            double squareListOpacity = (firstRunMatching ? 0.3 : 1.0);
-
-            return squareListOpacity;
+            return !firstRunMatching;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
@@ -146,24 +144,18 @@ namespace MobileGridGames.Views
         }
     }
 
-    public class FirstRunSquaresGameIsLoadingToGridOpacity : IMultiValueConverter
+    public class GameIsLoadingToGridOpacity : IValueConverter
     {
-        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
-        {
-            if ((values == null) || (values.Length < 2) || (values[0] == null) || (values[1] == null))
-            {
-                return 0;
-            }
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        { 
+            var gameIsLoading = (bool)value;
 
-            var firstRunSquares = (bool)values[0];
-            var gameIsLoading = (bool)values[1];
-
-            double squareListOpacity = (firstRunSquares || gameIsLoading ? 0.3 : 1.0);
+            double squareListOpacity = (gameIsLoading ? 0.3 : 1.0);
 
             return squareListOpacity;
         }
 
-        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }

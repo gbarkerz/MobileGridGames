@@ -162,7 +162,7 @@ namespace MobileGridGames.ViewModels
             TryAgainCount = 0;
         }
 
-        private bool firstRunMatching;
+        private bool firstRunMatching = true;
         public bool FirstRunMatching
         {
             get

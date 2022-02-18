@@ -1,4 +1,5 @@
-﻿using MobileGridGames.ViewModels;
+﻿using MobileGridGames.Services;
+using MobileGridGames.ViewModels;
 using Syncfusion.SfImageEditor.XForms;
 using System;
 using System.Diagnostics;
@@ -42,6 +43,13 @@ namespace MobileGridGames.Views
             // Account for the app settings changing since the page was last shown.
             var vm = this.BindingContext as SquaresViewModel;
             vm.FirstRunSquares = Preferences.Get("FirstRunSquares", true);
+            if (vm.FirstRunSquares)
+            {
+                var service = DependencyService.Get<IMobileGridGamesPlatformAction>();
+                service.ScreenReaderAnnouncement(
+                    SquaresWelcomeTitleLabel.Text + ", " + SquaresWelcomeTitleInstructions.Text);
+            }
+
             vm.ShowNumbers = Preferences.Get("ShowNumbers", true);
             vm.NumberHeight = Preferences.Get("NumberSizeIndex", 1);
             vm.ShowPicture = Preferences.Get("ShowPicture", false);

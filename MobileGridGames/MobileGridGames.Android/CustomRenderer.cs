@@ -29,6 +29,11 @@ namespace MobileGridGames.Droid
             background = (Color)App.Current.Resources["Primary"];
 
             base.SetColors(toolbar, toolbarTracker, foreground, background, title);
+
+            // The NavigationContentDescription get reset back to its default of "OK"
+            // whenever a game is selected from the flyout. As such, don't set a name
+            // of "Menu" here which isn't permanent.
+            //toolbar.NavigationContentDescription = "Menu";
         }
     }
 }

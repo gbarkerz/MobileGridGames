@@ -1,4 +1,5 @@
-﻿using MobileGridGames.ViewModels;
+﻿using MobileGridGames.Services;
+using MobileGridGames.ViewModels;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -44,6 +45,13 @@ namespace MobileGridGames.Views
             // Account for the app settings changing since the page was last shown.
             var vm = this.BindingContext as MatchingViewModel;
             vm.FirstRunMatching = Preferences.Get("FirstRunMatching", true);
+            if (vm.FirstRunMatching)
+            {
+                var service = DependencyService.Get<IMobileGridGamesPlatformAction>();
+                service.ScreenReaderAnnouncement(
+                    MatchingWelcomeTitleLabel.Text + ", " + MatchingWelcomeTitleInstructions.Text);
+            }
+
             vm.PlaySoundOnMatch = Preferences.Get("PlaySoundOnMatch", true);
             vm.PlaySoundOnNotMatch = Preferences.Get("PlaySoundOnNotMatch", true);
 

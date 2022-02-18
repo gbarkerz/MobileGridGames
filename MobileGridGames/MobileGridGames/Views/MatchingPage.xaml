@@ -29,7 +29,7 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <localviews:FirstRunMatchingToGridOpacity x:Key="FirstRunMatchingToGridOpacity" />
+            <localviews:FirstRunMatchingToGridIsVisible x:Key="FirstRunMatchingToGridIsVisible" />
             <localviews:CollectionViewHeightToRowHeight x:Key="CollectionViewHeightToRowHeight" />
             <localviews:CardToCollectionViewIndex x:Key="CardToCollectionViewIndex" />
         </ResourceDictionary>
@@ -43,7 +43,8 @@
             <CollectionView Grid.Row="0"
                 x:Name="SquaresCollectionView"
                 BackgroundColor="{DynamicResource GridBackgroundColor}"
-                Opacity="{Binding FirstRunMatching, Converter={StaticResource FirstRunMatchingToGridOpacity}}"
+                IsVisible="{Binding FirstRunMatching, Mode=OneWay,
+                    Converter={StaticResource FirstRunMatchingToGridIsVisible}}"
                 SelectionMode="Single" 
                 SelectionChanged="MatchingGrid_SelectionChanged"
                 ItemsSource="{Binding SquareListCollection}">
@@ -95,15 +96,15 @@
                         <RowDefinition Height="*" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <Label Grid.Row="0"
+                    <Label Grid.Row="0" x:Name="MatchingWelcomeTitleLabel"
                         Text="Welcome to the Pairs Game!" 
                         FontSize="Large" FontAttributes="Bold" />
                     <ScrollView Grid.Row="1">
-                        <Label FontSize="Medium">
+                        <Label x:Name="MatchingWelcomeTitleInstructions" FontSize="Medium">
                             <Label.Text>
-Please review the help content in the Pairs menu for details on how to play.
+After closing this message, please review the help content in the menu for details on how to play this game.
 
-Note that the TalkBack screen reader announces the menu button as "OK".
+Note that the TalkBack screen reader announces the menu button as the "OK" button.
                             </Label.Text>
                         </Label>
                     </ScrollView>

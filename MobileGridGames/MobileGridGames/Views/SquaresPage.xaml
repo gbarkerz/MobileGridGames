@@ -31,7 +31,8 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <localviews:FirstRunSquaresGameIsLoadingToGridOpacity x:Key="FirstRunSquaresGameIsLoadingToGridOpacity" />
+            <localviews:FirstRunMatchingToGridIsVisible x:Key="FirstRunMatchingToGridIsVisible" />
+            <localviews:GameIsLoadingToGridOpacity x:Key="GameIsLoadingToGridOpacity" />
             <localviews:GameIsLoadingToVisibility x:Key="GameIsLoadingToVisibility" />
             <localviews:CollectionViewHeightToRowHeight x:Key="CollectionViewHeightToRowHeight" />
             <localviews:NumberSizeIndexToGridRowHeight x:Key="NumberSizeIndexToGridRowHeight" />
@@ -62,15 +63,12 @@
         
         <CollectionView Grid.Row="1"
             x:Name="SquaresCollectionView"
+            IsVisible="{Binding FirstRunSquares, Mode=OneWay, 
+                Converter={StaticResource FirstRunMatchingToGridIsVisible}}"
+            Opacity="{Binding GameIsLoading, Converter={StaticResource GameIsLoadingToGridOpacity}}"
             SelectionMode="Single" 
             SelectionChanged="SquaresGrid_SelectionChanged"
             ItemsSource="{Binding SquareListCollection}">
-            <CollectionView.Opacity>
-                <MultiBinding Mode="OneWay" Converter="{StaticResource FirstRunSquaresGameIsLoadingToGridOpacity}">
-                    <Binding Path="FirstRunSquares" />
-                    <Binding Path="GameIsLoading" />
-                </MultiBinding>
-            </CollectionView.Opacity>
 
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical" Span="4" />
@@ -182,15 +180,15 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0"
-                        Text="Welcome to the Squares Game!" 
-                        FontSize="Large" FontAttributes="Bold" />
+                <Label Grid.Row="0" x:Name="SquaresWelcomeTitleLabel"
+                    Text="Welcome to the Squares Game!" 
+                    FontSize="Large" FontAttributes="Bold" />
                 <ScrollView Grid.Row="1">
-                    <Label FontSize="Medium">
+                    <Label x:Name="SquaresWelcomeTitleInstructions" FontSize="Medium">
                         <Label.Text>
-                            Please review the help content in the Squares menu for details on how to play.
-
-Note that the TalkBack screen reader announces the menu button as "OK".
+After closing this message, please review the help content in the menu for details on how to play this game. 
+                            
+Note that the TalkBack screen reader announces the menu button as the "OK" button.
                         </Label.Text>
                     </Label>
                 </ScrollView>

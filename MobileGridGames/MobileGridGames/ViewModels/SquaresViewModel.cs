@@ -62,7 +62,7 @@ namespace MobileGridGames.ViewModels
             }
         }
 
-        private bool firstRunSquares;
+        private bool firstRunSquares = true;
         public bool FirstRunSquares
         {
             get
