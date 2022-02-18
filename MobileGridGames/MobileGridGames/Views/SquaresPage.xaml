@@ -31,7 +31,7 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <localviews:GameIsLoadingToSquaresOpacity x:Key="GameIsLoadingToSquaresOpacity" />
+            <localviews:FirstRunSquaresGameIsLoadingToGridOpacity x:Key="FirstRunSquaresGameIsLoadingToGridOpacity" />
             <localviews:GameIsLoadingToVisibility x:Key="GameIsLoadingToVisibility" />
             <localviews:CollectionViewHeightToRowHeight x:Key="CollectionViewHeightToRowHeight" />
             <localviews:NumberSizeIndexToGridRowHeight x:Key="NumberSizeIndexToGridRowHeight" />
@@ -57,13 +57,21 @@
             ImageSaving="GridGameImageEditor_ImageSaving"
             EndReset="GridGameImageEditor_EndReset" />
 
+        <!-- Future: Consider binding the CollectionView's IsEnabled on first run or loading.
+            A quick test of that set IsEnabled as expected, but that didn't prevent input. -->
+        
         <CollectionView Grid.Row="1"
             x:Name="SquaresCollectionView"
-            Opacity="{Binding GameIsLoading, Converter={StaticResource GameIsLoadingToSquaresOpacity}}"
             SelectionMode="Single" 
             SelectionChanged="SquaresGrid_SelectionChanged"
             ItemsSource="{Binding SquareListCollection}">
-            
+            <CollectionView.Opacity>
+                <MultiBinding Mode="OneWay" Converter="{StaticResource FirstRunSquaresGameIsLoadingToGridOpacity}">
+                    <Binding Path="FirstRunSquares" />
+                    <Binding Path="GameIsLoading" />
+                </MultiBinding>
+            </CollectionView.Opacity>
+
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical" Span="4" />
             </CollectionView.ItemsLayout>
@@ -153,13 +161,43 @@
         <!-- Show a message when the pictures are being loaded into the squares. -->
         <Frame Grid.Row="1"
             IsVisible="{Binding GameIsLoading}"
-            BorderColor="{DynamicResource SquaresNumberTextColor}"
+            BorderColor="{DynamicResource MessageNumberTextColor}"
             BackgroundColor="{DynamicResource PageBackgroundColor}"
             AutomationProperties.Name="Loading pictures, please wait."
             VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
             <Label x:Name="PleaseWaitLabel" 
                 Text="Please wait a moment while the pictures are loaded into the squares." 
                 FontSize="Large" FontAttributes="Bold" />
+        </Frame>
+
+        <Frame Grid.Row="1" Margin="4" Padding="8"
+            IsVisible="{Binding FirstRunSquares}"
+            BorderColor="{DynamicResource MessageTextColor}"
+            BackgroundColor="{DynamicResource PageBackgroundColor}"
+            AutomationProperties.Name="Welcome to the Squares Game."
+            VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0"
+                        Text="Welcome to the Squares Game!" 
+                        FontSize="Large" FontAttributes="Bold" />
+                <ScrollView Grid.Row="1">
+                    <Label FontSize="Medium">
+                        <Label.Text>
+                            Please review the help content in the Squares menu for details on how to play.
+
+Note that the TalkBack screen reader announces the menu button as "OK".
+                        </Label.Text>
+                    </Label>
+                </ScrollView>
+                <Button Grid.Row="2" Margin="0"
+                        Text="Close" Clicked="SquaresWelcomeOKButton_Clicked"
+                        HorizontalOptions="End" />
+            </Grid>
         </Frame>
 
     </Grid>

@@ -4,6 +4,12 @@ using System;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
+// Future: Throughout this app, there's much explicit checking of view model 
+// properties before taking action such as showing game settings or responding 
+// to selections from the app flyout items. Replace all that explicit action
+// by binding view model properties such that entry point UI is disabled, and
+// so the various action of interest can't be triggered in the first place.
+
 namespace MobileGridGames
 {
     public partial class AppShell : Shell
@@ -60,25 +66,47 @@ namespace MobileGridGames
             Shell.Current.FlyoutIsPresented = false;
 
             var currentPage = this.CurrentPage;
-            var helpPage = new HelpPage(currentPage is MatchingPage);
-            await Navigation.PushModalAsync(helpPage);
-
-            //var answer = await DisplayAlert(
-            //    "Help",
-            //    "Would you like to visit the developer site which contains details on how to play this game?",
-            //    "Yes", "No");
-            //if (answer)
-            //{
-            //    Browser.OpenAsync("https://github.com/gbarkerz/MobileGridGames/blob/master/README.md");
-            //}
+            if (currentPage is MatchingPage)
+            {
+                var vm = (CurrentPage as MatchingPage).BindingContext as MatchingViewModel;
+                if (!vm.FirstRunMatching)
+                {
+                    await Navigation.PushModalAsync(new HelpPage(true));
+                }
+            }
+            else
+            {
+                var vm = (CurrentPage as SquaresPage).BindingContext as SquaresViewModel;
+                if (!vm.FirstRunSquares)
+                {
+                    await Navigation.PushModalAsync(new HelpPage(false));
+                }
+            }
         }
 
         private async void OnAppSettingsMenuItemClicked(object sender, EventArgs e)
         {
             Shell.Current.FlyoutIsPresented = false;
 
-            var appSettingsPage = new AppSettingsPage();
-            await Navigation.PushModalAsync(appSettingsPage);
+            bool showAppSettingWindow = true;
+
+            var currentPage = this.CurrentPage;
+            if (currentPage is MatchingPage)
+            {
+                var vm = (CurrentPage as MatchingPage).BindingContext as MatchingViewModel;
+                showAppSettingWindow = !vm.FirstRunMatching;
+            }
+            else
+            {
+                var vm = (CurrentPage as SquaresPage).BindingContext as SquaresViewModel;
+                showAppSettingWindow = !(vm.FirstRunSquares || vm.GameIsLoading);
+            }
+
+            if (showAppSettingWindow)
+            {
+                var appSettingsPage = new AppSettingsPage();
+                await Navigation.PushModalAsync(appSettingsPage);
+            }
         }
 
         private void OnRestartMenuItemClicked(object sender, EventArgs e)
@@ -89,12 +117,18 @@ namespace MobileGridGames
             if (currentPage is MatchingPage)
             {
                 var vm = (CurrentPage as MatchingPage).BindingContext as MatchingViewModel;
-                vm.ResetGrid(true);
+                if (!vm.FirstRunMatching)
+                {
+                    vm.ResetGrid(true);
+                }
             }
             else
             {
                 var vm = (CurrentPage as SquaresPage).BindingContext as SquaresViewModel;
-                vm.ResetGrid();
+                if (!vm.FirstRunSquares && !vm.GameIsLoading)
+                {
+                    vm.ResetGrid();
+                }
             }
         }
     }

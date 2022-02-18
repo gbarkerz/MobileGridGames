@@ -5,6 +5,7 @@
 
     <!-- Added during development of Grid Games. -->
     <Color x:Key="PageBackgroundColor">Black</Color>
+    <Color x:Key="MessageTextColor">White</Color>
     <Color x:Key="GameTitleBarTextColor">White</Color>
     <Color x:Key="GameTitleBarBackgroundColor">#007000</Color>
     <Color x:Key="GridBackgroundColor">Gray</Color>

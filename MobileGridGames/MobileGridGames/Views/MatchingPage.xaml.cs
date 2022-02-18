@@ -23,10 +23,12 @@ namespace MobileGridGames.Views
 
         private async void MatchingGameSettingsButton_Clicked(object sender, EventArgs e)
         {
-            Shell.Current.FlyoutIsPresented = false;
-
-            var settingsPage = new MatchingGameSettingsPage();
-            await Navigation.PushModalAsync(settingsPage);
+            var vm = this.BindingContext as MatchingViewModel;
+            if (!vm.FirstRunMatching)
+            {
+                var settingsPage = new MatchingGameSettingsPage();
+                await Navigation.PushModalAsync(settingsPage);
+            }
         }
 
         // This gets called when switching from the Squares Game to the Matching Game,
@@ -41,7 +43,7 @@ namespace MobileGridGames.Views
 
             // Account for the app settings changing since the page was last shown.
             var vm = this.BindingContext as MatchingViewModel;
-
+            vm.FirstRunMatching = Preferences.Get("FirstRunMatching", true);
             vm.PlaySoundOnMatch = Preferences.Get("PlaySoundOnMatch", true);
             vm.PlaySoundOnNotMatch = Preferences.Get("PlaySoundOnNotMatch", true);
 
@@ -144,6 +146,12 @@ namespace MobileGridGames.Views
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
+            var vm = this.BindingContext as MatchingViewModel;
+            if (vm.FirstRunMatching)
+            {
+                return;
+            }
+
             int itemIndex = (int)(e as TappedEventArgs).Parameter;
 
             Debug.WriteLine("Grid Games: Tapped on Square " + itemIndex);
@@ -153,8 +161,6 @@ namespace MobileGridGames.Views
             {
                 return;
             }
-
-            var vm = this.BindingContext as MatchingViewModel;
 
             bool gameIsWon = vm.AttemptToTurnOverSquare(itemCollectionIndex);
             if (gameIsWon)
@@ -166,16 +172,18 @@ namespace MobileGridGames.Views
         private async Task OfferToRestartGame()
         {
             var vm = this.BindingContext as MatchingViewModel;
-
-            var answer = await DisplayAlert(
-                "Congratulations!",
-                "You won the game in " +
-                (8 + vm.TryAgainCount) +
-                " goes.\r\n\r\nWould you like another game?",
-                "Yes", "No");
-            if (answer)
+            if (!vm.FirstRunMatching)
             {
-                vm.ResetGrid(true);
+                var answer = await DisplayAlert(
+                    "Congratulations!",
+                    "You won the game in " +
+                    (8 + vm.TryAgainCount) +
+                    " goes.\r\n\r\nWould you like another game?",
+                    "Yes", "No");
+                if (answer)
+                {
+                    vm.ResetGrid(true);
+                }
             }
         }
 
@@ -198,13 +206,17 @@ namespace MobileGridGames.Views
 
         private async void MatchingGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            var vm = this.BindingContext as MatchingViewModel;
+            if (vm.FirstRunMatching)
+            {
+                return;
+            }
+
             Debug.WriteLine("Matching Grid Game: Selection changed. Selection count is " + e.CurrentSelection.Count);
 
             // No action required here if there is no selected item.
             if (e.CurrentSelection.Count > 0)
             {
-                var vm = this.BindingContext as MatchingViewModel;
-
                 bool gameIsWon = vm.AttemptTurnUpBySelection(e.CurrentSelection[0]);
 
                 // Clear the selection now to support the same square moving again.
@@ -215,6 +227,12 @@ namespace MobileGridGames.Views
                     await OfferToRestartGame();
                 }
             }
+        }
+
+        private void MatchingWelcomeOKButton_Clicked(object sender, EventArgs e)
+        {
+            var vm = this.BindingContext as MatchingViewModel;
+            vm.FirstRunMatching = false;
         }
     }
 }

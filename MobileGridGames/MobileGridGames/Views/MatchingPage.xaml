@@ -29,6 +29,7 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
+            <localviews:FirstRunMatchingToGridOpacity x:Key="FirstRunMatchingToGridOpacity" />
             <localviews:CollectionViewHeightToRowHeight x:Key="CollectionViewHeightToRowHeight" />
             <localviews:CardToCollectionViewIndex x:Key="CardToCollectionViewIndex" />
         </ResourceDictionary>
@@ -42,6 +43,7 @@
             <CollectionView Grid.Row="0"
                 x:Name="SquaresCollectionView"
                 BackgroundColor="{DynamicResource GridBackgroundColor}"
+                Opacity="{Binding FirstRunMatching, Converter={StaticResource FirstRunMatchingToGridOpacity}}"
                 SelectionMode="Single" 
                 SelectionChanged="MatchingGrid_SelectionChanged"
                 ItemsSource="{Binding SquareListCollection}">
@@ -81,6 +83,36 @@
                 
             </CollectionView>
 
+            <Frame Grid.Row="0" Margin="4" Padding="8"
+                IsVisible="{Binding FirstRunMatching}"
+                BorderColor="{DynamicResource MessageTextColor}"
+                BackgroundColor="{DynamicResource PageBackgroundColor}"
+                AutomationProperties.Name="Welcome to the Pairs Game."
+                VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0"
+                        Text="Welcome to the Pairs Game!" 
+                        FontSize="Large" FontAttributes="Bold" />
+                    <ScrollView Grid.Row="1">
+                        <Label FontSize="Medium">
+                            <Label.Text>
+Please review the help content in the Pairs menu for details on how to play.
+
+Note that the TalkBack screen reader announces the menu button as "OK".
+                            </Label.Text>
+                        </Label>
+                    </ScrollView>
+                    <Button Grid.Row="2" Margin="0"
+                        Text="Close" Clicked="MatchingWelcomeOKButton_Clicked"
+                        HorizontalOptions="End" />
+                </Grid>
+            </Frame>
+            
         </Grid>
     </ContentPage.Content>
 </ContentPage>

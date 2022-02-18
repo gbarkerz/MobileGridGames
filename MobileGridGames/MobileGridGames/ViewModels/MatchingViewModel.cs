@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using MobileGridGames.Services;
 using System.IO;
 using System.Reflection;
+using Xamarin.Essentials;
 
 namespace MobileGridGames.ViewModels
 {
@@ -159,6 +160,24 @@ namespace MobileGridGames.ViewModels
             squareList = new ObservableCollection<Card>();
 
             TryAgainCount = 0;
+        }
+
+        private bool firstRunMatching;
+        public bool FirstRunMatching
+        {
+            get
+            {
+                return firstRunMatching;
+            }
+            set
+            {
+                if (firstRunMatching != value)
+                {
+                    SetProperty(ref firstRunMatching, value);
+
+                    Preferences.Set("FirstRunMatching", firstRunMatching);
+                }
+            }
         }
 
         private ImageSource GetImageSourceForCard(string cardName)

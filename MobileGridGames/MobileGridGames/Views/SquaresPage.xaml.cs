@@ -13,10 +13,12 @@ namespace MobileGridGames.Views
     {
         private async void SquaresGameSettingsButton_Clicked(object sender, EventArgs e)
         {
-            Shell.Current.FlyoutIsPresented = false;
-
-            var settingsPage = new SquaresSettingsPage();
-            await Navigation.PushModalAsync(settingsPage);
+            var vm = this.BindingContext as SquaresViewModel;
+            if (!vm.FirstRunSquares)
+            {
+                var settingsPage = new SquaresSettingsPage();
+                await Navigation.PushModalAsync(settingsPage);
+            }
         }
 
         // Path to most recently fully loaded picture.
@@ -39,6 +41,7 @@ namespace MobileGridGames.Views
 
             // Account for the app settings changing since the page was last shown.
             var vm = this.BindingContext as SquaresViewModel;
+            vm.FirstRunSquares = Preferences.Get("FirstRunSquares", true);
             vm.ShowNumbers = Preferences.Get("ShowNumbers", true);
             vm.NumberHeight = Preferences.Get("NumberSizeIndex", 1);
             vm.ShowPicture = Preferences.Get("ShowPicture", false);
@@ -85,6 +88,12 @@ namespace MobileGridGames.Views
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
+            var vm = this.BindingContext as SquaresViewModel;
+            if (vm.FirstRunSquares || vm.GameIsLoading)
+            {
+                return;
+            }
+
             var itemGrid = (Grid)sender;
             var itemAccessibleName = AutomationProperties.GetName(itemGrid);
 
@@ -128,14 +137,16 @@ namespace MobileGridGames.Views
         private async Task OfferToRestartGame()
         {
             var vm = this.BindingContext as SquaresViewModel;
-
-            var answer = await DisplayAlert(
+            if (!vm.FirstRunSquares)
+            {
+                var answer = await DisplayAlert(
                 "Congratulations!",
                 "You won the game in " + vm.MoveCount + " moves.\r\n\r\nWould you like to play another game?",
                 "Yes", "No");
-            if (answer)
-            {
-                vm.ResetGrid();
+                if (answer)
+                {
+                    vm.ResetGrid();
+                }
             }
         }
 
@@ -149,7 +160,7 @@ namespace MobileGridGames.Views
 
             // Do nothing here if pictures have not been loaded yet onto the squares.
             var vm = this.BindingContext as SquaresViewModel;
-            if (vm.GameIsLoading)
+            if (vm.FirstRunSquares || vm.GameIsLoading)
             {
                 return;
             }
@@ -167,6 +178,12 @@ namespace MobileGridGames.Views
                     await OfferToRestartGame();
                 }
             }
+        }
+
+        private void SquaresWelcomeOKButton_Clicked(object sender, EventArgs e)
+        {
+            var vm = this.BindingContext as SquaresViewModel;
+            vm.FirstRunSquares = false;
         }
 
         // Important: The remainder of this file relates to setting of pictures on the squares in the

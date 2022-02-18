@@ -62,6 +62,24 @@ namespace MobileGridGames.ViewModels
             }
         }
 
+        private bool firstRunSquares;
+        public bool FirstRunSquares
+        {
+            get
+            {
+                return firstRunSquares;
+            }
+            set
+            {
+                if (firstRunSquares != value)
+                {
+                    SetProperty(ref firstRunSquares, value);
+
+                    Preferences.Set("FirstRunSquares", firstRunSquares);
+                }
+            }
+        }
+
         public SquaresViewModel()
         {
             Title = "Squares";
