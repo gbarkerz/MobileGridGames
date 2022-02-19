@@ -159,13 +159,13 @@
         <!-- Show a message when the pictures are being loaded into the squares. -->
         <Frame Grid.Row="1"
             IsVisible="{Binding GameIsLoading}"
-            BorderColor="{DynamicResource MessageNumberTextColor}"
+            BorderColor="{DynamicResource MessageTextColor}"
             BackgroundColor="{DynamicResource PageBackgroundColor}"
             AutomationProperties.Name="Loading pictures, please wait."
             VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
             <Label x:Name="PleaseWaitLabel" 
-                Text="Please wait a moment while the pictures are loaded into the squares." 
-                FontSize="Large" FontAttributes="Bold" />
+                Text="Please wait a moment while the picture is loaded into the squares." 
+                FontSize="Large" />
         </Frame>
 
         <Frame Grid.Row="1" Margin="4" Padding="8"

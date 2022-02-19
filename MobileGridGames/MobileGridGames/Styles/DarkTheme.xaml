@@ -7,7 +7,7 @@
     <Color x:Key="PageBackgroundColor">Black</Color>
     <Color x:Key="MessageTextColor">White</Color>
     <Color x:Key="GameTitleBarTextColor">White</Color>
-    <Color x:Key="GameTitleBarBackgroundColor">#007000</Color>
+    <Color x:Key="GameTitleBarBackgroundColor">#004000</Color>
     <Color x:Key="GridBackgroundColor">Gray</Color>
     <Color x:Key="GridItemBackgroundColor">Black</Color>
     <Color x:Key="SquaresNumberTextColor">White</Color>
@@ -26,10 +26,12 @@
     </Style>
 
     <!-- Originally in App.xaml. -->
-    <Color x:Key="Primary">#007000</Color>
+    <Color x:Key="Primary">#004000</Color>
     <Style TargetType="Button">
         <Setter Property="TextColor" Value="White"></Setter>
         <Setter Property="BackgroundColor" Value="{DynamicResource Primary}"></Setter>
+        <Setter Property="BorderWidth" Value="1"></Setter>
+        <Setter Property="BorderColor" Value="White"></Setter>
     </Style>
 
     <!-- Originally in AppShell.xaml. -->

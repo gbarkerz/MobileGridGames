@@ -87,6 +87,7 @@
                         Clicked="PictureClearButton_Clicked" />
 
                     <CollectionView Grid.Row="6" x:Name="PicturesCollectionView"  
+                        AutomationProperties.Name="Loaded custom pictures"                                    
                         ItemsSource="{Binding PictureListCollection}">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>

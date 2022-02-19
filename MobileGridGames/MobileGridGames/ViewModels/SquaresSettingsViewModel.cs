@@ -21,8 +21,9 @@ namespace MobileGridGames.ViewModels
             {
                 if (showNumbers != value)
                 {
-                    Preferences.Set("ShowNumbers", value);
                     SetProperty(ref showNumbers, value);
+
+                    Preferences.Set("ShowNumbers", value);
                 }
             }
         }
@@ -38,8 +39,9 @@ namespace MobileGridGames.ViewModels
             {
                 if (numberSizeIndex != value)
                 {
-                    Preferences.Set("NumberSizeIndex", value);
                     SetProperty(ref numberSizeIndex, value);
+
+                    Preferences.Set("NumberSizeIndex", value);
                 }
             }
         }
@@ -55,8 +57,9 @@ namespace MobileGridGames.ViewModels
             {
                 if (showPicture != value)
                 {
-                    Preferences.Set("ShowPicture", value);
                     SetProperty(ref showPicture, value);
+
+                    Preferences.Set("ShowPicture", value);
                 }
             }
         }
@@ -72,8 +75,9 @@ namespace MobileGridGames.ViewModels
             {
                 if (picturePathSquares != value)
                 {
-                    Preferences.Set("PicturePathSquares", value);
                     SetProperty(ref picturePathSquares, value);
+
+                    Preferences.Set("PicturePathSquares", value);
                 }
             }
         }

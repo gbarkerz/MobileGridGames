@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
 using Xamarin.Essentials;
 
 namespace MobileGridGames.ViewModels
@@ -16,7 +15,6 @@ namespace MobileGridGames.ViewModels
             Title = "Pairs Settings";
 
             this.PictureListCollection = new ObservableCollection<PictureData>();
-
         }
 
         private ObservableCollection<PictureData> pictureList;

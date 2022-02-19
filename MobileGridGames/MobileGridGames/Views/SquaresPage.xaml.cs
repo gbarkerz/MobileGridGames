@@ -12,16 +12,6 @@ namespace MobileGridGames.Views
 {
     public partial class SquaresPage : ContentPage
     {
-        private async void SquaresGameSettingsButton_Clicked(object sender, EventArgs e)
-        {
-            var vm = this.BindingContext as SquaresViewModel;
-            if (!vm.FirstRunSquares)
-            {
-                var settingsPage = new SquaresSettingsPage();
-                await Navigation.PushModalAsync(settingsPage);
-            }
-        }
-
         // Path to most recently fully loaded picture.
         private string previousLoadedPicture = "";
 
@@ -194,6 +184,16 @@ namespace MobileGridGames.Views
             vm.FirstRunSquares = false;
         }
 
+        private async void SquaresGameSettingsButton_Clicked(object sender, EventArgs e)
+        {
+            var vm = this.BindingContext as SquaresViewModel;
+            if (!vm.FirstRunSquares)
+            {
+                var settingsPage = new SquaresSettingsPage();
+                await Navigation.PushModalAsync(settingsPage);
+            }
+        }
+
         // Important: The remainder of this file relates to setting of pictures on the squares in the
         // grid. However, the threading model for the various event handlers below is not understood,
         // so while the code seems to work it seems almost certain that the code will change once the
@@ -252,7 +252,7 @@ namespace MobileGridGames.Views
 
             Debug.WriteLine("MobileGridGames: Called ToggleCropping.");
 
-            // Future: Understand why Crop() seems to need to run on the UI thread.
+            // Crop() seems to need to be run on the UI thread.
             Device.BeginInvokeOnMainThread(() =>
             {
                 Debug.WriteLine("MobileGridGames: PerformCrop, about to call Crop.");
@@ -312,7 +312,7 @@ namespace MobileGridGames.Views
             square.PictureImageSource = source;
 
             // Now reset the image to its original form, in order to perform the next crop.
-            // Future: Understand why this seems to need to run on the UI thread.
+            // This seems to need to be run on the UI thread.
             Device.BeginInvokeOnMainThread(() =>
             {
                 Debug.WriteLine("MobileGridGames: About to call Reset.");
@@ -352,10 +352,10 @@ namespace MobileGridGames.Views
 
             var vm = this.BindingContext as SquaresViewModel;
 
-            // Provide a countdown for players using screen readers.
-            if (nextSquareIndexForImageSourceSetting % 3 == 0)
+            // Provide a "3 2 1" countdown for players using screen readers.
+            if (nextSquareIndexForImageSourceSetting % 5 == 0)
             {
-                var countdown = (15 - nextSquareIndexForImageSourceSetting) / 3;
+                var countdown = (15 - nextSquareIndexForImageSourceSetting) / 5;
                 vm.RaiseNotificationEvent(countdown.ToString());
             }
 

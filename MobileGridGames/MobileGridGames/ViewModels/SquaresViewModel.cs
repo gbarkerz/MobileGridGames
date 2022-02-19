@@ -263,126 +263,18 @@ namespace MobileGridGames.ViewModels
             // item would be helpful when playing the game, set that here through the
             // AccessibleDescription property.
 
-            // Note: This app assumes the total count of cards is 16.
-            squareList.Add(
-                new Square
-                {
-                    TargetIndex = 0,
-                    VisualLabel = resManager.GetString("DefaultSquare1Name"),
-                    AccessibleName = resManager.GetString("DefaultSquare1Name")
-                });
+            for (int cardIndex = 0; cardIndex < 15; ++cardIndex)
+            {
+                var resourceIndex = cardIndex + 1;
 
-            squareList.Add(
-                new Square
-                {
-                    TargetIndex = 1,
-                    VisualLabel = resManager.GetString("DefaultSquare2Name"),
-                    AccessibleName = resManager.GetString("DefaultSquare2Name")
-                });
-
-            squareList.Add(
-                new Square
-                {
-                    TargetIndex = 2,
-                    VisualLabel = resManager.GetString("DefaultSquare3Name"),
-                    AccessibleName = resManager.GetString("DefaultSquare3Name")
-                });
-
-            squareList.Add(
-                new Square
-                {
-                    TargetIndex = 3,
-                    VisualLabel = resManager.GetString("DefaultSquare4Name"),
-                    AccessibleName = resManager.GetString("DefaultSquare4Name")
-                });
-
-            squareList.Add(
-                new Square
-                {
-                    TargetIndex = 4,
-                    VisualLabel = resManager.GetString("DefaultSquare5Name"),
-                    AccessibleName = resManager.GetString("DefaultSquare5Name"),
-                });
-
-            squareList.Add(
-                new Square
-                {
-                    TargetIndex = 5,
-                    VisualLabel = resManager.GetString("DefaultSquare6Name"),
-                    AccessibleName = resManager.GetString("DefaultSquare6Name"),
-                });
-
-            squareList.Add(
-                new Square
-                {
-                    TargetIndex = 6,
-                    VisualLabel = resManager.GetString("DefaultSquare7Name"),
-                    AccessibleName = resManager.GetString("DefaultSquare7Name"),
-                });
-
-            squareList.Add(
-                new Square
-                {
-                    TargetIndex = 7,
-                    VisualLabel = resManager.GetString("DefaultSquare8Name"),
-                    AccessibleName = resManager.GetString("DefaultSquare8Name"),
-                });
-
-            squareList.Add(
-                new Square
-                {
-                    TargetIndex = 8,
-                    VisualLabel = resManager.GetString("DefaultSquare9Name"),
-                    AccessibleName = resManager.GetString("DefaultSquare9Name"),
-                });
-
-            squareList.Add(
-                new Square
-                {
-                    TargetIndex = 9,
-                    VisualLabel = resManager.GetString("DefaultSquare10Name"),
-                    AccessibleName = resManager.GetString("DefaultSquare10Name"),
-                });
-
-            squareList.Add(
-                new Square
-                {
-                    TargetIndex = 10,
-                    VisualLabel = resManager.GetString("DefaultSquare11Name"),
-                    AccessibleName = resManager.GetString("DefaultSquare11Name"),
-                });
-
-            squareList.Add(
-                new Square
-                {
-                    TargetIndex = 11,
-                    VisualLabel = resManager.GetString("DefaultSquare12Name"),
-                    AccessibleName = resManager.GetString("DefaultSquare12Name"),
-                });
-
-            squareList.Add(
-                new Square
-                {
-                    TargetIndex = 12,
-                    VisualLabel = resManager.GetString("DefaultSquare13Name"),
-                    AccessibleName = resManager.GetString("DefaultSquare13Name"),
-                });
-
-            squareList.Add(
-                new Square
-                {
-                    TargetIndex = 13,
-                    VisualLabel = resManager.GetString("DefaultSquare14Name"),
-                    AccessibleName = resManager.GetString("DefaultSquare14Name"),
-                });
-
-            squareList.Add(
-                new Square
-                {
-                    TargetIndex = 14,
-                    VisualLabel = resManager.GetString("DefaultSquare15Name"),
-                    AccessibleName = resManager.GetString("DefaultSquare15Name"),
-                });
+                squareList.Add(
+                    new Square
+                    {
+                        TargetIndex = cardIndex,
+                        VisualLabel = resManager.GetString("DefaultSquare" + resourceIndex + "Name"),
+                        AccessibleName = resManager.GetString("DefaultSquare" + resourceIndex + "Name")
+                    });
+            }
 
             squareList.Add(
                 new Square

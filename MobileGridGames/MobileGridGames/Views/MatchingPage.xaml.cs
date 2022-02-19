@@ -42,7 +42,8 @@ namespace MobileGridGames.Views
 
             Preferences.Set("InitialGame", "Matching");
 
-            // Account for the app settings changing since the page was last shown.
+            // We must account for the app settings changing since the page was last shown.
+
             var vm = this.BindingContext as MatchingViewModel;
             vm.FirstRunMatching = Preferences.Get("FirstRunMatching", true);
             if (vm.FirstRunMatching)

@@ -6,7 +6,6 @@ using Xamarin.Forms;
 
 namespace MobileGridGames.Views
 {
-    // Converts the CollectionView height into the height of each row in the grid.
     public class CollectionViewHeightToRowHeight : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
@@ -20,7 +19,6 @@ namespace MobileGridGames.Views
         }
     }
 
-    // Converts the NumberSizeIndex into a proportion of the row height for a grid to contain the number.
     public class NumberSizeIndexToGridRowHeight : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
@@ -58,7 +56,6 @@ namespace MobileGridGames.Views
         }
     }
 
-    // Converts the height of the grid containing the number shown in the square to the number's FontSize.
     public class LabelContainerHeightToFontSize : IMultiValueConverter
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
@@ -89,7 +86,6 @@ namespace MobileGridGames.Views
         }
     }
 
-    // Converts the square's TargetIndex to an IsVisible on the Frame containing the number shown on the square.
     public class SquareTargetIndexToContainerFrameVisibility : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
@@ -106,7 +102,6 @@ namespace MobileGridGames.Views
         }
     }
 
-    // Converts the ShowPicture setting and square's TargetIndex to the IsVisible on the square's image.
     public class SquareTargetIndexToIsVisible : IMultiValueConverter
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
@@ -161,7 +156,6 @@ namespace MobileGridGames.Views
         }
     }
 
-    // Convert the path to the picture to the IsVisible on a static label associated with the picture path.
     public class SettingsPicturePathToPicturePathLabelIsVisible : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
