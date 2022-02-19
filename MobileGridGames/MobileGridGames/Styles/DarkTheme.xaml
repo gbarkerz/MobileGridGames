@@ -8,8 +8,8 @@
     <Color x:Key="MessageTextColor">White</Color>
     <Color x:Key="GameTitleBarTextColor">White</Color>
     <Color x:Key="GameTitleBarBackgroundColor">#004000</Color>
-    <Color x:Key="GridBackgroundColor">Gray</Color>
-    <Color x:Key="GridItemBackgroundColor">Black</Color>
+    <Color x:Key="GridBackgroundColor">LightGray</Color>
+    <Color x:Key="GridItemBackgroundColor">#001000</Color>
     <Color x:Key="SquaresNumberTextColor">White</Color>
     <Color x:Key="SquaresNumberBackgroundColor">Black</Color>
     <Color x:Key="FlyoutMenuItemColor">White</Color>
@@ -64,8 +64,8 @@
                     </VisualState>
                     <VisualState x:Name="Selected">
                         <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
-                            <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="White" />
+                            <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+                            <Setter Property="BackgroundColor" Value="LightGray" />
                         </VisualState.Setters>
                     </VisualState>
                 </VisualStateGroup>

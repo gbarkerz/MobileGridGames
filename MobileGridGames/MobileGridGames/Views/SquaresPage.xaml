@@ -19,6 +19,7 @@
                 TextColor="{DynamicResource GameTitleBarTextColor}" VerticalOptions="Center"
                 FontSize="Title" />
             <Button Grid.Column="1" Text="&#xf013;" Clicked="SquaresGameSettingsButton_Clicked"
+                BorderWidth="0"
                 FontFamily="FA" FontSize="Title" HorizontalOptions="End"
                 AutomationProperties.Name="Squares Settings"
                 IsVisible="{Binding GameIsLoading, Converter={StaticResource GameIsLoadingToVisibility}}"/>
