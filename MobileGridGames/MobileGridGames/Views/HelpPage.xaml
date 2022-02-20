@@ -14,11 +14,11 @@
             <Label x:Name="MatchingGameHelpTitle" Grid.Row="0" Text="Pairs Help" FontSize="Title" />
             <StackLayout x:Name="SquaresGameHelpContent" Grid.Row="1">
                 <ScrollView Margin="4,4,4,2">
-                    <Label VerticalOptions="Center">
+                    <Label VerticalOptions="Center" FontSize="Medium">
                         <Label.Text>
 The Squares Game is based on a square sliding puzzle, where squares in a grid of squares are rearranged by the player to form an ordered sequence in the grid.
 
-When the game is run, a 4 by 4 grid of squares appears, with 15 of those squares occupied with an movable element, and 1 square being empty. When a square is tapped, if it is adjacent to the empty square, the tapped square moves into the empty square. The space where the tapped square was then becomes the empty square. The aim is to arrange all the squares in a sorted order, leaving the empty square in the bottom right corner of the grid.
+When the game is run, a 4 by 4 grid of squares appears, with fifteen of those squares occupied with a movable element, and one square being empty. When a square is tapped, if it is adjacent to the empty square, the tapped square moves into the empty square. The space where the tapped square was then becomes the empty square. The aim is to arrange all the squares in a sorted order, leaving the empty square in the bottom right corner of the grid. Once all the squares are ordered, a "Congratulations" window appears.
 
 Tip: Don't use a swipe gesture to move a square. Support for swipe gestures has yet to be added to the game.
 
@@ -32,26 +32,28 @@ When the game setting to have a picture shown on the squares is on, then a singl
 
 Ways to play the game:
 
-Tapping with a finger: Tap the square to be moved.
+Tapping with a finger. Tap the square to be moved.
 
-Make things bigger. The game respects the system's Font size and Display size settings, and also has its own in-app text size setting which only applies to text in shown on the squares in the game.
+TalkBack. Turn on the Android TalkBack feature, and move your finger around the screen to have the number of the square beneath your finger announced. If TalkBack moves between rows or columns in the grid of squares, it will announce the new row or column. Double tap to move a square.
 
-Voice Access. Activate the system's Voice Access, and speak the number shown on a square to move the square.
+Please note that the accessible name of the Menu button near the top left corner of the app has a name of "OK". When that button is tapped, the menu will appear.
 
-Switch Access. Activate the system's Switch Access, scan to the square to be moved and then press the switch to move the square.
+Voice Access. Activate the Android Voice Access feature, and speak the number shown on a square to move the square.
 
-Magnification. The standard use of the system's Magnification can be used when playing this game.
+Please note that Voice Access only works today in the Squares game if numbers are shown on the squares.
 
-TalkBack. Turn on TalkBack, and move your finger around the screen to have the number of the square beneath your finger announced. If TalkBack moves between rows or columns in the grid of squares, it will announce the new row or column. Double tap to move a square.
+Switch Access. Activate the Android Switch Access feature, scan to the square to be moved and then press the switch to move the square.
 
-Please note that the accessible name of the Menu button near the top left corner of the app currently has a name of "OK". This will be changed to have a name of "Menu" at some point.                            
+Size of Text. The game respects the Android Font size and Display size settings, and also has its own in-app text size setting which only applies to text in shown on the squares in the game.
+
+Magnification. The standard use of the Android Magnification feature can be used when playing this game.
                         </Label.Text>
                     </Label>
                 </ScrollView>
             </StackLayout>
             <StackLayout x:Name="MatchingGameHelpContent" Grid.Row="1">
                 <ScrollView Margin="4,4,4,2">
-                    <Label VerticalOptions="Center">
+                    <Label VerticalOptions="Center" FontSize="Medium">
                         <Label.Text>
 The Matching Game is based on a traditional card matching game, where face-down cards are turned over in order to find pairs of cards.
 
@@ -59,19 +61,19 @@ When the game is run, a 4 by 4 grid of blank squares appears, each square repres
 
 Ways to play the game:
 
-Tapping with a finger: Tap the card to be turned up. When 2 mismatched cards have been turned up, tap on any card to turned those cards back down.
+Tapping with a finger: Tap the card to be turned up. When two mismatched cards have been turned up, tap on any card to turned those cards back down.
 
-Make things bigger. The game respects the system's Font size and Display size settings.
-
-Voice Access. Activate the system's Voice Access, and say "Show numbers". Voice Access will then present a number by all the cards shown in the game. Speak the number shown by the card that you want to turn over.
-                            
-Switch Access. Activate the system's Switch Access, scan to the card to be turned up and then press the switch to turn up the card.
-
-Magnification. The standard use of the system's Magnification can be used when playing this game.
-
-TalkBack. Turn on TalkBack, and move your finger around the screen to have the number of the card beneath your finger announced. If TalkBack moves between rows or columns in the grid of squares, it will announce the new row or column. Double tap to turn up a card. When a turned up card is matched, its name will be prefixed with "Matched".
+TalkBack. Turn on the Android TalkBack feature, and move your finger around the screen to have the number of the card beneath your finger announced. If TalkBack moves between rows or columns in the grid of squares, it will announce the new row or column. Double tap to turn up a card. When a turned up card is matched, its name will be prefixed with "Matched".
 
 Please note that the accessible name of the Menu button near the top left corner of the app currently has a name of "OK". This will be changed to have a name of "Menu" at some point.
+
+Voice Access. Activate the Android Voice Access feature, and say a number from 1 to 16. The cards are considered to be ordered from the top left corner of the grid to the bottom right corner, numbering from left to right then top to bottom. The card whose number has been spoken will be turned over.
+
+Switch Access. Activate the Android Switch Access feature, scan to the card to be turned up and then press the switch to turn up the card.
+
+Size of Text. The game respects the Android Font size and Display size settings.
+
+Magnification. The standard use of the Android Magnification feature can be used when playing this game.
                         </Label.Text>
                     </Label>
                 </ScrollView>
