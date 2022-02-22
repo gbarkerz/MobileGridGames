@@ -126,17 +126,11 @@
   <data name="AppSettingsIntro" xml:space="preserve">
     <value>Spanish Settings here apply to all games in the Grid Games app.</value>
   </data>
-  <data name="AppSettingsTitle" xml:space="preserve">
-    <value>Spanish App Settings</value>
-  </data>
   <data name="BrowsePicture" xml:space="preserve">
     <value>Spanish Browse for picture</value>
   </data>
   <data name="ChooseEightPictures" xml:space="preserve">
     <value>Spanish Please choose a picture in a folder that contains exactly 8 pictures.</value>
-  </data>
-  <data name="Clear Selection" xml:space="preserve">
-    <value>Spanish Clear Selection</value>
   </data>
   <data name="ClearSelection" xml:space="preserve">
     <value>Spanish Clear Selection</value>

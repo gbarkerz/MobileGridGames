@@ -88,15 +88,6 @@ namespace MobileGridGames.ResX {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to App Settings.
-        /// </summary>
-        internal static string AppSettingsTitle {
-            get {
-                return ResourceManager.GetString("AppSettingsTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Browse for picture.
         /// </summary>
         internal static string BrowsePicture {
@@ -111,15 +102,6 @@ namespace MobileGridGames.ResX {
         internal static string ChooseEightPictures {
             get {
                 return ResourceManager.GetString("ChooseEightPictures", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Clear Selection.
-        /// </summary>
-        internal static string Clear_Selection {
-            get {
-                return ResourceManager.GetString("Clear Selection", resourceCulture);
             }
         }
         
