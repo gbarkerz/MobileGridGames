@@ -2,6 +2,8 @@
 
 ***Please note that this ReadMe is a little stale. I'll update it as time permits.***
 
+A LinkedIn article relating to this app is up at [Considerations on building accessible puzzle games for Android](https://www.linkedin.com/pulse/considerations-building-accessible-puzzle-games-android-guy-barker).
+
 **Goals**
 
 The goals of this app are: (1) to demonstrate some accessibility considerations and implementation relating to a simple Xamarin game app, and (2) make an enjoyable game available for everyone.
