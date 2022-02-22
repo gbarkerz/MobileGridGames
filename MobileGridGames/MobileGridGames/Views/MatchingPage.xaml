@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              x:Name="MatchingPageInstance"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:MobileGridGames.ResX"
              x:Class="MobileGridGames.Views.MatchingPage"
              xmlns:localviews="clr-namespace:MobileGridGames.Views"
              xmlns:vm="clr-namespace:MobileGridGames.ViewModels"
@@ -14,13 +15,13 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Text="Pairs"
+            <Label Grid.Column="0" Text="{x:Static resources:AppResources.Pairs}"
                 TextColor="{DynamicResource GameTitleBarTextColor}" VerticalOptions="Center"
                 FontSize="Title" />
             <Button Grid.Column="1" Text="&#xf013;" Clicked="MatchingGameSettingsButton_Clicked"
                 BorderWidth="0"
                 FontFamily="FA" FontSize="Title" HorizontalOptions="End"
-                AutomationProperties.Name="Pairs Settings" />
+                AutomationProperties.Name="{x:Static resources:AppResources.PairsSettingsTitle}" />
         </Grid>
     </Shell.TitleView>
     
@@ -89,7 +90,7 @@
                 IsVisible="{Binding FirstRunMatching}"
                 BorderColor="{DynamicResource MessageTextColor}"
                 BackgroundColor="{DynamicResource PageBackgroundColor}"
-                AutomationProperties.Name="Welcome to the Pairs Game."
+                AutomationProperties.Name="{x:Static resources:AppResources.PairsWelcome}"
                 VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -98,19 +99,20 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" x:Name="MatchingWelcomeTitleLabel"
-                        Text="Welcome to the Pairs Game!" 
+                        Text="{x:Static resources:AppResources.PairsWelcome}" 
                         FontSize="Large" FontAttributes="Bold" />
                     <ScrollView Grid.Row="1">
                         <Label x:Name="MatchingWelcomeTitleInstructions" FontSize="Medium">
-                            <Label.Text>
-After closing this message, please review the help content in the menu for details on how to play this game.
-
-Note that the TalkBack screen reader announces the menu button as the "OK" button.
-                            </Label.Text>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{x:Static resources:AppResources.WelcomeInstructions}" />
+                                </FormattedString>
+                            </Label.FormattedText>
                         </Label>
                     </ScrollView>
                     <Button Grid.Row="2" Margin="0"
-                        Text="Close" Clicked="MatchingWelcomeOKButton_Clicked"
+                        Text="{x:Static resources:AppResources.Close}" 
+                        Clicked="MatchingWelcomeOKButton_Clicked"
                         HorizontalOptions="End" />
                 </Grid>
             </Frame>

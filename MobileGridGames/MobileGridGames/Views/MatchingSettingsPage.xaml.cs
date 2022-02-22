@@ -1,4 +1,5 @@
-﻿using MobileGridGames.ViewModels;
+﻿using MobileGridGames.ResX;
+using MobileGridGames.ViewModels;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -150,10 +151,9 @@ namespace MobileGridGames
                         if (!File.Exists(importFile))
                         {
                             await DisplayAlert(
-                                "Pairs Settings",
-                                "The folder containing the 8 picture must also contain a MatchingGamePictureDetails file. " +
-                                    "Please review the Pairs Help for more details.",
-                                "OK");
+                                AppResources.ResourceManager.GetString("PairsSettingsTitle"),
+                                AppResources.ResourceManager.GetString("MissingMatchingGamePictureDetails"),
+                                AppResources.ResourceManager.GetString("OK"));
 
                             return;
                         }
@@ -195,10 +195,9 @@ namespace MobileGridGames
                                 if (!SetNameDescription(content))
                                 {
                                     await DisplayAlert(
-                                        "Pairs Settings",
-                                        "The MatchingGamePictureDetails file does not contain the expected data. " +
-                                            "Please review the Pairs Help for more details.",
-                                        "OK");
+                                        AppResources.ResourceManager.GetString("PairsSettingsTitle"),
+                                        AppResources.ResourceManager.GetString("UnexpectedDataInFile"),
+                                        AppResources.ResourceManager.GetString("OK"));
 
                                     // The expected data was missing from the file, so reset.
                                     ResetCustomPictureData();
@@ -252,9 +251,9 @@ namespace MobileGridGames
             if (!picturePathValid)
             {
                 await DisplayAlert(
-                    "Pairs Settings",
-                    "Please choose a picture in a folder that contains exactly 8 pictures.",
-                    "OK");
+                    AppResources.ResourceManager.GetString("PairsSettingsTitle"),
+                    AppResources.ResourceManager.GetString("ChooseEightPictures"),
+                    AppResources.ResourceManager.GetString("OK"));
             }
 
             return picturePathValid;

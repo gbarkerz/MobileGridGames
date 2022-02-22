@@ -1,4 +1,5 @@
-﻿using MobileGridGames.Services;
+﻿using MobileGridGames.ResX;
+using MobileGridGames.Services;
 using MobileGridGames.ViewModels;
 using System;
 using System.Collections.ObjectModel;
@@ -183,12 +184,14 @@ namespace MobileGridGames.Views
             var vm = this.BindingContext as MatchingViewModel;
             if (!vm.FirstRunMatching)
             {
+                var message = String.Format(
+                    AppResources.ResourceManager.GetString("MatchingWonInMoves"), 8 + vm.TryAgainCount);
+
                 var answer = await DisplayAlert(
-                    "Congratulations!",
-                    "You won the game in " +
-                    (8 + vm.TryAgainCount) +
-                    " goes.\r\n\r\nWould you like another game?",
-                    "Yes", "No");
+                    AppResources.ResourceManager.GetString("Congratulations"),
+                    message,
+                    AppResources.ResourceManager.GetString("Yes"),
+                    AppResources.ResourceManager.GetString("No"));
                 if (answer)
                 {
                     vm.ResetGrid(true);

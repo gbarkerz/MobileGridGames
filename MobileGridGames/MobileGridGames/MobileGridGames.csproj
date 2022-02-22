@@ -48,10 +48,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Resource1.Designer.cs">
+    <Compile Update="ResX\AppResources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>Resource1.resx</DependentUpon>
+      <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Update="Views\MatchingSettingsPage.xaml.cs">
       <DependentUpon>MatchingSettingsPage.xaml</DependentUpon>
@@ -80,9 +80,9 @@
     <EmbeddedResource Update="Views\MatchingSettingsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resource1.resx">
+    <EmbeddedResource Update="ResX\AppResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MatchingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

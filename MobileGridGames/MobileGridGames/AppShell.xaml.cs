@@ -1,4 +1,5 @@
-﻿using MobileGridGames.ViewModels;
+﻿using MobileGridGames.ResX;
+using MobileGridGames.ViewModels;
 using MobileGridGames.Views;
 using System;
 using Xamarin.Essentials;
@@ -22,7 +23,7 @@ namespace MobileGridGames
 
             ShellSection shellSectionSquares = new ShellSection
             {
-                Title = "Squares",
+                Title = AppResources.ResourceManager.GetString("Squares"),
                 FlyoutIcon = ImageSource.FromResource(
                     "MobileGridGames.Resources.SquaresGameIcon.png"),
             };
@@ -31,7 +32,7 @@ namespace MobileGridGames
 
             ShellSection shellSectionMatching = new ShellSection
             {
-                Title = "Pairs",
+                Title = AppResources.ResourceManager.GetString("Pairs"),
                 FlyoutIcon = ImageSource.FromResource(
                     "MobileGridGames.Resources.MatchingGameIcon.png"),
             };

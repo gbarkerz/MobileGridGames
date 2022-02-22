@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:resources="clr-namespace:MobileGridGames.ResX"
              x:Class="MobileGridGames.Views.SquaresSettingsPage"
              xmlns:localviews="clr-namespace:MobileGridGames.Views"
              Shell.NavBarIsVisible="False">
@@ -23,23 +24,28 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" Text="Squares Settings" FontSize="Title" />
-            <Label Grid.Row="1" Text="Please specify what you would like to appear inside the squares shown in the grid." />
+            <Label Grid.Row="0" FontSize="Title"
+                Text="{x:Static resources:AppResources.SquaresSettingsTitle}" />
+            <Label Grid.Row="1" 
+                Text="{x:Static resources:AppResources.SquaresSettingsInstructions}" />
             <StackLayout Grid.Row="2">
                 <ScrollView Margin="4,4,4,2">
                     <StackLayout>
                         <Frame BackgroundColor="Transparent">
                             <StackLayout>
                                 <StackLayout Orientation="Horizontal">
-                                    <Label x:Name="ShowNumbersLabel" Text="Show numbers" 
+                                    <Label x:Name="ShowNumbersLabel" 
+                                        Text="{x:Static resources:AppResources.ShowNumbers}"
                                         VerticalOptions="Center" />
                                     <CheckBox x:Name="ShowNumbersCheckBox"
                                         AutomationProperties.LabeledBy="{x:Reference ShowNumbersLabel}"
                                         VerticalOptions="Center" IsChecked="{Binding ShowNumbers}" />
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal" Margin="10,0,0,0">
-                                    <Label x:Name="NumberSizeLabel" Text="Number size:" VerticalOptions="Center" />
-                                    <Picker Title="Number size" VerticalOptions="Center"
+                                    <Label x:Name="NumberSizeLabel" 
+                                        Text="{x:Static resources:AppResources.NumberSize}"
+                                        VerticalOptions="Center" />
+                                    <Picker VerticalOptions="Center"
                                         AutomationProperties.LabeledBy="{x:Reference NumberSizeLabel}"
                                         SelectedIndex="{Binding NumberSizeIndex}">
                                         <Picker.Items>
@@ -61,12 +67,15 @@
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
                                 <StackLayout Grid.Row="0" Orientation="Horizontal">
-                                    <Label x:Name="ShowPictureLabel" Text="Show picture" VerticalOptions="Center" />
+                                    <Label x:Name="ShowPictureLabel" 
+                                        Text="{x:Static resources:AppResources.ShowPicture}"
+                                        VerticalOptions="Center" />
                                     <CheckBox x:Name="ShowPictureCheckBox" VerticalOptions="Center"
                                         AutomationProperties.LabeledBy="{x:Reference ShowPictureLabel}"
                                         IsChecked="{Binding ShowPicture}" />
                                 </StackLayout>
-                                <Button Grid.Row="1" x:Name="PictureBrowseButton" Text="Browse for picture" 
+                                <Button Grid.Row="1" x:Name="PictureBrowseButton" 
+                                    Text="{x:Static resources:AppResources.BrowsePicture}"
                                     HorizontalOptions="StartAndExpand" Margin="0,0,0,4"
                                     Clicked="PictureBrowseButton_Clicked" />
                                 <Grid Grid.Row="2"
@@ -76,12 +85,14 @@
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Grid.Column="0" Text="Selected: " 
-                                        Margin="0,0,0,0" Padding="0,0,0,0" />
+                                    <Label Grid.Column="0" 
+                                        Text="{x:Static resources:AppResources.Selected}"
+                                        Margin="0,0,10,0" Padding="0,0,0,0" />
                                     <Label Grid.Column="1" Text="{Binding PicturePathSquares}" 
                                         Margin="0,0,0,0" Padding="0,0,0,0" />
                                 </Grid>
-                                <Button Grid.Row="3" x:Name="PictureClearButton" Text="Clear Selection" 
+                                <Button Grid.Row="3" x:Name="PictureClearButton" 
+                                    Text="{x:Static resources:AppResources.ClearSelection}"
                                     HorizontalOptions="StartAndExpand" Margin="0,0,0,4"
                                     Clicked="PictureClearButton_Clicked" />
                             </Grid>
@@ -91,7 +102,8 @@
             </StackLayout>
             <Button Grid.Row="3" x:Name="CloseButton" 
                 HorizontalOptions="End" Margin="0,0,4,4"
-                Text="Close" Clicked="CloseButton_Clicked" />
+                Text="{x:Static resources:AppResources.Close}"
+                Clicked="CloseButton_Clicked" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

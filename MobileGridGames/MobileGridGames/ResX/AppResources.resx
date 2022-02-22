@@ -117,6 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AppSettings" xml:space="preserve">
+    <value>App Settings</value>
+  </data>
+  <data name="AppSettingsDarkTheme" xml:space="preserve">
+    <value>Use a dark theme</value>
+  </data>
+  <data name="AppSettingsIntro" xml:space="preserve">
+    <value>Settings here apply to all games in the Grid Games app.</value>
+  </data>
+  <data name="AppSettingsTitle" xml:space="preserve">
+    <value>App Settings</value>
+  </data>
+  <data name="BrowsePicture" xml:space="preserve">
+    <value>Browse for picture</value>
+  </data>
+  <data name="ChooseEightPictures" xml:space="preserve">
+    <value>Please choose a picture in a folder that contains exactly 8 pictures.</value>
+  </data>
+  <data name="Clear Selection" xml:space="preserve">
+    <value>Clear Selection</value>
+  </data>
+  <data name="ClearSelection" xml:space="preserve">
+    <value>Clear Selection</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Congratulations" xml:space="preserve">
+    <value>Congratulations!</value>
+  </data>
   <data name="DefaultMatchingCard1Description" xml:space="preserve">
     <value>A smiling man with a red coat and arms outstretched, standing in front of 3 large Daleks and a TARDIS. The Daleks seem to be raised above the grass beneath them, and a slightly cloudy sky is in the background.</value>
   </data>
@@ -213,25 +243,178 @@
   <data name="DefaultSquareEmpty" xml:space="preserve">
     <value>Empty</value>
   </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description:</value>
+  </data>
   <data name="Down" xml:space="preserve">
     <value>down</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="HelpContentPairs" xml:space="preserve">
+    <value>The Matching Game is based on a traditional card matching game, where face-down cards are turned over in order to find pairs of cards.
+
+When the game is run, a 4 by 4 grid of blank squares appears, each square representing a card. When a card is tapped, an image is shown on the card. When another card is clicked, an image is also shown on that second card. If the two images are the same, then the cards are considered to be matched, and will not change again for the rest of the game. If the images do not match, then the cards are considered to be unmatched, and cards must be turned back over by tapping on any card. These steps are to be repeated until all matching images have been found, and a "Congratulations" window appears.
+
+Ways to play the game:
+
+Tapping with a finger: Tap the card to be turned up. When two mismatched cards have been turned up, tap on any card to turned those cards back down.
+
+TalkBack. Turn on the Android TalkBack feature, and move your finger around the screen to have the number of the card beneath your finger announced. If TalkBack moves between rows or columns in the grid of squares, it will announce the new row or column. Double tap to turn up a card. When a turned up card is matched, its name will be prefixed with "Matched".
+
+Please note that the accessible name of the Menu button near the top left corner of the app currently has a name of "OK". This will be changed to have a name of "Menu" at some point.
+
+Voice Access. Activate the Android Voice Access feature, and say a number from 1 to 16. The cards are considered to be ordered from the top left corner of the grid to the bottom right corner, numbering from left to right then top to bottom. The card whose number has been spoken will be turned over.
+
+Switch Access. Activate the Android Switch Access feature, scan to the card to be turned up and then press the switch to turn up the card.
+
+Size of Text. The game respects the Android Font size and Display size settings.
+
+Magnification. The standard use of the Android Magnification feature can be used when playing this game.</value>
+  </data>
+  <data name="HelpContentSquares" xml:space="preserve">
+    <value>The Squares Game is based on a square sliding puzzle, where squares in a grid of squares are rearranged by the player to form an ordered sequence in the grid.
+
+When the game is run, a 4 by 4 grid of squares appears, with fifteen of those squares occupied with a movable element, and one square being empty. When a square is tapped, if it is adjacent to the empty square, the tapped square moves into the empty square. The space where the tapped square was then becomes the empty square. The aim is to arrange all the squares in a sorted order, leaving the empty square in the bottom right corner of the grid. Once all the squares are ordered, a "Congratulations" window appears.
+
+Tip: Don't use a swipe gesture to move a square. Support for swipe gestures has yet to be added to the game.
+
+Tip: Don't tap on the empty square. Instead tap on the squares next to the empty square.
+
+When the game first runs, the setting to have numbers shown on squares is on, and the settings to have pictures shown on the squares is off. This means a number is shown in the top left corner of the squares. When the squares are sorted, the square showing number 1 is at the top left of the grid, and the numbers increase from left to right then top to bottom.
+
+Tip: Practice moving numbered squares around before changing the setting to have a picture shown on the squares.
+
+When the game setting to have a picture shown on the squares is on, then a single picture is shown across all the squares. The sections of the picture will appear jumbled until the squares are arranged in their sorted order.
+
+Ways to play the game:
+
+Tapping with a finger. Tap the square to be moved.
+
+TalkBack. Turn on the Android TalkBack feature, and move your finger around the screen to have the number of the square beneath your finger announced. If TalkBack moves between rows or columns in the grid of squares, it will announce the new row or column. Double tap to move a square.
+
+Please note that the accessible name of the Menu button near the top left corner of the app has a name of "OK". When that button is tapped, the menu will appear.
+
+Voice Access. Activate the Android Voice Access feature, and speak the number shown on a square to move the square.
+
+Please note that Voice Access only works today in the Squares game if numbers are shown on the squares.
+
+Switch Access. Activate the Android Switch Access feature, scan to the square to be moved and then press the switch to move the square.
+
+Size of Text. The game respects the Android Font size and Display size settings, and also has its own in-app text size setting which only applies to text in shown on the squares in the game.
+
+Magnification. The standard use of the Android Magnification feature can be used when playing this game.</value>
   </data>
   <data name="Left" xml:space="preserve">
     <value>left</value>
   </data>
+  <data name="LoadedCustomPictures" xml:space="preserve">
+    <value>Loaded custom pictures</value>
+  </data>
+  <data name="LoadingPleaseWait" xml:space="preserve">
+    <value>Please wait a moment while the picture is loaded into the squares.</value>
+  </data>
+  <data name="MatchingWonInMoves" xml:space="preserve">
+    <value>You won the game in {0} goes.
+    
+Would you like to play another game?</value>
+  </data>
+  <data name="MissingMatchingGamePictureDetails" xml:space="preserve">
+    <value>The folder containing the 8 picture must also contain a MatchingGamePictureDetails file. Please review the Pairs Help for more details.</value>
+  </data>
   <data name="Moved" xml:space="preserve">
     <value>Moved</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="NoFolderSelected" xml:space="preserve">
+    <value>No folder selected</value>
   </data>
   <data name="NoMovePossible" xml:space="preserve">
     <value>A move is not possible from here.</value>
   </data>
+  <data name="NumberSize" xml:space="preserve">
+    <value>Number size</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Pairs" xml:space="preserve">
+    <value>Pairs</value>
+  </data>
+  <data name="PairsSettingsTitle" xml:space="preserve">
+    <value>Pairs Settings</value>
+  </data>
+  <data name="PairsWelcome" xml:space="preserve">
+    <value>Welcome to the Pairs Game!</value>
+  </data>
+  <data name="PicturePath" xml:space="preserve">
+    <value>Picture Path:</value>
+  </data>
+  <data name="PlaySoundMatch" xml:space="preserve">
+    <value>Play a sound when upturned cards match</value>
+  </data>
+  <data name="PlaySoundNotMatch" xml:space="preserve">
+    <value>Play a sound when upturned cards don't match</value>
+  </data>
+  <data name="RestartGame" xml:space="preserve">
+    <value>Restart Game</value>
+  </data>
   <data name="Right" xml:space="preserve">
     <value>right</value>
+  </data>
+  <data name="Selected" xml:space="preserve">
+    <value>Selected:</value>
+  </data>
+  <data name="SelectPicture" xml:space="preserve">
+    <value>Select Picture</value>
+  </data>
+  <data name="ShowCustomPictures" xml:space="preserve">
+    <value>Show custom pictures</value>
+  </data>
+  <data name="ShowNumbers" xml:space="preserve">
+    <value>Show numbers</value>
+  </data>
+  <data name="ShowPicture" xml:space="preserve">
+    <value>Show picture</value>
+  </data>
+  <data name="Squares" xml:space="preserve">
+    <value>Squares</value>
   </data>
   <data name="SquaresGrid" xml:space="preserve">
     <value>Squares</value>
   </data>
+  <data name="SquaresSettingsInstructions" xml:space="preserve">
+    <value>Please specify what you would like to appear inside the squares shown in the grid.</value>
+  </data>
+  <data name="SquaresSettingsTitle" xml:space="preserve">
+    <value>Squares Settings</value>
+  </data>
+  <data name="SquaresWelcome" xml:space="preserve">
+    <value>Welcome to the Squares Game!</value>
+  </data>
+  <data name="SquaresWonInGoes" xml:space="preserve">
+    <value>You won the game in {0} moves.
+    
+Would you like to play another game?</value>
+  </data>
+  <data name="UnexpectedDataInFile" xml:space="preserve">
+    <value>The MatchingGamePictureDetails file does not contain the expected data. Please review the Pairs Help for more details.</value>
+  </data>
   <data name="Up" xml:space="preserve">
     <value>up</value>
+  </data>
+  <data name="WelcomeInstructions" xml:space="preserve">
+    <value>After closing this message, please review the help content in the menu for details on how to play this game.
+    
+Note that the TalkBack screen reader announces the menu button as the "OK" button.</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
   </data>
 </root>

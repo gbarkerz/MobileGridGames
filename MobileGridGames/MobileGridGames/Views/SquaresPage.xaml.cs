@@ -1,4 +1,5 @@
-﻿using MobileGridGames.Services;
+﻿using MobileGridGames.ResX;
+using MobileGridGames.Services;
 using MobileGridGames.ViewModels;
 using Syncfusion.SfImageEditor.XForms;
 using System;
@@ -137,10 +138,14 @@ namespace MobileGridGames.Views
             var vm = this.BindingContext as SquaresViewModel;
             if (!vm.FirstRunSquares)
             {
+                var message = String.Format(
+                    AppResources.ResourceManager.GetString("SquaresWonInGoes"), 8 + vm.MoveCount);
+
                 var answer = await DisplayAlert(
-                "Congratulations!",
-                "You won the game in " + vm.MoveCount + " moves.\r\n\r\nWould you like to play another game?",
-                "Yes", "No");
+                    AppResources.ResourceManager.GetString("Congratulations"),
+                    message,
+                    AppResources.ResourceManager.GetString("Yes"),
+                    AppResources.ResourceManager.GetString("No"));
                 if (answer)
                 {
                     vm.ResetGrid();

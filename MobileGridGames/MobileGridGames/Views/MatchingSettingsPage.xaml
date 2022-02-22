@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:localviews="clr-namespace:MobileGridGames.Views"
+             xmlns:resources="clr-namespace:MobileGridGames.ResX"
              x:Class="MobileGridGames.MatchingGameSettingsPage">
 
     <ContentPage.Resources>
@@ -18,7 +19,8 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" Text="Pairs Settings" FontSize="Title" />
+            <Label Grid.Row="0" FontSize="Title"
+                Text="{x:Static resources:AppResources.PairsSettingsTitle}" />
             <ScrollView Grid.Row="1" Margin="4,4,4,2">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -42,13 +44,13 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Grid.Row="0" Grid.Column="0" x:Name="PlaySoundOnMatchLabel" 
-                            Text="Play a sound when upturned cards match" 
+                            Text="{x:Static resources:AppResources.PlaySoundMatch}"
                             VerticalOptions="Center" />
                         <CheckBox Grid.Row="0" Grid.Column="1" x:Name="PlaySoundOnMatchCheckBox"
                             AutomationProperties.LabeledBy="{x:Reference PlaySoundOnMatchLabel}"
                             VerticalOptions="Center" IsChecked="{Binding PlaySoundOnMatch}" />
                         <Label Grid.Row="1" Grid.Column="0" x:Name="PlaySoundOnNotMatchLabel" 
-                            Text="Play a sound when upturned cards don't match" 
+                            Text="{x:Static resources:AppResources.PlaySoundNotMatch}"
                             VerticalOptions="Center" />
                         <CheckBox Grid.Row="1" Grid.Column="1" x:Name="PlaySoundOnNotMatchCheckBox"
                             AutomationProperties.LabeledBy="{x:Reference PlaySoundOnNotMatchLabel}"
@@ -57,7 +59,7 @@
                     
                     <StackLayout Grid.Row="2"  Orientation="Horizontal" Margin="0,20,0,0">
                         <Label x:Name="ShowCustomPicturesLabel" 
-                            Text="Show custom pictures" 
+                            Text="{x:Static resources:AppResources.ShowCustomPictures}"
                             VerticalOptions="Center" />
                         <CheckBox x:Name="ShowCustomPicturesCheckBox"
                             AutomationProperties.LabeledBy="{x:Reference ShowCustomPicturesLabel}"
@@ -65,7 +67,7 @@
                     </StackLayout>
 
                     <Button Grid.Row="3" x:Name="PictureBrowseButton" 
-                            Text="Select Picture" 
+                            Text="{x:Static resources:AppResources.SelectPicture}"
                             HorizontalOptions="StartAndExpand" Margin="0,0,0,4"
                             Clicked="PictureBrowseButton_Clicked" />
                     
@@ -74,20 +76,22 @@
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Text="Picture Path: " />
-                        <Label Grid.Column="1" Text="No folder selected" 
+                        <Label Grid.Column="0" Margin="0,0,10,0" 
+                            Text="{x:Static resources:AppResources.PicturePath}" />
+                        <Label Grid.Column="1" 
+                            Text="{x:Static resources:AppResources.NoFolderSelected}"                               
                             IsVisible="{Binding PicturePathMatching, Mode=OneWay,
                                 Converter={StaticResource MatchingSettingsPicturePathToIsVisible}}" />
                         <Label Grid.Column="1" Text="{Binding PicturePathMatching, Mode=TwoWay}" />
                     </Grid>
 
                     <Button Grid.Row="5" x:Name="PictureClearButton" 
-                        Text="Clear Selection" 
+                        Text="{x:Static resources:AppResources.ClearSelection}"                               
                         HorizontalOptions="StartAndExpand" Margin="0,0,0,4"
                         Clicked="PictureClearButton_Clicked" />
 
                     <CollectionView Grid.Row="6" x:Name="PicturesCollectionView"  
-                        AutomationProperties.Name="Loaded custom pictures"                                    
+                        AutomationProperties.Name="{x:Static resources:AppResources.LoadedCustomPictures}"                               
                         ItemsSource="{Binding PictureListCollection}">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
@@ -112,7 +116,8 @@
                                             <ColumnDefinition Width="Auto" />
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
-                                        <Label Grid.Column="0" Text="Name: "/>
+                                        <Label Grid.Column="0" Margin="0,0,10,0"
+                                            Text="{x:Static resources:AppResources.Name}" />
                                         <Label Grid.Column="1" Text="{Binding AccessibleName}"/>
                                     </Grid>
                                     <Grid Grid.Row="2" Margin="0,0,0,20">
@@ -120,7 +125,8 @@
                                             <ColumnDefinition Width="Auto" />
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
-                                        <Label Grid.Column="0" Text="Description: "/>
+                                        <Label Grid.Column="0" Margin="0,0,10,0"
+                                            Text="{x:Static resources:AppResources.Description}" />
                                         <Label Grid.Column="1" Text="{Binding AccessibleDescription}"/>
                                     </Grid>
                                 </Grid>
@@ -132,7 +138,7 @@
             
             <Button Grid.Row="2" x:Name="CloseButton" 
                 HorizontalOptions="End" Margin="0,0,4,4"
-                Text="Close" Clicked="CloseButton_Clicked" />
+                Text="{x:Static resources:AppResources.Close}" Clicked="CloseButton_Clicked" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

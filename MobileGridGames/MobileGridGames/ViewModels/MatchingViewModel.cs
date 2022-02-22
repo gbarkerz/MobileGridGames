@@ -7,6 +7,7 @@ using System.IO;
 using System.Reflection;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using MobileGridGames.ResX;
 
 namespace MobileGridGames.ViewModels
 {
@@ -187,7 +188,7 @@ namespace MobileGridGames.ViewModels
 
         public void SetupDefaultMatchingCardList()
         {
-            var resManager = Resource1.ResourceManager;
+            var resManager = AppResources.ResourceManager;
 
             squareList.Clear();
 

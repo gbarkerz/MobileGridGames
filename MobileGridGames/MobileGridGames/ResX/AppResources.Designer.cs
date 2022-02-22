@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MobileGridGames {
+namespace MobileGridGames.ResX {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace MobileGridGames {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resource1 {
+    internal class AppResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resource1() {
+        internal AppResources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace MobileGridGames {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MobileGridGames.Resource1", typeof(Resource1).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MobileGridGames.ResX.AppResources", typeof(AppResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,6 +57,96 @@ namespace MobileGridGames {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to App Settings.
+        /// </summary>
+        internal static string AppSettings {
+            get {
+                return ResourceManager.GetString("AppSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use a dark theme.
+        /// </summary>
+        internal static string AppSettingsDarkTheme {
+            get {
+                return ResourceManager.GetString("AppSettingsDarkTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings here apply to all games in the Grid Games app..
+        /// </summary>
+        internal static string AppSettingsIntro {
+            get {
+                return ResourceManager.GetString("AppSettingsIntro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to App Settings.
+        /// </summary>
+        internal static string AppSettingsTitle {
+            get {
+                return ResourceManager.GetString("AppSettingsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Browse for picture.
+        /// </summary>
+        internal static string BrowsePicture {
+            get {
+                return ResourceManager.GetString("BrowsePicture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please choose a picture in a folder that contains exactly 8 pictures..
+        /// </summary>
+        internal static string ChooseEightPictures {
+            get {
+                return ResourceManager.GetString("ChooseEightPictures", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear Selection.
+        /// </summary>
+        internal static string Clear_Selection {
+            get {
+                return ResourceManager.GetString("Clear Selection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear Selection.
+        /// </summary>
+        internal static string ClearSelection {
+            get {
+                return ResourceManager.GetString("ClearSelection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        internal static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Congratulations!.
+        /// </summary>
+        internal static string Congratulations {
+            get {
+                return ResourceManager.GetString("Congratulations", resourceCulture);
             }
         }
         
@@ -349,11 +439,51 @@ namespace MobileGridGames {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Description:.
+        /// </summary>
+        internal static string Description {
+            get {
+                return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to down.
         /// </summary>
         internal static string Down {
             get {
                 return ResourceManager.GetString("Down", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Help.
+        /// </summary>
+        internal static string Help {
+            get {
+                return ResourceManager.GetString("Help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Matching Game is based on a traditional card matching game, where face-down cards are turned over in order to find pairs of cards.
+        ///
+        ///When the game is run, a 4 by 4 grid of blank squares appears, each square representing a card. When a card is tapped, an image is shown on the card. When another card is clicked, an image is also shown on that second card. If the two images are the same, then the cards are considered to be matched, and will not change again for the rest of the game. If the images do not m [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string HelpContentPairs {
+            get {
+                return ResourceManager.GetString("HelpContentPairs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Squares Game is based on a square sliding puzzle, where squares in a grid of squares are rearranged by the player to form an ordered sequence in the grid.
+        ///
+        ///When the game is run, a 4 by 4 grid of squares appears, with fifteen of those squares occupied with a movable element, and one square being empty. When a square is tapped, if it is adjacent to the empty square, the tapped square moves into the empty square. The space where the tapped square was then becomes the empty square. The aim is to arrange a [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string HelpContentSquares {
+            get {
+                return ResourceManager.GetString("HelpContentSquares", resourceCulture);
             }
         }
         
@@ -367,11 +497,76 @@ namespace MobileGridGames {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Loaded custom pictures.
+        /// </summary>
+        internal static string LoadedCustomPictures {
+            get {
+                return ResourceManager.GetString("LoadedCustomPictures", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please wait a moment while the picture is loaded into the squares..
+        /// </summary>
+        internal static string LoadingPleaseWait {
+            get {
+                return ResourceManager.GetString("LoadingPleaseWait", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You won the game in {0} goes.
+        ///    
+        ///Would you like to play another game?.
+        /// </summary>
+        internal static string MatchingWonInMoves {
+            get {
+                return ResourceManager.GetString("MatchingWonInMoves", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The folder containing the 8 picture must also contain a MatchingGamePictureDetails file. Please review the Pairs Help for more details..
+        /// </summary>
+        internal static string MissingMatchingGamePictureDetails {
+            get {
+                return ResourceManager.GetString("MissingMatchingGamePictureDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Moved.
         /// </summary>
         internal static string Moved {
             get {
                 return ResourceManager.GetString("Moved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name:.
+        /// </summary>
+        internal static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        internal static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No folder selected.
+        /// </summary>
+        internal static string NoFolderSelected {
+            get {
+                return ResourceManager.GetString("NoFolderSelected", resourceCulture);
             }
         }
         
@@ -385,11 +580,146 @@ namespace MobileGridGames {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Number size.
+        /// </summary>
+        internal static string NumberSize {
+            get {
+                return ResourceManager.GetString("NumberSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        internal static string OK {
+            get {
+                return ResourceManager.GetString("OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pairs.
+        /// </summary>
+        internal static string Pairs {
+            get {
+                return ResourceManager.GetString("Pairs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pairs Settings.
+        /// </summary>
+        internal static string PairsSettingsTitle {
+            get {
+                return ResourceManager.GetString("PairsSettingsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome to the Pairs Game!.
+        /// </summary>
+        internal static string PairsWelcome {
+            get {
+                return ResourceManager.GetString("PairsWelcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Picture Path:.
+        /// </summary>
+        internal static string PicturePath {
+            get {
+                return ResourceManager.GetString("PicturePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Play a sound when upturned cards match.
+        /// </summary>
+        internal static string PlaySoundMatch {
+            get {
+                return ResourceManager.GetString("PlaySoundMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Play a sound when upturned cards don&apos;t match.
+        /// </summary>
+        internal static string PlaySoundNotMatch {
+            get {
+                return ResourceManager.GetString("PlaySoundNotMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restart Game.
+        /// </summary>
+        internal static string RestartGame {
+            get {
+                return ResourceManager.GetString("RestartGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to right.
         /// </summary>
         internal static string Right {
             get {
                 return ResourceManager.GetString("Right", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected:.
+        /// </summary>
+        internal static string Selected {
+            get {
+                return ResourceManager.GetString("Selected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Picture.
+        /// </summary>
+        internal static string SelectPicture {
+            get {
+                return ResourceManager.GetString("SelectPicture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show custom pictures.
+        /// </summary>
+        internal static string ShowCustomPictures {
+            get {
+                return ResourceManager.GetString("ShowCustomPictures", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show numbers.
+        /// </summary>
+        internal static string ShowNumbers {
+            get {
+                return ResourceManager.GetString("ShowNumbers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show picture.
+        /// </summary>
+        internal static string ShowPicture {
+            get {
+                return ResourceManager.GetString("ShowPicture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Squares.
+        /// </summary>
+        internal static string Squares {
+            get {
+                return ResourceManager.GetString("Squares", resourceCulture);
             }
         }
         
@@ -403,11 +733,78 @@ namespace MobileGridGames {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please specify what you would like to appear inside the squares shown in the grid..
+        /// </summary>
+        internal static string SquaresSettingsInstructions {
+            get {
+                return ResourceManager.GetString("SquaresSettingsInstructions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Squares Settings.
+        /// </summary>
+        internal static string SquaresSettingsTitle {
+            get {
+                return ResourceManager.GetString("SquaresSettingsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome to the Squares Game!.
+        /// </summary>
+        internal static string SquaresWelcome {
+            get {
+                return ResourceManager.GetString("SquaresWelcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You won the game in {0} moves.
+        ///    
+        ///Would you like to play another game?.
+        /// </summary>
+        internal static string SquaresWonInGoes {
+            get {
+                return ResourceManager.GetString("SquaresWonInGoes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The MatchingGamePictureDetails file does not contain the expected data. Please review the Pairs Help for more details..
+        /// </summary>
+        internal static string UnexpectedDataInFile {
+            get {
+                return ResourceManager.GetString("UnexpectedDataInFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to up.
         /// </summary>
         internal static string Up {
             get {
                 return ResourceManager.GetString("Up", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to After closing this message, please review the help content in the menu for details on how to play this game.
+        ///    
+        ///Note that the TalkBack screen reader announces the menu button as the &quot;OK&quot; button..
+        /// </summary>
+        internal static string WelcomeInstructions {
+            get {
+                return ResourceManager.GetString("WelcomeInstructions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        internal static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

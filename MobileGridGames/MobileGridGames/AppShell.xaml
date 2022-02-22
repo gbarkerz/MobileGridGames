@@ -4,6 +4,7 @@
        xmlns:local="clr-namespace:MobileGridGames.Views"
        Title="Grid Games"
        FlyoutBackgroundColor="{DynamicResource PageBackgroundColor}" 
+       xmlns:resources="clr-namespace:MobileGridGames.ResX"
        x:Class="MobileGridGames.AppShell">
 
     <!--
@@ -17,7 +18,8 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-    <MenuItem Text="Help" StyleClass="MenuItemLayoutStyle" Clicked="OnHelpMenuItemClicked">
+    <MenuItem Text="{x:Static resources:AppResources.Help}" 
+        StyleClass="MenuItemLayoutStyle" Clicked="OnHelpMenuItemClicked">
         <MenuItem.IconImageSource>
             <FontImageSource
                 Color="{DynamicResource FlyoutMenuItemColor}"
@@ -26,7 +28,8 @@
         </MenuItem.IconImageSource>
     </MenuItem>
 
-    <MenuItem Text="App Settings" StyleClass="MenuItemLayoutStyle" Clicked="OnAppSettingsMenuItemClicked">
+    <MenuItem Text="{x:Static resources:AppResources.AppSettings}" 
+        StyleClass="MenuItemLayoutStyle" Clicked="OnAppSettingsMenuItemClicked">
         <MenuItem.IconImageSource>
             <FontImageSource
                 Color="{DynamicResource FlyoutMenuItemColor}"
@@ -35,7 +38,8 @@
         </MenuItem.IconImageSource>
     </MenuItem>
 
-    <MenuItem Text="Restart Game" StyleClass="MenuItemLayoutStyle" Clicked="OnRestartMenuItemClicked">
+    <MenuItem Text="{x:Static resources:AppResources.RestartGame}" 
+        StyleClass="MenuItemLayoutStyle" Clicked="OnRestartMenuItemClicked">
         <MenuItem.IconImageSource>
             <FontImageSource
                 Color="{DynamicResource FlyoutMenuItemColor}"

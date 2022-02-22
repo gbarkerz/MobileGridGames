@@ -32,7 +32,7 @@ namespace MobileGridGames.Droid
 
             // The NavigationContentDescription get reset back to its default of "OK"
             // whenever a game is selected from the flyout. As such, don't set a name
-            // of "Menu" here which isn't permanent.
+            // of "Menu" here which isn't permanent. And when ready, localize it.
             //toolbar.NavigationContentDescription = "Menu";
         }
     }

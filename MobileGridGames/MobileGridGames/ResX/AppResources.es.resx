@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppSettings" xml:space="preserve">
+    <value>Spanish App Settings</value>
+  </data>
+  <data name="AppSettingsDarkTheme" xml:space="preserve">
+    <value>Spanish Use a dark theme</value>
+  </data>
+  <data name="AppSettingsIntro" xml:space="preserve">
+    <value>Spanish Settings here apply to all games in the Grid Games app.</value>
+  </data>
+  <data name="AppSettingsTitle" xml:space="preserve">
+    <value>Spanish App Settings</value>
+  </data>
+  <data name="BrowsePicture" xml:space="preserve">
+    <value>Spanish Browse for picture</value>
+  </data>
+  <data name="ChooseEightPictures" xml:space="preserve">
+    <value>Spanish Please choose a picture in a folder that contains exactly 8 pictures.</value>
+  </data>
+  <data name="Clear Selection" xml:space="preserve">
+    <value>Spanish Clear Selection</value>
+  </data>
+  <data name="ClearSelection" xml:space="preserve">
+    <value>Spanish Clear Selection</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Spanish Close</value>
+  </data>
+  <data name="Congratulations" xml:space="preserve">
+    <value>Spanish Congratulations!</value>
+  </data>
+  <data name="DefaultMatchingCard1Description" xml:space="preserve">
+    <value>Spanish A smiling man with a red coat and arms outstretched, standing in front of 3 large Daleks and a TARDIS. The Daleks seem to be raised above the grass beneath them, and a slightly cloudy sky is in the background.</value>
+  </data>
+  <data name="DefaultMatchingCard1Name" xml:space="preserve">
+    <value>Spanish Daleks in Blackpool</value>
+  </data>
+  <data name="DefaultMatchingCard2Description" xml:space="preserve">
+    <value>Spanish A small brown stone lighthouse, with an upper small balcony and a lower bigger balcony. A covered sitting area is at the base of the lighthouse. In front of the lighthouse in the stone ground are anchor and compass symbols, and in the background is a grey cloudy sky.</value>
+  </data>
+  <data name="DefaultMatchingCard2Name" xml:space="preserve">
+    <value>Spanish Lower Lighthouse in Fleetwood</value>
+  </data>
+  <data name="DefaultMatchingCard3Description" xml:space="preserve">
+    <value>Spanish A first-person view looking down on two portions of fish and chips in trays and paper. In the background is a concrete path, and two partially shown shoes.</value>
+  </data>
+  <data name="DefaultMatchingCard3Name" xml:space="preserve">
+    <value>Spanish Fish and Chips in Cleveleys</value>
+  </data>
+  <data name="DefaultMatchingCard4Description" xml:space="preserve">
+    <value>Spanish A small, very old hexagonal red stone building, with castellated battlements housing a cross. Arched windows on the sides of the building are bricked-up from the inside. The building sits on grass, with a bay and cloudy sky in the background.</value>
+  </data>
+  <data name="DefaultMatchingCard4Name" xml:space="preserve">
+    <value>Spanish Cockersand Abbey</value>
+  </data>
+  <data name="DefaultMatchingCard5Description" xml:space="preserve">
+    <value>Spanish A white windmill with a black roof and black sails. The windmill has stairs going up to a black door, and black windows. In the background is a street of houses and a clear, blue sky.</value>
+  </data>
+  <data name="DefaultMatchingCard5Name" xml:space="preserve">
+    <value>Spanish Lytham St Annes Windmill</value>
+  </data>
+  <data name="DefaultMatchingCard6Description" xml:space="preserve">
+    <value>Spanish The stone ruins of a large, very old abbey. The abbey has no roof or windows, and the sun shines through the arches from behind the abbey. In the foreground is a lawn housing multiple large stone graves, and in the background is a clear blue sky.</value>
+  </data>
+  <data name="DefaultMatchingCard6Name" xml:space="preserve">
+    <value>Spanish Bolton Abbey</value>
+  </data>
+  <data name="DefaultMatchingCard7Description" xml:space="preserve">
+    <value>Spanish A large stone obelisk in a town square, with buildings and trees nearby. The sun shines on the obelisk, with a slightly cloudy, blue sky in the background. At the base of the obelisk are six red wreaths.</value>
+  </data>
+  <data name="DefaultMatchingCard7Name" xml:space="preserve">
+    <value>Spanish Harrogate Obelisk</value>
+  </data>
+  <data name="DefaultMatchingCard8Description" xml:space="preserve">
+    <value>Spanish A small square stone building with an opening on the near side. Above the opening is a Greek inscription. Railing surrounds the top of the building, and a sundial sits at the centre of the top. In the background is rocky grassland, with rolling hills in the far background along with a slightly cloudy, blue sky.</value>
+  </data>
+  <data name="DefaultMatchingCard8Name" xml:space="preserve">
+    <value>Spanish Hampsfell Hospice</value>
+  </data>
+  <data name="DefaultSquare10Name" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="DefaultSquare11Name" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="DefaultSquare12Name" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="DefaultSquare13Name" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="DefaultSquare14Name" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="DefaultSquare15Name" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="DefaultSquare1Name" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="DefaultSquare2Name" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="DefaultSquare3Name" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="DefaultSquare4Name" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="DefaultSquare5Name" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="DefaultSquare6Name" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="DefaultSquare7Name" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="DefaultSquare8Name" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="DefaultSquare9Name" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="DefaultSquareEmpty" xml:space="preserve">
+    <value>Spanish Empty</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Spanish Description:</value>
+  </data>
+  <data name="Down" xml:space="preserve">
+    <value>Spanish down</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Spanish Help</value>
+  </data>
+  <data name="HelpContentPairs" xml:space="preserve">
+    <value>Spanish The Matching Game is based on a traditional card matching game, where face-down cards are turned over in order to find pairs of cards.
+
+When the game is run, a 4 by 4 grid of blank squares appears, each square representing a card. When a card is tapped, an image is shown on the card. When another card is clicked, an image is also shown on that second card. If the two images are the same, then the cards are considered to be matched, and will not change again for the rest of the game. If the images do not match, then the cards are considered to be unmatched, and cards must be turned back over by tapping on any card. These steps are to be repeated until all matching images have been found, and a "Congratulations" window appears.
+
+Ways to play the game:
+
+Tapping with a finger: Tap the card to be turned up. When two mismatched cards have been turned up, tap on any card to turned those cards back down.
+
+TalkBack. Turn on the Android TalkBack feature, and move your finger around the screen to have the number of the card beneath your finger announced. If TalkBack moves between rows or columns in the grid of squares, it will announce the new row or column. Double tap to turn up a card. When a turned up card is matched, its name will be prefixed with "Matched".
+
+Please note that the accessible name of the Menu button near the top left corner of the app currently has a name of "OK". This will be changed to have a name of "Menu" at some point.
+
+Voice Access. Activate the Android Voice Access feature, and say a number from 1 to 16. The cards are considered to be ordered from the top left corner of the grid to the bottom right corner, numbering from left to right then top to bottom. The card whose number has been spoken will be turned over.
+
+Switch Access. Activate the Android Switch Access feature, scan to the card to be turned up and then press the switch to turn up the card.
+
+Size of Text. The game respects the Android Font size and Display size settings.
+
+Magnification. The standard use of the Android Magnification feature can be used when playing this game.</value>
+  </data>
+  <data name="HelpContentSquares" xml:space="preserve">
+    <value>Spanish The Squares Game is based on a square sliding puzzle, where squares in a grid of squares are rearranged by the player to form an ordered sequence in the grid.
+
+When the game is run, a 4 by 4 grid of squares appears, with fifteen of those squares occupied with a movable element, and one square being empty. When a square is tapped, if it is adjacent to the empty square, the tapped square moves into the empty square. The space where the tapped square was then becomes the empty square. The aim is to arrange all the squares in a sorted order, leaving the empty square in the bottom right corner of the grid. Once all the squares are ordered, a "Congratulations" window appears.
+
+Tip: Don't use a swipe gesture to move a square. Support for swipe gestures has yet to be added to the game.
+
+Tip: Don't tap on the empty square. Instead tap on the squares next to the empty square.
+
+When the game first runs, the setting to have numbers shown on squares is on, and the settings to have pictures shown on the squares is off. This means a number is shown in the top left corner of the squares. When the squares are sorted, the square showing number 1 is at the top left of the grid, and the numbers increase from left to right then top to bottom.
+
+Tip: Practice moving numbered squares around before changing the setting to have a picture shown on the squares.
+
+When the game setting to have a picture shown on the squares is on, then a single picture is shown across all the squares. The sections of the picture will appear jumbled until the squares are arranged in their sorted order.
+
+Ways to play the game:
+
+Tapping with a finger. Tap the square to be moved.
+
+TalkBack. Turn on the Android TalkBack feature, and move your finger around the screen to have the number of the square beneath your finger announced. If TalkBack moves between rows or columns in the grid of squares, it will announce the new row or column. Double tap to move a square.
+
+Please note that the accessible name of the Menu button near the top left corner of the app has a name of "OK". When that button is tapped, the menu will appear.
+
+Voice Access. Activate the Android Voice Access feature, and speak the number shown on a square to move the square.
+
+Please note that Voice Access only works today in the Squares game if numbers are shown on the squares.
+
+Switch Access. Activate the Android Switch Access feature, scan to the square to be moved and then press the switch to move the square.
+
+Size of Text. The game respects the Android Font size and Display size settings, and also has its own in-app text size setting which only applies to text in shown on the squares in the game.
+
+Magnification. The standard use of the Android Magnification feature can be used when playing this game.</value>
+  </data>
+  <data name="Left" xml:space="preserve">
+    <value>Spanish left</value>
+  </data>
+  <data name="LoadedCustomPictures" xml:space="preserve">
+    <value>Spanish Loaded custom pictures</value>
+  </data>
+  <data name="LoadingPleaseWait" xml:space="preserve">
+    <value>Spanish Please wait a moment while the picture is loaded into the squares.</value>
+  </data>
+  <data name="MatchingWonInMoves" xml:space="preserve">
+    <value>Spanish You won the game in {0} goes.
+
+Would you like to play another game?</value>
+  </data>
+  <data name="MissingMatchingGamePictureDetails" xml:space="preserve">
+    <value>Spanish The folder containing the 8 picture must also contain a MatchingGamePictureDetails file. Please review the Pairs Help for more details.</value>
+  </data>
+  <data name="Moved" xml:space="preserve">
+    <value>Spanish Moved</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Spanish Name:</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Spanish No</value>
+  </data>
+  <data name="NoFolderSelected" xml:space="preserve">
+    <value>Spanish No folder selected</value>
+  </data>
+  <data name="NoMovePossible" xml:space="preserve">
+    <value>Spanish A move is not possible from here.</value>
+  </data>
+  <data name="NumberSize" xml:space="preserve">
+    <value>Spanish Number size</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>Spanish OK</value>
+  </data>
+  <data name="Pairs" xml:space="preserve">
+    <value>Spanish Pairs</value>
+  </data>
+  <data name="PairsSettingsTitle" xml:space="preserve">
+    <value>Spanish Pairs Settings</value>
+  </data>
+  <data name="PairsWelcome" xml:space="preserve">
+    <value>Spanish Welcome to the Pairs Game!</value>
+  </data>
+  <data name="PicturePath" xml:space="preserve">
+    <value>Spanish Picture Path:</value>
+  </data>
+  <data name="PlaySoundMatch" xml:space="preserve">
+    <value>Spanish Play a sound when upturned cards match</value>
+  </data>
+  <data name="PlaySoundNotMatch" xml:space="preserve">
+    <value>Spanish Play a sound when upturned cards don't match</value>
+  </data>
+  <data name="RestartGame" xml:space="preserve">
+    <value>Spanish Restart Game</value>
+  </data>
+  <data name="Right" xml:space="preserve">
+    <value>Spanish right</value>
+  </data>
+  <data name="Selected" xml:space="preserve">
+    <value>Spanish Selected:</value>
+  </data>
+  <data name="SelectPicture" xml:space="preserve">
+    <value>Spanish Select Picture</value>
+  </data>
+  <data name="ShowCustomPictures" xml:space="preserve">
+    <value>Spanish Show custom pictures</value>
+  </data>
+  <data name="ShowNumbers" xml:space="preserve">
+    <value>Spanish Show numbers</value>
+  </data>
+  <data name="ShowPicture" xml:space="preserve">
+    <value>Spanish Show picture</value>
+  </data>
+  <data name="Squares" xml:space="preserve">
+    <value>Spanish Squares</value>
+  </data>
+  <data name="SquaresGrid" xml:space="preserve">
+    <value>Spanish Squares</value>
+  </data>
+  <data name="SquaresSettingsInstructions" xml:space="preserve">
+    <value>Spanish Please specify what you would like to appear inside the squares shown in the grid.</value>
+  </data>
+  <data name="SquaresSettingsTitle" xml:space="preserve">
+    <value>Spanish Squares Settings</value>
+  </data>
+  <data name="SquaresWelcome" xml:space="preserve">
+    <value>Spanish Welcome to the Squares Game!</value>
+  </data>
+  <data name="SquaresWonInGoes" xml:space="preserve">
+    <value>Spanish You won the game in {0} moves.
+    
+Would you like to play another game?</value>
+  </data>
+  <data name="UnexpectedDataInFile" xml:space="preserve">
+    <value>Spanish The MatchingGamePictureDetails file does not contain the expected data. Please review the Pairs Help for more details.</value>
+  </data>
+  <data name="Up" xml:space="preserve">
+    <value>Spanish up</value>
+  </data>
+  <data name="WelcomeInstructions" xml:space="preserve">
+    <value>Spanish After closing this message, please review the help content in the menu for details on how to play this game.
+    
+Note that the TalkBack screen reader announces the menu button as the "OK" button.</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Spanish Yes</value>
+  </data>
+</root>

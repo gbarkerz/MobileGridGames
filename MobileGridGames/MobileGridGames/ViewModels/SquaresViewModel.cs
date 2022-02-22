@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using MobileGridGames.Services;
 using Xamarin.Essentials;
 using System.IO;
+using MobileGridGames.ResX;
 
 namespace MobileGridGames.ViewModels
 {
@@ -161,7 +162,7 @@ namespace MobileGridGames.ViewModels
             int emptySquareIndex = -1;
             string direction = "";
 
-            var resManager = Resource1.ResourceManager;
+            var resManager = AppResources.ResourceManager;
 
             // Is the empty square adjacent to this square?
 
@@ -257,7 +258,7 @@ namespace MobileGridGames.ViewModels
 
         private void CreateDefaultSquares()
         {
-            var resManager = Resource1.ResourceManager;
+            var resManager = AppResources.ResourceManager;
 
             // Future: If feedback suggests that exposing accessible HelpText for each
             // item would be helpful when playing the game, set that here through the
