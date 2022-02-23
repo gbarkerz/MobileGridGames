@@ -1,4 +1,5 @@
-﻿using MobileGridGames.ViewModels;
+﻿using MobileGridGames.ResX;
+using MobileGridGames.ViewModels;
 using System;
 using System.Globalization;
 using Xamarin.Essentials;
@@ -206,9 +207,23 @@ namespace MobileGridGames.Views
 
     public class CardToCollectionViewIndex : IValueConverter
     {
-        private static String[] numberWords = { 
-            "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", 
-            "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen" };
+        private static String[] numberWords = {
+            AppResources.ResourceManager.GetString("One"),
+            AppResources.ResourceManager.GetString("Two"),
+            AppResources.ResourceManager.GetString("Three"),
+            AppResources.ResourceManager.GetString("Four"),
+            AppResources.ResourceManager.GetString("Five"),
+            AppResources.ResourceManager.GetString("Six"),
+            AppResources.ResourceManager.GetString("Seven"),
+            AppResources.ResourceManager.GetString("Eight"),
+            AppResources.ResourceManager.GetString("Nine"),
+            AppResources.ResourceManager.GetString("Ten"),
+            AppResources.ResourceManager.GetString("Eleven"),
+            AppResources.ResourceManager.GetString("Twelve"),
+            AppResources.ResourceManager.GetString("Thirteen"),
+            AppResources.ResourceManager.GetString("Fourteen"),
+            AppResources.ResourceManager.GetString("Fiften"),
+            AppResources.ResourceManager.GetString("Sixteen") };
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

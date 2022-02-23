@@ -439,6 +439,60 @@ namespace MobileGridGames.ResX {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Eight.
+        /// </summary>
+        internal static string Eight {
+            get {
+                return ResourceManager.GetString("Eight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Eleven.
+        /// </summary>
+        internal static string Eleven {
+            get {
+                return ResourceManager.GetString("Eleven", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fifteen.
+        /// </summary>
+        internal static string Fifteen {
+            get {
+                return ResourceManager.GetString("Fifteen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Five.
+        /// </summary>
+        internal static string Five {
+            get {
+                return ResourceManager.GetString("Five", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Four.
+        /// </summary>
+        internal static string Four {
+            get {
+                return ResourceManager.GetString("Four", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fourteen.
+        /// </summary>
+        internal static string Fourteen {
+            get {
+                return ResourceManager.GetString("Fourteen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Help.
         /// </summary>
         internal static string Help {
@@ -448,9 +502,9 @@ namespace MobileGridGames.ResX {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Matching Game is based on a traditional card matching game, where face-down cards are turned over in order to find pairs of cards.
+        ///   Looks up a localized string similar to The Pairs Game is based on a traditional card matching game, where face-down cards are turned over in order to find pairs of cards.
         ///
-        ///When the game is run, a 4 by 4 grid of blank squares appears, each square representing a card. When a card is tapped, an image is shown on the card. When another card is clicked, an image is also shown on that second card. If the two images are the same, then the cards are considered to be matched, and will not change again for the rest of the game. If the images do not m [rest of string was truncated]&quot;;.
+        ///When the game is run, a 4 by 4 grid of blank squares appears, each square representing a card. When a card is tapped, an image is shown on the card. When another card is clicked, an image is also shown on that second card. If the two images are the same, then the cards are considered to be matched, and will not change again for the rest of the game. If the images do not matc [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string HelpContentPairs {
             get {
@@ -535,6 +589,15 @@ namespace MobileGridGames.ResX {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nine.
+        /// </summary>
+        internal static string Nine {
+            get {
+                return ResourceManager.GetString("Nine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No.
         /// </summary>
         internal static string No {
@@ -576,6 +639,15 @@ namespace MobileGridGames.ResX {
         internal static string OK {
             get {
                 return ResourceManager.GetString("OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to One.
+        /// </summary>
+        internal static string One {
+            get {
+                return ResourceManager.GetString("One", resourceCulture);
             }
         }
         
@@ -670,6 +742,15 @@ namespace MobileGridGames.ResX {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Seven.
+        /// </summary>
+        internal static string Seven {
+            get {
+                return ResourceManager.GetString("Seven", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show custom pictures.
         /// </summary>
         internal static string ShowCustomPictures {
@@ -693,6 +774,24 @@ namespace MobileGridGames.ResX {
         internal static string ShowPicture {
             get {
                 return ResourceManager.GetString("ShowPicture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Six.
+        /// </summary>
+        internal static string Six {
+            get {
+                return ResourceManager.GetString("Six", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sixteen.
+        /// </summary>
+        internal static string Sixteen {
+            get {
+                return ResourceManager.GetString("Sixteen", resourceCulture);
             }
         }
         
@@ -749,6 +848,51 @@ namespace MobileGridGames.ResX {
         internal static string SquaresWonInGoes {
             get {
                 return ResourceManager.GetString("SquaresWonInGoes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ten.
+        /// </summary>
+        internal static string Ten {
+            get {
+                return ResourceManager.GetString("Ten", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thirteen.
+        /// </summary>
+        internal static string Thirteen {
+            get {
+                return ResourceManager.GetString("Thirteen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Three.
+        /// </summary>
+        internal static string Three {
+            get {
+                return ResourceManager.GetString("Three", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Twelve.
+        /// </summary>
+        internal static string Twelve {
+            get {
+                return ResourceManager.GetString("Twelve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Two.
+        /// </summary>
+        internal static string Two {
+            get {
+                return ResourceManager.GetString("Two", resourceCulture);
             }
         }
         
