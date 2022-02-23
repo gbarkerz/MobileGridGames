@@ -1,4 +1,5 @@
-﻿using MobileGridGames.Services;
+﻿using MobileGridGames.ResX;
+using MobileGridGames.Services;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -9,7 +10,7 @@ namespace MobileGridGames.ViewModels
     {
         public AppSettingsViewModel()
         {
-            Title = "App Settings";
+            Title = AppResources.ResourceManager.GetString("AppSettings");
         }
 
         private bool showDarkTheme;

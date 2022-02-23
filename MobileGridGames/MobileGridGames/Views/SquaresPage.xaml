@@ -22,7 +22,7 @@
             <Button Grid.Column="1" Text="&#xf013;" Clicked="SquaresGameSettingsButton_Clicked"
                 BorderWidth="0"
                 FontFamily="FA" FontSize="Title" HorizontalOptions="End"
-                AutomationProperties.Name="{x:Static resources:AppResources.SquaresSettingsTitle}"
+                AutomationProperties.Name="{x:Static resources:AppResources.SquaresSettings}"
                 IsVisible="{Binding GameIsLoading, Converter={StaticResource GameIsLoadingToVisibility}}"/>
         </Grid>
     </Shell.TitleView>

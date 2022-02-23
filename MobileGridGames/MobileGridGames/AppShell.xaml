@@ -2,7 +2,6 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:MobileGridGames.Views"
-       Title="Grid Games"
        FlyoutBackgroundColor="{DynamicResource PageBackgroundColor}" 
        xmlns:resources="clr-namespace:MobileGridGames.ResX"
        x:Class="MobileGridGames.AppShell">

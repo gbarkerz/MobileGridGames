@@ -19,6 +19,8 @@ namespace MobileGridGames
         {
             InitializeComponent();
 
+            this.Title = AppResources.ResourceManager.GetString("GridGames");
+
             string initialGame = Preferences.Get("InitialGame", "Squares");
 
             ShellSection shellSectionSquares = new ShellSection

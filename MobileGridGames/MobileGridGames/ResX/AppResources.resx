@@ -249,6 +249,9 @@
   <data name="Eleven" xml:space="preserve">
     <value>Eleven</value>
   </data>
+  <data name="FaceDown" xml:space="preserve">
+    <value>Face down</value>
+  </data>
   <data name="Fifteen" xml:space="preserve">
     <value>Fifteen</value>
   </data>
@@ -260,6 +263,12 @@
   </data>
   <data name="Fourteen" xml:space="preserve">
     <value>Fourteen</value>
+  </data>
+  <data name="GameReady" xml:space="preserve">
+    <value>Game is ready to play.</value>
+  </data>
+  <data name="GridGames" xml:space="preserve">
+    <value>Grid Games</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>Help</value>
@@ -327,6 +336,9 @@ Magnification. The standard use of the Android Magnification feature can be used
   <data name="LoadingPleaseWait" xml:space="preserve">
     <value>Please wait a moment while the picture is loaded into the squares.</value>
   </data>
+  <data name="Matched" xml:space="preserve">
+    <value>Matched</value>
+  </data>
   <data name="MatchingWonInMoves" xml:space="preserve">
     <value>You won the game in {0} goes.
     
@@ -365,7 +377,10 @@ Would you like to play another game?</value>
   <data name="Pairs" xml:space="preserve">
     <value>Pairs</value>
   </data>
-  <data name="PairsSettingsTitle" xml:space="preserve">
+  <data name="PairsGameHelp" xml:space="preserve">
+    <value>Pairs Help</value>
+  </data>
+  <data name="PairsSettings" xml:space="preserve">
     <value>Pairs Settings</value>
   </data>
   <data name="PairsWelcome" xml:space="preserve">
@@ -413,14 +428,17 @@ Would you like to play another game?</value>
   <data name="Squares" xml:space="preserve">
     <value>Squares</value>
   </data>
+  <data name="SquaresGameHelp" xml:space="preserve">
+    <value>Squares Help</value>
+  </data>
   <data name="SquaresGrid" xml:space="preserve">
     <value>Squares</value>
   </data>
+  <data name="SquaresSettings" xml:space="preserve">
+    <value>Squares Settings</value>
+  </data>
   <data name="SquaresSettingsInstructions" xml:space="preserve">
     <value>Please specify what you would like to appear inside the squares shown in the grid.</value>
-  </data>
-  <data name="SquaresSettingsTitle" xml:space="preserve">
-    <value>Squares Settings</value>
   </data>
   <data name="SquaresWelcome" xml:space="preserve">
     <value>Welcome to the Squares Game!</value>
@@ -433,11 +451,17 @@ Would you like to play another game?</value>
   <data name="Ten" xml:space="preserve">
     <value>Ten</value>
   </data>
+  <data name="ThatsMatch" xml:space="preserve">
+    <value>That's a match.</value>
+  </data>
   <data name="Thirteen" xml:space="preserve">
     <value>Thirteen</value>
   </data>
   <data name="Three" xml:space="preserve">
     <value>Three</value>
+  </data>
+  <data name="TurnedUp" xml:space="preserve">
+    <value>Turned up</value>
   </data>
   <data name="Twelve" xml:space="preserve">
     <value>Twelve</value>
@@ -447,6 +471,9 @@ Would you like to play another game?</value>
   </data>
   <data name="UnexpectedDataInFile" xml:space="preserve">
     <value>The MatchingGamePictureDetails file does not contain the expected data. Please review the Pairs Help for more details.</value>
+  </data>
+  <data name="UnmatchedTurnedBack" xml:space="preserve">
+    <value>Unmatched cards turned back.</value>
   </data>
   <data name="Up" xml:space="preserve">
     <value>up</value>

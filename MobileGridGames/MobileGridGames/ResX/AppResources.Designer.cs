@@ -457,6 +457,15 @@ namespace MobileGridGames.ResX {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Face down.
+        /// </summary>
+        internal static string FaceDown {
+            get {
+                return ResourceManager.GetString("FaceDown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fifteen.
         /// </summary>
         internal static string Fifteen {
@@ -489,6 +498,24 @@ namespace MobileGridGames.ResX {
         internal static string Fourteen {
             get {
                 return ResourceManager.GetString("Fourteen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game is ready to play..
+        /// </summary>
+        internal static string GameReady {
+            get {
+                return ResourceManager.GetString("GameReady", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grid Games.
+        /// </summary>
+        internal static string GridGames {
+            get {
+                return ResourceManager.GetString("GridGames", resourceCulture);
             }
         }
         
@@ -547,6 +574,15 @@ namespace MobileGridGames.ResX {
         internal static string LoadingPleaseWait {
             get {
                 return ResourceManager.GetString("LoadingPleaseWait", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Matched.
+        /// </summary>
+        internal static string Matched {
+            get {
+                return ResourceManager.GetString("Matched", resourceCulture);
             }
         }
         
@@ -661,11 +697,20 @@ namespace MobileGridGames.ResX {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pairs Help.
+        /// </summary>
+        internal static string PairsGameHelp {
+            get {
+                return ResourceManager.GetString("PairsGameHelp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pairs Settings.
         /// </summary>
-        internal static string PairsSettingsTitle {
+        internal static string PairsSettings {
             get {
-                return ResourceManager.GetString("PairsSettingsTitle", resourceCulture);
+                return ResourceManager.GetString("PairsSettings", resourceCulture);
             }
         }
         
@@ -805,6 +850,15 @@ namespace MobileGridGames.ResX {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Squares Help.
+        /// </summary>
+        internal static string SquaresGameHelp {
+            get {
+                return ResourceManager.GetString("SquaresGameHelp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Squares.
         /// </summary>
         internal static string SquaresGrid {
@@ -814,20 +868,20 @@ namespace MobileGridGames.ResX {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Squares Settings.
+        /// </summary>
+        internal static string SquaresSettings {
+            get {
+                return ResourceManager.GetString("SquaresSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please specify what you would like to appear inside the squares shown in the grid..
         /// </summary>
         internal static string SquaresSettingsInstructions {
             get {
                 return ResourceManager.GetString("SquaresSettingsInstructions", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Squares Settings.
-        /// </summary>
-        internal static string SquaresSettingsTitle {
-            get {
-                return ResourceManager.GetString("SquaresSettingsTitle", resourceCulture);
             }
         }
         
@@ -861,6 +915,15 @@ namespace MobileGridGames.ResX {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to That&apos;s a match..
+        /// </summary>
+        internal static string ThatsMatch {
+            get {
+                return ResourceManager.GetString("ThatsMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Thirteen.
         /// </summary>
         internal static string Thirteen {
@@ -875,6 +938,15 @@ namespace MobileGridGames.ResX {
         internal static string Three {
             get {
                 return ResourceManager.GetString("Three", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turned up.
+        /// </summary>
+        internal static string TurnedUp {
+            get {
+                return ResourceManager.GetString("TurnedUp", resourceCulture);
             }
         }
         
@@ -902,6 +974,15 @@ namespace MobileGridGames.ResX {
         internal static string UnexpectedDataInFile {
             get {
                 return ResourceManager.GetString("UnexpectedDataInFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unmatched cards turned back..
+        /// </summary>
+        internal static string UnmatchedTurnedBack {
+            get {
+                return ResourceManager.GetString("UnmatchedTurnedBack", resourceCulture);
             }
         }
         

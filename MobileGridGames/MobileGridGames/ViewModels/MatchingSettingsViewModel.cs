@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MobileGridGames.ResX;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -12,7 +13,7 @@ namespace MobileGridGames.ViewModels
     {
         public MatchingSettingsViewModel()
         {
-            Title = "Pairs Settings";
+            Title = AppResources.ResourceManager.GetString("PairsSettings");
 
             this.PictureListCollection = new ObservableCollection<PictureData>();
         }

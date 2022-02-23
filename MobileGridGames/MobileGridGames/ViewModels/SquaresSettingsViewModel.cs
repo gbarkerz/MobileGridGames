@@ -1,4 +1,5 @@
-﻿using Xamarin.Essentials;
+﻿using MobileGridGames.ResX;
+using Xamarin.Essentials;
 
 namespace MobileGridGames.ViewModels
 {
@@ -7,7 +8,7 @@ namespace MobileGridGames.ViewModels
     {
         public SquareSettingsViewModel()
         {
-            Title = "Squares Settings";
+            Title = AppResources.ResourceManager.GetString("SquaresSettings");
         }
 
         private bool showNumbers;

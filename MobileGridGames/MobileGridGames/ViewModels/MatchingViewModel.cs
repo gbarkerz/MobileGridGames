@@ -23,11 +23,13 @@ namespace MobileGridGames.ViewModels
                 string name = "";
                 if (faceUp)
                 {
-                    name = (Matched ? "Matched " : "") + accessibleName;
+                    name = (Matched ?
+                        AppResources.ResourceManager.GetString("Matched") + " " : "") + 
+                        accessibleName;
                 }
                 else
                 {
-                    name = "Face down";
+                    name = AppResources.ResourceManager.GetString("FaceDown");
                 }
 
                 return name;
@@ -150,7 +152,7 @@ namespace MobileGridGames.ViewModels
 
         public MatchingViewModel()
         {
-            Title = "Pairs";
+            Title = AppResources.ResourceManager.GetString("Pairs");
 
             squareList = new ObservableCollection<Card>();
 
@@ -251,8 +253,8 @@ namespace MobileGridGames.ViewModels
                 secondCardInMatchAttempt.FaceUp = false;
                 secondCardInMatchAttempt = null;
 
-                RaiseNotificationEvent("Unmatched cards turned back.");
-
+                RaiseNotificationEvent(AppResources.ResourceManager.GetString("UnmatchedTurnedBack"));
+                
                 return false;
             }
 
@@ -285,7 +287,7 @@ namespace MobileGridGames.ViewModels
                     firstCardInMatchAttempt.Matched = true;
                     secondCardInMatchAttempt.Matched = true;
 
-                    RaiseNotificationEvent("That's a match.");
+                    RaiseNotificationEvent(AppResources.ResourceManager.GetString("ThatsMatch"));
 
                     firstCardInMatchAttempt = null;
                     secondCardInMatchAttempt = null;
@@ -350,7 +352,8 @@ namespace MobileGridGames.ViewModels
         {
             card.FaceUp = true;
 
-            RaiseNotificationEvent("Turned up " + card.AccessibleName);
+            RaiseNotificationEvent(
+                AppResources.ResourceManager.GetString("TurnedUp") + " " + card.AccessibleName);
         }
 
         private bool GameIsWon()

@@ -151,7 +151,7 @@ namespace MobileGridGames
                         if (!File.Exists(importFile))
                         {
                             await DisplayAlert(
-                                AppResources.ResourceManager.GetString("PairsSettingsTitle"),
+                                AppResources.ResourceManager.GetString("PairsSettings"),
                                 AppResources.ResourceManager.GetString("MissingMatchingGamePictureDetails"),
                                 AppResources.ResourceManager.GetString("OK"));
 
@@ -195,7 +195,7 @@ namespace MobileGridGames
                                 if (!SetNameDescription(content))
                                 {
                                     await DisplayAlert(
-                                        AppResources.ResourceManager.GetString("PairsSettingsTitle"),
+                                        AppResources.ResourceManager.GetString("PairsSettings"),
                                         AppResources.ResourceManager.GetString("UnexpectedDataInFile"),
                                         AppResources.ResourceManager.GetString("OK"));
 
@@ -251,7 +251,7 @@ namespace MobileGridGames
             if (!picturePathValid)
             {
                 await DisplayAlert(
-                    AppResources.ResourceManager.GetString("PairsSettingsTitle"),
+                    AppResources.ResourceManager.GetString("PairsSettings"),
                     AppResources.ResourceManager.GetString("ChooseEightPictures"),
                     AppResources.ResourceManager.GetString("OK"));
             }

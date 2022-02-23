@@ -83,7 +83,7 @@ namespace MobileGridGames.ViewModels
 
         public SquaresViewModel()
         {
-            Title = "Squares";
+            Title = AppResources.ResourceManager.GetString("Squares");
 
             squareList = new ObservableCollection<Square>();
 
@@ -253,7 +253,7 @@ namespace MobileGridGames.ViewModels
 
             Shuffle(squareList);
 
-            RaiseNotificationEvent("Game is ready to play.");
+            RaiseNotificationEvent(AppResources.ResourceManager.GetString("GameReady"));
         }
 
         private void CreateDefaultSquares()

@@ -25,7 +25,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Label Grid.Row="0" FontSize="Title"
-                Text="{x:Static resources:AppResources.SquaresSettingsTitle}" />
+                Text="{x:Static resources:AppResources.SquaresSettings}" />
             <Label Grid.Row="1" 
                 Text="{x:Static resources:AppResources.SquaresSettingsInstructions}" />
             <StackLayout Grid.Row="2">

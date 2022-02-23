@@ -20,7 +20,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Label Grid.Row="0" FontSize="Title"
-                Text="{x:Static resources:AppResources.PairsSettingsTitle}" />
+                Text="{x:Static resources:AppResources.PairsSettings}" />
             <ScrollView Grid.Row="1" Margin="4,4,4,2">
                 <Grid>
                     <Grid.RowDefinitions>
