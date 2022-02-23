@@ -7,12 +7,12 @@
     <Color x:Key="PageBackgroundColor">White</Color>
     <Color x:Key="MessageTextColor">Black</Color>
     <Color x:Key="GameTitleBarTextColor">White</Color>
-    <Color x:Key="GameTitleBarBackgroundColor">#2196F3</Color>
+    <Color x:Key="GameTitleBarBackgroundColor">#0C77CF</Color>
     <Color x:Key="GridBackgroundColor">LightGray</Color>
     <Color x:Key="GridItemBackgroundColor">White</Color>
     <Color x:Key="SquaresNumberTextColor">Black</Color>
     <Color x:Key="SquaresNumberBackgroundColor">White</Color>
-    <Color x:Key="FlyoutMenuItemColor">#2196F3</Color>
+    <Color x:Key="FlyoutMenuItemColor">#0C77CF</Color>
 
     <Style TargetType="Label">
         <Setter Property="TextColor" Value="Black"></Setter>
@@ -26,7 +26,7 @@
     </Style>
 
     <!-- Originally in App.xaml. -->
-    <Color x:Key="Primary">#2196F3</Color>
+    <Color x:Key="Primary">#0C77CF</Color>
     <Style TargetType="Button">
         <Setter Property="TextColor" Value="White"></Setter>
         <Setter Property="BackgroundColor" Value="{DynamicResource Primary}"></Setter>
