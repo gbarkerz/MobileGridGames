@@ -20,6 +20,14 @@
                 <ScrollView Margin="4,4,4,2">
                     <StackLayout>
                         <StackLayout Orientation="Horizontal">
+                            <Label x:Name="HideGridLabel" 
+                                Text="{x:Static resources:AppResources.AppSettingsHideGrid}" 
+                                VerticalOptions="Center" />
+                            <CheckBox x:Name="HideGridCheckBox"
+                                AutomationProperties.LabeledBy="{x:Reference HideGridLabel}"
+                                VerticalOptions="Center" IsChecked="{Binding HideGrid}" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
                             <Label x:Name="ShowDarkThemeLabel" 
                                 Text="{x:Static resources:AppResources.AppSettingsDarkTheme}" 
                                 VerticalOptions="Center" />

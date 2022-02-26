@@ -33,5 +33,24 @@ namespace MobileGridGames.ViewModels
                 }
             }
         }
+
+        private bool hideGrid;
+        public bool HideGrid
+        {
+            get
+            {
+                return hideGrid;
+            }
+            set
+            {
+                if (hideGrid != value)
+                {
+                    SetProperty(ref hideGrid, value);
+
+                    Preferences.Set("HideGrid", value);
+                }
+            }
+        }
+
     }
 }

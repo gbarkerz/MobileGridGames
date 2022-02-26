@@ -201,6 +201,10 @@
             </Grid>
         </Frame>
 
+        <!-- This Grid is here to support a setting to visually hide the game grid contents. -->
+        <Grid Grid.Row="1" IsVisible="{Binding HideGrid}"
+            BackgroundColor="{DynamicResource GridBackgroundColor}" />
+
     </Grid>
 
 </ContentPage>

@@ -16,6 +16,7 @@ namespace MobileGridGames
             this.BindingContext = new AppSettingsViewModel();
 
             var vm = this.BindingContext as AppSettingsViewModel;
+            vm.HideGrid = Preferences.Get("HideGrid", true);
             vm.ShowDarkTheme = Preferences.Get("ShowDarkTheme", false);
         }
 

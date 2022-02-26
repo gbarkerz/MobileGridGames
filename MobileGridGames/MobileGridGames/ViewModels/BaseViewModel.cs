@@ -27,6 +27,16 @@ namespace MobileGridGames.ViewModels
             }
         }
 
+        private bool hideGrid = false;
+        public bool HideGrid
+        {
+            get { return hideGrid; }
+            set
+            {
+                SetProperty(ref hideGrid, value);
+            }
+        }
+
         protected bool SetProperty<T>(ref T backingStore, T value,
             [CallerMemberName] string propertyName = "",
             Action onChanged = null)

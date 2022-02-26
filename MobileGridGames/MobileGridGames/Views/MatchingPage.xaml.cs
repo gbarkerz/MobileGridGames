@@ -56,6 +56,7 @@ namespace MobileGridGames.Views
 
             vm.PlaySoundOnMatch = Preferences.Get("PlaySoundOnMatch", true);
             vm.PlaySoundOnNotMatch = Preferences.Get("PlaySoundOnNotMatch", true);
+            vm.HideGrid = Preferences.Get("HideGrid", true);
 
             // Has something changed related to custom picture use since the last time
             // we were in OnAppearing()?

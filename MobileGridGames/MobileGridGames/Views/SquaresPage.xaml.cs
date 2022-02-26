@@ -45,6 +45,7 @@ namespace MobileGridGames.Views
             vm.NumberHeight = Preferences.Get("NumberSizeIndex", 1);
             vm.ShowPicture = Preferences.Get("ShowPicture", false);
             vm.PicturePathSquares = Preferences.Get("PicturePathSquares", "");
+            vm.HideGrid = Preferences.Get("HideGrid", true);
 
             // Has the state of the picture being shown changed since we were last changed?
             if (vm.ShowPicture && (vm.PicturePathSquares != previousLoadedPicture))

@@ -454,4 +454,7 @@ Note that the TalkBack screen reader announces the menu button as the "OK" butto
   <data name="SquaresGameHelp" xml:space="preserve">
     <value>Squares Help</value>
   </data>
+  <data name="AppSettingsHideGrid" xml:space="preserve">
+    <value>Hide Grid</value>
+  </data>
 </root>

@@ -79,6 +79,15 @@ namespace MobileGridGames.ResX {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hide Grid.
+        /// </summary>
+        internal static string AppSettingsHideGrid {
+            get {
+                return ResourceManager.GetString("AppSettingsHideGrid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings here apply to all games in the Grid Games app..
         /// </summary>
         internal static string AppSettingsIntro {

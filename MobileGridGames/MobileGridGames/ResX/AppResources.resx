@@ -126,6 +126,9 @@
   <data name="AppSettingsIntro" xml:space="preserve">
     <value>Settings here apply to all games in the Grid Games app.</value>
   </data>
+  <data name="AppSettingsHideGrid" xml:space="preserve">
+    <value>Hide Grid</value>
+  </data>
   <data name="BrowsePicture" xml:space="preserve">
     <value>Browse for picture</value>
   </data>
