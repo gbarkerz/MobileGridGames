@@ -19,6 +19,8 @@
             <StackLayout Grid.Row="2">
                 <ScrollView Margin="4,4,4,2">
                     <StackLayout>
+                        <Label Margin="0,20,0,0" 
+                            Text="{x:Static resources:AppResources.AppSettingsHideGridInstructions}" />
                         <StackLayout Orientation="Horizontal">
                             <Label x:Name="HideGridLabel" 
                                 Text="{x:Static resources:AppResources.AppSettingsHideGrid}" 
@@ -27,6 +29,8 @@
                                 AutomationProperties.LabeledBy="{x:Reference HideGridLabel}"
                                 VerticalOptions="Center" IsChecked="{Binding HideGrid}" />
                         </StackLayout>
+                        <Label Margin="0,20,0,0" 
+                            Text="{x:Static resources:AppResources.AppSettingsDarkThemeInstructions}" />
                         <StackLayout Orientation="Horizontal">
                             <Label x:Name="ShowDarkThemeLabel" 
                                 Text="{x:Static resources:AppResources.AppSettingsDarkTheme}" 

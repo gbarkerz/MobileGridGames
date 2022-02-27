@@ -79,11 +79,29 @@ namespace MobileGridGames.ResX {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Changing the theme will restart the current game..
+        /// </summary>
+        internal static string AppSettingsDarkThemeInstructions {
+            get {
+                return ResourceManager.GetString("AppSettingsDarkThemeInstructions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hide Grid.
         /// </summary>
         internal static string AppSettingsHideGrid {
             get {
                 return ResourceManager.GetString("AppSettingsHideGrid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the grid contents are visually hidden, use the TalkBack screen reader to play the game..
+        /// </summary>
+        internal static string AppSettingsHideGridInstructions {
+            get {
+                return ResourceManager.GetString("AppSettingsHideGridInstructions", resourceCulture);
             }
         }
         
