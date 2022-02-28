@@ -34,8 +34,9 @@ namespace MobileGridGames.ViewModels
             }
         }
 
+        // Use "new" hear to make it unabiguous between the BaseViewModel HideGrid property.
         private bool hideGrid;
-        public bool HideGrid
+        public new bool HideGrid
         {
             get
             {

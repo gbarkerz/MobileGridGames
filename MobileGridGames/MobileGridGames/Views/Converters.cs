@@ -283,4 +283,21 @@ namespace MobileGridGames.Views
             throw new NotImplementedException();
         }
     }
+
+    public class PictureAspectToInt : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var aspect = (Aspect)value;
+
+            return (int)aspect;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var intValue = (int)value;
+
+            return (Aspect)intValue;
+        }
+    }
 }

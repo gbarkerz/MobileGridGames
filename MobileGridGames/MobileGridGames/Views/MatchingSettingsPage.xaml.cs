@@ -29,6 +29,9 @@ namespace MobileGridGames
             vm.ShowCustomPictures = Preferences.Get("ShowCustomPictures", false);
             vm.PicturePathMatching = Preferences.Get("PicturePathMatching", "");
 
+            // Default to AspectFit.
+            vm.PictureAspect = (Aspect)Preferences.Get("PictureAspect", 0);
+
             LoadCustomPictureData();
         }
 

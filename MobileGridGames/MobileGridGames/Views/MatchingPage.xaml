@@ -76,7 +76,9 @@
                             <Frame Margin="2" Padding="0" 
                                 BackgroundColor="{DynamicResource GridItemBackgroundColor}">
                                 <Image IsVisible="{Binding FaceUp}"
-                                    Aspect="AspectFit" 
+                                    Aspect="{Binding Source={x:Reference MatchingPageInstance},
+                                            Path=BindingContext.PictureAspect,
+                                            Mode=OneWay}"
                                     Source="{Binding PictureImageSource}">
                                 </Image>
                             </Frame>

@@ -457,4 +457,10 @@ Note that the TalkBack screen reader announces the menu button as the "OK" butto
   <data name="AppSettingsHideGrid" xml:space="preserve">
     <value>Hide Grid</value>
   </data>
+  <data name="PictureAspectInstructions" xml:space="preserve">
+    <value>Pick how the pictures will be shown in the cards.</value>
+  </data>
+  <data name="PictureAspectLabel" xml:space="preserve">
+    <value>Scale type</value>
+  </data>
 </root>

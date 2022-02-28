@@ -99,26 +99,6 @@ namespace MobileGridGames.ViewModels
             }
         }
 
-        private bool playSoundOnMatch;
-        public bool PlaySoundOnMatch
-        {
-            get { return playSoundOnMatch; }
-            set
-            {
-                SetProperty(ref playSoundOnMatch, value);
-            }
-        }
-
-        private bool playSoundOnNotMatch;
-        public bool PlaySoundOnNotMatch
-        {
-            get { return playSoundOnNotMatch; }
-            set
-            {
-                SetProperty(ref playSoundOnNotMatch, value);
-            }
-        }
-
         protected bool SetProperty<T>(ref T backingStore, T value,
             [CallerMemberName] string propertyName = "",
             Action onChanged = null)
@@ -179,6 +159,19 @@ namespace MobileGridGames.ViewModels
 
                     Preferences.Set("FirstRunMatching", firstRunMatching);
                 }
+            }
+        }
+
+        private Aspect pictureAspect;
+        public Aspect PictureAspect
+        {
+            get
+            {
+                return pictureAspect;
+            }
+            set
+            {
+                SetProperty(ref pictureAspect, value);
             }
         }
 

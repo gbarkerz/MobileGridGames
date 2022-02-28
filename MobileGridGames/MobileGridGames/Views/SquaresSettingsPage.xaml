@@ -53,7 +53,6 @@
                                         Text="{x:Static resources:AppResources.NumberSize}"
                                         VerticalOptions="Center" />
                                     <Picker Grid.Column="1" VerticalOptions="Center" 
-                                        WidthRequest="{Binding }"
                                         AutomationProperties.LabeledBy="{x:Reference NumberSizeLabel}"
                                         SelectedIndex="{Binding NumberSizeIndex}">
                                         <Picker.Items>

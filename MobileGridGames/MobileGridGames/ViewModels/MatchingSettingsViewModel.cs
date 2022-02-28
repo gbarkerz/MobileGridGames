@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace MobileGridGames.ViewModels
 {
@@ -57,6 +58,24 @@ namespace MobileGridGames.ViewModels
                     SetProperty(ref showCustomPictures, value);
 
                     Preferences.Set("ShowCustomPictures", value);
+                }
+            }
+        }
+
+        private Aspect pictureAspect;
+        public Aspect PictureAspect
+        {
+            get
+            {
+                return pictureAspect;
+            }
+            set
+            {
+                if (pictureAspect != value)
+                {
+                    SetProperty(ref pictureAspect, value);
+
+                    Preferences.Set("PictureAspect", (int)value);
                 }
             }
         }

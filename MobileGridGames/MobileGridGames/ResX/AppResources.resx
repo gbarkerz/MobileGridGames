@@ -495,4 +495,10 @@ Note that the TalkBack screen reader announces the menu button as the "OK" butto
   <data name="AppSettingsHideGridInstructions" xml:space="preserve">
     <value>When the grid contents are visually hidden, use the TalkBack screen reader to play the game.</value>
   </data>
+  <data name="PictureAspectLabel" xml:space="preserve">
+    <value>Scale type</value>
+  </data>
+  <data name="PictureAspectInstructions" xml:space="preserve">
+    <value>Pick how the pictures will be shown in the cards.</value>
+  </data>
 </root>

@@ -751,6 +751,24 @@ namespace MobileGridGames.ResX {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pick how the pictures will be shown in the cards..
+        /// </summary>
+        internal static string PictureAspectInstructions {
+            get {
+                return ResourceManager.GetString("PictureAspectInstructions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scale type.
+        /// </summary>
+        internal static string PictureAspectLabel {
+            get {
+                return ResourceManager.GetString("PictureAspectLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Picture Path:.
         /// </summary>
         internal static string PicturePath {

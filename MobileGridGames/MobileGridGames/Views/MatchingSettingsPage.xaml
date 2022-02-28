@@ -8,6 +8,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <localviews:MatchingSettingsPicturePathToIsVisible x:Key="MatchingSettingsPicturePathToIsVisible" />
+            <localviews:PictureAspectToInt x:Key="PictureAspectToInt" />            
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -56,7 +57,27 @@
                             AutomationProperties.LabeledBy="{x:Reference PlaySoundOnNotMatchLabel}"
                             VerticalOptions="Center" IsChecked="{Binding PlaySoundOnNotMatch}" />
                     </Grid>
-                    
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="1" Grid.Column="0" x:Name="PictureAspectLabel" 
+                            Text="{x:Static resources:AppResources.PictureAspectLabel}"
+                            VerticalOptions="Center" />
+                        <Picker Grid.Row="1" Grid.Column="1" VerticalOptions="Center" 
+                            AutomationProperties.LabeledBy="{x:Reference PictureAspectLabel}"
+                            SelectedIndex="{Binding PictureAspect, Mode=TwoWay,
+                                Converter={StaticResource PictureAspectToInt}}">
+                            <Picker.Items>
+                                <x:String>Show full picture</x:String>
+                                <x:String>Fill card and clip</x:String>
+                                <x:String>Fill card without clipping</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </Grid>
+
                     <StackLayout Grid.Row="2"  Orientation="Horizontal" Margin="0,20,0,0">
                         <Label x:Name="ShowCustomPicturesLabel" 
                             Text="{x:Static resources:AppResources.ShowCustomPictures}"

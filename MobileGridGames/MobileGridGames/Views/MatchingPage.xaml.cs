@@ -58,6 +58,9 @@ namespace MobileGridGames.Views
             vm.PlaySoundOnNotMatch = Preferences.Get("PlaySoundOnNotMatch", true);
             vm.HideGrid = Preferences.Get("HideGrid", false);
 
+            // Default to AspectFit.
+            vm.PictureAspect = (Aspect)Preferences.Get("PictureAspect", 0);
+
             // Has something changed related to custom picture use since the last time
             // we were in OnAppearing()?
             var showCustomPictures = Preferences.Get("ShowCustomPictures", false);
