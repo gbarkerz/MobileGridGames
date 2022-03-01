@@ -66,16 +66,11 @@
                         <Label Grid.Row="1" Grid.Column="0" x:Name="PictureAspectLabel" 
                             Text="{x:Static resources:AppResources.PictureAspectLabel}"
                             VerticalOptions="Center" />
-                        <Picker Grid.Row="1" Grid.Column="1" VerticalOptions="Center" 
+                        <Picker Grid.Row="1" Grid.Column="1" x:Name="MatchingPictureAspectPicker"
+                            VerticalOptions="Center" 
                             AutomationProperties.LabeledBy="{x:Reference PictureAspectLabel}"
                             SelectedIndex="{Binding PictureAspect, Mode=TwoWay,
-                                Converter={StaticResource PictureAspectToInt}}">
-                            <Picker.Items>
-                                <x:String>Show full picture</x:String>
-                                <x:String>Fill card and clip</x:String>
-                                <x:String>Fill card without clipping</x:String>
-                            </Picker.Items>
-                        </Picker>
+                                Converter={StaticResource PictureAspectToInt}}" />
                     </Grid>
 
                     <StackLayout Grid.Row="2"  Orientation="Horizontal" Margin="0,20,0,0">

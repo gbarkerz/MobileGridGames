@@ -463,4 +463,25 @@ Note that the TalkBack screen reader announces the menu button as the "OK" butto
   <data name="PictureAspectLabel" xml:space="preserve">
     <value>Scale type</value>
   </data>
+  <data name="FillCardAndClip" xml:space="preserve">
+    <value>Fill card and clip</value>
+  </data>
+  <data name="FillCardWithoutClipping" xml:space="preserve">
+    <value>Fill card without clipping</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>Large</value>
+  </data>
+  <data name="Largest" xml:space="preserve">
+    <value>Largest</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Medium</value>
+  </data>
+  <data name="ShowFullPicture" xml:space="preserve">
+    <value>Show full picture</value>
+  </data>
+  <data name="Small" xml:space="preserve">
+    <value>Small</value>
+  </data>
 </root>

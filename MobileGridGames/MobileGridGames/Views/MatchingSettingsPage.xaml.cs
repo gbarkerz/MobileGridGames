@@ -21,6 +21,11 @@ namespace MobileGridGames
         {
             InitializeComponent();
 
+            // Adding localized strings to a Picker in XAML seems complicated, so do it in code.
+            MatchingPictureAspectPicker.Items.Add(AppResources.ResourceManager.GetString("ShowFullPicture"));
+            MatchingPictureAspectPicker.Items.Add(AppResources.ResourceManager.GetString("FillCardAndClip"));
+            MatchingPictureAspectPicker.Items.Add(AppResources.ResourceManager.GetString("FillCardWithoutClipping"));
+
             this.BindingContext = new MatchingSettingsViewModel();
 
             var vm = this.BindingContext as MatchingSettingsViewModel;

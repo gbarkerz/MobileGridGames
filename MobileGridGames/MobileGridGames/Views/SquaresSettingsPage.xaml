@@ -52,16 +52,10 @@
                                     <Label Grid.Column="0" x:Name="NumberSizeLabel" 
                                         Text="{x:Static resources:AppResources.NumberSize}"
                                         VerticalOptions="Center" />
-                                    <Picker Grid.Column="1" VerticalOptions="Center" 
+                                    <Picker Grid.Column="1" x:Name="SquaresNumberSizePicker"
                                         AutomationProperties.LabeledBy="{x:Reference NumberSizeLabel}"
-                                        SelectedIndex="{Binding NumberSizeIndex}">
-                                        <Picker.Items>
-                                            <x:String>Small</x:String>
-                                            <x:String>Medium</x:String>
-                                            <x:String>Large</x:String>
-                                            <x:String>Largest</x:String>
-                                        </Picker.Items>
-                                    </Picker>
+                                        VerticalOptions="Center" 
+                                        SelectedIndex="{Binding NumberSizeIndex}" />
                                 </Grid>
                             </StackLayout>
                         </Frame>

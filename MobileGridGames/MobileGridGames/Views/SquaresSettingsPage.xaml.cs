@@ -1,4 +1,5 @@
-﻿using MobileGridGames.ViewModels;
+﻿using MobileGridGames.ResX;
+using MobileGridGames.ViewModels;
 using System;
 using System.Diagnostics;
 using Xamarin.Essentials;
@@ -13,6 +14,12 @@ namespace MobileGridGames.Views
         public SquaresSettingsPage()
         {
             InitializeComponent();
+
+            // Adding localized strings to a Picker in XAML seems complicated, so do it in code.
+            SquaresNumberSizePicker.Items.Add(AppResources.ResourceManager.GetString("Small"));
+            SquaresNumberSizePicker.Items.Add(AppResources.ResourceManager.GetString("Medium"));
+            SquaresNumberSizePicker.Items.Add(AppResources.ResourceManager.GetString("Large"));
+            SquaresNumberSizePicker.Items.Add(AppResources.ResourceManager.GetString("Largest"));
 
             this.BindingContext = new SquareSettingsViewModel();
 

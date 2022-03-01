@@ -502,6 +502,24 @@ namespace MobileGridGames.ResX {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fill card and clip.
+        /// </summary>
+        internal static string FillCardAndClip {
+            get {
+                return ResourceManager.GetString("FillCardAndClip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fill card without clipping.
+        /// </summary>
+        internal static string FillCardWithoutClipping {
+            get {
+                return ResourceManager.GetString("FillCardWithoutClipping", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Five.
         /// </summary>
         internal static string Five {
@@ -578,6 +596,24 @@ namespace MobileGridGames.ResX {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Large.
+        /// </summary>
+        internal static string Large {
+            get {
+                return ResourceManager.GetString("Large", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Largest.
+        /// </summary>
+        internal static string Largest {
+            get {
+                return ResourceManager.GetString("Largest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to left.
         /// </summary>
         internal static string Left {
@@ -621,6 +657,15 @@ namespace MobileGridGames.ResX {
         internal static string MatchingWonInMoves {
             get {
                 return ResourceManager.GetString("MatchingWonInMoves", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Medium.
+        /// </summary>
+        internal static string Medium {
+            get {
+                return ResourceManager.GetString("Medium", resourceCulture);
             }
         }
         
@@ -850,6 +895,15 @@ namespace MobileGridGames.ResX {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show full picture.
+        /// </summary>
+        internal static string ShowFullPicture {
+            get {
+                return ResourceManager.GetString("ShowFullPicture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show numbers.
         /// </summary>
         internal static string ShowNumbers {
@@ -882,6 +936,15 @@ namespace MobileGridGames.ResX {
         internal static string Sixteen {
             get {
                 return ResourceManager.GetString("Sixteen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Small.
+        /// </summary>
+        internal static string Small {
+            get {
+                return ResourceManager.GetString("Small", resourceCulture);
             }
         }
         
