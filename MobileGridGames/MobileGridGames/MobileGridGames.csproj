@@ -65,6 +65,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="ResX\AppResources.nl.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Update="Styles\DarkTheme.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

@@ -967,15 +967,6 @@ namespace MobileGridGames.ResX {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Squares.
-        /// </summary>
-        internal static string SquaresGrid {
-            get {
-                return ResourceManager.GetString("SquaresGrid", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Squares Settings.
         /// </summary>
         internal static string SquaresSettings {

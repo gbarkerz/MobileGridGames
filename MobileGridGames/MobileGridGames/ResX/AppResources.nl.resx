@@ -118,31 +118,31 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppSettings" xml:space="preserve">
-    <value>App Settings</value>
+    <value>App instellingen</value>
   </data>
   <data name="AppSettingsDarkTheme" xml:space="preserve">
-    <value>Use a dark theme</value>
+    <value>Gebruik een donker thema</value>
   </data>
   <data name="AppSettingsIntro" xml:space="preserve">
-    <value>Settings here apply to all games in the Grid Games app.</value>
+    <value>De instellingen hier zijn van toepassing op alle games in de Grid Games-app.</value>
   </data>
   <data name="BrowsePicture" xml:space="preserve">
-    <value>Browse for picture</value>
+    <value>Blader naar foto</value>
   </data>
   <data name="ChooseEightPictures" xml:space="preserve">
-    <value>Please choose a picture in a folder that contains exactly 8 pictures.</value>
+    <value>Kies een foto in een map die precies 8 foto's bevat.</value>
   </data>
   <data name="ClearSelection" xml:space="preserve">
-    <value>Clear Selection</value>
+    <value>Duidelijke selectie</value>
   </data>
   <data name="Close" xml:space="preserve">
-    <value>Close</value>
+    <value>Sluiten</value>
   </data>
   <data name="Congratulations" xml:space="preserve">
-    <value>Congratulations!</value>
+    <value>Gefeliciteerd!</value>
   </data>
   <data name="DefaultMatchingCard1Description" xml:space="preserve">
-    <value>A smiling man with a red coat and arms outstretched, standing in front of 3 large Daleks and a TARDIS. The Daleks seem to be raised above the grass beneath them, and a slightly cloudy sky is in the background.</value>
+    <value>Een lachende man met een rode jas en uitgestrekte armen, staande voor 3 grote Daleks en een TARDIS. De Daleks lijken boven het gras eronder uit te stijgen en op de achtergrond is een licht bewolkte lucht te zien.</value>
     <comment>Daleks and TARDIS are names from a TV show.</comment>
   </data>
   <data name="DefaultMatchingCard1Name" xml:space="preserve">
@@ -150,335 +150,335 @@
     <comment>Daleks and Blackpool are names.</comment>
   </data>
   <data name="DefaultMatchingCard2Description" xml:space="preserve">
-    <value>A small brown stone lighthouse, with an upper small balcony and a lower bigger balcony. A covered sitting area is at the base of the lighthouse. In front of the lighthouse in the stone ground are anchor and compass symbols, and in the background is a grey cloudy sky.</value>
+    <value>Een kleine vuurtoren van bruine steen, met een klein balkon bovenaan en een groter balkon lager. Aan de voet van de vuurtoren bevindt zich een overdekte zithoek. Voor de vuurtoren in de stenen grond staan anker- en kompassymbolen en op de achtergrond is een grijze bewolkte hemel.</value>
   </data>
   <data name="DefaultMatchingCard2Name" xml:space="preserve">
-    <value>Lower Lighthouse in Fleetwood</value>
+    <value>Lagere vuurtoren in Fleetwood</value>
     <comment> Fleetwood is a name.</comment>
   </data>
   <data name="DefaultMatchingCard3Description" xml:space="preserve">
-    <value>A first-person view looking down on two portions of fish and chips in trays and paper. In the background is a concrete path, and two partially shown shoes.</value>
+    <value>Een first-person view neerkijkend op twee porties fish and chips in trays en papier. Op de achtergrond is een betonnen pad en twee gedeeltelijk getoonde schoenen.</value>
   </data>
   <data name="DefaultMatchingCard3Name" xml:space="preserve">
     <value>Fish and Chips in Cleveleys</value>
     <comment>Cleveleys is a name.</comment>
   </data>
   <data name="DefaultMatchingCard4Description" xml:space="preserve">
-    <value>A small, very old hexagonal red stone building, with castellated battlements housing a cross. Arched windows on the sides of the building are bricked-up from the inside. The building sits on grass, with a bay and cloudy sky in the background.</value>
+    <value>Een klein, heel oud zeshoekig gebouw van rode steen, met kantelen met kantelen waarin een kruis is geplaatst. De boogramen aan de zijkanten van het gebouw zijn van binnenuit dichtgemetseld. Het gebouw staat op gras, met een baai en bewolkte hemel op de achtergrond.</value>
   </data>
   <data name="DefaultMatchingCard4Name" xml:space="preserve">
-    <value>Cockersand Abbey</value>
+    <value>Cockersand Abdij.</value>
     <comment>Cockersand is a name.</comment>
   </data>
   <data name="DefaultMatchingCard5Description" xml:space="preserve">
-    <value>A white windmill with a black roof and black sails. The windmill has stairs going up to a black door, and black windows. In the background is a street of houses and a clear, blue sky.</value>
+    <value>Een witte windmolen met een zwart dak en zwarte zeilen. De windmolen heeft een trap naar een zwarte deur en zwarte ramen. Op de achtergrond is een straat met huizen en een heldere, blauwe lucht.</value>
   </data>
   <data name="DefaultMatchingCard5Name" xml:space="preserve">
-    <value>Lytham St Annes Windmill</value>
+    <value>Lytham St Annes Windmillue hemel.</value>
     <comment>Lytham St Annes is a name.</comment>
   </data>
   <data name="DefaultMatchingCard6Description" xml:space="preserve">
-    <value>The stone ruins of a large, very old abbey. The abbey has no roof or windows, and the sun shines through the arches from behind the abbey. In the foreground is a lawn housing multiple large stone graves, and in the background is a clear blue sky.</value>
+    <value>De stenen ruïnes van een grote, zeer oude abdij. De abdij heeft geen dak of ramen en de zon schijnt door de bogen van achter de abdij. Op de voorgrond is een grasveld met meerdere grote stenen graven, en op de achtergrond is een heldere blauwe lucht.</value>
   </data>
   <data name="DefaultMatchingCard6Name" xml:space="preserve">
-    <value>Bolton Abbey</value>
+    <value>Abdij van Bolton</value>
     <comment>Bolton is a name.</comment>
   </data>
   <data name="DefaultMatchingCard7Description" xml:space="preserve">
-    <value>A large stone obelisk in a town square, with buildings and trees nearby. The sun shines on the obelisk, with a slightly cloudy, blue sky in the background. At the base of the obelisk are six red wreaths.</value>
+    <value>Een grote stenen obelisk op een stadsplein, met gebouwen en bomen in de buurt. De zon schijnt op de obelisk, met een licht bewolkte, blauwe lucht op de achtergrond. Aan de voet van de obelisk zijn zes rode kransen.</value>
   </data>
   <data name="DefaultMatchingCard7Name" xml:space="preserve">
     <value>Harrogate Obelisk</value>
     <comment>Harrogate is a name.</comment>
   </data>
   <data name="DefaultMatchingCard8Description" xml:space="preserve">
-    <value>A small square stone building with an opening on the near side. Above the opening is a Greek inscription. Railing surrounds the top of the building, and a sundial sits at the centre of the top. In the background is rocky grassland, with rolling hills in the far background along with a slightly cloudy, blue sky.</value>
+    <value>Een klein vierkant stenen gebouw met een opening aan de andere kant. Boven de opening staat een Griekse inscriptie. Reling omringt de bovenkant van het gebouw en een zonnewijzer bevindt zich in het midden van de top. Op de achtergrond is rotsachtig grasland, met glooiende heuvels op de verre achtergrond samen met een licht bewolkte, blauwe lucht.</value>
   </data>
   <data name="DefaultMatchingCard8Name" xml:space="preserve">
-    <value>Hampsfell Hospice</value>
+    <value>Hospice in Hampsfell</value>
     <comment>Hampsfell is a name.</comment>
   </data>
   <data name="DefaultSquareEmpty" xml:space="preserve">
-    <value>Empty</value>
+    <value>Leeg</value>
   </data>
   <data name="Description" xml:space="preserve">
-    <value>Description:</value>
+    <value>Beschrijving:</value>
   </data>
   <data name="Down" xml:space="preserve">
-    <value>down</value>
+    <value>omlaag</value>
   </data>
   <data name="Eight" xml:space="preserve">
-    <value>Eight</value>
+    <value>Acht</value>
   </data>
   <data name="Eleven" xml:space="preserve">
-    <value>Eleven</value>
+    <value>Elf</value>
   </data>
   <data name="FaceDown" xml:space="preserve">
-    <value>Face down</value>
+    <value>Gezicht naar beneden</value>
   </data>
   <data name="Fifteen" xml:space="preserve">
-    <value>Fifteen</value>
+    <value>Vijftien</value>
   </data>
   <data name="Five" xml:space="preserve">
-    <value>Five</value>
+    <value>Vijf</value>
   </data>
   <data name="Four" xml:space="preserve">
-    <value>Four</value>
+    <value>Vier</value>
   </data>
   <data name="Fourteen" xml:space="preserve">
-    <value>Fourteen</value>
+    <value>Veertien</value>
   </data>
   <data name="GameReady" xml:space="preserve">
-    <value>Game is ready to play.</value>
+    <value>Spel is klaar om te spelen.</value>
   </data>
   <data name="GridGames" xml:space="preserve">
-    <value>Grid Games</value>
+    <value>Rasterspellen</value>
   </data>
   <data name="Help" xml:space="preserve">
-    <value>Help</value>
+    <value>Helpen</value>
   </data>
   <data name="HelpContentPairs" xml:space="preserve">
-    <value>The Pairs Game is based on a traditional card matching game, where face-down cards are turned over in order to find pairs of cards.
+    <value>Het parenspel is gebaseerd op een traditioneel kaartspel, waarbij kaarten met de afbeelding naar beneden worden omgedraaid om paren van kaarten te vinden.
 
-When the game is run, a 4 by 4 grid of blank squares appears, each square representing a card. When a card is tapped, an image is shown on the card. When another card is clicked, an image is also shown on that second card. If the two images are the same, then the cards are considered to be matched, and will not change again for the rest of the game. If the images do not match, then the cards are considered to be unmatched, and cards must be turned back over by tapping on any card. These steps are to be repeated until all matching images have been found, and a "Congratulations" window appears.
+Wanneer het spel wordt uitgevoerd, verschijnt een raster van 4 bij 4 met lege vierkanten, waarbij elk vierkant een kaart vertegenwoordigt. Als er op een kaart wordt getikt, wordt er een afbeelding op de kaart weergegeven. Wanneer er op een andere kaart wordt geklikt, wordt ook op die tweede kaart een afbeelding getoond. Als de twee afbeeldingen hetzelfde zijn, worden de kaarten als overeenkomend beschouwd en zullen ze de rest van het spel niet meer veranderen. Als de afbeeldingen niet overeenkomen, worden de kaarten als niet-overeenkomend beschouwd en moeten de kaarten worden omgedraaid door op een kaart te tikken. Deze stappen moeten worden herhaald totdat alle overeenkomende afbeeldingen zijn gevonden en een venster "Gefeliciteerd" verschijnt.
 
-Ways to play the game:
+Manieren om het spel te spelen:
 
-Tapping with a finger: Tap the card to be turned up. When two mismatched cards have been turned up, tap on any card to turned those cards back down.
+Tikken met een vinger: Tik op de kaart die moet worden geopend. Als er twee niet-overeenkomende kaarten zijn omgedraaid, tik je op een kaart om die kaarten weer om te draaien.
 
-TalkBack. Turn on the Android TalkBack feature, and move your finger around the screen to have the number of the card beneath your finger announced. If TalkBack moves between rows or columns in the grid of squares, it will announce the new row or column. Double tap to turn up a card. When a turned up card is matched, its name will be prefixed with "Matched".
+Praat terug. Schakel de Android TalkBack-functie in en beweeg uw vinger over het scherm om het nummer van de kaart onder uw vinger te laten horen. Als TalkBack tussen rijen of kolommen in het raster van vierkanten beweegt, zal het de nieuwe rij of kolom aankondigen. Dubbeltik om een ​​kaart om te draaien. Wanneer een omgedraaide kaart wordt gematcht, wordt de naam voorafgegaan door "Matched".
 
-Please note that the accessible name of the Menu button near the top left corner of the app currently has a name of "OK". This will be changed to have a name of "Menu" at some point.
+Houd er rekening mee dat de toegankelijke naam van de menuknop in de linkerbovenhoek van de app momenteel de naam "OK" heeft. Dit zal op een gegeven moment worden gewijzigd om de naam "Menu" te krijgen.
 
-Voice Access. Activate the Android Voice Access feature, and say a number from 1 to 16. The cards are considered to be ordered from the top left corner of the grid to the bottom right corner, numbering from left to right then top to bottom. The card whose number has been spoken will be turned over.
+Spraaktoegang. Activeer de Android Voice Access-functie en zeg een nummer van 1 tot 16. De kaarten worden geacht te zijn gerangschikt van de linkerbovenhoek van het raster naar de rechterbenedenhoek, genummerd van links naar rechts en vervolgens van boven naar beneden. De kaart waarvan het nummer is uitgesproken, wordt omgedraaid.
 
-Switch Access. Activate the Android Switch Access feature, scan to the card to be turned up and then press the switch to turn up the card.
+Toegang wisselen. Activeer de Android Switch Access-functie, scan naar de kaart die moet worden omgedraaid en druk vervolgens op de schakelaar om de kaart om te draaien.
 
-Size of Text. The game respects the Android Font size and Display size settings.
+Grootte van tekst. De game respecteert de Android-instellingen voor lettergrootte en weergavegrootte.
 
-Magnification. The standard use of the Android Magnification feature can be used when playing this game.</value>
+Vergroting. Het standaardgebruik van de Android-vergrotingsfunctie kan worden gebruikt bij het spelen van dit spel.</value>
   </data>
   <data name="HelpContentSquares" xml:space="preserve">
-    <value>The Squares Game is based on a square sliding puzzle, where squares in a grid of squares are rearranged by the player to form an ordered sequence in the grid.
+    <value>Het Vierkantenspel is gebaseerd op een vierkante schuifpuzzel, waarbij vierkanten in een raster van vierkanten door de speler worden herschikt om een ​​geordende reeks in het raster te vormen.
 
-When the game is run, a 4 by 4 grid of squares appears, with fifteen of those squares occupied with a movable element, and one square being empty. When a square is tapped, if it is adjacent to the empty square, the tapped square moves into the empty square. The space where the tapped square was then becomes the empty square. The aim is to arrange all the squares in a sorted order, leaving the empty square in the bottom right corner of the grid. Once all the squares are ordered, a "Congratulations" window appears.
+Wanneer het spel wordt uitgevoerd, verschijnt een raster van vierkanten van 4 bij 4, waarbij vijftien van die vierkanten bezet zijn met een verplaatsbaar element en één vierkant leeg is. Als er op een vierkant wordt getikt en het grenst aan het lege vierkant, wordt het aangetikte vierkant naar het lege vierkant verplaatst. De ruimte waar het afgetapte vierkant was, wordt dan het lege vierkant. Het doel is om alle vierkanten in een gesorteerde volgorde te rangschikken, waarbij het lege vierkant in de rechterbenedenhoek van het raster blijft. Zodra alle vierkanten zijn besteld, verschijnt een venster "Gefeliciteerd".
 
-Tip: Don't use a swipe gesture to move a square. Support for swipe gestures has yet to be added to the game.
+Tip: gebruik geen veeggebaar om een ​​vierkant te verplaatsen. Ondersteuning voor veegbewegingen moet nog aan de game worden toegevoegd.
 
-Tip: Don't tap on the empty square. Instead tap on the squares next to the empty square.
+Tip: Tik niet op het lege vierkantje. Tik in plaats daarvan op de vierkanten naast het lege vierkant.
 
-When the game first runs, the setting to have numbers shown on squares is on, and the settings to have pictures shown on the squares is off. This means a number is shown in the top left corner of the squares. When the squares are sorted, the square showing number 1 is at the top left of the grid, and the numbers increase from left to right then top to bottom.
+Wanneer het spel voor het eerst wordt uitgevoerd, is de instelling om getallen op vierkanten weer te geven aan en zijn de instellingen om afbeeldingen op de vierkanten te laten zien uit. Dit betekent dat er een nummer wordt weergegeven in de linkerbovenhoek van de vierkanten. Wanneer de vierkanten zijn gesorteerd, bevindt het vierkant met nummer 1 zich linksboven in het raster en nemen de cijfers toe van links naar rechts en vervolgens van boven naar beneden.
 
-Tip: Practice moving numbered squares around before changing the setting to have a picture shown on the squares.
+Tip: Oefen het verplaatsen van genummerde vierkanten voordat u de instelling wijzigt om een ​​afbeelding op de vierkanten te krijgen.
 
-When the game setting to have a picture shown on the squares is on, then a single picture is shown across all the squares. The sections of the picture will appear jumbled until the squares are arranged in their sorted order.
+Als de game-instelling om een ​​afbeelding op de vierkanten te laten zien is ingeschakeld, wordt een enkele afbeelding over alle vierkanten getoond. De secties van de afbeelding worden door elkaar gegooid totdat de vierkanten in hun gesorteerde volgorde zijn gerangschikt.
 
-Ways to play the game:
+Manieren om het spel te spelen:
 
-Tapping with a finger. Tap the square to be moved.
+Tikken met een vinger. Tik op het te verplaatsen vierkant.
 
-TalkBack. Turn on the Android TalkBack feature, and move your finger around the screen to have the number of the square beneath your finger announced. If TalkBack moves between rows or columns in the grid of squares, it will announce the new row or column. Double tap to move a square.
+Praat terug. Schakel de Android TalkBack-functie in en beweeg uw vinger over het scherm om het nummer van het vierkantje onder uw vinger te laten horen. Als TalkBack tussen rijen of kolommen in het raster van vierkanten beweegt, zal het de nieuwe rij of kolom aankondigen. Dubbeltik om een ​​vierkant te verplaatsen.
 
-Please note that the accessible name of the Menu button near the top left corner of the app has a name of "OK". When that button is tapped, the menu will appear.
+Houd er rekening mee dat de toegankelijke naam van de menuknop in de linkerbovenhoek van de app de naam "OK" heeft. Wanneer op die knop wordt getikt, verschijnt het menu.
 
-Voice Access. Activate the Android Voice Access feature, and speak the number shown on a square to move the square.
+Spraaktoegang. Activeer de Android Voice Access-functie en spreek het nummer in dat op een vierkant wordt weergegeven om het vierkant te verplaatsen.
 
-Please note that Voice Access only works today in the Squares game if numbers are shown on the squares.
+Houd er rekening mee dat spraaktoegang vandaag alleen werkt in het spel Vierkanten als er nummers op de vierkanten worden weergegeven.
 
-Switch Access. Activate the Android Switch Access feature, scan to the square to be moved and then press the switch to move the square.
+Toegang wisselen. Activeer de Android Switch Access-functie, scan naar het vierkant dat moet worden verplaatst en druk vervolgens op de schakelaar om het vierkant te verplaatsen.
 
-Size of Text. The game respects the Android Font size and Display size settings, and also has its own in-app text size setting which only applies to text in shown on the squares in the game.
+Grootte van tekst. De game respecteert de Android-instellingen voor lettergrootte en weergavegrootte, en heeft ook zijn eigen in-app-instelling voor tekstgrootte die alleen van toepassing is op tekst die wordt weergegeven op de vierkanten in de game.
 
-Magnification. The standard use of the Android Magnification feature can be used when playing this game.</value>
+Vergroting. Het standaardgebruik van de Android-vergrotingsfunctie kan worden gebruikt bij het spelen van dit spel.</value>
   </data>
   <data name="Left" xml:space="preserve">
-    <value>left</value>
+    <value>links</value>
   </data>
   <data name="LoadedCustomPictures" xml:space="preserve">
-    <value>Loaded custom pictures</value>
+    <value>Aangepaste foto's geladen</value>
   </data>
   <data name="LoadingPleaseWait" xml:space="preserve">
-    <value>Please wait a moment while the picture is loaded into the squares.</value>
+    <value>Een ogenblik geduld a.u.b. terwijl de afbeelding in de vierkanten wordt geladen.</value>
   </data>
   <data name="Matched" xml:space="preserve">
-    <value>Matched</value>
+    <value>Op elkaar afgestemd</value>
   </data>
   <data name="MatchingWonInMoves" xml:space="preserve">
-    <value>You won the game in {0} goes.
+    <value>Je hebt de game gewonnen in {0} gaat.
 
-Would you like to play another game?</value>
+Wil je nog een spel spelen?</value>
     <comment>The {0} is a placeholder for a number to be inserted later in code.</comment>
   </data>
   <data name="MissingMatchingGamePictureDetails" xml:space="preserve">
-    <value>The folder containing the 8 picture must also contain a MatchingGamePictureDetails file. Please review the Pairs Help for more details.</value>
+    <value>De map met de 8-afbeelding moet ook een MatchingGamePictureDetails-bestand bevatten. Raadpleeg de Hulp voor Paren voor meer details.</value>
     <comment>MatchingGamePictureDetails is a name.</comment>
   </data>
   <data name="Moved" xml:space="preserve">
-    <value>Moved</value>
+    <value>Verhuisd</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Name:</value>
+    <value>Naam:</value>
   </data>
   <data name="Nine" xml:space="preserve">
-    <value>Nine</value>
+    <value>Negen</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>No</value>
+    <value>Nee</value>
   </data>
   <data name="NoFolderSelected" xml:space="preserve">
-    <value>No folder selected</value>
+    <value>Geen map geselecteerd</value>
   </data>
   <data name="NoMovePossible" xml:space="preserve">
-    <value>A move is not possible from here.</value>
+    <value>Een verhuizing is vanaf hier niet mogelijk.</value>
   </data>
   <data name="NumberSize" xml:space="preserve">
-    <value>Number size</value>
+    <value>Nummergrootte</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="One" xml:space="preserve">
-    <value>One</value>
+    <value>Een</value>
   </data>
   <data name="Pairs" xml:space="preserve">
-    <value>Pairs</value>
+    <value>Paren</value>
   </data>
   <data name="PairsSettings" xml:space="preserve">
-    <value>Pairs Settings</value>
+    <value>Instellingen voor Paren</value>
   </data>
   <data name="PairsWelcome" xml:space="preserve">
-    <value>Welcome to the Pairs Game!</value>
+    <value>Welkom bij het Parenspel!</value>
   </data>
   <data name="PicturePath" xml:space="preserve">
-    <value>Picture Path:</value>
+    <value>Afbeeldingspad:</value>
   </data>
   <data name="PlaySoundMatch" xml:space="preserve">
-    <value>Play a sound when upturned cards match</value>
+    <value>Speel een geluid wanneer omgekeerde kaarten overeenkomen</value>
   </data>
   <data name="PlaySoundNotMatch" xml:space="preserve">
-    <value>Play a sound when upturned cards don't match</value>
+    <value>Speel een geluid wanneer omgekeerde kaarten niet overeenkomen</value>
   </data>
   <data name="RestartGame" xml:space="preserve">
-    <value>Restart Game</value>
+    <value>Spel opnieuw opstarten</value>
   </data>
   <data name="Right" xml:space="preserve">
-    <value>right</value>
+    <value>rechts</value>
   </data>
   <data name="Selected" xml:space="preserve">
-    <value>Selected:</value>
+    <value>Geselecteerd:</value>
   </data>
   <data name="SelectPicture" xml:space="preserve">
-    <value>Select Picture</value>
+    <value>Selecteer afbeelding</value>
   </data>
   <data name="Seven" xml:space="preserve">
-    <value>Seven</value>
+    <value>Zeven</value>
   </data>
   <data name="ShowCustomPictures" xml:space="preserve">
-    <value>Show custom pictures</value>
+    <value>Aangepaste afbeeldingen weergeven</value>
   </data>
   <data name="ShowNumbers" xml:space="preserve">
-    <value>Show numbers</value>
+    <value>Toon nummers</value>
   </data>
   <data name="ShowPicture" xml:space="preserve">
-    <value>Show picture</value>
+    <value>Toon foto</value>
   </data>
   <data name="Six" xml:space="preserve">
-    <value>Six</value>
+    <value>Zes</value>
   </data>
   <data name="Sixteen" xml:space="preserve">
-    <value>Sixteen</value>
+    <value>Zestien</value>
   </data>
   <data name="Squares" xml:space="preserve">
-    <value>Squares</value>
+    <value>Vierkanten</value>
   </data>
   <data name="SquaresSettingsInstructions" xml:space="preserve">
-    <value>Please specify what you would like to appear inside the squares shown in the grid.</value>
+    <value>Geef aan wat u binnen de vierkanten in het raster wilt weergeven.</value>
   </data>
   <data name="SquaresSettings" xml:space="preserve">
-    <value>Squares Settings</value>
+    <value>Instellingen voor Vierkanten</value>
   </data>
   <data name="SquaresWelcome" xml:space="preserve">
-    <value>Welcome to the Squares Game!</value>
+    <value>Welkom bij het Vierkantenspel!</value>
   </data>
   <data name="SquaresWonInGoes" xml:space="preserve">
-    <value>You won the game in {0} moves.
+    <value>Je hebt de partij in {0} zetten gewonnen.
     
-Would you like to play another game?</value>
+Wil je nog een spel spelen?</value>
     <comment>The {0} is a placeholder for a number to be inserted later in code.</comment>
   </data>
   <data name="Ten" xml:space="preserve">
-    <value>Ten</value>
+    <value>Tien</value>
   </data>
   <data name="ThatsMatch" xml:space="preserve">
-    <value>That's a match.</value>
+    <value>Dat is een wedstrijd.</value>
   </data>
   <data name="Thirteen" xml:space="preserve">
-    <value>Thirteen</value>
+    <value>Dertien</value>
   </data>
   <data name="Three" xml:space="preserve">
-    <value>Three</value>
+    <value>Drie</value>
   </data>
   <data name="TurnedUp" xml:space="preserve">
-    <value>Turned up</value>
+    <value>Opgewonden</value>
   </data>
   <data name="Twelve" xml:space="preserve">
-    <value>Twelve</value>
+    <value>Twaalf</value>
   </data>
   <data name="Two" xml:space="preserve">
-    <value>Two</value>
+    <value>Twee</value>
   </data>
   <data name="UnexpectedDataInFile" xml:space="preserve">
-    <value>The MatchingGamePictureDetails file does not contain the expected data. Please review the Pairs Help for more details.</value>
+    <value>Het bestand MatchingGamePictureDetails bevat niet de verwachte gegevens. Raadpleeg de Hulp voor Paren voor meer details.</value>
     <comment>MatchingGamePictureDetails is a name.</comment>
   </data>
   <data name="UnmatchedTurnedBack" xml:space="preserve">
-    <value>Unmatched cards turned back.</value>
+    <value>Ongeëvenaarde kaarten keerden terug.</value>
   </data>
   <data name="Up" xml:space="preserve">
-    <value>up</value>
+    <value>omhoog</value>
   </data>
   <data name="WelcomeInstructions" xml:space="preserve">
-    <value>After closing this message, please review the help content in the menu for details on how to play this game.
+    <value>Bekijk na het sluiten van dit bericht de help-inhoud in het menu voor meer informatie over het spelen van deze game.
     
-Note that the TalkBack screen reader announces the menu button as the "OK" button.</value>
+Houd er rekening mee dat de TalkBack-schermlezer de menuknop aankondigt als de "OK"-knop.</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Yes</value>
+    <value>Ja</value>
   </data>
   <data name="PairsGameHelp" xml:space="preserve">
-    <value>Pairs Help</value>
+    <value>Hulp voor Paren</value>
   </data>
   <data name="SquaresGameHelp" xml:space="preserve">
-    <value>Squares Help</value>
+    <value>Hulp bij Vierkanten</value>
   </data>
   <data name="AppSettingsHideGrid" xml:space="preserve">
-    <value>Hide Grid</value>
+    <value>Verberg raster</value>
   </data>
   <data name="PictureAspectInstructions" xml:space="preserve">
-    <value>Pick how the pictures will be shown in the cards.</value>
+    <value>Kies hoe de afbeeldingen op de kaarten worden weergegeven.</value>
   </data>
   <data name="PictureAspectLabel" xml:space="preserve">
-    <value>Scale type</value>
+    <value>Schaaltype:</value>
   </data>
   <data name="FillCardAndClip" xml:space="preserve">
-    <value>Fill card and clip</value>
+    <value>Vul kaart en clip</value>
   </data>
   <data name="FillCardWithoutClipping" xml:space="preserve">
-    <value>Fill card without clipping</value>
+    <value>Kaart vullen zonder te knippen</value>
   </data>
   <data name="Large" xml:space="preserve">
-    <value>Large</value>
+    <value>Groot</value>
   </data>
   <data name="Largest" xml:space="preserve">
-    <value>Largest</value>
+    <value>Grootste</value>
   </data>
   <data name="Medium" xml:space="preserve">
     <value>Medium</value>
   </data>
   <data name="ShowFullPicture" xml:space="preserve">
-    <value>Show full picture</value>
+    <value>Toon volledige afbeelding</value>
   </data>
   <data name="Small" xml:space="preserve">
-    <value>Small</value>
+    <value>Klein</value>
   </data>
 </root>

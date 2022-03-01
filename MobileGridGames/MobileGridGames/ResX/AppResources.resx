@@ -434,9 +434,6 @@ Would you like to play another game?</value>
   <data name="SquaresGameHelp" xml:space="preserve">
     <value>Squares Help</value>
   </data>
-  <data name="SquaresGrid" xml:space="preserve">
-    <value>Squares</value>
-  </data>
   <data name="SquaresSettings" xml:space="preserve">
     <value>Squares Settings</value>
   </data>

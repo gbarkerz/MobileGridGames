@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.16" package="com.guybarker.mobilegridgames" android:installLocation="auto" android:versionCode="17">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.17" package="com.guybarker.mobilegridgames" android:installLocation="auto" android:versionCode="18">
 	<uses-sdk android:minSdkVersion="28" android:targetSdkVersion="30" />
 	<application android:label="MobileGridGames.Android" android:theme="@style/MainTheme" android:icon="@drawable/icon"></application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
