@@ -2,6 +2,7 @@
 using MobileGridGames.ViewModels;
 using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -152,9 +153,17 @@ namespace MobileGridGames
                     var picturePathIsValid = await IsPicturePathValid(pathToPictures);
                     if (picturePathIsValid)
                     {
+                        var pictureDetailsFileName = "MatchingGamePictureDetails.txt";
+
+                        var displayLanguage = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+                        if (displayLanguage == "nl")
+                        {
+                            pictureDetailsFileName = "MatchingGamePictureDetails-nl.txt";
+                        }
+
                         // Check the file containing the accessible details for the pictures exists in the folder.
                         string importFile = Path.GetDirectoryName(pathToPictures) +
-                                                "/MatchingGamePictureDetails.txt";
+                                                "/" + pictureDetailsFileName;
 
                         if (!File.Exists(importFile))
                         {
