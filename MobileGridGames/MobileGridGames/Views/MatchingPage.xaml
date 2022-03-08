@@ -37,6 +37,11 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
+<!--
+                IsVisible="{Binding FirstRunMatching, Mode=OneWay,
+                    Converter={StaticResource FirstRunMatchingToGridIsVisible}}"
+    -->
+
     <ContentPage.Content>
         <Grid x:Name="PageGrid">
             <Grid.RowDefinitions>
@@ -45,8 +50,7 @@
             <CollectionView Grid.Row="0"
                 x:Name="SquaresCollectionView"
                 BackgroundColor="{DynamicResource GridBackgroundColor}"
-                IsVisible="{Binding FirstRunMatching, Mode=OneWay,
-                    Converter={StaticResource FirstRunMatchingToGridIsVisible}}"
+                IsVisible="True"
                 SelectionMode="Single" 
                 SelectionChanged="MatchingGrid_SelectionChanged"
                 ItemsSource="{Binding SquareListCollection}">

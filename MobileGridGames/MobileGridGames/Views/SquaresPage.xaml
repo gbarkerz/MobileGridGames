@@ -63,10 +63,15 @@
         <!-- Future: Consider binding the CollectionView's IsEnabled on first run or loading.
             A quick test of that set IsEnabled as expected, but that didn't prevent input. -->
         
-        <CollectionView Grid.Row="1"
-            x:Name="SquaresCollectionView"
+        <!-- 
+        GBTEST: This IsVisible crashes.
             IsVisible="{Binding FirstRunSquares, Mode=OneWay, 
                 Converter={StaticResource FirstRunMatchingToGridIsVisible}}"
+        -->
+        
+        <CollectionView Grid.Row="1"
+            x:Name="SquaresCollectionView"
+            IsVisible="True"
             Opacity="{Binding GameIsLoading, Converter={StaticResource GameIsLoadingToGridOpacity}}"
             SelectionMode="Single" 
             SelectionChanged="SquaresGrid_SelectionChanged"

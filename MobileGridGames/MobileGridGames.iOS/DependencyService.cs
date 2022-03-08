@@ -6,6 +6,10 @@ using System.Linq;
 using System.Text;
 using UIKit;
 
+using MobileGridGames.iOS;
+using static MobileGridGames.App;
+using MobileGridGames.Styles;
+
 [assembly: Xamarin.Forms.Dependency(typeof(MobileGridGames.iOS.MobileGridGamesPlatformAction))]
 namespace MobileGridGames.iOS
 {
@@ -13,12 +17,24 @@ namespace MobileGridGames.iOS
     {
         public void ScreenReaderAnnouncement(string notification)
         {
-            // Future: Make VoiceOver announcement.
+            // Take the action described at:
+            // https://docs.microsoft.com/en-us/xamarin/ios/app-fundamentals/accessibility
+
+            UIAccessibility.PostNotification(
+              UIAccessibilityPostNotification.Announcement,
+                new NSString(notification));
         }
 
         public void SetAppTheme(App.Theme mode)
         {
-            // Future: Set current theme.
+            if (mode == Theme.Dark)
+            {
+                App.Current.Resources = new DarkTheme();
+            }
+            else
+            {
+                App.Current.Resources = new LightTheme();
+            }
         }
     }
 }

@@ -32,6 +32,9 @@
         <Setter Property="BackgroundColor" Value="{DynamicResource Primary}"></Setter>
         <Setter Property="BorderWidth" Value="1"></Setter>
         <Setter Property="BorderColor" Value="White"></Setter>
+
+        <!-- There seems to be no left/right padding by default on Buttons on iOS. -->
+        <Setter Property="Padding" Value="10,0,10,0"></Setter>
     </Style>
 
     <!-- Originally in AppShell.xaml. -->
@@ -45,6 +48,10 @@
     </Style>
     <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
     <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+
+    <!-- Without ShellContent being set here, the hamburger button's colors are
+         not as expected when running on iOS. -->
+    <Style TargetType="ShellContent" BasedOn="{StaticResource BaseStyle}"/>
 
     <!--
         Default Styles for all Flyout Items

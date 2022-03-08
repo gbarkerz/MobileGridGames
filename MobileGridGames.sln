@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DFBC4831-2550-466C-9DBB-9DC8FC76FD80}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
+		MobileGridGames.sln = MobileGridGames.sln
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Screenshots", "Screenshots", "{E51FD97A-E430-43C6-A8D0-9EB125227A13}"

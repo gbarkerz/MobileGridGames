@@ -271,14 +271,26 @@ namespace MobileGridGames.Views
             Debug.WriteLine("MobileGridGames: Leave PerformCrop.");
         }
 
+        private int mostRecentSquareWithImageEdited = -1;
+
         // ImageEdited is called following a Crop operation and when the image is reset.
         private void GridGameImageEditor_ImageEdited(object sender, ImageEditedEventArgs e)
         {
             Debug.WriteLine("MobileGridGames: In ImageEdited.");
 
+            // On iOS, GridGameImageEditor_ImageEdited seems to be called multiple times
+            // in succession, without a specific edit in between. If that happens here,
+            // only react to the first call to GridGameImageEditor_ImageEdited.
+            if (mostRecentSquareWithImageEdited == nextSquareIndexForImageSourceSetting)
+            {
+                return;
+            }
+
             // If we're here following a resetting of the image, take no follow-up action.
             if (e.IsImageEdited)
             {
+                mostRecentSquareWithImageEdited = nextSquareIndexForImageSourceSetting;
+
                 // We must be here following a crop operation.
                 GridGameImageEditor.Save();
             }

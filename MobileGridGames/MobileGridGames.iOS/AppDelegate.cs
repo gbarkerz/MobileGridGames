@@ -25,6 +25,9 @@ namespace MobileGridGames.iOS
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
+            // Barker: This call is required for the SfImageEditor to run on iOS.
+            Syncfusion.SfImageEditor.XForms.iOS.SfImageEditorRenderer.Init();
+
             return base.FinishedLaunching(app, options);
         }
     }
