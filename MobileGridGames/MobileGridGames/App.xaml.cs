@@ -1,4 +1,5 @@
 ﻿using MobileGridGames.Services;
+using MobileGridGames.Styles;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -21,8 +22,14 @@ namespace MobileGridGames
             InitializeComponent();
 
             var showDarkTheme = Preferences.Get("ShowDarkTheme", false);
-            DependencyService.Get<IMobileGridGamesPlatformAction>().SetAppTheme(
-                (showDarkTheme ? Theme.Dark : Theme.Light));
+            if (showDarkTheme)
+            {
+                App.Current.Resources = new DarkTheme();
+            }
+            else
+            {
+                App.Current.Resources = new LightTheme();
+            }
 
             MainPage = new AppShell();
         }

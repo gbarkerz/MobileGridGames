@@ -39,17 +39,5 @@ namespace MobileGridGames.Droid
                 MainActivity.accessibilityManager.SendAccessibilityEvent(e);
             }
         }
-
-        public void SetAppTheme(App.Theme mode)
-        {
-            if (mode == Theme.Dark)
-            {
-                App.Current.Resources = new DarkTheme();
-            }
-            else
-            {
-                App.Current.Resources = new LightTheme();
-            }
-        }
     }
 }

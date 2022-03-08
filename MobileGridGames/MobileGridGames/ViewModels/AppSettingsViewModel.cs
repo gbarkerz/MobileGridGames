@@ -1,5 +1,6 @@
 ﻿using MobileGridGames.ResX;
 using MobileGridGames.Services;
+using MobileGridGames.Styles;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -28,8 +29,14 @@ namespace MobileGridGames.ViewModels
 
                     Preferences.Set("ShowDarkTheme", value);
 
-                    DependencyService.Get<IMobileGridGamesPlatformAction>().SetAppTheme(
-                        showDarkTheme ? App.Theme.Dark : App.Theme.Light);
+                    if (showDarkTheme)
+                    {
+                        App.Current.Resources = new DarkTheme();
+                    }
+                    else
+                    {
+                        App.Current.Resources = new LightTheme();
+                    }
                 }
             }
         }
