@@ -31,16 +31,11 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <localviews:FirstRunMatchingToGridIsVisible x:Key="FirstRunMatchingToGridIsVisible" />
+            <localviews:FirstRunMatchingToGridOpacity x:Key="FirstRunMatchingToGridOpacity" />
             <localviews:CollectionViewHeightToRowHeight x:Key="CollectionViewHeightToRowHeight" />
             <localviews:CardToCollectionViewIndex x:Key="CardToCollectionViewIndex" />
         </ResourceDictionary>
     </ContentPage.Resources>
-
-<!--
-                IsVisible="{Binding FirstRunMatching, Mode=OneWay,
-                    Converter={StaticResource FirstRunMatchingToGridIsVisible}}"
-    -->
 
     <ContentPage.Content>
         <Grid x:Name="PageGrid">
@@ -50,7 +45,8 @@
             <CollectionView Grid.Row="0"
                 x:Name="SquaresCollectionView"
                 BackgroundColor="{DynamicResource GridBackgroundColor}"
-                IsVisible="True"
+                Opacity="{Binding FirstRunMatching, Mode=OneWay,
+                    Converter={StaticResource FirstRunMatchingToGridOpacity}}"
                 SelectionMode="Single" 
                 SelectionChanged="MatchingGrid_SelectionChanged"
                 ItemsSource="{Binding SquareListCollection}">

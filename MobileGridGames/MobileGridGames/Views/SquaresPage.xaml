@@ -33,7 +33,7 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <localviews:FirstRunMatchingToGridIsVisible x:Key="FirstRunMatchingToGridIsVisible" />
+            <localviews:FirstRunLoadingSquaresToGridOpacity x:Key="FirstRunLoadingSquaresToGridOpacity" />
             <localviews:GameIsLoadingToGridOpacity x:Key="GameIsLoadingToGridOpacity" />
             <localviews:GameIsLoadingToVisibility x:Key="GameIsLoadingToVisibility" />
             <localviews:CollectionViewHeightToRowHeight x:Key="CollectionViewHeightToRowHeight" />
@@ -63,19 +63,18 @@
         <!-- Future: Consider binding the CollectionView's IsEnabled on first run or loading.
             A quick test of that set IsEnabled as expected, but that didn't prevent input. -->
         
-        <!-- 
-        GBTEST: This IsVisible crashes.
-            IsVisible="{Binding FirstRunSquares, Mode=OneWay, 
-                Converter={StaticResource FirstRunMatchingToGridIsVisible}}"
-        -->
-        
         <CollectionView Grid.Row="1"
             x:Name="SquaresCollectionView"
             IsVisible="True"
-            Opacity="{Binding GameIsLoading, Converter={StaticResource GameIsLoadingToGridOpacity}}"
             SelectionMode="Single" 
             SelectionChanged="SquaresGrid_SelectionChanged"
             ItemsSource="{Binding SquareListCollection}">
+            <CollectionView.Opacity>
+                <MultiBinding Mode="OneWay" Converter="{StaticResource FirstRunLoadingSquaresToGridOpacity}">
+                    <Binding Source="{x:Reference SquaresPageInstance}" Path="BindingContext.FirstRunSquares" />
+                    <Binding Source="{x:Reference SquaresPageInstance}" Path="BindingContext.GameIsLoading" />
+                </MultiBinding>
+            </CollectionView.Opacity>
 
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical" Span="4" />

@@ -125,13 +125,45 @@ namespace MobileGridGames.Views
         }
     }
 
-    public class FirstRunMatchingToGridIsVisible : IValueConverter
+    public class FirstRunLoadingSquaresToGridOpacity : IMultiValueConverter
+    {
+        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+        {
+            if ((values == null) || (values.Length < 2) || (values[0] == null) || (values[1] == null))
+            {
+                return 0;
+            }
+
+            var firstRunSquares = (bool)values[0];
+            var gameIsLoading = (bool)values[1];
+
+            double opacity = 1.0;
+
+            if (firstRunSquares)
+            {
+                opacity = 0.0;
+            }
+            else if (gameIsLoading)
+            {
+                opacity = 0.3;
+            }
+
+            return opacity;
+        }
+
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class FirstRunMatchingToGridOpacity : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var firstRunMatching = (bool)value;
 
-            return !firstRunMatching;
+            return firstRunMatching ? 0.0 : 1.0;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
