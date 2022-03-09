@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+﻿using MobileGridGames.Services;
+using Windows.UI.Xaml.Automation.Peers;
+using Xamarin.Forms;
 
 namespace MobileGridGames.UWP
 {
@@ -22,6 +11,20 @@ namespace MobileGridGames.UWP
             this.InitializeComponent();
 
             LoadApplication(new MobileGridGames.App());
+
+            // In order to raise a custom screen reader notification later,
+            // we need to supply a XAML FrameworkElement's AutomationPeer.
+            var peer = FrameworkElementAutomationPeer.FromElement(
+                TextBlockForScreenReaderAnnouncements);
+            if (peer != null)
+            {
+                // Future: This is called after the first attempt to raise a screen reader
+                // annoucement has been made in the game, and so that announcement was lost.
+                // So figure out what to do about that.
+
+                var service = DependencyService.Get<IMobileGridGamesPlatformAction>();
+                (service as MobileGridGamesPlatformAction).SetScreenReaderAnnouncementPeer(peer);
+            }
         }
     }
 }
