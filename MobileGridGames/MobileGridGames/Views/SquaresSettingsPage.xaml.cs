@@ -2,6 +2,8 @@
 using MobileGridGames.ViewModels;
 using System;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -63,7 +65,25 @@ namespace MobileGridGames.Views
                 {
                     var settingsViewModel = this.BindingContext as SquareSettingsViewModel;
 
-                    settingsViewModel.PicturePathSquares = result.FullPath;
+                    // Copy the selected picture into a tmp folder where we can access it later.
+                    var targetFolder = Path.Combine(Path.GetTempPath(), "SquaresGameCurrentPictures");
+                    if (!Directory.Exists(targetFolder))
+                    {
+                        Directory.CreateDirectory(targetFolder);
+                    }
+
+                    // Empty this dedicated tmp folder now.
+                    DirectoryInfo di = new DirectoryInfo(targetFolder);
+                    foreach (FileInfo file in di.GetFiles())
+                    {
+                        file.Delete();
+                    }
+
+                    File.Copy(result.FullPath, targetFolder);
+
+                    var filename = Path.GetFileName(result.FullPath);
+
+                    settingsViewModel.PicturePathSquares = Path.Combine(targetFolder, filename);
                 }
             }
             catch (Exception ex)

@@ -2,6 +2,7 @@
 using MobileGridGames.ViewModels;
 using System;
 using System.Globalization;
+using System.IO;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -323,6 +324,24 @@ namespace MobileGridGames.Views
             var aspect = (Aspect)value;
 
             return (int)aspect;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var intValue = (int)value;
+
+            return (Aspect)intValue;
+        }
+    }
+
+
+    public class PicturePathToFileName : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var path = (string)value;
+
+            return Path.GetFileName(path);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

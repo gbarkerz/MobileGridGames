@@ -81,7 +81,10 @@ namespace MobileGridGames.Views
 
                     vm.GameIsLoading = false;
 
-                    Shell.Current.FlyoutBehavior = FlyoutBehavior.Flyout;
+                    if (Shell.Current != null)
+                    {
+                        Shell.Current.FlyoutBehavior = FlyoutBehavior.Flyout;
+                    }
                 }
             }
         }

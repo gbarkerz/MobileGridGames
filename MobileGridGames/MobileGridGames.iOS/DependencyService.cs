@@ -52,7 +52,7 @@ namespace MobileGridGames.iOS
 
         }
 
-        // Return a file that exists in the foler containing a set of custom pictures.
+        // Return a file that exists in the folder containing a set of custom pictures.
         public Task<string> GetPairsPictureFolder()
         {
             string result = "";
@@ -84,7 +84,7 @@ namespace MobileGridGames.iOS
                     var start = e.Urls[0].StartAccessingSecurityScopedResource();
 
                     // Copy all the files of interest to a dedicated folder beneath the app's temp folder.
-                    var targetFolder = Path.Combine(Path.GetTempPath(), "MatchingGameCurrentPictures");
+                    var targetFolder = Path.Combine(Path.GetTempPath(), "PairsGameCurrentPictures");
                     if (!Directory.Exists(targetFolder))
                     {
                         Directory.CreateDirectory(targetFolder);

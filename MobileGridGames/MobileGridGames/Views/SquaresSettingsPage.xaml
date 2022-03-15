@@ -12,6 +12,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <localviews:SettingsPicturePathToPicturePathLabelIsVisible x:Key="SettingsPicturePathToPicturePathLabelIsVisible" />
+            <localviews:PicturePathToFileName x:Key="PicturePathToFileName" />
         </ResourceDictionary>
     </ContentPage.Resources>    
     
@@ -89,7 +90,9 @@
                                     <Label Grid.Column="0" 
                                         Text="{x:Static resources:AppResources.Selected}"
                                         Margin="0,0,10,0" Padding="0,0,0,0" />
-                                    <Label Grid.Column="1" Text="{Binding PicturePathSquares}" 
+                                    <Label Grid.Column="1" 
+                                        Text="{Binding PicturePathSquares, 
+                                            Converter={StaticResource PicturePathToFileName}}" 
                                         Margin="0,0,0,0" Padding="0,0,0,0" />
                                 </Grid>
                                 <Button Grid.Row="3" x:Name="PictureClearButton" 
