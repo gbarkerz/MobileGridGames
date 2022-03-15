@@ -60,6 +60,7 @@
                         <Grid HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type CollectionView}}, 
                             Path=Height, Converter={StaticResource CollectionViewHeightToRowHeight}}"
                             BackgroundColor="Transparent"
+                            AutomationProperties.IsInAccessibleTree="True"
                             AutomationProperties.Name="{Binding AccessibleName, Mode=OneWay}"
                             AutomationProperties.HelpText="{Binding AccessibleDescription, Mode=OneWay}">
                             <Grid.GestureRecognizers>
