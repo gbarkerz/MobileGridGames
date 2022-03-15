@@ -1,4 +1,5 @@
 ﻿using MobileGridGames.ResX;
+using MobileGridGames.Services;
 using MobileGridGames.ViewModels;
 using System;
 using System.Diagnostics;
@@ -35,8 +36,8 @@ namespace MobileGridGames
             vm.ShowCustomPictures = Preferences.Get("ShowCustomPictures", false);
             vm.PicturePathMatching = Preferences.Get("PicturePathMatching", "");
 
-            // Default to AspectFit.
-            vm.PictureAspect = (Aspect)Preferences.Get("PictureAspect", 0);
+            // Default to Fill and Clip.
+            vm.PictureAspect = (Aspect)Preferences.Get("PictureAspect", 1);
 
             LoadCustomPictureData();
         }
@@ -144,11 +145,21 @@ namespace MobileGridGames
                 // Pick a picture file from a folder containing the 8 custom pictures.
                 // Note that this doesn't work if selecting a picture from a OneDrive folder.
 
-                var result = await FilePicker.PickAsync(options);
-                if (result != null)
-                {
-                    var pathToPictures = result.FullPath;
+                string pathToPictures = "";
 
+                if (Device.RuntimePlatform == Device.iOS)
+                {
+                    var service = DependencyService.Get<IMobileGridGamesPlatformAction>();
+                    pathToPictures = await service.GetPairsPictureFolder();
+                }
+                else if (Device.RuntimePlatform == Device.Android)
+                {
+                    var result = await FilePicker.PickAsync(options);
+                    pathToPictures = result.FullPath;
+                }
+
+                if (!String.IsNullOrWhiteSpace(pathToPictures))
+                {
                     // The selected folder must contain exactly the required number of pictures in it.
                     var picturePathIsValid = await IsPicturePathValid(pathToPictures);
                     if (picturePathIsValid)
@@ -188,7 +199,7 @@ namespace MobileGridGames
                             var folder = Path.GetDirectoryName(pathToPictures);
                             DirectoryInfo di = new DirectoryInfo(folder);
 
-                            string[] extensions = { ".jpg", ".png", ".bmp" };
+                            string[] extensions = { ".jpg", ".jpeg", ".png", ".bmp" };
 
                             var files = di.EnumerateFiles("*", SearchOption.TopDirectoryOnly)
                                             .Where(f => extensions.Contains(f.Extension.ToLower()))
@@ -247,7 +258,7 @@ namespace MobileGridGames
                 var folder = Path.GetDirectoryName(picturePath);
                 DirectoryInfo di = new DirectoryInfo(folder);
 
-                string[] extensions = { ".jpg", ".png", ".bmp" };
+                string[] extensions = { ".jpg", ".jpeg", ".png", ".bmp" };
 
                 var files = di.EnumerateFiles("*", SearchOption.TopDirectoryOnly)
                                 .Where(f => extensions.Contains(f.Extension.ToLower()))
