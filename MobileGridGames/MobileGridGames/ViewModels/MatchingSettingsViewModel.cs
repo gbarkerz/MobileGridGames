@@ -44,6 +44,24 @@ namespace MobileGridGames.ViewModels
             }
         }
 
+        private string pictureOriginalPathMatching;
+        public string PictureOriginalPathMatching
+        {
+            get
+            {
+                return pictureOriginalPathMatching;
+            }
+            set
+            {
+                if (pictureOriginalPathMatching != value)
+                {
+                    SetProperty(ref pictureOriginalPathMatching, value);
+
+                    Preferences.Set("PictureOriginalPathMatching", value);
+                }
+            }
+        }
+
         private bool showCustomPictures;
         public bool ShowCustomPictures
         {

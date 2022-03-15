@@ -9,6 +9,7 @@
         <ResourceDictionary>
             <localviews:MatchingSettingsPicturePathToIsVisible x:Key="MatchingSettingsPicturePathToIsVisible" />
             <localviews:PictureAspectToInt x:Key="PictureAspectToInt" />            
+            <localviews:PathToDirectoryName x:Key="PathToDirectoryName" />            
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -98,7 +99,7 @@
                             Text="{x:Static resources:AppResources.NoFolderSelected}"                               
                             IsVisible="{Binding PicturePathMatching, Mode=OneWay,
                                 Converter={StaticResource MatchingSettingsPicturePathToIsVisible}}" />
-                        <Label Grid.Column="1" Text="{Binding PicturePathMatching, Mode=TwoWay}" />
+                        <Label Grid.Column="1" Text="{Binding PictureOriginalPathMatching, Mode=TwoWay}" />
                     </Grid>
 
                     <Button Grid.Row="5" x:Name="PictureClearButton" 

@@ -85,22 +85,18 @@ namespace MobileGridGames.iOS
 
                     // Copy all the files of interest to a dedicated folder beneath the app's temp folder.
                     var targetFolder = Path.Combine(Path.GetTempPath(), "PairsGameCurrentPictures");
-                    if (!Directory.Exists(targetFolder))
-                    {
-                        Directory.CreateDirectory(targetFolder);
-                    }
 
-                    // Empty this dedicated folder now.
-                    NSError err;
-                    var existingContent = NSFileManager.DefaultManager.GetDirectoryContent(targetFolder, out err);
-                    for (int i = 0; i < existingContent.Count(); ++i)
-                    {
-                        File.Delete(existingContent[i]);
-                    }
+                    // First delete any temporary folder we may have created earlier.
+                    Directory.Delete(targetFolder, true);
+
+                    // Now create a new temporary folder to use.
+                    targetFolder = Path.Combine(targetFolder, e.Urls[0].LastPathComponent);
+                    Directory.CreateDirectory(targetFolder);
 
                     // Now enumerate the folder selected by the player.
                     var filePathUrl = e.Urls[0].FilePathUrl;
 
+                    NSError err;
                     var selectedContent = NSFileManager.DefaultManager.GetDirectoryContent(
                         e.Urls[0],
                         null,

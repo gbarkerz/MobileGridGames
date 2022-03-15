@@ -35,6 +35,7 @@ namespace MobileGridGames
             vm.PlaySoundOnNotMatch = Preferences.Get("PlaySoundOnNotMatch", true);
             vm.ShowCustomPictures = Preferences.Get("ShowCustomPictures", false);
             vm.PicturePathMatching = Preferences.Get("PicturePathMatching", "");
+            vm.PictureOriginalPathMatching = Preferences.Get("PictureOriginalPathMatching", "");
 
             // Default to Fill and Clip.
             vm.PictureAspect = (Aspect)Preferences.Get("PictureAspect", 1);
@@ -104,6 +105,7 @@ namespace MobileGridGames
 
             // Clear all cached and persisted data related to the use of custom pictures.
             vm.PicturePathMatching = "";
+            vm.PictureOriginalPathMatching = "";
             vm.ShowCustomPictures = false;
 
             vm.PictureListCollection.Clear();
@@ -195,6 +197,11 @@ namespace MobileGridGames
                             vm.PictureListCollection.Clear();
 
                             vm.PicturePathMatching = Path.GetDirectoryName(pathToPictures);
+
+                            // PictureOriginalPathMatching is used only for display purposes in the Settings window.
+                            var pathOriginal = Path.GetDirectoryName(pathToPictures);
+                            DirectoryInfo diOriginal = new DirectoryInfo(pathOriginal);
+                            vm.PictureOriginalPathMatching = diOriginal.Name;
 
                             var folder = Path.GetDirectoryName(pathToPictures);
                             DirectoryInfo di = new DirectoryInfo(folder);

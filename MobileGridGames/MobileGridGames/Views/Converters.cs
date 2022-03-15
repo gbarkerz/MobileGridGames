@@ -334,14 +334,30 @@ namespace MobileGridGames.Views
         }
     }
 
-
-    public class PicturePathToFileName : IValueConverter
+    public class PathToFileName : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var path = (string)value;
 
             return Path.GetFileName(path);
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var intValue = (int)value;
+
+            return (Aspect)intValue;
+        }
+    }
+
+    public class PathToDirectoryName : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var path = (string)value;
+
+            return Path.GetDirectoryName(path);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
