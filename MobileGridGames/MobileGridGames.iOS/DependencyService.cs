@@ -24,6 +24,7 @@ namespace MobileGridGames.iOS
                 new NSString(notification));
         }
 
+        // Return a file that exists in the foler containing a set of custom pictures.
         public Task<string> GetPairsPictureFolder()
         {
             string result = "";
