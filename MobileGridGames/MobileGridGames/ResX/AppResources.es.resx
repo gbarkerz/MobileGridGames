@@ -246,7 +246,7 @@ Ways to play the game:
 
 Tapping with a finger: Tap the card to be turned up. When two mismatched cards have been turned up, tap on any card to turned those cards back down.
 
-Screen Reader. Turn on the screen reader, and move your finger around the screen to have the number of the card beneath your finger announced. If the screen reader moves between rows or columns in the grid of squares, it will announce the new row or column. Double tap to turn up a card. When a turned up card is matched, its name will be prefixed with "Matched".
+TalkBack. Turn on the Android TalkBack feature, and move your finger around the screen to have the number of the card beneath your finger announced. If TalkBack moves between rows or columns in the grid of squares, it will announce the new row or column. Double tap to turn up a card. When a turned up card is matched, its name will be prefixed with "Matched".
 
 Please note that the accessible name of the Menu button near the top left corner of the app currently has a name of "OK". This will be changed to have a name of "Menu" at some point.
 
@@ -277,7 +277,7 @@ Ways to play the game:
 
 Tapping with a finger. Tap the square to be moved.
 
-Screen Reader. Turn on the screen reader feature, and move your finger around the screen to have the number of the square beneath your finger announced. If the screen reader moves between rows or columns in the grid of squares, it will announce the new row or column. Double tap to move a square.
+TalkBack. Turn on the Android TalkBack feature, and move your finger around the screen to have the number of the square beneath your finger announced. If TalkBack moves between rows or columns in the grid of squares, it will announce the new row or column. Double tap to move a square.
 
 Please note that the accessible name of the Menu button near the top left corner of the app has a name of "OK". When that button is tapped, the menu will appear.
 
@@ -440,7 +440,7 @@ Would you like to play another game?</value>
   <data name="WelcomeInstructions" xml:space="preserve">
     <value>After closing this message, please review the help content in the menu for details on how to play this game.
     
-Note that the screen reader announces the menu button as the "OK" button.</value>
+Note that the TalkBack screen reader announces the menu button as the "OK" button.</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
