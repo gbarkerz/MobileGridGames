@@ -87,7 +87,10 @@ namespace MobileGridGames.iOS
                     var targetFolder = Path.Combine(Path.GetTempPath(), "PairsGameCurrentPictures");
 
                     // First delete any temporary folder we may have created earlier.
-                    Directory.Delete(targetFolder, true);
+                    if (Directory.Exists(targetFolder))
+                    {
+                        Directory.Delete(targetFolder, true);
+                    }
 
                     // Now create a new temporary folder to use.
                     targetFolder = Path.Combine(targetFolder, e.Urls[0].LastPathComponent);

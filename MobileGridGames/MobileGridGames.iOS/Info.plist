@@ -22,7 +22,7 @@
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>MobileGridGames</string>
+	<string>Grid Games</string>
 	<key>CFBundleIdentifier</key>
 	<string>ios.guybarker.gridgames</string>
 	<key>CFBundleVersion</key>
