@@ -97,7 +97,7 @@ namespace MobileGridGames.ResX {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When the grid contents are visually hidden, use the screen reader to play the game..
+        ///   Looks up a localized string similar to When the grid contents are visually hidden, use the TalkBack screen reader to play the game..
         /// </summary>
         internal static string AppSettingsHideGridInstructions {
             get {
@@ -1097,7 +1097,7 @@ namespace MobileGridGames.ResX {
         /// <summary>
         ///   Looks up a localized string similar to After closing this message, please review the help content in the menu for details on how to play this game.
         ///    
-        ///Note that the screen reader announces the menu button as the &quot;OK&quot; button..
+        ///Note that the TalkBack screen reader announces the menu button as the &quot;OK&quot; button..
         /// </summary>
         internal static string WelcomeInstructions {
             get {
