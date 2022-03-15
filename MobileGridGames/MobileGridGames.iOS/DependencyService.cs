@@ -8,20 +8,48 @@ using MobileCoreServices;
 using System.Threading.Tasks;
 using System.IO;
 using MobileGridGames.ViewModels;
+using CoreFoundation;
+using System.Threading;
 
 [assembly: Xamarin.Forms.Dependency(typeof(MobileGridGames.iOS.MobileGridGamesPlatformAction))]
 namespace MobileGridGames.iOS
 {
     public class MobileGridGamesPlatformAction : IMobileGridGamesPlatformAction
     {
+        private System.Timers.Timer screenReaderAnnouncementTimer;
+        private string nextScreenReaderAnnouncement = "";
+
         public void ScreenReaderAnnouncement(string notification)
         {
             // Take the action described at:
             // https://docs.microsoft.com/en-us/xamarin/ios/app-fundamentals/accessibility
 
+            if (UIAccessibility.IsVoiceOverRunning)
+            {
+                // Use a timer here to reduce the chances of a newly focused element announcement
+                // interrupting this custom announcement.
+                if (screenReaderAnnouncementTimer == null)
+                {
+                    screenReaderAnnouncementTimer = new System.Timers.Timer(250);
+
+                    screenReaderAnnouncementTimer.Elapsed += this.OnTimerElapsed;
+                    screenReaderAnnouncementTimer.AutoReset = false;
+                }
+
+                nextScreenReaderAnnouncement = notification;
+
+                screenReaderAnnouncementTimer.Start();
+            }
+        }
+
+        private void OnTimerElapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            string notification = nextScreenReaderAnnouncement;
+
             UIAccessibility.PostNotification(
               UIAccessibilityPostNotification.Announcement,
                 new NSString(notification));
+
         }
 
         // Return a file that exists in the foler containing a set of custom pictures.
