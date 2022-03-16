@@ -53,6 +53,8 @@
     <MtouchLink>None</MtouchLink>
     <MtouchInterpreter>-all</MtouchInterpreter>
     <CodesignProvision>Guy Barker Development Profile</CodesignProvision>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\..\..\..\Downloads\ios_distribution.cer</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -61,9 +63,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Distribution: Guy Barker (9HC5XH2RVN)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignProvision>Guy Barker Distribution Grid Games</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="DependencyService.cs" />
@@ -80,34 +84,13 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
@@ -126,6 +109,18 @@
     <BundleResource Include="Resources\xamarin_logo%402x.png" />
     <BundleResource Include="Resources\xamarin_logo%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_60.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_58.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_87.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_80.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_120.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_120-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_180.png" />
+    <InterfaceDefinition Include="GridGamesLaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\GridGamesLaunchScreenImage.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\GridGamesLaunchScreenImage.imageset\GridGramesSplashScreenImage_800-1.jpg" />
+    <ImageAsset Include="Assets.xcassets\GridGamesLaunchScreenImage.imageset\GridGramesSplashScreenImage_1200-1.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -144,6 +139,9 @@
       <Project>{414d8f9e-39f6-48bc-be2e-3ba24a4a64d4}</Project>
       <Name>MobileGridGames</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\GridGamesLaunchScreenImage.imageset\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

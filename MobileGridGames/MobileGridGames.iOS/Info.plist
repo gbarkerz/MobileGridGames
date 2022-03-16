@@ -27,11 +27,13 @@
 	<string>ios.guybarker.gridgames</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
-	<string>MobileGridGames</string>
+	<string>MobileGridGames.iOS</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>UILaunchStoryboardName</key>
+	<string>GridGamesLaunchScreen</string>
 </dict>
 </plist>
