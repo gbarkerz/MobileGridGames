@@ -1,6 +1,6 @@
 This is the Grid Games Privacy Statement.
 
-The Grid Game app does not access, collect, or transmit personal information.
+The Grid Games app does not access, collect, or transmit personal information.
 
 The only data stored by the app are the player's choices made in the Settings window in the game. If the player browses from the Settings window to an photo on their device, the Grid Game app will present that picture.
 
