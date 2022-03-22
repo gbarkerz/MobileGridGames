@@ -111,7 +111,8 @@ namespace MobileGridGames.ViewModels
                 // The ImageEditor documentation states that only png, jpg and bmp formats
                 // are supported, so check the extension suggests that the file is supported.
                 var extension = Path.GetExtension(imageFilePath).ToLower();
-                if ((extension == ".jpg") || (extension == ".png") || (extension == ".bmp"))
+                if ((extension == ".jpg") || (extension == ".jpeg") ||
+                    (extension == ".png") || (extension == ".bmp"))
                 {
                     ImageFilePathIsValid = true;
                 }

@@ -294,6 +294,8 @@ namespace MobileGridGames
             return picturePathValid;
         }
 
+        // Returns false if the attempt to import data should be terminated and
+        // an error message should be shown to the player.
         private bool SetNameDescription(string content)
         {
             var fileNameDelimiter = content.IndexOf('\t');
@@ -301,8 +303,12 @@ namespace MobileGridGames
             // Account for the string containing no tabs at all.
             if (fileNameDelimiter == -1)
             {
-                // There is no Name, so do nothing here.
-                return false;
+                // There was no accessible name found on this line, so do nothing here.
+                // Do not terminate the attempt to find all the picture details due to this, 
+                // rather continue to process the datafile looking for picture details.
+                // This approach means that unexpected blank lines in the datafile won't
+                // break the attempt to load the data.
+                return true;
             }
 
             string fileName = content.Substring(0, fileNameDelimiter);

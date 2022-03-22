@@ -52,8 +52,6 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>None</MtouchLink>
     <MtouchInterpreter>-all</MtouchInterpreter>
-    <CodesignProvision>Guy Barker Development Profile</CodesignProvision>
-    <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\..\..\..\..\Downloads\ios_distribution.cer</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
@@ -63,11 +61,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Distribution: Guy Barker (9HC5XH2RVN)</CodesignKey>
+    <CodesignKey>iPhone Developer: Guy Barker (XS2VTVJGQV)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchFloat32>true</MtouchFloat32>
-    <CodesignProvision>Guy Barker Distribution Grid Games</CodesignProvision>
+    <CodesignProvision>Guy Barker Development Profile</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="DependencyService.cs" />

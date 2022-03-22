@@ -3,7 +3,6 @@ using MobileGridGames.ViewModels;
 using System;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

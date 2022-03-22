@@ -23,7 +23,7 @@ namespace MobileGridGames.Views
 
         // This gets called when switching from the Matching Game to the Squares Game,
         // and also when closing the Squares Settings page.
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             Debug.Write("Squares Game: OnAppearing called.");
 
@@ -52,6 +52,10 @@ namespace MobileGridGames.Views
             {
                 // Prevent input on the grid while the image is being loaded into the squares.
                 vm.GameIsLoading = true;
+
+                // Future: Without a delay here, the loading UI rarely shows up on iOS.
+                // Investigate this further and remove this delay.
+                await Task.Delay(200);
 
                 // Restore the order of the squares in the grid.
                 vm.RestoreEmptyGrid();
@@ -253,6 +257,16 @@ namespace MobileGridGames.Views
             // The x,y values for cropping are a percentage of the full image size.
             int x = 25 * (nextSquareIndexForImageSourceSetting % 4);
             int y = 25 * (nextSquareIndexForImageSourceSetting / 4);
+
+            // Future: On release builds, often the fisrt square contains the full image,
+            // with no cropping at all. This unexpected result does not seem to happen if
+            // we don't set the origin to 0,0. So until this issue is understood, set the
+            // origin of the first crop to 1,1.
+            if (nextSquareIndexForImageSourceSetting == 0)
+            {
+                x = 1;
+                y = 1;
+            }
 
             Debug.WriteLine("MobileGridGames: In PerformCrop, crop at " + x + ", " + y + ".");
 
