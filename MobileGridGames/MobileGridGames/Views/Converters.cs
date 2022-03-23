@@ -367,4 +367,25 @@ namespace MobileGridGames.Views
             return (Aspect)intValue;
         }
     }
+
+    public class CheckBoxStateToAccessibleName : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var checkedState = (bool)value;
+
+            var resourceParam = (string)parameter;
+
+            var checkBoxName = AppResources.ResourceManager.GetString(resourceParam);
+
+            return (checkedState ? "Checked, " : "Unchecked, ") + checkBoxName;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var intValue = (int)value;
+
+            return (Aspect)intValue;
+        }
+    }
 }

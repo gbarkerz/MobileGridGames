@@ -12,6 +12,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <localviews:SettingsPicturePathToPicturePathLabelIsVisible x:Key="SettingsPicturePathToPicturePathLabelIsVisible" />
+            <localviews:CheckBoxStateToAccessibleName x:Key="CheckBoxStateToAccessibleName" />
             <localviews:PathToFileName x:Key="PathToFileName" />
         </ResourceDictionary>
     </ContentPage.Resources>    
@@ -39,7 +40,10 @@
                                         Text="{x:Static resources:AppResources.ShowNumbers}"
                                         VerticalOptions="Center" />
                                     <CheckBox x:Name="ShowNumbersCheckBox"
-                                        AutomationProperties.LabeledBy="{x:Reference ShowNumbersLabel}"
+                                        AutomationProperties.Name="{Binding ShowNumbers,
+                                            Mode=OneWay,
+                                            Converter={StaticResource CheckBoxStateToAccessibleName},
+                                            ConverterParameter=ShowNumbers}"
                                         VerticalOptions="Center" IsChecked="{Binding ShowNumbers}" />
                                 </StackLayout>
                                 <!-- Use a Grid rather than StackPanel here, as the Picker width
@@ -73,7 +77,10 @@
                                         Text="{x:Static resources:AppResources.ShowPicture}"
                                         VerticalOptions="Center" />
                                     <CheckBox x:Name="ShowPictureCheckBox" VerticalOptions="Center"
-                                        AutomationProperties.LabeledBy="{x:Reference ShowPictureLabel}"
+                                        AutomationProperties.Name="{Binding ShowPicture,
+                                            Mode=OneWay,
+                                            Converter={StaticResource CheckBoxStateToAccessibleName},
+                                            ConverterParameter=ShowPicture}"
                                         IsChecked="{Binding ShowPicture}" />
                                 </StackLayout>
                                 <Button Grid.Row="1" x:Name="PictureBrowseButton" 

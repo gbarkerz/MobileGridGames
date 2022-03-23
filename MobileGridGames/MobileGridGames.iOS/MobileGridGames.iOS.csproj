@@ -79,24 +79,6 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <BundleResource Include="Resources\icon_about.png" />
     <BundleResource Include="Resources\icon_about%402x.png" />
     <BundleResource Include="Resources\icon_about%403x.png" />
@@ -107,18 +89,58 @@
     <BundleResource Include="Resources\xamarin_logo%402x.png" />
     <BundleResource Include="Resources\xamarin_logo%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_60.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_58.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_87.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_80.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_120.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_120-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_180.png" />
     <InterfaceDefinition Include="GridGamesLaunchScreen.storyboard" />
     <ImageAsset Include="Assets.xcassets\GridGamesLaunchScreenImage.imageset\Contents.json" />
+    <BundleResource Include="Resources\icon58.png" />
+    <BundleResource Include="Resources\icon60.png" />
+    <BundleResource Include="Resources\icon80.png" />
+    <BundleResource Include="Resources\icon87.png" />
+    <BundleResource Include="Resources\icon120.png" />
+    <BundleResource Include="Resources\icon180.png" />
+    <BundleResource Include="Resources\icon40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon120-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon180.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon58-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon80-1.png" />
+    <BundleResource Include="Resources\icon20.png" />
+    <BundleResource Include="Resources\icon29.png" />
+    <BundleResource Include="Resources\icon76.png" />
+    <BundleResource Include="Resources\icon152.png" />
+    <BundleResource Include="Resources\icon167.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon20.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon29.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon152.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon167.png" />
+    <BundleResource Include="Resources\icon1024.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon1024.png" />
+    <BundleResource Include="Resources\GridGramesSplashScreenImage_400.jpg" />
+    <BundleResource Include="Resources\GridGramesSplashScreenImage_800.jpg" />
+    <BundleResource Include="Resources\GridGramesSplashScreenImage_1200.jpg" />
+    <ImageAsset Include="Assets.xcassets\GridGamesLaunchScreenImage.imageset\GridGramesSplashScreenImage_400.jpg" />
+    <ImageAsset Include="Assets.xcassets\GridGamesLaunchScreenImage.imageset\GridGramesSplashScreenImage_800.jpg" />
+    <ImageAsset Include="Assets.xcassets\GridGamesLaunchScreenImage.imageset\GridGramesSplashScreenImage_1200.jpg" />
+    <ImageAsset Include="Assets.xcassets\GridGamesLaunchScreenImage.imageset\GridGramesSplashScreenImage_400-1.jpg" />
     <ImageAsset Include="Assets.xcassets\GridGamesLaunchScreenImage.imageset\GridGramesSplashScreenImage_800-1.jpg" />
     <ImageAsset Include="Assets.xcassets\GridGamesLaunchScreenImage.imageset\GridGramesSplashScreenImage_1200-1.jpg" />
+    <ImageAsset Include="Assets.xcassets\GridGamesLaunchScreenImage.imageset\GridGramesSplashScreenImage_400-2.jpg" />
+    <ImageAsset Include="Assets.xcassets\GridGamesLaunchScreenImage.imageset\GridGramesSplashScreenImage_800-2.jpg" />
+    <ImageAsset Include="Resources\Assets.xcassets\GridGamesLaunchScreenImage.imageset\GridGramesSplashScreenImage_800-5.jpg" />
+    <ImageAsset Include="Resources\Assets.xcassets\GridGamesLaunchScreenImage.imageset\GridGramesSplashScreenImage_800-4.jpg" />
+    <ImageAsset Include="Resources\Assets.xcassets\GridGamesLaunchScreenImage.imageset\GridGramesSplashScreenImage_800-3.jpg" />
+    <ImageAsset Include="Resources\Assets.xcassets\GridGamesLaunchScreenImage.imageset\GridGramesSplashScreenImage_400-3.jpg" />
+    <ImageAsset Include="Resources\Assets.xcassets\GridGamesLaunchScreenImage.imageset\GridGramesSplashScreenImage_1200-2.jpg" />
+    <ImageAsset Include="Resources\Assets.xcassets\GridGamesLaunchScreenImage.imageset\GridGramesSplashScreenImage_1200-3.jpg" />
+    <ImageAsset Include="Resources\Assets.xcassets\GridGamesLaunchScreenImage.imageset\GridGramesSplashScreenImage_400-4.jpg" />
+    <ImageAsset Include="Resources\Assets.xcassets\GridGamesLaunchScreenImage.imageset\GridGramesSplashScreenImage_400-5.jpg" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon60.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon58.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon87.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon80.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon120.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\icon120-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon120-2.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

@@ -1,8 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:localviews="clr-namespace:MobileGridGames.Views"
              xmlns:resources="clr-namespace:MobileGridGames.ResX"
              x:Class="MobileGridGames.AppSettingsPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <localviews:CheckBoxStateToAccessibleName x:Key="CheckBoxStateToAccessibleName" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <Grid Grid.Row="0" Padding="10"
               BackgroundColor="{DynamicResource PageBackgroundColor}">
@@ -26,7 +34,10 @@
                                 Text="{x:Static resources:AppResources.AppSettingsHideGrid}" 
                                 VerticalOptions="Center" />
                             <CheckBox x:Name="HideGridCheckBox"
-                                AutomationProperties.LabeledBy="{x:Reference HideGridLabel}"
+                                AutomationProperties.Name="{Binding HideGrid,
+                                    Mode=OneWay,
+                                    Converter={StaticResource CheckBoxStateToAccessibleName},
+                                    ConverterParameter=HideGrid}"
                                 VerticalOptions="Center" IsChecked="{Binding HideGrid}" />
                         </StackLayout>
                         <Label Margin="0,20,0,0" 
@@ -36,7 +47,10 @@
                                 Text="{x:Static resources:AppResources.AppSettingsDarkTheme}" 
                                 VerticalOptions="Center" />
                             <CheckBox x:Name="ShowDarkThemeCheckBox"
-                                AutomationProperties.LabeledBy="{x:Reference ShowDarkThemeLabel}"
+                                AutomationProperties.Name="{Binding ShowDarkTheme,
+                                    Mode=OneWay,
+                                    Converter={StaticResource CheckBoxStateToAccessibleName},
+                                    ConverterParameter=ShowDarkTheme}"
                                 VerticalOptions="Center" IsChecked="{Binding ShowDarkTheme}" />
                         </StackLayout>
                     </StackLayout>

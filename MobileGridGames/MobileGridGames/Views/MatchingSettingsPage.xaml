@@ -8,6 +8,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <localviews:MatchingSettingsPicturePathToIsVisible x:Key="MatchingSettingsPicturePathToIsVisible" />
+            <localviews:CheckBoxStateToAccessibleName x:Key="CheckBoxStateToAccessibleName" />
             <localviews:PictureAspectToInt x:Key="PictureAspectToInt" />            
             <localviews:PathToDirectoryName x:Key="PathToDirectoryName" />            
         </ResourceDictionary>
@@ -49,13 +50,19 @@
                             Text="{x:Static resources:AppResources.PlaySoundMatch}"
                             VerticalOptions="Center" />
                         <CheckBox Grid.Row="0" Grid.Column="1" x:Name="PlaySoundOnMatchCheckBox"
-                            AutomationProperties.LabeledBy="{x:Reference PlaySoundOnMatchLabel}"
+                            AutomationProperties.Name="{Binding PlaySoundMatch,
+                                Mode=OneWay,
+                                Converter={StaticResource CheckBoxStateToAccessibleName},
+                                ConverterParameter=PlaySoundMatch}"
                             VerticalOptions="Center" IsChecked="{Binding PlaySoundOnMatch}" />
                         <Label Grid.Row="1" Grid.Column="0" x:Name="PlaySoundOnNotMatchLabel" 
                             Text="{x:Static resources:AppResources.PlaySoundNotMatch}"
                             VerticalOptions="Center" />
                         <CheckBox Grid.Row="1" Grid.Column="1" x:Name="PlaySoundOnNotMatchCheckBox"
-                            AutomationProperties.LabeledBy="{x:Reference PlaySoundOnNotMatchLabel}"
+                            AutomationProperties.Name="{Binding PlaySoundNotMatch,
+                                Mode=OneWay,
+                                Converter={StaticResource CheckBoxStateToAccessibleName},
+                                ConverterParameter=PlaySoundNotMatch}"
                             VerticalOptions="Center" IsChecked="{Binding PlaySoundOnNotMatch}" />
                     </Grid>
 
@@ -79,7 +86,10 @@
                             Text="{x:Static resources:AppResources.ShowCustomPictures}"
                             VerticalOptions="Center" />
                         <CheckBox x:Name="ShowCustomPicturesCheckBox"
-                            AutomationProperties.LabeledBy="{x:Reference ShowCustomPicturesLabel}"
+                            AutomationProperties.Name="{Binding ShowCustomPictures,
+                                Mode=OneWay,
+                                Converter={StaticResource CheckBoxStateToAccessibleName},
+                                ConverterParameter=ShowCustomPictures}"
                             VerticalOptions="Center" IsChecked="{Binding ShowCustomPictures}" />
                     </StackLayout>
 
