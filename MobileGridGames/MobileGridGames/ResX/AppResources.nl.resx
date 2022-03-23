@@ -238,58 +238,32 @@
     <value>Helpen</value>
   </data>
   <data name="HelpContentPairs" xml:space="preserve">
-    <value>Het parenspel is gebaseerd op een traditioneel kaartspel, waarbij kaarten met de afbeelding naar beneden worden omgedraaid om paren van kaarten te vinden.
+    <value>Het Parenspel is gebaseerd op een traditioneel kaartmatchingspel, waarbij face-down kaarten worden omgedraaid om paren kaarten te vinden.
 
-Wanneer het spel wordt uitgevoerd, verschijnt een raster van 4 bij 4 met lege vierkanten, waarbij elk vierkant een kaart vertegenwoordigt. Als er op een kaart wordt getikt, wordt er een afbeelding op de kaart weergegeven. Wanneer er op een andere kaart wordt geklikt, wordt ook op die tweede kaart een afbeelding getoond. Als de twee afbeeldingen hetzelfde zijn, worden de kaarten als overeenkomend beschouwd en zullen ze de rest van het spel niet meer veranderen. Als de afbeeldingen niet overeenkomen, worden de kaarten als niet-overeenkomend beschouwd en moeten de kaarten worden omgedraaid door op een kaart te tikken. Deze stappen moeten worden herhaald totdat alle overeenkomende afbeeldingen zijn gevonden en een venster "Gefeliciteerd" verschijnt.
+Wanneer het spel wordt uitgevoerd, verschijnt er een raster van 4 bij 4 met lege vierkanten, waarbij elk vierkant een kaart vertegenwoordigt. Wanneer op een kaart wordt getikt, wordt een afbeelding op de kaart weergegeven. Wanneer op een andere kaart wordt geklikt, wordt er ook een afbeelding op die tweede kaart weergegeven. Als de twee afbeeldingen hetzelfde zijn, worden de kaarten als gematcht beschouwd en veranderen ze niet opnieuw voor de rest van het spel. Als de afbeeldingen niet overeenkomen, worden de kaarten als ongeëvenaard beschouwd en moeten de kaarten worden teruggedraaid door op een kaart te tikken. Deze stappen moeten worden herhaald totdat alle overeenkomende afbeeldingen zijn gevonden en er een venster "Gefeliciteerd" verschijnt.
 
-Manieren om het spel te spelen:
+Wanneer u een schermlezer met het spel gebruikt, beweegt u uw vinger over het scherm om het nummer van de kaart onder uw vinger te laten aankondigen. Dubbeltik om een kaart te openen. Wanneer een opgedoken kaart wordt gematcht, wordt de naam voorafgegaan door "Overeen".
 
-Tikken met een vinger: Tik op de kaart die moet worden geopend. Als er twee niet-overeenkomende kaarten zijn omgedraaid, tik je op een kaart om die kaarten weer om te draaien.
-
-Praat terug. Schakel de Android TalkBack-functie in en beweeg uw vinger over het scherm om het nummer van de kaart onder uw vinger te laten horen. Als TalkBack tussen rijen of kolommen in het raster van vierkanten beweegt, zal het de nieuwe rij of kolom aankondigen. Dubbeltik om een ​​kaart om te draaien. Wanneer een omgedraaide kaart wordt gematcht, wordt de naam voorafgegaan door "Matched".
-
-Houd er rekening mee dat de toegankelijke naam van de menuknop in de linkerbovenhoek van de app momenteel de naam "OK" heeft. Dit zal op een gegeven moment worden gewijzigd om de naam "Menu" te krijgen.
-
-Spraaktoegang. Activeer de Android Voice Access-functie en zeg een nummer van 1 tot 16. De kaarten worden geacht te zijn gerangschikt van de linkerbovenhoek van het raster naar de rechterbenedenhoek, genummerd van links naar rechts en vervolgens van boven naar beneden. De kaart waarvan het nummer is uitgesproken, wordt omgedraaid.
-
-Toegang wisselen. Activeer de Android Switch Access-functie, scan naar de kaart die moet worden omgedraaid en druk vervolgens op de schakelaar om de kaart om te draaien.
-
-Grootte van tekst. De game respecteert de Android-instellingen voor lettergrootte en weergavegrootte.
-
-Vergroting. Het standaardgebruik van de Android-vergrotingsfunctie kan worden gebruikt bij het spelen van dit spel.</value>
+Houd er rekening mee dat wanneer een schermlezer naar de menuknop in de linkerbovenhoek van de app gaat, deze de knop kan aankondigen als de knop OK of Menu, of alleen de woordknop kan aankondigen.</value>
   </data>
   <data name="HelpContentSquares" xml:space="preserve">
-    <value>Het Vierkantenspel is gebaseerd op een vierkante schuifpuzzel, waarbij vierkanten in een raster van vierkanten door de speler worden herschikt om een ​​geordende reeks in het raster te vormen.
+    <value>Het Squares-spel is gebaseerd op een vierkante schuifpuzzel, waarbij vierkanten in een raster van vierkanten door de speler worden herschikt om een geordende volgorde in het raster te vormen.
 
-Wanneer het spel wordt uitgevoerd, verschijnt een raster van vierkanten van 4 bij 4, waarbij vijftien van die vierkanten bezet zijn met een verplaatsbaar element en één vierkant leeg is. Als er op een vierkant wordt getikt en het grenst aan het lege vierkant, wordt het aangetikte vierkant naar het lege vierkant verplaatst. De ruimte waar het afgetapte vierkant was, wordt dan het lege vierkant. Het doel is om alle vierkanten in een gesorteerde volgorde te rangschikken, waarbij het lege vierkant in de rechterbenedenhoek van het raster blijft. Zodra alle vierkanten zijn besteld, verschijnt een venster "Gefeliciteerd".
+Wanneer het spel wordt uitgevoerd, verschijnt er een raster van 4 bij 4 van vierkanten, waarbij vijftien van die vierkanten bezet zijn met een verplaatsbaar element en één vierkant leeg is. Wanneer een vierkant wordt aangetikt, als het grenst aan het lege vierkant, verplaatst het getapte vierkant zich naar het lege vierkant. De ruimte waar het getapte vierkant was, wordt dan het lege vierkant. Het doel is om alle vierkanten in een gesorteerde volgorde te rangschikken, waardoor het lege vierkant in de rechterbenedenhoek van het raster overblijft. Zodra alle vakjes zijn besteld, verschijnt er een venster "Gefeliciteerd".
 
-Tip: gebruik geen veeggebaar om een ​​vierkant te verplaatsen. Ondersteuning voor veegbewegingen moet nog aan de game worden toegevoegd.
+Aanwijzing: Gebruik geen veegbeweging om een vierkant te verplaatsen. Ondersteuning voor veegbewegingen moet nog aan de game worden toegevoegd.
 
-Tip: Tik niet op het lege vierkantje. Tik in plaats daarvan op de vierkanten naast het lege vierkant.
+Aanwijzing: Tik niet op het lege vierkant. Tik in plaats daarvan op de vierkanten naast het lege plein.
 
-Wanneer het spel voor het eerst wordt uitgevoerd, is de instelling om getallen op vierkanten weer te geven aan en zijn de instellingen om afbeeldingen op de vierkanten te laten zien uit. Dit betekent dat er een nummer wordt weergegeven in de linkerbovenhoek van de vierkanten. Wanneer de vierkanten zijn gesorteerd, bevindt het vierkant met nummer 1 zich linksboven in het raster en nemen de cijfers toe van links naar rechts en vervolgens van boven naar beneden.
+Wanneer het spel voor het eerst wordt uitgevoerd, is de instelling voor het weergeven van getallen op vierkanten ingeschakeld en zijn de instellingen voor het weergeven van afbeeldingen op de vierkanten uitgeschakeld. Dit betekent dat er een getal wordt weergegeven in de linkerbovenhoek van de vierkanten. Wanneer de vierkanten zijn gesorteerd, bevindt het vierkant met nummer 1 zich linksboven in het raster en nemen de getallen toe van links naar rechts en vervolgens van boven naar beneden.
 
-Tip: Oefen het verplaatsen van genummerde vierkanten voordat u de instelling wijzigt om een ​​afbeelding op de vierkanten te krijgen.
+Aanwijzing: Oefen het verplaatsen van genummerde vierkanten voordat u de instelling wijzigt om een afbeelding op de vierkanten weer te geven.
 
-Als de game-instelling om een ​​afbeelding op de vierkanten te laten zien is ingeschakeld, wordt een enkele afbeelding over alle vierkanten getoond. De secties van de afbeelding worden door elkaar gegooid totdat de vierkanten in hun gesorteerde volgorde zijn gerangschikt.
+Wanneer de spelinstelling om een afbeelding op de vierkanten te laten zien is ingeschakeld, wordt een enkele afbeelding over alle vierkanten weergegeven. De delen van de afbeelding worden door elkaar gehaald totdat de vierkanten in hun gesorteerde volgorde zijn gerangschikt.
 
-Manieren om het spel te spelen:
+Wanneer u een schermlezer met de game gebruikt, beweegt u uw vinger over het scherm om het nummer van het vierkant onder uw vinger te laten aankondigen. Dubbeltik om een vierkant te verplaatsen.
 
-Tikken met een vinger. Tik op het te verplaatsen vierkant.
-
-Praat terug. Schakel de Android TalkBack-functie in en beweeg uw vinger over het scherm om het nummer van het vierkantje onder uw vinger te laten horen. Als TalkBack tussen rijen of kolommen in het raster van vierkanten beweegt, zal het de nieuwe rij of kolom aankondigen. Dubbeltik om een ​​vierkant te verplaatsen.
-
-Houd er rekening mee dat de toegankelijke naam van de menuknop in de linkerbovenhoek van de app de naam "OK" heeft. Wanneer op die knop wordt getikt, verschijnt het menu.
-
-Spraaktoegang. Activeer de Android Voice Access-functie en spreek het nummer in dat op een vierkant wordt weergegeven om het vierkant te verplaatsen.
-
-Houd er rekening mee dat spraaktoegang vandaag alleen werkt in het spel Vierkanten als er nummers op de vierkanten worden weergegeven.
-
-Toegang wisselen. Activeer de Android Switch Access-functie, scan naar het vierkant dat moet worden verplaatst en druk vervolgens op de schakelaar om het vierkant te verplaatsen.
-
-Grootte van tekst. De game respecteert de Android-instellingen voor lettergrootte en weergavegrootte, en heeft ook zijn eigen in-app-instelling voor tekstgrootte die alleen van toepassing is op tekst die wordt weergegeven op de vierkanten in de game.
-
-Vergroting. Het standaardgebruik van de Android-vergrotingsfunctie kan worden gebruikt bij het spelen van dit spel.</value>
+Houd er rekening mee dat wanneer een schermlezer naar de menuknop in de linkerbovenhoek van de app gaat, deze de knop kan aankondigen als de knop OK of Menu, of alleen de woordknop kan aankondigen.</value>
   </data>
   <data name="Left" xml:space="preserve">
     <value>links</value>
