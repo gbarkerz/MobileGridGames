@@ -50,7 +50,7 @@
                             Text="{x:Static resources:AppResources.PlaySoundMatch}"
                             VerticalOptions="Center" />
                         <CheckBox Grid.Row="0" Grid.Column="1" x:Name="PlaySoundOnMatchCheckBox"
-                            AutomationProperties.Name="{Binding PlaySoundMatch,
+                            AutomationProperties.Name="{Binding PlaySoundOnMatch,
                                 Mode=OneWay,
                                 Converter={StaticResource CheckBoxStateToAccessibleName},
                                 ConverterParameter=PlaySoundMatch}"
@@ -59,7 +59,7 @@
                             Text="{x:Static resources:AppResources.PlaySoundNotMatch}"
                             VerticalOptions="Center" />
                         <CheckBox Grid.Row="1" Grid.Column="1" x:Name="PlaySoundOnNotMatchCheckBox"
-                            AutomationProperties.Name="{Binding PlaySoundNotMatch,
+                            AutomationProperties.Name="{Binding PlaySoundOnNotMatch,
                                 Mode=OneWay,
                                 Converter={StaticResource CheckBoxStateToAccessibleName},
                                 ConverterParameter=PlaySoundNotMatch}"

@@ -37,7 +37,7 @@
                                 AutomationProperties.Name="{Binding HideGrid,
                                     Mode=OneWay,
                                     Converter={StaticResource CheckBoxStateToAccessibleName},
-                                    ConverterParameter=HideGrid}"
+                                    ConverterParameter=AppSettingsHideGrid}"
                                 VerticalOptions="Center" IsChecked="{Binding HideGrid}" />
                         </StackLayout>
                         <Label Margin="0,20,0,0" 
@@ -50,7 +50,7 @@
                                 AutomationProperties.Name="{Binding ShowDarkTheme,
                                     Mode=OneWay,
                                     Converter={StaticResource CheckBoxStateToAccessibleName},
-                                    ConverterParameter=ShowDarkTheme}"
+                                    ConverterParameter=AppSettingsDarkTheme}"
                                 VerticalOptions="Center" IsChecked="{Binding ShowDarkTheme}" />
                         </StackLayout>
                     </StackLayout>
