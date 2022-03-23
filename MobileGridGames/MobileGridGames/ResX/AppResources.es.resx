@@ -412,9 +412,7 @@ Would you like to play another game?</value>
     <value>up</value>
   </data>
   <data name="WelcomeInstructions" xml:space="preserve">
-    <value>After closing this message, please review the help content in the menu for details on how to play this game.
-    
-Note that the screen reader announces the menu button as the "OK" button.</value>
+    <value>After closing this message, please review the help content in the menu for details on how to play this game.</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>

@@ -412,9 +412,7 @@ Wil je nog een spel spelen?</value>
     <value>omhoog</value>
   </data>
   <data name="WelcomeInstructions" xml:space="preserve">
-    <value>Bekijk na het sluiten van dit bericht de help-inhoud in het menu voor meer informatie over het spelen van deze game.
-    
-Houd er rekening mee dat de TalkBack-schermlezer de menuknop aankondigt als de "OK"-knop.</value>
+    <value>Bekijk na het sluiten van dit bericht de help-inhoud in het menu voor meer informatie over het spelen van deze game.</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Ja</value>
