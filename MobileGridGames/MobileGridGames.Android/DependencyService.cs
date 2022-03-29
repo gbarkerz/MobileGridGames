@@ -39,5 +39,14 @@ namespace MobileGridGames.Droid
                 MainActivity.accessibilityManager.SendAccessibilityEvent(e);
             }
         }
+
+        // GetPairsPictureFolder() does not get called whe running on Android.
+        public Task<string> GetPairsPictureFolder()
+        {
+            var tcs = new TaskCompletionSource<string>();
+            tcs.SetResult("");
+
+            return tcs.Task;
+        }
     }
 }
