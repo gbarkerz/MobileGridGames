@@ -1,174 +1,44 @@
 {
   "images" : [
     {
-      "filename" : "GridGramesSplashScreenImage_400-3.jpg",
+      "filename" : "GridGramesSplashScreenImage400.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "GridGramesSplashScreenImage_800-3.jpg",
+      "filename" : "GridGramesSplashScreenImage800.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "GridGramesSplashScreenImage_1200-2.jpg",
+      "filename" : "GridGramesSplashScreenImage1200.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     },
     {
-      "filename" : "GridGramesSplashScreenImage_400-4.jpg",
+      "filename" : "GridGramesSplashScreenImage400.jpg",
       "idiom" : "iphone",
       "scale" : "1x"
     },
     {
-      "filename" : "GridGramesSplashScreenImage_800-4.jpg",
+      "filename" : "GridGramesSplashScreenImage800.jpg",
       "idiom" : "iphone",
       "scale" : "2x"
     },
     {
-      "filename" : "GridGramesSplashScreenImage_1200-3.jpg",
+      "filename" : "GridGramesSplashScreenImage1200.jpg",
       "idiom" : "iphone",
       "scale" : "3x"
     },
     {
-      "filename" : "GridGramesSplashScreenImage_400-5.jpg",
+      "filename" : "GridGramesSplashScreenImage400.jpg",
       "idiom" : "ipad",
       "scale" : "1x"
     },
     {
-      "filename" : "GridGramesSplashScreenImage_800-5.jpg",
+      "filename" : "GridGramesSplashScreenImage800.jpg",
       "idiom" : "ipad",
       "scale" : "2x"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "light"
-        }
-      ],
-      "idiom" : "watch"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
-      "idiom" : "watch"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "light"
-        }
-      ],
-      "idiom" : "watch",
-      "scale" : "2x"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
-      "idiom" : "watch",
-      "scale" : "2x"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "light"
-        }
-      ],
-      "idiom" : "watch",
-      "scale" : "2x",
-      "screen-width" : "<=145"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
-      "idiom" : "watch",
-      "scale" : "2x",
-      "screen-width" : "<=145"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "light"
-        }
-      ],
-      "idiom" : "watch",
-      "scale" : "2x",
-      "screen-width" : ">145"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
-      "idiom" : "watch",
-      "scale" : "2x",
-      "screen-width" : ">145"
-    },
-    {
-      "filename" : "GridGramesSplashScreenImage_400.jpg",
-      "idiom" : "universal",
-      "scale" : "1x",
-      "unassigned" : true
-    },
-    {
-      "filename" : "GridGramesSplashScreenImage_800.jpg",
-      "idiom" : "universal",
-      "scale" : "2x",
-      "unassigned" : true
-    },
-    {
-      "filename" : "GridGramesSplashScreenImage_1200.jpg",
-      "idiom" : "universal",
-      "scale" : "3x",
-      "unassigned" : true
-    },
-    {
-      "filename" : "GridGramesSplashScreenImage_400-1.jpg",
-      "idiom" : "iphone",
-      "scale" : "1x",
-      "unassigned" : true
-    },
-    {
-      "filename" : "GridGramesSplashScreenImage_800-1.jpg",
-      "idiom" : "iphone",
-      "scale" : "2x",
-      "unassigned" : true
-    },
-    {
-      "filename" : "GridGramesSplashScreenImage_1200-1.jpg",
-      "idiom" : "iphone",
-      "scale" : "3x",
-      "unassigned" : true
-    },
-    {
-      "filename" : "GridGramesSplashScreenImage_400-2.jpg",
-      "idiom" : "ipad",
-      "scale" : "1x",
-      "unassigned" : true
-    },
-    {
-      "filename" : "GridGramesSplashScreenImage_800-2.jpg",
-      "idiom" : "ipad",
-      "scale" : "2x",
-      "unassigned" : true
     }
   ],
   "info" : {
