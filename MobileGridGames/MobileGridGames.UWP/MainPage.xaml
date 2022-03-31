@@ -1,0 +1,25 @@
+﻿<forms:WindowsPage
+    x:Class="MobileGridGames.UWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:forms="using:Xamarin.Forms.Platform.UWP"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MobileGridGames.UWP"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="WindowsPageGrid" 
+        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <!-- In order to raise a custom screen reader notification, we need to supply 
+            a XAML FrameworkElement's AutomationPeer. So create a TextBlock here as the
+            source of that peer. (The containing Grid has no peer, so we can't use that.)
+            We don't want any visuals to be impacted by the existence of this TextBlock,
+            so set its dimensions to zero. We can't set its Visibility to Collapsed,
+            because then we can't get an AutomationPeer from it. If somehow a screen
+            reader does manage to navigate to this TextBlock, that won't have a significant 
+            negative impact on the player experience, as it'll be a TextBlock which never  
+            has any text set on it. -->
+        <TextBlock x:Name="TextBlockForScreenReaderAnnouncements" 
+            Width="0" Height="0" />
+
+    </Grid>
+</forms:WindowsPage>
