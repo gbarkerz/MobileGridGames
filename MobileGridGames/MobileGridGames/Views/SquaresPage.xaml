@@ -130,8 +130,8 @@
                                     IsVisible="{Binding
                                     Source={x:Reference SquaresPageInstance},
                                     Path=BindingContext.ShowNumbers}">
-                                    <Frame Margin="0" Padding="0" HorizontalOptions="Start"
-                                        BorderColor="Transparent"
+                                    <Frame Margin="0" Padding="4,0,4,0" HorizontalOptions="Start"
+                                        BorderColor="{DynamicResource SquaresNumberTextColor}"
                                         BackgroundColor="{Binding TargetIndex, 
                                             Converter={StaticResource SquareTargetIndexToBackgroundColor}}"
                                         IsVisible="{Binding TargetIndex, 
