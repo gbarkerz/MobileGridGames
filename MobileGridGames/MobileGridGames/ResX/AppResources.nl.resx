@@ -453,4 +453,12 @@ Wil je nog een spel spelen?</value>
   <data name="Small" xml:space="preserve">
     <value>Klein</value>
   </data>
+  <data name="CompletedSquaresPictureInMoves" xml:space="preserve">
+    <value>You completed {0} in {1} goes.
+    
+Would you like to play another game?</value>
+  </data>
+  <data name="PictureNameLabel" xml:space="preserve">
+    <value>Picture Name:</value>
+  </data>
 </root>
