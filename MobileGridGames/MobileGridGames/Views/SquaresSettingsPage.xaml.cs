@@ -29,6 +29,7 @@ namespace MobileGridGames.Views
             vm.NumberSizeIndex = Preferences.Get("NumberSizeIndex", 1);
             vm.ShowPicture = Preferences.Get("ShowPicture", false);
             vm.PicturePathSquares = Preferences.Get("PicturePathSquares", "");
+            vm.PictureName = Preferences.Get("PictureName", "");
         }
 
         private async void CloseButton_Clicked(object sender, EventArgs e)
@@ -48,6 +49,7 @@ namespace MobileGridGames.Views
             // Clear all cached and persisted data related to the use of custom pictures.
             vm.PicturePathSquares = "";
             vm.ShowPicture = false;
+            vm.PictureName = "";
         }
 
         private async void PictureBrowseButton_Clicked(object sender, EventArgs e)

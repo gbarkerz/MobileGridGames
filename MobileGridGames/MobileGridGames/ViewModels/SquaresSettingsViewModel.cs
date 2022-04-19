@@ -82,5 +82,23 @@ namespace MobileGridGames.ViewModels
                 }
             }
         }
+
+        private string pictureName;
+        public string PictureName
+        {
+            get
+            {
+                return pictureName;
+            }
+            set
+            {
+                if (pictureName != value)
+                {
+                    SetProperty(ref pictureName, value);
+
+                    Preferences.Set("PictureName", value);
+                }
+            }
+        }
     }
 }

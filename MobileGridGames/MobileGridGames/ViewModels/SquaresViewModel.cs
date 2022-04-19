@@ -63,6 +63,16 @@ namespace MobileGridGames.ViewModels
             }
         }
 
+        private string pictureName;
+        public string PictureName
+        {
+            get { return pictureName; }
+            set
+            {
+                SetProperty(ref pictureName, value);
+            }
+        }
+
         private bool firstRunSquares = true;
         public bool FirstRunSquares
         {
@@ -92,6 +102,7 @@ namespace MobileGridGames.ViewModels
             // If we won't be loading pictures into the squares, shuffle them now.
             ShowPicture = Preferences.Get("ShowPicture", false);
             PicturePathSquares = Preferences.Get("PicturePathSquares", "");
+            PictureName = Preferences.Get("PictureName", "");
 
             if (!ShowPicture || !IsImageFilePathValid(PicturePathSquares))
             {

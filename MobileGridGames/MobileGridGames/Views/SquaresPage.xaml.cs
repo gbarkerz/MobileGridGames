@@ -45,6 +45,7 @@ namespace MobileGridGames.Views
             vm.NumberHeight = Preferences.Get("NumberSizeIndex", 1);
             vm.ShowPicture = Preferences.Get("ShowPicture", false);
             vm.PicturePathSquares = Preferences.Get("PicturePathSquares", "");
+            vm.PictureName = Preferences.Get("PictureName", "");
             vm.HideGrid = Preferences.Get("HideGrid", false);
 
             // Has the state of the picture being shown changed since we were last changed?
@@ -146,8 +147,20 @@ namespace MobileGridGames.Views
             var vm = this.BindingContext as SquaresViewModel;
             if (!vm.FirstRunSquares)
             {
-                var message = String.Format(
-                    AppResources.ResourceManager.GetString("SquaresWonInGoes"), 8 + vm.MoveCount);
+                var message = "";
+
+                if (String.IsNullOrWhiteSpace(vm.PictureName))
+                {
+                    message = String.Format(
+                        AppResources.ResourceManager.GetString("SquaresWonInGoes"), 8 + vm.MoveCount);
+                }
+                else
+                {
+                    message = String.Format(
+                        AppResources.ResourceManager.GetString("CompletedSquaresPictureInMoves"),
+                            vm.PictureName,
+                            8 + vm.MoveCount);
+                }
 
                 var answer = await DisplayAlert(
                     AppResources.ResourceManager.GetString("Congratulations"),
