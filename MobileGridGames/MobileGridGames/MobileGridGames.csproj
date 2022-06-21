@@ -19,6 +19,7 @@
     <None Remove="Resources\SoundOnMatch.m4a" />
     <None Remove="Resources\SoundOnNotMatch.m4a" />
     <None Remove="Resources\SquaresGameIcon.png" />
+    <None Remove="Resources\WheresGameIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,6 +39,7 @@
     <EmbeddedResource Include="Resources\SoundOnMatch.m4a" />
     <EmbeddedResource Include="Resources\SoundOnNotMatch.m4a" />
     <EmbeddedResource Include="Resources\SquaresGameIcon.png" />
+    <EmbeddedResource Include="Resources\WheresGameIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -88,6 +90,12 @@
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MatchingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\WheresPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\WheresTipPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

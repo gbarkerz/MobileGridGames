@@ -8,6 +8,19 @@ using Xamarin.Forms;
 
 namespace MobileGridGames.Views
 {
+    public class WCAGTitleToQuestion : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return "Where's \"" + (string)value + "\"?";
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
     public class CollectionViewHeightToRowHeight : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
@@ -77,6 +90,36 @@ namespace MobileGridGames.Views
             if (showNumbers)
             {
                 fontHeightPoints = containerHeightPixels * 0.6;
+            }
+
+            return fontHeightPoints;
+        }
+
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class WheresLabelContainerHeightToFontSize : IMultiValueConverter
+    {
+        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+        {
+            if ((values == null) || (values.Length < 2) || (values[0] == null) || (values[1] == null))
+            {
+                return 0;
+            }
+
+            var showNumbers = (bool)values[0];
+            var containerHeightPixels = (double)values[1];
+
+            // Future: Properly account for line height etc. For now, just shrink the value.
+            // Also this reduces the size to account for tall cells in portrait orientation.
+            double fontHeightPoints = 0;
+
+            if (showNumbers)
+            {
+                fontHeightPoints = containerHeightPixels * 0.4;
             }
 
             return fontHeightPoints;
@@ -158,13 +201,13 @@ namespace MobileGridGames.Views
         }
     }
 
-    public class FirstRunMatchingToGridOpacity : IValueConverter
+    public class FirstRunToGridOpacity : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var firstRunMatching = (bool)value;
+            var firstRun = (bool)value;
 
-            return firstRunMatching ? 0.0 : 1.0;
+            return firstRun ? 0.0 : 1.0;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
@@ -309,6 +352,37 @@ namespace MobileGridGames.Views
 
             return targetIndex != 15 ?
                 App.Current.Resources["SquaresNumberBackgroundColor"] : Color.DarkGray;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class WheresAnsweredToTextColor : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var answered = (bool)value;
+
+            return answered ? App.Current.Resources["WheresAnsweredTextColor"] :
+                                App.Current.Resources["WheresTextColor"];
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class WheresAnsweredToBackgroundColor : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var answered = (bool)value;
+
+            return answered ? App.Current.Resources["WheresAnsweredBackgroundColor"] : Color.Transparent;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -27,7 +27,8 @@
             <StackLayout Grid.Row="2">
                 <ScrollView Margin="4,4,4,2">
                     <StackLayout>
-                        <Label Margin="0,20,0,0" 
+                        <!-- Barker: The "Hide Grid" feature generated no interest. -->
+                        <!--<Label Margin="0,20,0,0" 
                             Text="{x:Static resources:AppResources.AppSettingsHideGridInstructions}" />
                         <StackLayout Orientation="Horizontal">
                             <Label x:Name="HideGridLabel" 
@@ -39,7 +40,7 @@
                                     Converter={StaticResource CheckBoxStateToAccessibleName},
                                     ConverterParameter=AppSettingsHideGrid}"
                                 VerticalOptions="Center" IsChecked="{Binding HideGrid}" />
-                        </StackLayout>
+                        </StackLayout>-->
                         <Label Margin="0,20,0,0" 
                             Text="{x:Static resources:AppResources.AppSettingsDarkThemeInstructions}" />
                         <StackLayout Orientation="Horizontal">

@@ -9,10 +9,14 @@
     <Color x:Key="GameTitleBarTextColor">White</Color>
     <Color x:Key="GameTitleBarBackgroundColor">#0C77CF</Color>
     <Color x:Key="GridBackgroundColor">LightGray</Color>
+    <Color x:Key="WheresGridBackgroundColor">LightGray</Color>
     <Color x:Key="GridItemBackgroundColor">White</Color>
     <Color x:Key="SquaresNumberTextColor">Black</Color>
     <Color x:Key="SquaresNumberBackgroundColor">White</Color>
     <Color x:Key="FlyoutMenuItemColor">#0C77CF</Color>
+    <Color x:Key="WheresTextColor">Black</Color>
+    <Color x:Key="WheresAnsweredTextColor">White</Color>
+    <Color x:Key="WheresAnsweredBackgroundColor">Green</Color>    
 
     <Style TargetType="Label">
         <Setter Property="TextColor" Value="Black"></Setter>

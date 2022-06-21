@@ -277,7 +277,7 @@ Please note when a screen reader moves to the Menu button near the top left corn
   <data name="Matched" xml:space="preserve">
     <value>Matched</value>
   </data>
-  <data name="MatchingWonInMoves" xml:space="preserve">
+  <data name="WonInMoves" xml:space="preserve">
     <value>You won the game in {0} goes.
 
 Would you like to play another game?</value>

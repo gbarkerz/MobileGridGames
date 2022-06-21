@@ -19,7 +19,7 @@ namespace MobileGridGames.ResX {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class AppResources {
@@ -167,6 +167,15 @@ namespace MobileGridGames.ResX {
         internal static string Congratulations {
             get {
                 return ResourceManager.GetString("Congratulations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You found {0}. Now where&apos;s {1}?.
+        /// </summary>
+        internal static string CorrectWCAG {
+            get {
+                return ResourceManager.GetString("CorrectWCAG", resourceCulture);
             }
         }
         
@@ -596,15 +605,33 @@ namespace MobileGridGames.ResX {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 
+        ///   Looks up a localized string similar to The Squares Game is based on a square sliding puzzle, where squares in a grid of squares are rearranged by the player to form an ordered sequence in the grid.
         ///
-        ///The Squares Game is based on a square sliding puzzle, where squares in a grid of squares are rearranged by the player to form an ordered sequence in the grid.
-        ///
-        ///When the game is run, a 4 by 4 grid of squares appears, with fifteen of those squares occupied with a movable element, and one square being empty. When a square is tapped, if it is adjacent to the empty square, the tapped square moves into the empty square. The space where the tapped square was then becomes the empty square. The aim is to arran [rest of string was truncated]&quot;;.
+        ///When the game is run, a 4 by 4 grid of squares appears, with fifteen of those squares occupied with a movable element, and one square being empty. When a square is tapped, if it is adjacent to the empty square, the tapped square moves into the empty square. The space where the tapped square was then becomes the empty square. The aim is to arrange a [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string HelpContentSquares {
             get {
                 return ResourceManager.GetString("HelpContentSquares", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Where&apos;s WCAG? game presents a question starting with &quot;Where&apos;s&quot;, followed by the name of a WCAG group. Following the question is a grid of squares, with each square containing the number of a WCAG group. The goal is to find the square who&apos;s number matches the WCAG group in as few goes as possible. Once the correct square is found, another question will be asked. Once all the squares are founds, the game as been won and a &quot;Congratulations&quot; window appears.
+        ///
+        ///When using a screen reader with the game, move  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string HelpContentWheres {
+            get {
+                return ResourceManager.GetString("HelpContentWheres", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} isn&apos;t {1}..
+        /// </summary>
+        internal static string IncorrectWCAG {
+            get {
+                return ResourceManager.GetString("IncorrectWCAG", resourceCulture);
             }
         }
         
@@ -659,17 +686,6 @@ namespace MobileGridGames.ResX {
         internal static string Matched {
             get {
                 return ResourceManager.GetString("Matched", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You won the game in {0} goes.
-        ///    
-        ///Would you like to play another game?.
-        /// </summary>
-        internal static string MatchingWonInMoves {
-            get {
-                return ResourceManager.GetString("MatchingWonInMoves", resourceCulture);
             }
         }
         
@@ -1063,6 +1079,15 @@ namespace MobileGridGames.ResX {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tip.
+        /// </summary>
+        internal static string Tip {
+            get {
+                return ResourceManager.GetString("Tip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Turned up.
         /// </summary>
         internal static string TurnedUp {
@@ -1124,6 +1149,44 @@ namespace MobileGridGames.ResX {
         internal static string WelcomeInstructions {
             get {
                 return ResourceManager.GetString("WelcomeInstructions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Where&apos;s WCAG?.
+        /// </summary>
+        internal static string Wheres {
+            get {
+                return ResourceManager.GetString("Wheres", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Where&apos;s WCAG? Help.
+        /// </summary>
+        internal static string WheresGameHelp {
+            get {
+                return ResourceManager.GetString("WheresGameHelp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome to the Where&apos;s WCAG? Game!.
+        /// </summary>
+        internal static string WheresWelcome {
+            get {
+                return ResourceManager.GetString("WheresWelcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You won the game in {0} goes.
+        ///    
+        ///Would you like to play another game?.
+        /// </summary>
+        internal static string WonInMoves {
+            get {
+                return ResourceManager.GetString("WonInMoves", resourceCulture);
             }
         }
         

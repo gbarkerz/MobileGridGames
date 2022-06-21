@@ -41,7 +41,16 @@ namespace MobileGridGames
 
             shellSectionMatching.Items.Add(new ShellContent() { Content = new MatchingPage() });
 
-            bool initialGameIsSquares = (initialGame == "Squares");
+            ShellSection shellSectionWheres = new ShellSection
+            {
+                Title = AppResources.ResourceManager.GetString("Wheres"),
+                FlyoutIcon = ImageSource.FromResource(
+                    "MobileGridGames.Resources.WheresGameIcon.png"),
+            };
+
+            shellSectionWheres.Items.Add(new ShellContent() { Content = new WheresPage() });
+
+            // bool initialGameIsSquares = (initialGame == "Squares");
 
             // The following attempt to bind the FlyoutBehavior to a view model property
             // seemed to work on startup, but not later when loading a different picture
@@ -58,10 +67,22 @@ namespace MobileGridGames
             //            new GameIsLoadingToFlyoutBehavior()));
             //}
 
+            this.Items.Insert(0, shellSectionWheres);
             this.Items.Insert(0, shellSectionMatching);
             this.Items.Insert(0, shellSectionSquares);
 
-            this.CurrentItem = (initialGameIsSquares ? shellSectionSquares : shellSectionMatching);
+            if (initialGame == "Pairs")
+            {
+                this.CurrentItem = shellSectionMatching;
+            }
+            else if (initialGame == "Wheres")
+            {
+                this.CurrentItem = shellSectionWheres;
+            }
+            else
+            {
+                this.CurrentItem = shellSectionSquares;
+            }
         }
 
         private async void OnHelpMenuItemClicked(object sender, EventArgs e)
@@ -74,7 +95,15 @@ namespace MobileGridGames
                 var vm = (CurrentPage as MatchingPage).BindingContext as MatchingViewModel;
                 if (!vm.FirstRunMatching)
                 {
-                    await Navigation.PushModalAsync(new HelpPage(true));
+                    await Navigation.PushModalAsync(new HelpPage(currentPage));
+                }
+            }
+            if (currentPage is WheresPage)
+            {
+                var vm = (CurrentPage as WheresPage).BindingContext as WheresViewModel;
+                if (!vm.FirstRunWheres)
+                {
+                    await Navigation.PushModalAsync(new HelpPage(currentPage));
                 }
             }
             else
@@ -82,7 +111,7 @@ namespace MobileGridGames
                 var vm = (CurrentPage as SquaresPage).BindingContext as SquaresViewModel;
                 if (!vm.FirstRunSquares)
                 {
-                    await Navigation.PushModalAsync(new HelpPage(false));
+                    await Navigation.PushModalAsync(new HelpPage(currentPage));
                 }
             }
         }
@@ -98,6 +127,11 @@ namespace MobileGridGames
             {
                 var vm = (CurrentPage as MatchingPage).BindingContext as MatchingViewModel;
                 showAppSettingWindow = !vm.FirstRunMatching;
+            }
+            else if (currentPage is WheresPage)
+            {
+                var vm = (CurrentPage as WheresPage).BindingContext as WheresViewModel;
+                showAppSettingWindow = !vm.FirstRunWheres;
             }
             else
             {
@@ -125,7 +159,15 @@ namespace MobileGridGames
                     vm.ResetGrid(true);
                 }
             }
-            else
+            else if (currentPage is WheresPage)
+            {
+                var vm = (CurrentPage as WheresPage).BindingContext as WheresViewModel;
+                if (!vm.FirstRunWheres)
+                {
+                    vm.ResetGrid(true);
+                }
+            }
+            else if (currentPage is SquaresPage)
             {
                 var vm = (CurrentPage as SquaresPage).BindingContext as SquaresViewModel;
                 if (!vm.FirstRunSquares && !vm.GameIsLoading)

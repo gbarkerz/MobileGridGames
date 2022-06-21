@@ -12,10 +12,15 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Label x:Name="SquaresGameHelpTitle" Grid.Row="0" 
+                IsVisible="False"
                 Text="{x:Static resources:AppResources.SquaresGameHelp}" FontSize="Title" />
             <Label x:Name="MatchingGameHelpTitle" Grid.Row="0" 
+                IsVisible="False"
                 Text="{x:Static resources:AppResources.PairsGameHelp}" FontSize="Title" />
-            <StackLayout x:Name="SquaresGameHelpContent" Grid.Row="1">
+            <Label x:Name="WheresGameHelpTitle" Grid.Row="0" 
+                IsVisible="False"
+                Text="{x:Static resources:AppResources.WheresGameHelp}" FontSize="Title" />
+            <StackLayout x:Name="SquaresGameHelpContent" Grid.Row="1" IsVisible="False">
                 <ScrollView Margin="4,4,4,2">
                     <Label VerticalOptions="Center" FontSize="Medium">
                         <Label.FormattedText>
@@ -26,12 +31,23 @@
                     </Label>
                 </ScrollView>
             </StackLayout>
-            <StackLayout x:Name="MatchingGameHelpContent" Grid.Row="1">
+            <StackLayout x:Name="MatchingGameHelpContent" Grid.Row="1" IsVisible="False">
                 <ScrollView Margin="4,4,4,2">
                     <Label VerticalOptions="Center" FontSize="Medium">
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="{x:Static resources:AppResources.HelpContentPairs}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </ScrollView>
+            </StackLayout>
+            <StackLayout x:Name="WheresGameHelpContent" Grid.Row="1" IsVisible="False">
+                <ScrollView Margin="4,4,4,2">
+                    <Label VerticalOptions="Center" FontSize="Medium">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{x:Static resources:AppResources.HelpContentWheres}" />
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>

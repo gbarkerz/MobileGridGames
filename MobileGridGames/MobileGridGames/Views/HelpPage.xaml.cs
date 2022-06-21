@@ -7,19 +7,24 @@ namespace MobileGridGames.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HelpPage : ContentPage
     {
-        public HelpPage(bool matchingPage)
+        public HelpPage(Page currentPage)
         {
             InitializeComponent();
 
-            if (matchingPage)
+            if (currentPage is SquaresPage)
             {
-                SquaresGameHelpTitle.IsVisible = false;
-                SquaresGameHelpContent.IsVisible = false;
+                SquaresGameHelpTitle.IsVisible = true;
+                SquaresGameHelpContent.IsVisible = true;
             }
-            else
+            else if (currentPage is MatchingPage)
             {
-                MatchingGameHelpTitle.IsVisible = false;
-                MatchingGameHelpContent.IsVisible = false;
+                MatchingGameHelpTitle.IsVisible = true;
+                MatchingGameHelpContent.IsVisible = true;
+            }
+            else if (currentPage is WheresPage)
+            {
+                WheresGameHelpTitle.IsVisible = true;
+                WheresGameHelpContent.IsVisible = true;
             }
         }
 

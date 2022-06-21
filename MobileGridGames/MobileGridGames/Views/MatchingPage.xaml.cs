@@ -189,7 +189,7 @@ namespace MobileGridGames.Views
             if (!vm.FirstRunMatching)
             {
                 var message = String.Format(
-                    AppResources.ResourceManager.GetString("MatchingWonInMoves"), 8 + vm.TryAgainCount);
+                    AppResources.ResourceManager.GetString("WonInMoves"), 8 + vm.TryAgainCount);
 
                 var answer = await DisplayAlert(
                     AppResources.ResourceManager.GetString("Congratulations"),

@@ -277,7 +277,7 @@ Houd er rekening mee dat wanneer een schermlezer naar de menuknop in de linkerbo
   <data name="Matched" xml:space="preserve">
     <value>Op elkaar afgestemd</value>
   </data>
-  <data name="MatchingWonInMoves" xml:space="preserve">
+  <data name="WonInMoves" xml:space="preserve">
     <value>Je hebt de game gewonnen in {0} gaat.
 
 Wil je nog een spel spelen?</value>
