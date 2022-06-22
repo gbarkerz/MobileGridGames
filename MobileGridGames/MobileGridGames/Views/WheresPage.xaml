@@ -113,6 +113,8 @@
                                         IsVisible="{Binding IsFound}"
                                         TextColor="{Binding IsFound, 
                                             Converter={StaticResource WheresAnsweredToTextColor}}"
+                                        LineBreakMode="MiddleTruncation"
+                                        MaxLines="2"
                                         Margin="4"
                                         HorizontalOptions="Center" />
                                 </Grid>
