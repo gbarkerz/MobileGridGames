@@ -12,6 +12,9 @@ namespace MobileGridGames.ViewModels
     public class WheresCard : INotifyPropertyChanged
     {
         public int Index { get; set; }
+        public string WCAGName { get; set; }
+
+        // Barker todo: Check whether all the props below really need to raise PropertyChanged events.
 
         private string accessibleName;
         public string AccessibleName
@@ -41,8 +44,6 @@ namespace MobileGridGames.ViewModels
                 SetProperty(ref accessibleName, value);
             }
         }
-
-        public string WCAGName { get; set; }
 
         private string wcagNumber;
         public string WCAGNumber
@@ -101,26 +102,9 @@ namespace MobileGridGames.ViewModels
     {
         // Barker: Unify the use of the two arrays here.
 
-        private string[] wcagNames =
-        {
-            "Perceivable",
-            "Text Alternatives",
-            "Time-based Media",
-            "Adaptable",
-            "Distinguishable",
-
-            "Operable",
-            "Keyboard Accessible",
-            "Enough Time",
-            "Seizures and Physical Reactions",
-            "Navigable",
-            "Input Modalities",
-
-            "Understandable",
-            "Readable",
-            "Predictable",
-            "Input Assistance"
-        };
+        // Both arrays are used to initialise the cards. Once that's done, the related properties
+        // on the cards don't change for the duration of a game, but the wcagNames array is randomly
+        // rearranged to provide the questions.
 
         string[] wcagNumbers =
         {
@@ -143,16 +127,37 @@ namespace MobileGridGames.ViewModels
             "3.3",
         };
 
+        private string[] wcagNames =
+        {
+            "Perceivable",
+            "Text Alternatives",
+            "Time-based Media",
+            "Adaptable",
+            "Distinguishable",
+
+            "Operable",
+            "Keyboard Accessible",
+            "Enough Time",
+            "Seizures and Physical Reactions",
+            "Navigable",
+            "Input Modalities",
+
+            "Understandable",
+            "Readable",
+            "Predictable",
+            "Input Assistance"
+        };
+
         public WheresViewModel()
         {
             Title = AppResources.ResourceManager.GetString("Wheres");
 
             wheresList = new ObservableCollection<WheresCard>();
 
-            TryAgainCount = 0;
+            AnswerAttemptCount = 0;
         }
 
-        public int TryAgainCount { get; set; }
+        public int AnswerAttemptCount { get; set; }
         public int CurrentQuestionIndex { get; set; }
 
         private string currentQuestionWCAG;
@@ -167,7 +172,6 @@ namespace MobileGridGames.ViewModels
                 SetProperty(ref currentQuestionWCAG, value);
             }
         }
-
 
         private bool firstRunWheres = true;
         public bool FirstRunWheres
@@ -187,28 +191,20 @@ namespace MobileGridGames.ViewModels
             }
         }
 
-        public void SetupDefaultWheresCardList()
+        public void SetupWheresCardList()
         {
-            var resManager = AppResources.ResourceManager;
-
             wheresList.Clear();
 
-            // We have 8 pairs of cards.
-            for (int i = 0; i < 8; ++i)
+            // We have 15 cards and a tip.
+            for (int i = 0; i < 16; ++i)
             {
-                for (int j = 0; j < 2; ++j)
-                {
-                    // The card index runs from 0 to 15.
-                    var cardIndex = (i * 2) + j;
-
-                    wheresList.Add(
-                        new WheresCard
-                        {
-                            Index = cardIndex,
-                            WCAGNumber = (cardIndex < 15 ? wcagNumbers[cardIndex] : "?"),
-                            WCAGName = (cardIndex < 15 ? wcagNames[cardIndex] : "Tip")
-                        });
-                }
+                wheresList.Add(
+                    new WheresCard
+                    {
+                        Index = i,
+                        WCAGNumber = (i < 15 ? wcagNumbers[i] : "?"),
+                        WCAGName = (i  < 15 ? wcagNames[i] : "Tip")
+                    });
             }
 
             var shuffler = new Shuffler();
@@ -216,16 +212,6 @@ namespace MobileGridGames.ViewModels
 
             CurrentQuestionIndex = 0;
             CurrentQuestionWCAG = wcagNames[CurrentQuestionIndex];
-        }
-
-        public void SetupCustomWheresCardList(Collection<WheresCard> cards)
-        {
-            wheresList.Clear();
-
-            for (int i = 0; i < cards.Count; i++)
-            {
-                wheresList.Add(cards[i]);
-            }
         }
 
         private ObservableCollection<WheresCard> wheresList;
@@ -239,7 +225,7 @@ namespace MobileGridGames.ViewModels
         {
             bool gameIsWon = false;
 
-            // Take no action if the click is on a cell that's already face-up.
+            // Take no action if the click is on a cell that's already found.
             var card = wheresList[squareIndex];
             if (card.IsFound)
             {
@@ -268,7 +254,7 @@ namespace MobileGridGames.ViewModels
             }
             else if (card.WCAGName != "Tip")
             {
-                ++TryAgainCount;
+                ++AnswerAttemptCount;
 
                 var message = String.Format(
                     AppResources.ResourceManager.GetString("IncorrectWCAG"),
@@ -322,7 +308,7 @@ namespace MobileGridGames.ViewModels
 
         public void ResetGrid(bool shuffle)
         {
-            TryAgainCount = 0;
+            AnswerAttemptCount = 0;
 
             if (shuffle)
             {

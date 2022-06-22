@@ -20,18 +20,6 @@ namespace MobileGridGames.Views
             InitializeComponent();
         }
 
-        private async void MatchingGameSettingsButton_Clicked(object sender, EventArgs e)
-        {
-            var vm = this.BindingContext as WheresViewModel;
-            if (!vm.FirstRunWheres)
-            {
-                var settingsPage = new MatchingGameSettingsPage();
-                await Navigation.PushModalAsync(settingsPage);
-            }
-        }
-
-        // This gets called when switching from the Squares Game to the Matching Game,
-        // and also when closing the Matching Settings page.
         protected override void OnAppearing()
         {
             Debug.Write("Wheres Game: OnAppearing called.");
@@ -39,8 +27,6 @@ namespace MobileGridGames.Views
             base.OnAppearing();
 
             Preferences.Set("InitialGame", "Wheres");
-
-            // We must account for the app settings changing since the page was last shown.
 
             var vm = this.BindingContext as WheresViewModel;
             vm.FirstRunWheres = Preferences.Get("FirstRunWheres", true);
@@ -58,7 +44,7 @@ namespace MobileGridGames.Views
                 // Reset all cached game progress setting, but don't bother to shuffle.
                 vm.ResetGrid(false);
 
-                vm.SetupDefaultWheresCardList();
+                vm.SetupWheresCardList();
             }
         }
 
@@ -103,7 +89,8 @@ namespace MobileGridGames.Views
                 string group = "";
                 string number = "";
 
-                for (int i = 0; i < 15; ++i)
+                // Barker Todo: This is all a bit hard-coded, so clean it up.
+                for (int i = 0; i < vm.WheresListCollection.Count; ++i)
                 {
                     if (vm.WheresListCollection[i].WCAGName == vm.CurrentQuestionWCAG)
                     {
@@ -140,7 +127,7 @@ namespace MobileGridGames.Views
             {
                 var message = String.Format(
                     AppResources.ResourceManager.GetString("WonInMoves"), 
-                    15 + vm.TryAgainCount);
+                    15 + vm.AnswerAttemptCount);
 
                 var answer = await DisplayAlert(
                     AppResources.ResourceManager.GetString("Congratulations"),

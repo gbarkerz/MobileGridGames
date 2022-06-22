@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -37,11 +36,11 @@ namespace MobileGridGames.Views
         private string groupName = "";
         private string groupNumber = "";
 
-        public WheresTipPage(string wcagName, string wcagGroup,string number)
+        public WheresTipPage(string wcagName, string wcagGroup, string leadingNumber)
         {
             name = wcagName;
             groupName = wcagGroup;
-            groupNumber = number;
+            groupNumber = leadingNumber;
 
             InitializeComponent();
 
@@ -55,7 +54,6 @@ namespace MobileGridGames.Views
 
         private async void LearnMoreButton_Clicked(object sender, EventArgs e)
         {
-            // Launcher.OpenAsync is provided by Xamarin.Essentials.
             await Launcher.OpenAsync("https://www.w3.org/TR/WCAG21/#" + groupName.ToLower());
         }
     }

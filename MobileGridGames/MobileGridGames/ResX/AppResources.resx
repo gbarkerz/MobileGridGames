@@ -283,7 +283,7 @@ When the game is run, a 4 by 4 grid of blank squares appears, each square repres
 
 When using a screen reader with the game, move your finger around the screen to have the number of the card beneath your finger announced. Double tap to turn up a card. When a turned up card is matched, its name will be prefixed with "Matched".
 
-Please note when a screen reader moves to the Menu button near the top left corner of the app, it may announce the button as the OK button or Menu button, or only announce the word button.</value>
+Please note when a screen reader moves to the Menu button near the top left corner of the app, it may announce the button as the OK button or Menu button, or only announce the word "button".</value>
   </data>
   <data name="HelpContentSquares" xml:space="preserve">
     <value>The Squares Game is based on a square sliding puzzle, where squares in a grid of squares are rearranged by the player to form an ordered sequence in the grid.
@@ -302,7 +302,7 @@ When the game setting to have a picture shown on the squares is on, then a singl
 
 When using a screen reader with the game, move your finger around the screen to have the number of the square beneath your finger announced. Double tap to move a square.
 
-Please note when a screen reader moves to the Menu button near the top left corner of the app, it may announce the button as the OK button or Menu button, or only announce the word button.</value>
+Please note when a screen reader moves to the Menu button near the top left corner of the app, it may announce the button as the OK button or Menu button, or only announce the word "button".</value>
   </data>
   <data name="Left" xml:space="preserve">
     <value>left</value>
@@ -508,11 +508,13 @@ Would you like to play another game?</value>
     <value>Welcome to the Where's WCAG? Game!</value>
   </data>
   <data name="HelpContentWheres" xml:space="preserve">
-    <value>The Where's WCAG? game presents a question starting with "Where's", followed by the name of a WCAG group. Following the question is a grid of squares, with each square containing the number of a WCAG group. The goal is to find the square who's number matches the WCAG group in as few goes as possible. Once the correct square is found, another question will be asked. Once all the squares are founds, the game as been won and a "Congratulations" window appears.
+    <value>The Where's WCAG? game presents a question asking the player to find a particular WCAG group. For example, "Where's Enough Time?". Below the question is a grid of squares showing fifteen WCAG group numbers. For example, "2.2". The aim is for the player to click the square showing the number matching the WCAG group. If successful, the square changes to also show the name of the WCAG group, and the question changes to ask the player to find a different WCAG group. If not successful, the player tries again by clicking another square. Once all the WCAG groups are found, the player has won, and a "Congratulations" window appears. 
 
-When using a screen reader with the game, move your finger around the screen to have the number of the square beneath your finger announced. Double tap to cick on the square. When a correct square is found, its name will be prefixed with "Correct".
+Note that the game only presents WCAG groups relating to content being perceivable, operable, and understanding, and from the WCAG 2.1 Standard.
 
-Please note when a screen reader moves to the Menu button near the top left corner of the app, it may announce the button as the OK button or Menu button, or only announce the word button.</value>
+When using a screen reader with the game, move your finger around the screen to have the WCAG number shown on the square beneath your finger announced. Double tap to click on the square.
+
+Please note when a screen reader moves to the Menu button near the top left corner of the app, it may announce the button as the OK button or Menu button, or only announce the word “button”.</value>
   </data>
   <data name="WheresGameHelp" xml:space="preserve">
     <value>Where's WCAG? Help</value>

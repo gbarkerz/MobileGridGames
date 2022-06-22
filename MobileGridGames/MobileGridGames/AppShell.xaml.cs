@@ -21,7 +21,7 @@ namespace MobileGridGames
 
             this.Title = AppResources.ResourceManager.GetString("GridGames");
 
-            string initialGame = Preferences.Get("InitialGame", "Squares");
+            string initialGame = Preferences.Get("InitialGame", "Wheres");
 
             ShellSection shellSectionSquares = new ShellSection
             {
@@ -98,7 +98,7 @@ namespace MobileGridGames
                     await Navigation.PushModalAsync(new HelpPage(currentPage));
                 }
             }
-            if (currentPage is WheresPage)
+            else if (currentPage is WheresPage)
             {
                 var vm = (CurrentPage as WheresPage).BindingContext as WheresViewModel;
                 if (!vm.FirstRunWheres)
@@ -106,7 +106,7 @@ namespace MobileGridGames
                     await Navigation.PushModalAsync(new HelpPage(currentPage));
                 }
             }
-            else
+            else if (currentPage is SquaresPage)
             {
                 var vm = (CurrentPage as SquaresPage).BindingContext as SquaresViewModel;
                 if (!vm.FirstRunSquares)
@@ -120,7 +120,7 @@ namespace MobileGridGames
         {
             Shell.Current.FlyoutIsPresented = false;
 
-            bool showAppSettingWindow = true;
+            bool showAppSettingWindow = false;
 
             var currentPage = this.CurrentPage;
             if (currentPage is MatchingPage)
@@ -133,7 +133,7 @@ namespace MobileGridGames
                 var vm = (CurrentPage as WheresPage).BindingContext as WheresViewModel;
                 showAppSettingWindow = !vm.FirstRunWheres;
             }
-            else
+            else if (currentPage is SquaresPage)
             {
                 var vm = (CurrentPage as SquaresPage).BindingContext as SquaresViewModel;
                 showAppSettingWindow = !(vm.FirstRunSquares || vm.GameIsLoading);

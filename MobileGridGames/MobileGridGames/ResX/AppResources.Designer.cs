@@ -616,9 +616,7 @@ namespace MobileGridGames.ResX {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Where&apos;s WCAG? game presents a question starting with &quot;Where&apos;s&quot;, followed by the name of a WCAG group. Following the question is a grid of squares, with each square containing the number of a WCAG group. The goal is to find the square who&apos;s number matches the WCAG group in as few goes as possible. Once the correct square is found, another question will be asked. Once all the squares are founds, the game as been won and a &quot;Congratulations&quot; window appears.
-        ///
-        ///When using a screen reader with the game, move  [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to The Where&apos;s WCAG? game presents a question asking the player to find a particular WCAG group. For example, &quot;Where&apos;s Enough Time?&quot;. Below the question is a grid of squares showing fifteen WCAG group numbers. For example, &quot;2.2&quot;. The aim is for the player to click the square showing the number matching the WCAG group. If successful, the square changes to also show the name of the WCAG group, and the question changes to ask the player to find a different WCAG group. If not successful, the player tries again by  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string HelpContentWheres {
             get {
