@@ -49,33 +49,36 @@
                         <Label Grid.Row="0" Grid.Column="0" x:Name="PlaySoundOnMatchLabel" 
                             Text="{x:Static resources:AppResources.PlaySoundMatch}"
                             VerticalOptions="Center" />
-                        <!-- For iOS
+                        <!-- For iOS -->
                         <CheckBox Grid.Row="0" Grid.Column="1" x:Name="PlaySoundOnMatchCheckBox"
                             AutomationProperties.Name="{Binding PlaySoundOnMatch,
                                 Mode=OneWay,
                                 Converter={StaticResource CheckBoxStateToAccessibleName},
                                 ConverterParameter=PlaySoundMatch}"
                             VerticalOptions="Center" IsChecked="{Binding PlaySoundOnMatch}" />
-                        -->
-                        <!-- For Android -->
+                        
+                        <!-- For Android
                         <CheckBox Grid.Row="0" Grid.Column="1" x:Name="PlaySoundOnMatchCheckBox"
                             AutomationProperties.LabeledBy="PlaySoundOnMatchLabel"
                             VerticalOptions="Center" IsChecked="{Binding PlaySoundOnMatch}" />
                         <Label Grid.Row="1" Grid.Column="0" x:Name="PlaySoundOnNotMatchLabel" 
                             Text="{x:Static resources:AppResources.PlaySoundNotMatch}"
                             VerticalOptions="Center" />
-                        <!-- For iOS
+                        -->
+
+                        <!-- For iOS -->
                         <CheckBox Grid.Row="1" Grid.Column="1" x:Name="PlaySoundOnNotMatchCheckBox"
                             AutomationProperties.Name="{Binding PlaySoundOnNotMatch,
                                 Mode=OneWay,
                                 Converter={StaticResource CheckBoxStateToAccessibleName},
                                 ConverterParameter=PlaySoundNotMatch}"
                             VerticalOptions="Center" IsChecked="{Binding PlaySoundOnNotMatch}" />
-                        -->
-                        <!-- For Android -->
+                        
+                        <!-- For Android 
                         <CheckBox Grid.Row="1" Grid.Column="1" x:Name="PlaySoundOnNotMatchCheckBox"
                             AutomationProperties.LabeledBy="PlaySoundOnNotMatchLabel"
                             VerticalOptions="Center" IsChecked="{Binding PlaySoundOnNotMatch}" />
+                        -->
                     </Grid>
 
                     <Grid Grid.Row="1">
@@ -97,18 +100,19 @@
                         <Label x:Name="ShowCustomPicturesLabel" 
                             Text="{x:Static resources:AppResources.ShowCustomPictures}"
                             VerticalOptions="Center" />
-                        <!-- For iOS
+                        <!-- For iOS -->
                         <CheckBox x:Name="ShowCustomPicturesCheckBox"
                             AutomationProperties.Name="{Binding ShowCustomPictures,
                                 Mode=OneWay,
                                 Converter={StaticResource CheckBoxStateToAccessibleName},
                                 ConverterParameter=ShowCustomPictures}"
                             VerticalOptions="Center" IsChecked="{Binding ShowCustomPictures}" />
-                        -->
-                        <!-- For Android -->
+                        
+                        <!-- For Android 
                         <CheckBox x:Name="ShowCustomPicturesCheckBox"
                             AutomationProperties.LabeledBy="ShowCustomPicturesLabel"
                             VerticalOptions="Center" IsChecked="{Binding ShowCustomPictures}" />
+                        -->
                     </StackLayout>
 
                     <Button Grid.Row="3" x:Name="PictureBrowseButton" 

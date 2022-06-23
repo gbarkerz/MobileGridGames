@@ -9,7 +9,7 @@
     <Color x:Key="GameTitleBarTextColor">White</Color>
     <Color x:Key="GameTitleBarBackgroundColor">#0C77CF</Color>
     <Color x:Key="GridBackgroundColor">LightGray</Color>
-    <Color x:Key="WheresGridBackgroundColor">LightGray</Color>
+    <Color x:Key="WheresGridBackgroundColor">#F0F0F0</Color>
     <Color x:Key="GridItemBackgroundColor">White</Color>
     <Color x:Key="SquaresNumberTextColor">Black</Color>
     <Color x:Key="SquaresNumberBackgroundColor">White</Color>
