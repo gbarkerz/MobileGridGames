@@ -616,7 +616,9 @@ namespace MobileGridGames.ResX {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Where&apos;s WCAG? game presents a question asking the player to find a particular WCAG group. For example, &quot;Where&apos;s Enough Time?&quot;. Below the question is a grid of squares showing fifteen WCAG group numbers. For example, &quot;2.2&quot;. The aim is for the player to click the square showing the number matching the WCAG group. If successful, the square changes to also show the name of the WCAG group, and the question changes to ask the player to find a different WCAG group. If not successful, the player tries again by  [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;WCAG&quot; is the Web Content Accessibility Guidelines (WCAG) international standard, which helps web content authors create content that&apos;s more accessible. The WCAG standard has been used as the base for European accessibility standards which apply to both web content and software.
+        ///
+        ///The Where&apos;s WCAG? game presents a question asking the player to find a particular WCAG group. For example, &quot;Where&apos;s Enough Time?&quot;. Below the question in the app is a grid of squares showing fifteen WCAG group numbers. For example [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string HelpContentWheres {
             get {
