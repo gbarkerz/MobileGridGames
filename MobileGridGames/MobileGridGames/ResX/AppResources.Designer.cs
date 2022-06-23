@@ -1171,6 +1171,33 @@ namespace MobileGridGames.ResX {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Play sound when WCAG found.
+        /// </summary>
+        internal static string WheresPlaySoundMatch {
+            get {
+                return ResourceManager.GetString("WheresPlaySoundMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Play sound when WCAG not found.
+        /// </summary>
+        internal static string WheresPlaySoundNotMatch {
+            get {
+                return ResourceManager.GetString("WheresPlaySoundNotMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Where&apos;s WCAG? Settings.
+        /// </summary>
+        internal static string WheresSettings {
+            get {
+                return ResourceManager.GetString("WheresSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Welcome to the Where&apos;s WCAG? Game!.
         /// </summary>
         internal static string WheresWelcome {

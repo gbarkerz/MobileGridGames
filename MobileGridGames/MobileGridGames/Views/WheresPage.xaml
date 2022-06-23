@@ -18,6 +18,10 @@
             <Label Grid.Column="0" Text="{x:Static resources:AppResources.Wheres}"
                 TextColor="{DynamicResource GameTitleBarTextColor}" VerticalOptions="Center"
                 FontSize="Title" />
+            <Button Grid.Column="1" Text="&#xf013;" Clicked="WheresGameSettingsButton_Clicked"
+                BorderWidth="0"
+                FontFamily="FA" FontSize="Title" HorizontalOptions="End"
+                AutomationProperties.Name="{x:Static resources:AppResources.WheresSettings}" />
         </Grid>
     </Shell.TitleView>
 

@@ -532,4 +532,13 @@ The last square in the grid shows a question mark, and is announced by a screen 
   <data name="IncorrectWCAG" xml:space="preserve">
     <value>{0} isn't {1}.</value>
   </data>
+  <data name="WheresSettings" xml:space="preserve">
+    <value>Where's WCAG? Settings</value>
+  </data>
+  <data name="WheresPlaySoundMatch" xml:space="preserve">
+    <value>Play sound when WCAG found</value>
+  </data>
+  <data name="WheresPlaySoundNotMatch" xml:space="preserve">
+    <value>Play sound when WCAG not found</value>
+  </data>
 </root>

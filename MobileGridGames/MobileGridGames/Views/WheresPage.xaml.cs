@@ -37,6 +37,9 @@ namespace MobileGridGames.Views
                     WheresWelcomeTitleLabel.Text + ", " + WheresWelcomeTitleInstructions.Text);
             }
 
+            vm.PlaySoundOnMatch = Preferences.Get("WheresPlaySoundOnMatch", true);
+            vm.PlaySoundOnNotMatch = Preferences.Get("WheresPlaySoundOnNotMatch", true);
+
             if (restartGame)
             {
                 restartGame = false;
@@ -45,6 +48,16 @@ namespace MobileGridGames.Views
                 vm.ResetGrid(false);
 
                 vm.SetupWheresCardList();
+            }
+        }
+
+        private async void WheresGameSettingsButton_Clicked(object sender, EventArgs e)
+        {
+            var vm = this.BindingContext as WheresViewModel;
+            if (!vm.FirstRunWheres)
+            {
+                var settingsPage = new WheresGameSettingsPage();
+                await Navigation.PushModalAsync(settingsPage);
             }
         }
 

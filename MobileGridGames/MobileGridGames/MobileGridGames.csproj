@@ -55,6 +55,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Update="Views\WheresSettingsPage.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>WheresSettingsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\MatchingSettingsPage.xaml.cs">
       <DependentUpon>MatchingSettingsPage.xaml</DependentUpon>
     </Compile>
@@ -80,6 +84,10 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\HelpPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\WheresSettingsPage.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MatchingSettingsPage.xaml">
