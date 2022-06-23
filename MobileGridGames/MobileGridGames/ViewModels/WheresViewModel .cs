@@ -6,6 +6,8 @@ using System.Runtime.CompilerServices;
 using Xamarin.Essentials;
 
 using MobileGridGames.ResX;
+using System.IO;
+using System.Reflection;
 
 namespace MobileGridGames.ViewModels
 {
@@ -159,6 +161,11 @@ namespace MobileGridGames.ViewModels
 
         public int AnswerAttemptCount { get; set; }
         public int CurrentQuestionIndex { get; set; }
+        public bool PlaySoundOnMatch { get; set; }
+        public bool PlaySoundOnNotMatch { get; set; }
+
+        private string soundOnMatch = "SoundOnMatch.m4a";
+        private string soundOnNotMatch = "SoundOnNotMatch.m4a";
 
         private string currentQuestionWCAG;
         public string CurrentQuestionWCAG
@@ -237,6 +244,8 @@ namespace MobileGridGames.ViewModels
             {
                 card.IsFound = true;
 
+                PlaySoundOnAnswerAttempt(true);
+
                 // Has the game been won?
                 gameIsWon = GameIsWon();
                 if (!gameIsWon)
@@ -254,6 +263,8 @@ namespace MobileGridGames.ViewModels
             }
             else if (card.WCAGName != "Tip")
             {
+                PlaySoundOnAnswerAttempt(false);
+
                 ++AnswerAttemptCount;
 
                 var message = String.Format(
@@ -265,6 +276,22 @@ namespace MobileGridGames.ViewModels
 
             return gameIsWon;
         }
+
+        private void PlaySoundOnAnswerAttempt(bool foundWCAG)
+        {
+            if ((PlaySoundOnMatch && foundWCAG) || (PlaySoundOnNotMatch && !foundWCAG))
+            {
+                var assembly = typeof(App).GetTypeInfo().Assembly;
+                Stream audioStream = assembly.GetManifestResourceStream(
+                    "MobileGridGames.Resources." +
+                        (foundWCAG ? soundOnMatch : soundOnNotMatch));
+
+                var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+                player.Load(audioStream);
+                player.Play();
+            }
+        }
+
 
         public bool AttemptTurnUpBySelection(object currentSelection)
         {
