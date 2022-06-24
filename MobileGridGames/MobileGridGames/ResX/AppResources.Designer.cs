@@ -816,7 +816,7 @@ namespace MobileGridGames.ResX {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome to the Pairs Game!.
+        ///   Looks up a localized string similar to Welcome to the Where&apos;s WCAG? Game!.
         /// </summary>
         internal static string PairsWelcome {
             get {

@@ -361,7 +361,7 @@ Would you like to play another game?</value>
     <value>Pairs Settings</value>
   </data>
   <data name="PairsWelcome" xml:space="preserve">
-    <value>Welcome to the Pairs Game!</value>
+    <value>Welcome to the Where's WCAG? Game!</value>
   </data>
   <data name="PicturePath" xml:space="preserve">
     <value>Picture Path:</value>
