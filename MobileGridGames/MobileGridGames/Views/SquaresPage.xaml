@@ -53,8 +53,20 @@
 
         <!-- The SfImageEditor is used to programmatically crop the picture in order to show it
             on the squares, and is never shown to the player. -->
+        
+        <!-- Barker: In the first version of this app, this imageeditor had an "IsVisible" of False.
+            The intent was that it was never to be shown visually or exposed to TalkBack. However,
+            after installing a later version of Syncfusion.Xamarin.SfImageEditor, it seemed that if
+            IsVisible is False, then the ImageLoaded event handler never got called after an image 
+            was loaded. This problem went away is IsVisible is not set False, and so the below was 
+            changed accordingly. Because the imageeditor is contained in a zero-height row, it still 
+            has no visuals on the screen. However I'm concerned that the imageeditor would now be 
+            exposed to TalkBack, and so this requires further investigation. In my testing, I can't
+            get TalkBack to move to the now-visible imageeditor, and so the player experience seems 
+            unchanged from the earlier version. 
+        -->
+        
         <imageeditor:SfImageEditor Grid.Row="0" x:Name="GridGameImageEditor" 
-            IsVisible="False"
             ImageLoaded="GridGameImageEditor_ImageLoaded" 
             ImageEdited="GridGameImageEditor_ImageEdited"                                              
             ImageSaving="GridGameImageEditor_ImageSaving"
